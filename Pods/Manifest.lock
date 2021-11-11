@@ -1,28 +1,40 @@
 PODS:
   - Alamofire (5.4.4)
   - CollectionViewWaterfallLayout (0.5.0)
+  - GSKStretchyHeaderView (1.0.4)
+  - ImageViewer (6.0.0)
   - Kingfisher (7.1.1)
+  - Mantis (1.7.5)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - CollectionViewWaterfallLayout
+  - GSKStretchyHeaderView
+  - ImageViewer
   - Kingfisher
+  - Mantis (~> 1.7.2)
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - CollectionViewWaterfallLayout
+    - GSKStretchyHeaderView
+    - ImageViewer
     - Kingfisher
+    - Mantis
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   CollectionViewWaterfallLayout: 4399ba01be265fff4da1ed1d607130fe009780e4
+  GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
+  ImageViewer: cb88ef1c0ba19161bc10702adfdcebc116a7a59d
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  Mantis: 5f2b36e8896528a297cb6ced5d2cffbe8073a58e
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: edf4bf71a494d54c27fdee81439e80553ef0b825
+PODFILE CHECKSUM: 4cd312effb656bffa4ea7fe8e11cac9c37c84ee4
 
 COCOAPODS: 1.10.1

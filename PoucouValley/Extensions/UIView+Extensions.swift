@@ -186,14 +186,4 @@ extension UIView {
         }
         return nil
     }
-    
-    func highlight(back: UIColor = ThemeManager.shared.themeData!.gold.hexColor,
-                         text: UIColor = UIColor.black) {
-        backgroundColor = back
-    }
-    
-    func unhighlight(back: UIColor = UIColor.white,
-                           text: UIColor = UIColor.black) {
-        backgroundColor = back
-    }
 }

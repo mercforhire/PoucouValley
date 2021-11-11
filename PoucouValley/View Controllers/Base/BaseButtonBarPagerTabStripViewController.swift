@@ -28,7 +28,7 @@ class BaseButtonBarPagerTabStripViewController: ButtonBarPagerTabStripViewContro
         settings.style.buttonBarBackgroundColor = .white
         settings.style.buttonBarItemBackgroundColor = .white
         settings.style.selectedBarBackgroundColor = .white
-        settings.style.buttonBarItemFont = UIFont(name: "SFUIDisplay-Regular", size: 18.0)!
+        settings.style.buttonBarItemFont = UIFont(name: "Poppins-Regular", size: 18.0)!
         settings.style.selectedBarHeight = 0
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarMinimumLineSpacing = 0

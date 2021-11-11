@@ -10,4 +10,7 @@ target 'PoucouValley' do
   pod 'XLPagerTabStrip', '~> 9.0'
   pod 'Alamofire', '~> 5.2'
   pod 'Kingfisher'
+  pod 'ImageViewer'
+  pod 'Mantis', '~> 1.7.2'
+  pod "GSKStretchyHeaderView"
 end

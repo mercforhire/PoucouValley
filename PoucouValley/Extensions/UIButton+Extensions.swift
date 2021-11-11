@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func highlightButton(back: UIColor = ThemeManager.shared.themeData!.indigo.hexColor, text: UIColor = UIColor.white) {
+    func highlightButton(back: UIColor = .green, text: UIColor = UIColor.white) {
         backgroundColor = back
         setTitleColor(text, for: .normal)
     }

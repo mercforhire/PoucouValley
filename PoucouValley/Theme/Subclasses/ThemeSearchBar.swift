@@ -1,8 +1,8 @@
 //
 //  ThemeSearchBar.swift
-//  ClickMe
+//  crm-finixlab
 //
-//  Created by Leon Chen on 2021-09-12.
+//  Created by Leon Chen on 2021-07-23.
 //
 
 import UIKit
@@ -27,10 +27,14 @@ class ThemeSearchBar: UISearchBar {
     }
     
     func setupUI() {
-        barTintColor = themeManager.themeData!.defaultBackground.hexColor
-        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
-        searchTextField.backgroundColor = themeManager.themeData!.whiteBackground.hexColor
-        searchTextField.textColor = themeManager.themeData!.textLabel.hexColor
+        guard let theme = themeManager.themeData?.searchBarTheme else { return }
+        
+        barTintColor = UIColor.fromRGBString(rgbString: theme.backgroundColor)
+        searchTextField.backgroundColor = UIColor.fromRGBString(rgbString: theme.backgroundColor)
+        searchTextField.textColor = UIColor.fromRGBString(rgbString: theme.textColor)
+        searchTextField.font = theme.font.toFont()
+        // addBorder(color: UIColor.fromRGBString(rgbString: theme.borderColor!)!)
+        roundCorners(style: .medium)
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
@@ -46,5 +50,4 @@ class ThemeSearchBar: UISearchBar {
             NotificationCenter.default.removeObserver(observer!)
         }
     }
-
 }

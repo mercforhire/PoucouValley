@@ -26,7 +26,7 @@ extension UIViewController {
     func addNavLogo() {
         let container = UIView()
         let imageView = UIImageView(image: UIImage(named: "navLogo"))
-        imageView.tintColor = themeManager.themeData!.indigo.hexColor
+        imageView.tintColor = themeManager.themeData!.primaryButtonTheme.backgroundColor.hexColor
         imageView.contentMode = .scaleAspectFit
         imageView.frame = container.bounds
         container.addSubview(imageView)
@@ -38,32 +38,6 @@ extension UIViewController {
         navigationItem.titleView = container
     }
     
-    func getCurrentCountry() -> Country? {
-        let locale: NSLocale = NSLocale.current as NSLocale
-        if let currentCountryCode: String = locale.countryCode {
-            let countries = CountryManager.shared.countries
-            if let country = countries.filter({ subject in
-                return subject.countryCode == currentCountryCode
-            }).first {
-                return country
-            }
-        }
-        
-        return nil
-    }
-    
-    func requestPhotoPermission(completion: @escaping (Bool) -> Void) {
-        PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
-            DispatchQueue.main.async {
-                switch status {
-                case .authorized, .limited:
-                    completion(true)
-                default:
-                    completion(false)
-                }
-            }
-        }
-    }
 }
 
 extension UIViewController {
@@ -75,6 +49,7 @@ extension UIViewController {
         }
         
         guard let delegate = UIApplication.shared.delegate as? AppDelegate, let window = delegate.window else { return nil }
+        
         return window
     }
     

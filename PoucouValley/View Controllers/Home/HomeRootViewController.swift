@@ -11,13 +11,10 @@ import UserNotifications
 
 class HomeRootViewController: BaseButtonBarPagerTabStripViewController {
     enum Tabs: Int {
-        case Follow
         case Explore
-        case ClickMe
+        case Shop
+        case Search
     }
-    
-    @IBOutlet var dummyButton: UIBarButtonItem!
-    @IBOutlet var filterButton: UIBarButtonItem!
     
     override func setupTheme() {
         super.setupTheme()
@@ -29,7 +26,6 @@ class HomeRootViewController: BaseButtonBarPagerTabStripViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        registerForPushNotifications()
     }
     
     
@@ -41,11 +37,10 @@ class HomeRootViewController: BaseButtonBarPagerTabStripViewController {
     // MARK: - PagerTabStripDataSource
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let child1: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "FollowViewController")
-        let child2: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "ExploreViewController")
-        let child3: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "ClickMeViewController")
-        let child4: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "GuestScheduleViewController")
-        return [child1, child2, child3, child4]
+        let child1: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "HomeExploreViewController")
+        let child2: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "HomeShopViewController")
+        let child3: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "HomeSearchViewController")
+        return [child1, child2, child3]
     }
 
 }

@@ -67,46 +67,6 @@ extension String {
 }
 
 extension UITextField {
-    func monthYearPicker(date: Date, cancelAction: Selector, doneAction: Selector) {
-        let screenWidth = UIScreen.main.bounds.width
-        let picker = MonthYearPickerView(frame: CGRect(x: 0,
-                                                       y: 0,
-                                                       width: screenWidth,
-                                                       height: 200))
-        picker.minimumDate = Date().getPastOrFutureDate(years: -100)
-        picker.date = date
-        picker.maximumDate = Date()
-        inputView = picker
-        
-        func buttonItem(withSystemItemStyle style: UIBarButtonItem.SystemItem) -> UIBarButtonItem {
-            let buttonTarget = style == .flexibleSpace ? nil : target
-            let action: Selector? = {
-                switch style {
-                case .cancel:
-                    return cancelAction
-                case .done:
-                    return doneAction
-                default:
-                    return nil
-                }
-            }()
-            
-            let barButtonItem = UIBarButtonItem(barButtonSystemItem: style,
-                                                target: buttonTarget,
-                                                action: action)
-            return barButtonItem
-        }
-        
-        let toolBar = UIToolbar(frame: CGRect(x: 0,
-                                              y: 0,
-                                              width: screenWidth,
-                                              height: 44))
-        toolBar.setItems([buttonItem(withSystemItemStyle: .cancel),
-                          buttonItem(withSystemItemStyle: .flexibleSpace),
-                          buttonItem(withSystemItemStyle: .done)],
-                         animated: true)
-        inputAccessoryView = toolBar
-    }
     
     func datePicker<T>(target: T,
                        defaultDate: Date,

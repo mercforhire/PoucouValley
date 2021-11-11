@@ -8,6 +8,10 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    var api: PoucouAPI {
+        return PoucouAPI.shared
+    }
+    
     private var observer: NSObjectProtocol?
    
     func setup() {
