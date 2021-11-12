@@ -34,7 +34,6 @@ class BaseButtonBarPagerTabStripViewController: ButtonBarPagerTabStripViewContro
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
-
         settings.style.buttonBarLeftContentInset = 10
         settings.style.buttonBarRightContentInset = 10
 

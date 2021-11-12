@@ -18,6 +18,9 @@ class ProfileDetailsHeader: GSKStretchyHeaderView {
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     
+    @IBOutlet weak var nameLabelsContainer: UIStackView!
+    @IBOutlet weak var pointsContainer: UIStackView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -54,7 +57,8 @@ class ProfileDetailsHeader: GSKStretchyHeaderView {
 
         avatar.alpha = alpha
         editButtonContainer.alpha = alpha
-        userNameLabel.alpha = alpha
+        nameLabelsContainer.alpha = alpha
+        pointsContainer.alpha = alpha
 
         let navTitleFactor: CGFloat = 0.4
         var navTitleAlpha: CGFloat = 0

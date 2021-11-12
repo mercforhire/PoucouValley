@@ -18,8 +18,8 @@ class PoucouAPI {
         self.service = NetworkService()
     }
     
-    func getPhotos(callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 50, "order_by": "latest", "page": 1]
+    func getPhotos(page: Int, callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
+        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 25, "order_by": "latest", "page": page]
         let url = baseURL + APIRequestURLs.getPhotos.rawValue
         
         service.httpRequest(url: url, method: APIRequestURLs.getPhotos.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
@@ -34,10 +34,10 @@ class PoucouAPI {
     }
     
     func getStories(callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 50, "order_by": "latest", "page": 2]
-        let url = baseURL + APIRequestURLs.getPhotos.rawValue
+        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 10, "order_by": "latest", "page": 1]
+        let url = baseURL + APIRequestURLs.getStories.rawValue
         
-        service.httpRequest(url: url, method: APIRequestURLs.getPhotos.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
+        service.httpRequest(url: url, method: APIRequestURLs.getStories.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
             switch result {
             case .success(let response):
                 callBack(.success(response))
@@ -49,7 +49,7 @@ class PoucouAPI {
     }
     
     func getGiftcards(callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 20, "order_by": "latest", "page": 1]
+        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 10, "order_by": "latest", "page": 1]
         let url = baseURL + APIRequestURLs.getGiftcards.rawValue
         
         service.httpRequest(url: url, method: APIRequestURLs.getGiftcards.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in

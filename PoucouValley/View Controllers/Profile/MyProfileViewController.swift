@@ -57,7 +57,6 @@ class MyProfileViewController: BaseViewController {
             switch result {
             case .success(let response):
                 self.avatar = response
-                
                 complete?(true)
             case .failure(let error):
                 if error.responseCode == nil {

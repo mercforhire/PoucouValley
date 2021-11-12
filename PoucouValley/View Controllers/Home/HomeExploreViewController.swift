@@ -13,26 +13,28 @@ class HomeExploreViewController: BaseViewController {
     
     private var itemInfo = IndicatorInfo(title: "Explore")
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var stories: [UnsplashPhoto]?
-    private var content: [UnsplashPhoto]?
-    private let cellWidth: CGFloat = 80.0
-    
-    lazy var cellSizes: [CGSize] = {
-        var cellSizes = [CGSize]()
-        
-        for _ in 0...(content?.count ?? 0) {
-
-            let width: Double = Double(collectionView.frame.width) - 10 * 3
-            let random = Double(arc4random_uniform((UInt32(width * 1.5))))
-            
-            cellSizes.append(CGSize(width: width, height: width + random))
+    private var content: [UnsplashPhoto]? {
+        didSet {
+            for _ in 0...(content?.count ?? 0) {
+                cellSizes.append(generateRandomSize())
+            }
         }
-        
-        return cellSizes
+    }
+    private let cellWidth: CGFloat = 80.0
+    private lazy var paginationManager: VerticalPaginationManager = {
+        let manager = VerticalPaginationManager(scrollView: collectionView)
+        manager.delegate = self
+        return manager
     }()
+    
+    var cellSizes: [CGSize] = []
+    
+    private var pagesLoaded = 0
     
     override func setup() {
         super.setup()
@@ -42,8 +44,8 @@ class HomeExploreViewController: BaseViewController {
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.itemSize = .init(width: cellWidth, height: storiesCollectionView.frame.height - 20)
         flowlayout.scrollDirection = .horizontal
-        flowlayout.minimumLineSpacing = 10
-        flowlayout.minimumInteritemSpacing = 10
+        flowlayout.minimumLineSpacing = 0
+        flowlayout.minimumInteritemSpacing = 0
         flowlayout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         storiesCollectionView.setCollectionViewLayout(flowlayout, animated: false)
         
@@ -55,16 +57,23 @@ class HomeExploreViewController: BaseViewController {
         layout.minimumInteritemSpacing = 10
         
         collectionView.collectionViewLayout = layout
+        collectionView.alwaysBounceVertical = true
+        
+        paginationManager.refreshViewColor = .clear
+        paginationManager.loaderColor = .darkGray
+        
+        searchBar.backgroundImage = UIImage()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchContent()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchContent()
     }
     
     private func fetchContent(complete: ((Bool) -> Void)? = nil) {
@@ -87,12 +96,13 @@ class HomeExploreViewController: BaseViewController {
             }
         }
         
-        api.getPhotos { [weak self] result in
+        api.getPhotos(page: pagesLoaded + 1) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let response):
                 self.content = response
+                self.pagesLoaded = self.pagesLoaded + 1
                 self.collectionView.reloadData()
                 complete?(true)
             case .failure(let error):
@@ -105,6 +115,36 @@ class HomeExploreViewController: BaseViewController {
                 complete?(false)
             }
         }
+    }
+    
+    private func generateRandomSize() -> CGSize {
+        let width: Double = Double(collectionView.frame.width) - 10 * 3
+        let random = Double(arc4random_uniform((UInt32(width * 1.5))))
+        let randomSize = CGSize(width: width, height: width + random)
+        return randomSize
+    }
+}
+
+extension HomeExploreViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        NotificationCenter.default.post(name: Notifications.HomeScreenHideTopBar, object: nil)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
     }
 }
 
@@ -160,4 +200,45 @@ extension HomeExploreViewController: CollectionViewWaterfallLayoutDelegate {
         
         return CGSize(width: cellWidth, height: storiesCollectionView.frame.height)
     }
+}
+
+extension HomeExploreViewController: VerticalPaginationManagerDelegate {
+    
+    func delay(_ delay: Double, closure: @escaping () -> Void) {
+        let deadline = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(
+            deadline: deadline,
+            execute: closure
+        )
+    }
+    
+    func loadMore(completion: @escaping (Bool) -> Void) {
+        delay(0.5) { [weak self] in
+            guard let self = self else { return }
+            
+            self.api.getPhotos(page: self.pagesLoaded + 1) { [weak self] result in
+                guard let self = self else { return }
+                
+                switch result {
+                case .success(let response):
+                    self.content?.append(contentsOf: response)
+                    for _ in 0...response.count {
+                        self.cellSizes.append(self.generateRandomSize())
+                    }
+                    self.pagesLoaded = self.pagesLoaded + 1
+                    self.collectionView.reloadData()
+                    completion(true)
+                case .failure(let error):
+                    if error.responseCode == nil {
+                        showNetworkErrorDialog()
+                    } else {
+                        error.showErrorDialog()
+                        print("Error occured \(error)")
+                    }
+                    completion(false)
+                }
+            }
+        }
+    }
+    
 }

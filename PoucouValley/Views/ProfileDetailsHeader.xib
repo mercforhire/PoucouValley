@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-kH-KIc">
+                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-kH-KIc">
                     <rect key="frame" x="30" y="262.5" width="98" height="98"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="98" id="4bP-u3-OxX"/>
@@ -101,7 +101,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kq0-8D-7pC">
-                    <rect key="frame" x="259" y="591" width="86" height="46"/>
+                    <rect key="frame" x="252.5" y="591" width="92.5" height="46"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diamond.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Oei-eO-et9">
                             <rect key="frame" x="0.0" y="-0.5" width="46" height="47.5"/>
@@ -112,8 +112,8 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMt-Yj-v0F">
-                            <rect key="frame" x="54" y="0.0" width="32" height="46"/>
-                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="25"/>
+                            <rect key="frame" x="54" y="0.0" width="38.5" height="46"/>
+                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -148,7 +148,9 @@
                 <outlet property="avatar" destination="IDV-kH-KIc" id="tUw-Vg-Yrx"/>
                 <outlet property="editButton" destination="eOp-BS-PTi" id="O0Z-EX-alN"/>
                 <outlet property="editButtonContainer" destination="f1v-7W-UgW" id="lOO-De-Uyj"/>
+                <outlet property="nameLabelsContainer" destination="31z-Ab-JuU" id="wlf-Ed-KZr"/>
                 <outlet property="navigationTitleLabel" destination="ePj-xy-EI5" id="Txn-eh-S0d"/>
+                <outlet property="pointsContainer" destination="Kq0-8D-7pC" id="PA1-RI-2bT"/>
                 <outlet property="userNameLabel" destination="QRt-Jw-3vW" id="O20-AZ-exF"/>
             </connections>
             <point key="canvasLocation" x="298.39999999999998" y="279.31034482758622"/>

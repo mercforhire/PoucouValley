@@ -8,8 +8,8 @@
 import UIKit
 import XLPagerTabStrip
 
-class HomeSearchViewController: BaseViewController {
-    private var itemInfo = IndicatorInfo(title: "Search")
+class HomeFollowingViewController: BaseViewController {
+    private var itemInfo = IndicatorInfo(title: "Following")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class HomeSearchViewController: BaseViewController {
 
 }
 
-extension HomeSearchViewController: IndicatorInfoProvider {
+extension HomeFollowingViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }

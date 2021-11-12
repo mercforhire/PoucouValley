@@ -48,7 +48,7 @@
 		72AC01562738689C00B452BE /* PoucouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01522738689C00B452BE /* PoucouAPI.swift */; };
 		72AC01572738689C00B452BE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01542738689C00B452BE /* NetworkService.swift */; };
 		72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC015927387BB200B452BE /* UnsplashPhoto.swift */; };
-		72AC019A27388EBE00B452BE /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC019927388EBE00B452BE /* HomeSearchViewController.swift */; };
+		72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC019927388EBE00B452BE /* HomeFollowingViewController.swift */; };
 		72AC019C27388ED600B452BE /* HomeExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC019B27388ED600B452BE /* HomeExploreViewController.swift */; };
 		72AC019E27389DD500B452BE /* HomeShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC019D27389DD500B452BE /* HomeShopViewController.swift */; };
 		72AC01B02738A80B00B452BE /* KeyBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01A02738A80B00B452BE /* KeyBoardController.swift */; };
@@ -106,6 +106,7 @@
 		72B2FBDA273CC34200382C12 /* ThemeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBCB273CC34200382C12 /* ThemeTextField.swift */; };
 		72B2FBDB273CC34200382C12 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBCC273CC34200382C12 /* ThemeView.swift */; };
 		72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDC273CC47200382C12 /* PaddedTextField.swift */; };
+		72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,7 +154,7 @@
 		72AC01522738689C00B452BE /* PoucouAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoucouAPI.swift; sourceTree = "<group>"; };
 		72AC01542738689C00B452BE /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		72AC015927387BB200B452BE /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
-		72AC019927388EBE00B452BE /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
+		72AC019927388EBE00B452BE /* HomeFollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFollowingViewController.swift; sourceTree = "<group>"; };
 		72AC019B27388ED600B452BE /* HomeExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExploreViewController.swift; sourceTree = "<group>"; };
 		72AC019D27389DD500B452BE /* HomeShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShopViewController.swift; sourceTree = "<group>"; };
 		72AC01A02738A80B00B452BE /* KeyBoardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoardController.swift; sourceTree = "<group>"; };
@@ -211,6 +212,7 @@
 		72B2FBCB273CC34200382C12 /* ThemeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTextField.swift; sourceTree = "<group>"; };
 		72B2FBCC273CC34200382C12 /* ThemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		72B2FBDC273CC47200382C12 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
+		72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPaginationManager.swift; sourceTree = "<group>"; };
 		A7AEE07A370CA6795249CEB2 /* Pods-PoucouValley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoucouValley.debug.xcconfig"; path = "Target Support Files/Pods-PoucouValley/Pods-PoucouValley.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,7 +313,7 @@
 				72AC00CB27373B8300B452BE /* HomeRootViewController.swift */,
 				72AC019B27388ED600B452BE /* HomeExploreViewController.swift */,
 				72AC019D27389DD500B452BE /* HomeShopViewController.swift */,
-				72AC019927388EBE00B452BE /* HomeSearchViewController.swift */,
+				72AC019927388EBE00B452BE /* HomeFollowingViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -457,6 +459,7 @@
 				72AC01AE2738A80B00B452BE /* CommonUtils.swift */,
 				72AC01AF2738A80B00B452BE /* TimeAgo.swift */,
 				72B2FBDC273CC47200382C12 /* PaddedTextField.swift */,
+				72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				72AC011A27378FFA00B452BE /* UIScrollView+Extensions.swift in Sources */,
 				72B2FB8A273C657D00382C12 /* ProfileDetailsHeader.swift in Sources */,
 				72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */,
+				72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */,
 				72AC01572738689C00B452BE /* NetworkService.swift in Sources */,
 				72AC011B27378FFA00B452BE /* Date+Extensions.swift in Sources */,
 				72AC011627378FFA00B452BE /* UITableView+Extensions.swift in Sources */,
@@ -748,7 +752,7 @@
 				72AC01BA2738A80B00B452BE /* ExtendedLabel.swift in Sources */,
 				72B2FBB3273CAA2000382C12 /* GiftTableViewCell.swift in Sources */,
 				72AC00E6273787CE00B452BE /* AppSettingsManager.swift in Sources */,
-				72AC019A27388EBE00B452BE /* HomeSearchViewController.swift in Sources */,
+				72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */,
 				72AC011727378FFA00B452BE /* TimeZone+Extensions.swift in Sources */,
 				72B2FBCE273CC34200382C12 /* ThemeSearchBar.swift in Sources */,
 				72AC010F27378FFA00B452BE /* UISearchBar+Extensions.swift in Sources */,

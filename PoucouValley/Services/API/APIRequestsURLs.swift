@@ -10,12 +10,13 @@ import Alamofire
 
 enum APIRequestURLs: String {
     case getPhotos = "photos/"
+    case getStories = "collections/8510889/photos/"
     case getAvatars = "collections/ser5GKYWYJo/photos/"
     case getGiftcards = "collections/4529392/photos/"
     
     func getHTTPMethod() -> HTTPMethod {
         switch self {
-        case .getPhotos, .getAvatars, .getGiftcards:
+        case .getStories, .getPhotos, .getAvatars, .getGiftcards:
             return .get
         }
     }

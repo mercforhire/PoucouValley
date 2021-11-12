@@ -8,75 +8,11 @@
 import Foundation
 import UIKit
 
-let MinimalRedeem = 100
-
-enum LoginMode {
-    case phone
-    case email
-}
-
-enum FollowStatus: Int {
-    case notFollowing
-    case following
-    
-    func icon() -> UIImage {
-        switch self {
-        case .notFollowing:
-            return UIImage(systemName: "plus")!
-        case .following:
-            return UIImage(systemName: "checkmark")!
-        }
-    }
-}
-
-enum Duration: Int {
-    case oneHour = 1
-    case twoHour = 2
-}
-
-enum Association {
-    case following
-    case followers
-}
-
-enum TopicSortTypes: Int {
-    case popularity
-    case rating
-    case price
-    case count
-    
-    func title() -> String {
-        switch self {
-        case .popularity:
-            return "Popularity"
-        case .rating:
-            return "Rating"
-        case .price:
-            return "Price"
-        default:
-            fatalError()
-        }
-    }
-}
-
 typealias Action = () -> Void
 
 class Notifications {
-    static let LoginFinished: Notification.Name = Notification.Name("LoginFinished")
-    static let RefreshChat: Notification.Name = Notification.Name("RefreshChat")
-    static let SwitchToChat: Notification.Name = Notification.Name("SwitchToChat")
-    static let StartConversation: Notification.Name = Notification.Name("StartConversation")
-    static let UpdateChatBadge: Notification.Name = Notification.Name("UpdateChatBadge")
-    static let UpdateHostCalenderBadge: Notification.Name = Notification.Name("UpdateHostCalenderBadge")
-    static let SwitchToSchedule: Notification.Name = Notification.Name("SwitchToSchedule")
-    static let PresentTopic: Notification.Name = Notification.Name("PresentTopic")
-    static let HomeViewFilterPressed: Notification.Name = Notification.Name("HomeViewFilterPressed")
-    static let SwitchToCalendar: Notification.Name = Notification.Name("SwitchToCalendar")
-    static let OpenProfile: Notification.Name = Notification.Name("OpenProfile")
-    static let DidEnterBackground: Notification.Name = Notification.Name("DidEnterBackground")
-    static let WillEnterForeground: Notification.Name = Notification.Name("WillEnterForeground")
-    static let EndedCall: Notification.Name = Notification.Name("EndedCall")
-    static let SwitchToWallet: Notification.Name = Notification.Name("SwitchToWallet")
+    static let HomeScreenShowTopBar: Notification.Name = Notification.Name("HomeScreenShowTopBar")
+    static let HomeScreenHideTopBar: Notification.Name = Notification.Name("HomeScreenHideTopBar")
 }
 
 func showErrorDialog(error: String) {

@@ -9,7 +9,6 @@ import UIKit
 import XLPagerTabStrip
 
 class HomeShopViewController: BaseViewController {
-    
     private var itemInfo = IndicatorInfo(title: "Shops")
     
     override func viewDidLoad() {
