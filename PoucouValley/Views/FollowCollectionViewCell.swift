@@ -47,6 +47,5 @@ class FollowCollectionViewCell: UICollectionViewCell {
             pin.isHidden = true
             label3.isHidden = true
         }
-        
     }
 }

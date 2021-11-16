@@ -13,10 +13,14 @@ enum APIRequestURLs: String {
     case getStories = "collections/8510889/photos/"
     case getAvatars = "collections/ser5GKYWYJo/photos/"
     case getGiftcards = "collections/4529392/photos/"
+    case getCommonKeywords = "topics/"
+    case getDeals = "collections/6763707/photos/"
+    case getStores = "collections/1418918/photos/"
+    case search = "/search/collections"
     
     func getHTTPMethod() -> HTTPMethod {
         switch self {
-        case .getStories, .getPhotos, .getAvatars, .getGiftcards:
+        case .getStories, .getPhotos, .getAvatars, .getGiftcards, .getCommonKeywords, .getDeals, .getStores, .search:
             return .get
         }
     }

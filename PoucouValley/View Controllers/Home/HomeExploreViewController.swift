@@ -9,13 +9,17 @@ import UIKit
 import CollectionViewWaterfallLayout
 import XLPagerTabStrip
 
+protocol HomeExploreViewControllerDelegate: class {
+    func requestToSearch(query: String?)
+}
+
 class HomeExploreViewController: BaseViewController {
-    
     private var itemInfo = IndicatorInfo(title: "Explore")
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var storiesCollectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchVCContainer: UIView!
     
     private var stories: [UnsplashPhoto]?
     private var content: [UnsplashPhoto]? {
@@ -31,10 +35,10 @@ class HomeExploreViewController: BaseViewController {
         manager.delegate = self
         return manager
     }()
-    
-    var cellSizes: [CGSize] = []
-    
+    private var cellSizes: [CGSize] = []
     private var pagesLoaded = 0
+    private var delayTimer = DelayedSearchTimer()
+    weak var delegate: HomeExploreViewControllerDelegate?
     
     override func setup() {
         super.setup()
@@ -63,6 +67,8 @@ class HomeExploreViewController: BaseViewController {
         paginationManager.loaderColor = .darkGray
         
         searchBar.backgroundImage = UIImage()
+        
+        delayTimer.delegate = self
     }
     
     override func viewDidLoad() {
@@ -128,15 +134,16 @@ class HomeExploreViewController: BaseViewController {
 extension HomeExploreViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         NotificationCenter.default.post(name: Notifications.HomeScreenHideTopBar, object: nil)
+        searchVCContainer.isHidden = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
+        searchVCContainer.isHidden = true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
-        searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -144,13 +151,25 @@ extension HomeExploreViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        delayTimer.textDidGetEntered(text: searchText)
     }
 }
 
 extension HomeExploreViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
+    }
+}
+
+extension HomeExploreViewController: DelayedSearchTimerDelegate {
+    func shouldSearch(text: String) {
+        let text: String = text.trim()
+        
+        if text.count < 3 {
+            delegate?.requestToSearch(query: nil)
+        } else {
+            delegate?.requestToSearch(query: text)
+        }
     }
 }
 
@@ -172,16 +191,15 @@ extension HomeExploreViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.storiesCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell, let story = stories?[indexPath.row] else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell,
+                    let story = stories?[indexPath.row] else { return UICollectionViewCell() }
             
             cell.config(unsplashPhoto: story)
-            
             return cell
         } else if collectionView == self.collectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowCollectionViewCell", for: indexPath) as? FollowCollectionViewCell, let content = content?[indexPath.row] else { return UICollectionViewCell() }
             
             cell.config(unsplashPhoto: content)
-            
             return cell
         } else {
             return UICollectionViewCell()
