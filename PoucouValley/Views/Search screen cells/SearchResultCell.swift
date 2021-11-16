@@ -51,4 +51,19 @@ class SearchResultCell: UITableViewCell {
         label1.isHidden = false
         label2.text = unsplashCollection.user.name
     }
+    
+    func config(result: UnsplashSearchResult) {
+        if let urls = result.urls, let url = URL(string: urls.small) {
+            avatar.kf.setImage(with: url)
+        }
+        
+        if let title = result.description, !title.isEmpty {
+            label1.text = title
+            label1.isHidden = false
+        } else {
+            label1.isHidden = true
+        }
+        
+        label2.text = result.user.name
+    }
 }

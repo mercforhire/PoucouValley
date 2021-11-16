@@ -477,11 +477,11 @@
 		72AC019F2738A80B00B452BE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				72AC01A42738A80B00B452BE /* External Lib */,
 				72AC01A02738A80B00B452BE /* KeyBoardController.swift */,
 				72AC01A12738A80B00B452BE /* DateUtil.swift */,
 				72AC01A22738A80B00B452BE /* DelayedSearchTimer.swift */,
 				72AC01A32738A80B00B452BE /* Validator.swift */,
-				72AC01A42738A80B00B452BE /* External Lib */,
 				72AC01AE2738A80B00B452BE /* CommonUtils.swift */,
 				72AC01AF2738A80B00B452BE /* TimeAgo.swift */,
 				72B2FBDC273CC47200382C12 /* PaddedTextField.swift */,

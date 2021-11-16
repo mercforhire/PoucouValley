@@ -16,10 +16,10 @@ struct UnsplashUrls: Codable {
 }
 
 struct UnsplashLink: Codable {
-    var selfLink: String
-    var html: String
-    var download: String
-    var download_location: String
+    var selfLink: String?
+    var html: String?
+    var download: String?
+    var download_location: String?
     
     enum CodingKeys: String, CodingKey {
         case selfLink = "self"
@@ -93,7 +93,7 @@ struct UnsplashTopic: Codable {
     var identifier: String
     var slug: String
     var title: String
-    var description: String
+    var description: String?
     var published_at: String
     var updated_at: String
     var starts_at: String
@@ -114,7 +114,7 @@ struct UnsplashTopic: Codable {
 struct UnsplashCollection: Codable {
     var identifier: String
     var title: String
-    var description: String
+    var description: String?
     var published_at: String
     var last_collected_at: String
     var updated_at: String
@@ -133,4 +133,26 @@ struct UnsplashCollection: Codable {
         case cover_photo
         case user
     }
+}
+
+struct UnsplashSearchResult: Codable {
+    var identifier: String
+    var description: String?
+    var user: UnsplashUser
+    var urls: UnsplashUrls?
+    var links: UnsplashLink
+    
+    enum CodingKeys: String, CodingKey {
+        case identifier = "id"
+        case description
+        case user
+        case urls
+        case links
+    }
+}
+
+struct UnsplashSearchCollectionsResponse: Codable {
+    var total: Int
+    var total_pages:Int
+    var results: [UnsplashSearchResult]
 }

@@ -123,7 +123,7 @@ class PoucouAPI {
         }
     }
     
-    func getSearchCollections(query: String, callBack: @escaping(Result<[UnsplashCollection], AFError>) -> Void) {
+    func getSearchCollections(query: String, callBack: @escaping(Result<[UnsplashSearchResult], AFError>) -> Void) {
         let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ",
                                       "per_page": 20,
                                       "order_by": "latest",
@@ -131,10 +131,10 @@ class PoucouAPI {
                                       "query": query]
         let url = baseURL + APIRequestURLs.search.rawValue
         
-        service.httpRequest(url: url, method: APIRequestURLs.search.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashCollection]>) in
+        service.httpRequest(url: url, method: APIRequestURLs.search.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<UnsplashSearchCollectionsResponse>) in
             switch result {
             case .success(let response):
-                callBack(.success(response))
+                callBack(.success(response.results))
             case .failure(let error):
                 callBack(.failure(error))
                 print ("Error occured \(error)")

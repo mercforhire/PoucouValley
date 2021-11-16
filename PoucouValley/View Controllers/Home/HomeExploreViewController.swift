@@ -9,10 +9,6 @@ import UIKit
 import CollectionViewWaterfallLayout
 import XLPagerTabStrip
 
-protocol HomeExploreViewControllerDelegate: class {
-    func requestToSearch(query: String?)
-}
-
 class HomeExploreViewController: BaseViewController {
     private var itemInfo = IndicatorInfo(title: "Explore")
     
@@ -21,6 +17,7 @@ class HomeExploreViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchVCContainer: UIView!
     
+    private var history: [String] = []
     private var stories: [UnsplashPhoto]?
     private var content: [UnsplashPhoto]? {
         didSet {
@@ -38,7 +35,9 @@ class HomeExploreViewController: BaseViewController {
     private var cellSizes: [CGSize] = []
     private var pagesLoaded = 0
     private var delayTimer = DelayedSearchTimer()
-    weak var delegate: HomeExploreViewControllerDelegate?
+    private var homeSearchViewController: HomeSearchViewController!
+    
+    weak var delegate: HomeSearchViewControllerDelegate?
     
     override func setup() {
         super.setup()
@@ -69,12 +68,23 @@ class HomeExploreViewController: BaseViewController {
         searchBar.backgroundImage = UIImage()
         
         delayTimer.delegate = self
+        
+        for child in children {
+            if let childVC = child as? HomeSearchViewController {
+                self.homeSearchViewController = childVC
+                delegate = childVC
+                break
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchContent()
+        
+        history = AppSettingsManager.shared.getSearchHistory()
+        homeSearchViewController.historySearches = history
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,20 +148,36 @@ extension HomeExploreViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
-        searchVCContainer.isHidden = true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
+        searchVCContainer.isHidden = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        
+        guard let text = searchBar.text, !text.trim().isEmpty else { return }
+        
+        delayTimer.textDidGetEntered(text: text)
+        
+        if !history.contains(text.trim()) {
+            history.append(text.trim())
+            if history.count > 10 {
+                history = Array(history[1...(history.count - 1)])
+            }
+            AppSettingsManager.shared.setSearchHistory(searchHistory: history)
+            homeSearchViewController.historySearches = history
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        delayTimer.textDidGetEntered(text: searchText)
+        if searchText.isEmpty {
+            NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
+            searchVCContainer.isHidden = true
+        }
     }
 }
 

@@ -127,20 +127,20 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchHistoriesCell" rowHeight="54" id="LOc-ZW-bzE" customClass="SearchHistoriesCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="54"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchHistoriesCell" rowHeight="50" id="LOc-ZW-bzE" customClass="SearchHistoriesCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LOc-ZW-bzE" id="QEX-GA-koz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W6w-GL-k9t">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="gsN-0K-GLY"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="79G-OY-ABG">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="79G-OY-ABG">
                                                         <size key="itemSize" width="100" height="40"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -148,7 +148,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchHistoryCell" id="RBx-Oc-KDG" customClass="SearchHistoryCell" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="10" width="50.5" height="31"/>
+                                                            <rect key="frame" x="10" y="9.5" width="50.5" height="31"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xnj-k1-tHV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50.5" height="31"/>
@@ -192,8 +192,8 @@
                                             <outlet property="collectionView" destination="W6w-GL-k9t" id="STk-P6-ViX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="bCY-YT-2ef" customClass="SearchResultCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="98.5" width="414" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="60" id="bCY-YT-2ef" customClass="SearchResultCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="94.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bCY-YT-2ef" id="NYZ-Iw-WMe">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -270,20 +270,21 @@
                                             <outlet property="avatar" destination="4Ea-L6-VrT" id="S6z-91-OXl"/>
                                             <outlet property="label1" destination="2Qi-RV-aml" id="fEp-5m-ASm"/>
                                             <outlet property="label2" destination="ubF-MD-3nJ" id="2tf-v2-uDf"/>
-                                            <outlet property="line1" destination="2Qi-RV-aml" id="Vfl-g7-uob"/>
-                                            <outlet property="line2" destination="ubF-MD-3nJ" id="S0N-jz-YhQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchSuggestionCell" id="k6n-Zy-9Vg" customClass="SearchSuggestionCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="158.5" width="414" height="42.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchSuggestionCell" rowHeight="40" id="k6n-Zy-9Vg" customClass="SearchSuggestionCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="154.5" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k6n-Zy-9Vg" id="9nt-Ui-m6b">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Film" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-sJ-6my">
-                                                    <rect key="frame" x="20" y="10" width="374" height="22.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Film" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-sJ-6my">
+                                                    <rect key="frame" x="20" y="10" width="374" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="qwF-ZT-F0O"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -301,7 +302,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchNoResultCell" id="jU9-kD-sp8" customClass="SearchNoResultCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="201" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="194.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jU9-kD-sp8" id="yVb-0C-Pyw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -328,45 +329,50 @@ Maybe give one of these a try?</string>
                                             <outlet property="label" destination="uU4-Mt-Txk" id="I1S-q4-xZY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchDealsCell" rowHeight="180" id="Kb0-Oi-fQ5" customClass="SearchDealsCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="266" width="414" height="180"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchDealsCell" rowHeight="200" id="Kb0-Oi-fQ5" customClass="SearchDealsCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="259.5" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kb0-Oi-fQ5" id="xmx-oV-rRN">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LQr-Jn-tGt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="180" id="Grh-aI-0tO"/>
+                                                        <constraint firstAttribute="height" constant="200" id="Grh-aI-0tO"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ro6-hQ-Enn">
-                                                        <size key="itemSize" width="100" height="180"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ro6-hQ-Enn">
+                                                        <size key="itemSize" width="200" height="200"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchDealCell" id="8Tt-ka-tW8" customClass="SearchDealCell" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="0.0" width="150" height="180"/>
+                                                            <rect key="frame" x="10" y="0.0" width="200" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xg2-tZ-pRM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ad0-Jd-hMh">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Coins - $10 Gift Card" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XY8-M7-ace">
-                                                                        <rect key="frame" x="10" y="15" width="130" height="50.5"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyD-g5-drC">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                                        <color key="backgroundColor" white="1" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </view>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="250" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XY8-M7-ace">
+                                                                        <rect key="frame" x="10" y="5" width="180" height="137.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <string key="text">50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card</string>
                                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a8y-vk-6vG">
-                                                                        <rect key="frame" x="61.5" y="127.5" width="27" height="27"/>
+                                                                        <rect key="frame" x="86.5" y="147.5" width="27" height="27"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         <constraints>
@@ -375,7 +381,7 @@ Maybe give one of these a try?</string>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entertainment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEx-hm-ZW1">
-                                                                        <rect key="frame" x="36.5" y="159.5" width="77.5" height="15.5"/>
+                                                                        <rect key="frame" x="61.5" y="179.5" width="77.5" height="15.5"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -383,22 +389,26 @@ Maybe give one of these a try?</string>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="mEx-hm-ZW1" secondAttribute="bottom" constant="5" id="8aQ-Ac-QMO"/>
-                                                                    <constraint firstItem="XY8-M7-ace" firstAttribute="top" secondItem="ad0-Jd-hMh" secondAttribute="top" constant="15" id="KE5-hR-c7o"/>
+                                                                    <constraint firstItem="zyD-g5-drC" firstAttribute="top" secondItem="ad0-Jd-hMh" secondAttribute="top" id="8hP-2G-okw"/>
+                                                                    <constraint firstItem="XY8-M7-ace" firstAttribute="top" secondItem="ad0-Jd-hMh" secondAttribute="top" constant="5" id="KE5-hR-c7o"/>
                                                                     <constraint firstItem="ad0-Jd-hMh" firstAttribute="leading" secondItem="xg2-tZ-pRM" secondAttribute="leading" id="O9p-fW-ync"/>
                                                                     <constraint firstItem="a8y-vk-6vG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XY8-M7-ace" secondAttribute="bottom" constant="5" id="SND-aF-Rw8"/>
                                                                     <constraint firstItem="mEx-hm-ZW1" firstAttribute="top" secondItem="a8y-vk-6vG" secondAttribute="bottom" constant="5" id="VRN-sH-F8z"/>
                                                                     <constraint firstItem="a8y-vk-6vG" firstAttribute="centerX" secondItem="mEx-hm-ZW1" secondAttribute="centerX" id="ZUc-2E-OTp"/>
                                                                     <constraint firstAttribute="trailing" secondItem="ad0-Jd-hMh" secondAttribute="trailing" id="aP5-Wg-18A"/>
                                                                     <constraint firstItem="mEx-hm-ZW1" firstAttribute="centerX" secondItem="xg2-tZ-pRM" secondAttribute="centerX" id="b6e-Fg-wbE"/>
+                                                                    <constraint firstItem="zyD-g5-drC" firstAttribute="leading" secondItem="ad0-Jd-hMh" secondAttribute="leading" id="ceZ-eR-4Zp"/>
+                                                                    <constraint firstItem="zyD-g5-drC" firstAttribute="bottom" secondItem="ad0-Jd-hMh" secondAttribute="bottom" id="cg5-aI-lkd"/>
                                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mEx-hm-ZW1" secondAttribute="trailing" constant="5" id="iuM-hm-nCl"/>
                                                                     <constraint firstItem="ad0-Jd-hMh" firstAttribute="top" secondItem="xg2-tZ-pRM" secondAttribute="top" id="jCK-CE-Bvq"/>
                                                                     <constraint firstItem="mEx-hm-ZW1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xg2-tZ-pRM" secondAttribute="leading" constant="5" id="mUe-pW-HAX"/>
                                                                     <constraint firstItem="XY8-M7-ace" firstAttribute="trailing" secondItem="ad0-Jd-hMh" secondAttribute="trailing" constant="-10" id="nls-UB-wq2"/>
                                                                     <constraint firstAttribute="bottom" secondItem="ad0-Jd-hMh" secondAttribute="bottom" id="p3a-X9-VJU"/>
+                                                                    <constraint firstItem="zyD-g5-drC" firstAttribute="trailing" secondItem="ad0-Jd-hMh" secondAttribute="trailing" id="wRX-ST-wMp"/>
                                                                     <constraint firstItem="XY8-M7-ace" firstAttribute="leading" secondItem="ad0-Jd-hMh" secondAttribute="leading" constant="10" id="xeI-ln-dTI"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="150" height="180"/>
+                                                            <size key="customSize" width="200" height="200"/>
                                                             <connections>
                                                                 <outlet property="categoryImageView" destination="a8y-vk-6vG" id="qw4-QZ-psG"/>
                                                                 <outlet property="categoryLabel" destination="mEx-hm-ZW1" id="yHA-aW-VRq"/>
@@ -424,45 +434,49 @@ Maybe give one of these a try?</string>
                                             <outlet property="collectionView" destination="LQr-Jn-tGt" id="XHG-Xk-zeU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchStoresCell" rowHeight="180" id="3w1-W2-6Er" customClass="SearchStoresCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="446" width="414" height="180"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchStoresCell" rowHeight="200" id="3w1-W2-6Er" customClass="SearchStoresCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="459.5" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3w1-W2-6Er" id="eHe-gj-oTW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-9S-kso">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="35e-gc-16c"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ino-He-KFn">
-                                                        <size key="itemSize" width="100" height="180"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ino-He-KFn">
+                                                        <size key="itemSize" width="200" height="200"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchStoreCell" id="IGl-jN-LQW" customClass="SearchStoreCell" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="107" y="0.0" width="200" height="180"/>
+                                                            <rect key="frame" x="10" y="0.0" width="200" height="200"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dlw-fM-wGY">
-                                                                <rect key="frame" x="0.0" y="0.0" width="200" height="180"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="14Q-fb-MaN">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="180"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                                     </imageView>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-RB-Nk6">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </view>
                                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Coins - $10 Gift Card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzH-U0-BBv">
-                                                                        <rect key="frame" x="10" y="102.5" width="180" height="50.5"/>
+                                                                        <rect key="frame" x="10" y="122.5" width="180" height="50.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entertainment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-bP-zcg">
-                                                                        <rect key="frame" x="5" y="158" width="88" height="17"/>
+                                                                        <rect key="frame" x="5" y="178" width="88" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -471,17 +485,21 @@ Maybe give one of these a try?</string>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="8FL-bP-zcg" secondAttribute="bottom" constant="5" id="7g4-Wl-a2a"/>
                                                                     <constraint firstItem="NzH-U0-BBv" firstAttribute="leading" secondItem="14Q-fb-MaN" secondAttribute="leading" constant="10" id="9FH-Sj-S4G"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="bzR-RB-Nk6" secondAttribute="trailing" id="9fS-oE-vHz"/>
+                                                                    <constraint firstItem="bzR-RB-Nk6" firstAttribute="leading" secondItem="dlw-fM-wGY" secondAttribute="leading" id="BB5-cG-GZ2"/>
                                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8FL-bP-zcg" secondAttribute="trailing" constant="5" id="F95-rN-QVg"/>
                                                                     <constraint firstAttribute="trailing" secondItem="14Q-fb-MaN" secondAttribute="trailing" id="FVH-Ql-whC"/>
                                                                     <constraint firstItem="NzH-U0-BBv" firstAttribute="trailing" secondItem="14Q-fb-MaN" secondAttribute="trailing" constant="-10" id="GsC-Ke-ggY"/>
                                                                     <constraint firstItem="14Q-fb-MaN" firstAttribute="top" secondItem="dlw-fM-wGY" secondAttribute="top" id="Gwk-gW-47c"/>
                                                                     <constraint firstItem="8FL-bP-zcg" firstAttribute="top" secondItem="NzH-U0-BBv" secondAttribute="bottom" constant="5" id="JeT-AH-w9C"/>
                                                                     <constraint firstItem="14Q-fb-MaN" firstAttribute="leading" secondItem="dlw-fM-wGY" secondAttribute="leading" id="RBw-Jj-yWj"/>
+                                                                    <constraint firstItem="bzR-RB-Nk6" firstAttribute="top" secondItem="dlw-fM-wGY" secondAttribute="top" id="TtO-J3-8lV"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="bzR-RB-Nk6" secondAttribute="bottom" id="kPK-sI-jkQ"/>
                                                                     <constraint firstItem="8FL-bP-zcg" firstAttribute="leading" secondItem="dlw-fM-wGY" secondAttribute="leading" constant="5" id="rud-AH-Ki6"/>
                                                                     <constraint firstAttribute="bottom" secondItem="14Q-fb-MaN" secondAttribute="bottom" id="y39-mj-H2b"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="200" height="180"/>
+                                                            <size key="customSize" width="200" height="200"/>
                                                             <connections>
                                                                 <outlet property="imageView" destination="14Q-fb-MaN" id="eSz-bC-JN5"/>
                                                                 <outlet property="label1" destination="NzH-U0-BBv" id="gM9-gk-0dH"/>
@@ -507,6 +525,10 @@ Maybe give one of these a try?</string>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cVS-Qh-X4a" id="sxb-4O-R3P"/>
+                                    <outlet property="delegate" destination="cVS-Qh-X4a" id="nGd-V4-5ah"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C1z-kI-tBu"/>
@@ -524,7 +546,7 @@ Maybe give one of these a try?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzZ-wr-Ijf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1551" y="969"/>
+            <point key="canvasLocation" x="-558" y="1488"/>
         </scene>
         <!--Home Explore View Controller-->
         <scene sceneID="AnO-pw-gzD">
@@ -779,7 +801,7 @@ Maybe give one of these a try?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Udl-Fk-ox3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-777" y="365"/>
+            <point key="canvasLocation" x="-1197" y="257"/>
         </scene>
     </scenes>
     <resources>

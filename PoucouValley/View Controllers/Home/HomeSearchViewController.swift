@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HomeSearchViewControllerDelegate: class {
+    func requestToSearch(query: String?)
+}
+
 class HomeSearchViewController: BaseViewController {
 
     enum MenuSections: Int {
@@ -79,9 +83,13 @@ class HomeSearchViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var query: String = ""
-    var historySearches: [String]?
+    var historySearches: [String]? {
+        didSet {
+            tableView.reloadRows(at: [IndexPath.init(row: 0, section: MenuSections.history.rawValue)], with: .none)
+        }
+    }
     var recentSearches: [UnsplashPhoto]?
-    var searchResults: [UnsplashCollection]?
+    var searchResults: [UnsplashSearchResult]?
     var suggestions: [UnsplashTopic]?
     var deals: [UnsplashPhoto]?
     var stores: [UnsplashPhoto]?
@@ -108,7 +116,7 @@ class HomeSearchViewController: BaseViewController {
             switch result {
             case .success(let response):
                 self.deals = response
-                complete?(true)
+                self.tableView.reloadData()
             case .failure(let error):
                 if error.responseCode == nil {
                     showNetworkErrorDialog()
@@ -116,7 +124,6 @@ class HomeSearchViewController: BaseViewController {
                     error.showErrorDialog()
                     print("Error occured \(error)")
                 }
-                complete?(false)
             }
         }
         
@@ -126,7 +133,7 @@ class HomeSearchViewController: BaseViewController {
             switch result {
             case .success(let response):
                 self.stores = response
-                complete?(true)
+                self.tableView.reloadData()
             case .failure(let error):
                 if error.responseCode == nil {
                     showNetworkErrorDialog()
@@ -134,7 +141,6 @@ class HomeSearchViewController: BaseViewController {
                     error.showErrorDialog()
                     print("Error occured \(error)")
                 }
-                complete?(false)
             }
         }
         
@@ -144,7 +150,7 @@ class HomeSearchViewController: BaseViewController {
             switch result {
             case .success(let response):
                 self.suggestions = response
-                complete?(true)
+                self.tableView.reloadData()
             case .failure(let error):
                 if error.responseCode == nil {
                     showNetworkErrorDialog()
@@ -152,7 +158,6 @@ class HomeSearchViewController: BaseViewController {
                     error.showErrorDialog()
                     print("Error occured \(error)")
                 }
-                complete?(false)
             }
         }
         
@@ -162,7 +167,7 @@ class HomeSearchViewController: BaseViewController {
             switch result {
             case .success(let response):
                 self.categories = response
-                complete?(true)
+                self.tableView.reloadData()
             case .failure(let error):
                 if error.responseCode == nil {
                     showNetworkErrorDialog()
@@ -170,13 +175,12 @@ class HomeSearchViewController: BaseViewController {
                     error.showErrorDialog()
                     print("Error occured \(error)")
                 }
-                complete?(false)
             }
         }
     }
 }
 
-extension HomeSearchViewController: HomeExploreViewControllerDelegate {
+extension HomeSearchViewController: HomeSearchViewControllerDelegate {
     func requestToSearch(query: String?) {
         guard let query = query else { return }
         
@@ -187,6 +191,7 @@ extension HomeSearchViewController: HomeExploreViewControllerDelegate {
             switch result {
             case .success(let response):
                 self.searchResults = response
+                self.tableView.reloadData()
             case .failure(let error):
                 if error.responseCode == nil {
                     showNetworkErrorDialog()
@@ -213,11 +218,6 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
         return header
     }
     
-    // Give a height to our table view cell
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
     // We have only one section
     func numberOfSections(in tableView: UITableView) -> Int {
         return MenuSections.count.rawValue
@@ -233,7 +233,7 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
         case .recent:
             return recentSearches?.count ?? 0
         case .results:
-            return searchResults?.count ?? 0
+            return max(1, searchResults?.count ?? 0)
         case .suggested:
             return suggestions?.count ?? 0
         case .deals:
@@ -282,7 +282,7 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
                     return SearchResultCell()
                 }
                 let searchResult = searchResults[indexPath.row]
-                cell.config(unsplashCollection: searchResult)
+                cell.config(result: searchResult)
                 return cell
             }
             
