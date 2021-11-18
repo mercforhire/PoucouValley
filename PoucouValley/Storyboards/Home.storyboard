@@ -15,9 +15,6 @@
         <array key="Poppins-Italic.ttf">
             <string>Poppins-Italic</string>
         </array>
-        <array key="Poppins-Light.ttf">
-            <string>Poppins-Light</string>
-        </array>
         <array key="Poppins-Medium.ttf">
             <string>Poppins-Medium</string>
         </array>
@@ -123,9 +120,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="763"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lTq-0t-44n">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="20" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lTq-0t-44n">
                                 <rect key="frame" x="0.0" y="44" width="414" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Mve-ma-kuT">
+                                    <rect key="frame" x="0.0" y="682" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchHistoriesCell" rowHeight="50" id="LOc-ZW-bzE" customClass="SearchHistoriesCell" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="50"/>
@@ -205,7 +207,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujA-Pw-mU8">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-L6-VrT">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-L6-VrT">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="50" id="1dL-He-VZy"/>
@@ -361,38 +363,38 @@ Maybe give one of these a try?</string>
                                                                     </imageView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyD-g5-drC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                                                        <color key="backgroundColor" white="1" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
                                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="250" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XY8-M7-ace">
-                                                                        <rect key="frame" x="10" y="5" width="180" height="137.5"/>
+                                                                        <rect key="frame" x="15" y="15" width="170" height="118"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <string key="text">50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card 50 Coins - $10 Gift Card</string>
-                                                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="18"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a8y-vk-6vG">
-                                                                        <rect key="frame" x="86.5" y="147.5" width="27" height="27"/>
+                                                                        <rect key="frame" x="85" y="133" width="30" height="30"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="27" id="AJD-Em-eLW"/>
+                                                                            <constraint firstAttribute="width" constant="30" id="AJD-Em-eLW"/>
                                                                             <constraint firstAttribute="width" secondItem="a8y-vk-6vG" secondAttribute="height" multiplier="1:1" id="p3t-u7-of9"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entertainment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEx-hm-ZW1">
-                                                                        <rect key="frame" x="61.5" y="179.5" width="77.5" height="15.5"/>
-                                                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
+                                                                        <rect key="frame" x="55" y="168" width="90" height="17"/>
+                                                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="mEx-hm-ZW1" secondAttribute="bottom" constant="5" id="8aQ-Ac-QMO"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="mEx-hm-ZW1" secondAttribute="bottom" constant="15" id="8aQ-Ac-QMO"/>
                                                                     <constraint firstItem="zyD-g5-drC" firstAttribute="top" secondItem="ad0-Jd-hMh" secondAttribute="top" id="8hP-2G-okw"/>
-                                                                    <constraint firstItem="XY8-M7-ace" firstAttribute="top" secondItem="ad0-Jd-hMh" secondAttribute="top" constant="5" id="KE5-hR-c7o"/>
+                                                                    <constraint firstItem="XY8-M7-ace" firstAttribute="top" secondItem="ad0-Jd-hMh" secondAttribute="top" constant="15" id="KE5-hR-c7o"/>
                                                                     <constraint firstItem="ad0-Jd-hMh" firstAttribute="leading" secondItem="xg2-tZ-pRM" secondAttribute="leading" id="O9p-fW-ync"/>
-                                                                    <constraint firstItem="a8y-vk-6vG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XY8-M7-ace" secondAttribute="bottom" constant="5" id="SND-aF-Rw8"/>
+                                                                    <constraint firstItem="a8y-vk-6vG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XY8-M7-ace" secondAttribute="bottom" id="SND-aF-Rw8"/>
                                                                     <constraint firstItem="mEx-hm-ZW1" firstAttribute="top" secondItem="a8y-vk-6vG" secondAttribute="bottom" constant="5" id="VRN-sH-F8z"/>
                                                                     <constraint firstItem="a8y-vk-6vG" firstAttribute="centerX" secondItem="mEx-hm-ZW1" secondAttribute="centerX" id="ZUc-2E-OTp"/>
                                                                     <constraint firstAttribute="trailing" secondItem="ad0-Jd-hMh" secondAttribute="trailing" id="aP5-Wg-18A"/>
@@ -402,16 +404,17 @@ Maybe give one of these a try?</string>
                                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mEx-hm-ZW1" secondAttribute="trailing" constant="5" id="iuM-hm-nCl"/>
                                                                     <constraint firstItem="ad0-Jd-hMh" firstAttribute="top" secondItem="xg2-tZ-pRM" secondAttribute="top" id="jCK-CE-Bvq"/>
                                                                     <constraint firstItem="mEx-hm-ZW1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xg2-tZ-pRM" secondAttribute="leading" constant="5" id="mUe-pW-HAX"/>
-                                                                    <constraint firstItem="XY8-M7-ace" firstAttribute="trailing" secondItem="ad0-Jd-hMh" secondAttribute="trailing" constant="-10" id="nls-UB-wq2"/>
+                                                                    <constraint firstItem="ad0-Jd-hMh" firstAttribute="trailing" secondItem="XY8-M7-ace" secondAttribute="trailing" constant="15" id="nls-UB-wq2"/>
                                                                     <constraint firstAttribute="bottom" secondItem="ad0-Jd-hMh" secondAttribute="bottom" id="p3a-X9-VJU"/>
                                                                     <constraint firstItem="zyD-g5-drC" firstAttribute="trailing" secondItem="ad0-Jd-hMh" secondAttribute="trailing" id="wRX-ST-wMp"/>
-                                                                    <constraint firstItem="XY8-M7-ace" firstAttribute="leading" secondItem="ad0-Jd-hMh" secondAttribute="leading" constant="10" id="xeI-ln-dTI"/>
+                                                                    <constraint firstItem="XY8-M7-ace" firstAttribute="leading" secondItem="ad0-Jd-hMh" secondAttribute="leading" constant="15" id="xeI-ln-dTI"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="200" height="200"/>
                                                             <connections>
                                                                 <outlet property="categoryImageView" destination="a8y-vk-6vG" id="qw4-QZ-psG"/>
                                                                 <outlet property="categoryLabel" destination="mEx-hm-ZW1" id="yHA-aW-VRq"/>
+                                                                <outlet property="colorView" destination="zyD-g5-drC" id="7oD-rg-mfL"/>
                                                                 <outlet property="imageView" destination="ad0-Jd-hMh" id="0j3-14-SxU"/>
                                                                 <outlet property="titleLabel" destination="XY8-M7-ace" id="d0P-HP-wc2"/>
                                                             </connections>
@@ -466,41 +469,42 @@ Maybe give one of these a try?</string>
                                                                     </imageView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-RB-Nk6">
                                                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </view>
                                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Coins - $10 Gift Card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzH-U0-BBv">
-                                                                        <rect key="frame" x="10" y="122.5" width="180" height="50.5"/>
+                                                                        <rect key="frame" x="15" y="112.5" width="170" height="50.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entertainment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-bP-zcg">
-                                                                        <rect key="frame" x="5" y="178" width="88" height="17"/>
+                                                                        <rect key="frame" x="15" y="168" width="88" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="8FL-bP-zcg" secondAttribute="bottom" constant="5" id="7g4-Wl-a2a"/>
-                                                                    <constraint firstItem="NzH-U0-BBv" firstAttribute="leading" secondItem="14Q-fb-MaN" secondAttribute="leading" constant="10" id="9FH-Sj-S4G"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="8FL-bP-zcg" secondAttribute="bottom" constant="15" id="7g4-Wl-a2a"/>
+                                                                    <constraint firstItem="NzH-U0-BBv" firstAttribute="leading" secondItem="14Q-fb-MaN" secondAttribute="leading" constant="15" id="9FH-Sj-S4G"/>
                                                                     <constraint firstAttribute="trailing" secondItem="bzR-RB-Nk6" secondAttribute="trailing" id="9fS-oE-vHz"/>
                                                                     <constraint firstItem="bzR-RB-Nk6" firstAttribute="leading" secondItem="dlw-fM-wGY" secondAttribute="leading" id="BB5-cG-GZ2"/>
                                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8FL-bP-zcg" secondAttribute="trailing" constant="5" id="F95-rN-QVg"/>
                                                                     <constraint firstAttribute="trailing" secondItem="14Q-fb-MaN" secondAttribute="trailing" id="FVH-Ql-whC"/>
-                                                                    <constraint firstItem="NzH-U0-BBv" firstAttribute="trailing" secondItem="14Q-fb-MaN" secondAttribute="trailing" constant="-10" id="GsC-Ke-ggY"/>
+                                                                    <constraint firstItem="NzH-U0-BBv" firstAttribute="trailing" secondItem="14Q-fb-MaN" secondAttribute="trailing" constant="-15" id="GsC-Ke-ggY"/>
                                                                     <constraint firstItem="14Q-fb-MaN" firstAttribute="top" secondItem="dlw-fM-wGY" secondAttribute="top" id="Gwk-gW-47c"/>
                                                                     <constraint firstItem="8FL-bP-zcg" firstAttribute="top" secondItem="NzH-U0-BBv" secondAttribute="bottom" constant="5" id="JeT-AH-w9C"/>
                                                                     <constraint firstItem="14Q-fb-MaN" firstAttribute="leading" secondItem="dlw-fM-wGY" secondAttribute="leading" id="RBw-Jj-yWj"/>
                                                                     <constraint firstItem="bzR-RB-Nk6" firstAttribute="top" secondItem="dlw-fM-wGY" secondAttribute="top" id="TtO-J3-8lV"/>
                                                                     <constraint firstAttribute="bottom" secondItem="bzR-RB-Nk6" secondAttribute="bottom" id="kPK-sI-jkQ"/>
-                                                                    <constraint firstItem="8FL-bP-zcg" firstAttribute="leading" secondItem="dlw-fM-wGY" secondAttribute="leading" constant="5" id="rud-AH-Ki6"/>
+                                                                    <constraint firstItem="8FL-bP-zcg" firstAttribute="leading" secondItem="dlw-fM-wGY" secondAttribute="leading" constant="15" id="rud-AH-Ki6"/>
                                                                     <constraint firstAttribute="bottom" secondItem="14Q-fb-MaN" secondAttribute="bottom" id="y39-mj-H2b"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="200" height="200"/>
                                                             <connections>
+                                                                <outlet property="colorView" destination="bzR-RB-Nk6" id="ibm-Mb-FJT"/>
                                                                 <outlet property="imageView" destination="14Q-fb-MaN" id="eSz-bC-JN5"/>
                                                                 <outlet property="label1" destination="NzH-U0-BBv" id="gM9-gk-0dH"/>
                                                                 <outlet property="label2" destination="8FL-bP-zcg" id="myU-GE-slk"/>
@@ -556,7 +560,7 @@ Maybe give one of these a try?</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2wW-zR-ESH">
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wW-zR-ESH">
                                 <rect key="frame" x="0.0" y="49" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>

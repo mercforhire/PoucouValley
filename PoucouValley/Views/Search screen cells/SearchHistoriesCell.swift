@@ -12,10 +12,12 @@ class SearchHistoriesCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var histories: [String]?
+    private var clickAction: ((String) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,13 +26,14 @@ class SearchHistoriesCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func config(histories: [String]) {
+    func config(histories: [String], clickAction: @escaping ((String) -> Void)) {
         self.histories = histories
+        self.clickAction = clickAction
         collectionView.reloadData()
     }
 }
 
-extension SearchHistoriesCell: UICollectionViewDataSource {
+extension SearchHistoriesCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -45,5 +48,11 @@ extension SearchHistoriesCell: UICollectionViewDataSource {
         cell.config(history: history)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let history = histories?[indexPath.row] else { return }
+        
+        clickAction?(history)
     }
 }

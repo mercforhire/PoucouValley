@@ -12,6 +12,7 @@ class AppSettingsManager {
     
     private let AppSettingsKey : String = "AppSettings"
     private let SearchHistoryKey : String = "SearchHistory"
+    private let SearchRecentsKey : String = "SearchRecents"
     
     private let defaults = UserDefaults.standard
     private var settings: [String: Any] = [:]
@@ -31,12 +32,30 @@ class AppSettingsManager {
     }
     
     func getSearchHistory() -> [String] {
-        return defaults.object(forKey: SearchHistoryKey) as? [String] ?? []
+        return settings[SearchHistoryKey] as? [String] ?? []
     }
     
     func setSearchHistory(searchHistory: [String]) {
         settings[SearchHistoryKey] = searchHistory
         saveSettings()
+    }
+    
+    func getSearchRecents() -> [UnsplashSearchResult] {
+        if let savedData = settings[SearchRecentsKey] as? Data {
+            let decoder = JSONDecoder()
+            if let savedSearchRecents = try? decoder.decode([UnsplashSearchResult].self, from: savedData) {
+                return savedSearchRecents
+            }
+        }
+        return []
+    }
+    
+    func setSearchRecents(searchRecents: [UnsplashSearchResult]) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(searchRecents) {
+            settings[SearchRecentsKey] = encoded
+            saveSettings()
+        }
     }
    
     func resetSettings() {

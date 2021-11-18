@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RandomColorSwift
 
 class SearchResultCell: UITableViewCell {
     @IBOutlet weak var avatar: UIImageView!
@@ -15,6 +16,7 @@ class SearchResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
         avatar.roundCorners(style: .completely)
         avatar.layer.borderColor = UIColor.yellow.cgColor
         avatar.layer.borderWidth = 2.0
@@ -31,8 +33,9 @@ class SearchResultCell: UITableViewCell {
         if let url = URL(string: unsplashPhoto.urls.small) {
             avatar.kf.setImage(with: url)
         }
+        avatar.layer.borderColor = randomColor(hue: .random, luminosity: .light).cgColor
         
-        if let title = unsplashPhoto.description ?? unsplashPhoto.alt_description, !title.isEmpty {
+        if let title = unsplashPhoto.descrip ?? unsplashPhoto.alt_description, !title.isEmpty {
             label1.text = title
             label1.isHidden = false
         } else {
@@ -46,18 +49,18 @@ class SearchResultCell: UITableViewCell {
         if let url = URL(string: unsplashCollection.cover_photo.urls.small) {
             avatar.kf.setImage(with: url)
         }
-        
+        avatar.layer.borderColor = randomColor(hue: .random, luminosity: .light).cgColor
         label1.text = unsplashCollection.title
         label1.isHidden = false
         label2.text = unsplashCollection.user.name
     }
     
     func config(result: UnsplashSearchResult) {
-        if let urls = result.urls, let url = URL(string: urls.small) {
+        if let url = URL(string: result.cover_photo.urls.small) {
             avatar.kf.setImage(with: url)
         }
-        
-        if let title = result.description, !title.isEmpty {
+        avatar.layer.borderColor = randomColor(hue: .random, luminosity: .light).cgColor
+        if let title = result.descrip, !title.isEmpty {
             label1.text = title
             label1.isHidden = false
         } else {

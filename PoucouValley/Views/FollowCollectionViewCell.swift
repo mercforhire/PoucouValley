@@ -30,7 +30,7 @@ class FollowCollectionViewCell: UICollectionViewCell {
         if let url = URL(string: unsplashPhoto.urls.small) {
             imageView.kf.setImage(with: url)
         }
-        if let title = unsplashPhoto.description ?? unsplashPhoto.alt_description, !title.isEmpty {
+        if let title = unsplashPhoto.descrip ?? unsplashPhoto.alt_description, !title.isEmpty {
             label1.text = title
             label1.isHidden = false
         } else {

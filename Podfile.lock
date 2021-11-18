@@ -5,6 +5,7 @@ PODS:
   - ImageViewer (6.0.0)
   - Kingfisher (7.1.1)
   - Mantis (1.7.5)
+  - RandomColorSwift (2.0.0)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - ImageViewer
   - Kingfisher
   - Mantis (~> 1.7.2)
+  - RandomColorSwift
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
@@ -24,6 +26,7 @@ SPEC REPOS:
     - ImageViewer
     - Kingfisher
     - Mantis
+    - RandomColorSwift
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
@@ -33,8 +36,9 @@ SPEC CHECKSUMS:
   ImageViewer: cb88ef1c0ba19161bc10702adfdcebc116a7a59d
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
   Mantis: 5f2b36e8896528a297cb6ced5d2cffbe8073a58e
+  RandomColorSwift: d18b9b025403137b5543a002187489b06cc1782b
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 4cd312effb656bffa4ea7fe8e11cac9c37c84ee4
+PODFILE CHECKSUM: 12cf92dbe01e5f9e9b01db942d7bd42875315058
 
 COCOAPODS: 1.10.1

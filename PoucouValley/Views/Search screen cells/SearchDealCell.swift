@@ -10,12 +10,14 @@ import UIKit
 class SearchDealCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
  
     override func awakeFromNib() {
         super.awakeFromNib()
+        colorView.roundCorners(style: .medium)
         imageView.roundCorners(style: .medium)
         categoryImageView.roundCorners(style: .completely)
     }
@@ -28,7 +30,7 @@ class SearchDealCell: UICollectionViewCell {
         if let url = URL(string: unsplashPhoto.urls.small) {
             imageView.kf.setImage(with: url)
         }
-        if let title = unsplashPhoto.description ?? unsplashPhoto.alt_description, !title.isEmpty {
+        if let title = unsplashPhoto.descrip ?? unsplashPhoto.alt_description, !title.isEmpty {
             titleLabel.text = title
             titleLabel.isHidden = false
         } else {

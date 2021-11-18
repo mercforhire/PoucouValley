@@ -9,12 +9,14 @@ import UIKit
 
 class SearchStoreCell: UICollectionViewCell {
     
+    @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        colorView.roundCorners(style: .medium)
         imageView.roundCorners(style: .medium)
     }
     
@@ -26,7 +28,7 @@ class SearchStoreCell: UICollectionViewCell {
         if let url = URL(string: store.urls.small) {
             imageView.kf.setImage(with: url)
         }
-        if let title = store.description ?? store.alt_description, !title.isEmpty {
+        if let title = store.descrip ?? store.alt_description, !title.isEmpty {
             label1.text = title
             label1.isHidden = false
         } else {

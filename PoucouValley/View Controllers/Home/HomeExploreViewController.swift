@@ -9,6 +9,10 @@ import UIKit
 import CollectionViewWaterfallLayout
 import XLPagerTabStrip
 
+protocol HomeExploreViewControllerDelegate: class {
+    func updateSearchBarText(text: String)
+}
+
 class HomeExploreViewController: BaseViewController {
     private var itemInfo = IndicatorInfo(title: "Explore")
     
@@ -73,6 +77,7 @@ class HomeExploreViewController: BaseViewController {
             if let childVC = child as? HomeSearchViewController {
                 self.homeSearchViewController = childVC
                 delegate = childVC
+                self.homeSearchViewController.delegate = self
                 break
             }
         }
@@ -148,10 +153,15 @@ extension HomeExploreViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let text = searchBar.text, text.trim().isEmpty {
+            delayTimer.textDidGetEntered(text: "")
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        searchBar.resignFirstResponder()
+        delayTimer.textDidGetEntered(text: "")
         NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
         searchVCContainer.isHidden = true
     }
@@ -159,14 +169,20 @@ extension HomeExploreViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        guard let text = searchBar.text, !text.trim().isEmpty else { return }
+        guard let text = searchBar.text, !text.trim().isEmpty else {
+            NotificationCenter.default.post(name: Notifications.HomeScreenHideTopBar, object: nil)
+            searchVCContainer.isHidden = false
+            delayTimer.textDidGetEntered(text: "")
+            return
+        }
         
         delayTimer.textDidGetEntered(text: text)
         
         if !history.contains(text.trim()) {
             history.append(text.trim())
-            if history.count > 10 {
-                history = Array(history[1...(history.count - 1)])
+            let maxCount = 10
+            if history.count > maxCount {
+                history = Array(history[(history.count - 1 - maxCount)...(history.count - 1)])
             }
             AppSettingsManager.shared.setSearchHistory(searchHistory: history)
             homeSearchViewController.historySearches = history
@@ -174,10 +190,7 @@ extension HomeExploreViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
-            searchVCContainer.isHidden = true
-        }
+        
     }
 }
 
@@ -199,6 +212,11 @@ extension HomeExploreViewController: DelayedSearchTimerDelegate {
     }
 }
 
+extension HomeExploreViewController: HomeExploreViewControllerDelegate {
+    func updateSearchBarText(text: String) {
+        searchBar.text = text
+    }
+}
 // MARK: - UICollectionViewDataSource
 extension HomeExploreViewController: UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

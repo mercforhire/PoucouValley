@@ -88,24 +88,39 @@ class HomeSearchViewController: BaseViewController {
             tableView.reloadRows(at: [IndexPath.init(row: 0, section: MenuSections.history.rawValue)], with: .none)
         }
     }
-    var recentSearches: [UnsplashPhoto]?
-    var searchResults: [UnsplashSearchResult]?
+
+    var recents: [UnsplashSearchResult]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    var searchResults: [UnsplashSearchResult]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     var suggestions: [UnsplashTopic]?
     var deals: [UnsplashPhoto]?
     var stores: [UnsplashPhoto]?
     var categories: [UnsplashTopic]?
+    
+    weak var delegate: HomeExploreViewControllerDelegate?
     
     override func setup() {
         super.setup()
         
         let nib = UINib(nibName: "SearchSectionHeaderView", bundle: nil)
         tableView.register(nib, forHeaderFooterViewReuseIdentifier: "SearchSectionHeaderView")
+        tableView.tableHeaderView?.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        recents = AppSettingsManager.shared.getSearchRecents()
         fetchContent()
     }
     
@@ -178,11 +193,25 @@ class HomeSearchViewController: BaseViewController {
             }
         }
     }
+    
+    @objc private func clearHistory() {
+        historySearches = []
+        AppSettingsManager.shared.setSearchHistory(searchHistory: [])
+    }
+    
+    @objc private func clearRecents() {
+        recents = []
+        AppSettingsManager.shared.setSearchRecents(searchRecents: [])
+    }
 }
 
 extension HomeSearchViewController: HomeSearchViewControllerDelegate {
     func requestToSearch(query: String?) {
-        guard let query = query else { return }
+        guard let query = query, !query.isEmpty else {
+            self.query = ""
+            self.searchResults = nil
+            return
+        }
         
         self.query = query
         api.getSearchCollections(query: query) { [weak self] result in
@@ -191,7 +220,13 @@ extension HomeSearchViewController: HomeSearchViewControllerDelegate {
             switch result {
             case .success(let response):
                 self.searchResults = response
-                self.tableView.reloadData()
+                let maxCount = 5
+                if response.count > maxCount {
+                    self.recents = Array(response[(response.count - 1 - maxCount)...(response.count - 1)])
+                } else {
+                    self.recents = response
+                }
+                AppSettingsManager.shared.setSearchRecents(searchRecents: self.recents ?? [])
             case .failure(let error):
                 if error.responseCode == nil {
                     showNetworkErrorDialog()
@@ -206,6 +241,37 @@ extension HomeSearchViewController: HomeSearchViewControllerDelegate {
 
 extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let section = MenuSections(rawValue: section) else { return 0 }
+        
+        switch section {
+        case .history:
+            if !query.isEmpty {
+                return 0
+            }
+        case .recent:
+            if !query.isEmpty {
+                return 0
+            }
+        case .results:
+            if query.isEmpty {
+                return 0
+            }
+        case .suggested:
+            if query.isEmpty {
+                return 0
+            }
+        case .deals:
+            if query.isEmpty {
+                return 0
+            }
+        case .stores:
+            if query.isEmpty {
+                return 0
+            }
+        default:
+            break
+        }
+        
         return 40
     }
     
@@ -215,6 +281,16 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchSectionHeaderView") as! SearchSectionHeaderView
         header.titleLabel.text = section.title()
         header.clearButton.isHidden = !section.showClearButton()
+        
+        switch section {
+        case .history:
+            header.clearButton.addTarget(self, action: #selector(clearHistory), for: .touchUpInside)
+        case .recent:
+            header.clearButton.addTarget(self, action: #selector(clearRecents), for: .touchUpInside)
+        default:
+            break
+        }
+        
         return header
     }
     
@@ -223,23 +299,86 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
         return MenuSections.count.rawValue
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let section = MenuSections(rawValue: indexPath.section) else { return 0 }
+        
+        switch section {
+        case .history:
+            if !query.isEmpty {
+                return 0
+            }
+        case .recent:
+            if !query.isEmpty {
+                return 0
+            }
+        case .results:
+            if query.isEmpty {
+                return 0
+            }
+        case .suggested:
+            if query.isEmpty {
+                return 0
+            }
+        case .deals:
+            if query.isEmpty {
+                return 0
+            }
+        case .stores:
+            if query.isEmpty {
+                return 0
+            }
+        default:
+            break
+        }
+        
+        return UITableView.automaticDimension
+    }
+    
     // One cell is enough
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let section = MenuSections(rawValue: section) else { return 0 }
         
         switch section {
         case .history:
-            return section.numberRows()
+            if query.isEmpty {
+                return section.numberRows()
+            }
+            return 0
         case .recent:
-            return recentSearches?.count ?? 0
+            if query.isEmpty {
+                return recents?.count ?? 0
+            }
+            
+            return 0
+            
         case .results:
-            return max(1, searchResults?.count ?? 0)
+            guard let searchResults = searchResults else {
+                return 0
+            }
+            
+            return max(1, searchResults.count)
+            
         case .suggested:
+            if query.isEmpty {
+                return 0
+            }
+            
             return suggestions?.count ?? 0
+            
         case .deals:
+            if query.isEmpty {
+                return 0
+            }
+            
             return section.numberRows()
+            
         case .stores:
+            if query.isEmpty {
+                return 0
+            }
+            
             return section.numberRows()
+            
         default:
             return 0
         }
@@ -255,16 +394,24 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
                 return SearchHistoriesCell()
             }
             
-            cell.config(histories: historySearches ?? [])
+            cell.config(histories: historySearches ?? []) { [weak self] searchString in
+                guard let self = self else { return }
+                
+                self.requestToSearch(query: searchString)
+                self.delegate?.updateSearchBarText(text: searchString)
+            }
             
             return cell
+            
         case .recent:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as? SearchResultCell, let recentSearch = recentSearches?[indexPath.row] else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as? SearchResultCell,
+                    let recentSearch = recents?[indexPath.row] else {
                 return SearchResultCell()
             }
             
-            cell.config(unsplashPhoto: recentSearch)
+            cell.config(result: recentSearch)
             return cell
+            
         case .results:
             
             guard let searchResults = searchResults else {
@@ -308,7 +455,6 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
             }
             
             cell.config(stores: stores)
-            
             return cell
             
         default:

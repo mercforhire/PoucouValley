@@ -13,4 +13,5 @@ target 'PoucouValley' do
   pod 'ImageViewer'
   pod 'Mantis', '~> 1.7.2'
   pod "GSKStretchyHeaderView"
+  pod 'RandomColorSwift'
 end

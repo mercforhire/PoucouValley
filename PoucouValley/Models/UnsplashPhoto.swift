@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct UnsplashUrls: Codable {
     var raw: String
@@ -69,7 +70,7 @@ struct UnsplashPhoto: Codable {
     var updated_at: String
     var width: Int
     var height: Int
-    var description: String?
+    var descrip: String?
     var alt_description: String?
     var urls: UnsplashUrls
     var links: UnsplashLink
@@ -81,7 +82,7 @@ struct UnsplashPhoto: Codable {
         case updated_at
         case width
         case height
-        case description
+        case descrip = "description"
         case alt_description
         case urls
         case links
@@ -93,7 +94,7 @@ struct UnsplashTopic: Codable {
     var identifier: String
     var slug: String
     var title: String
-    var description: String?
+    var descrip: String?
     var published_at: String
     var updated_at: String
     var starts_at: String
@@ -103,7 +104,7 @@ struct UnsplashTopic: Codable {
         case identifier = "id"
         case slug
         case title
-        case description
+        case descrip = "description"
         case published_at
         case updated_at
         case starts_at
@@ -114,7 +115,7 @@ struct UnsplashTopic: Codable {
 struct UnsplashCollection: Codable {
     var identifier: String
     var title: String
-    var description: String?
+    var descrip: String?
     var published_at: String
     var last_collected_at: String
     var updated_at: String
@@ -125,7 +126,7 @@ struct UnsplashCollection: Codable {
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
         case title
-        case description
+        case descrip = "description"
         case published_at
         case last_collected_at
         case updated_at
@@ -137,17 +138,17 @@ struct UnsplashCollection: Codable {
 
 struct UnsplashSearchResult: Codable {
     var identifier: String
-    var description: String?
+    var descrip: String?
     var user: UnsplashUser
-    var urls: UnsplashUrls?
     var links: UnsplashLink
+    var cover_photo: UnsplashPhoto
     
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
-        case description
+        case descrip = "description"
         case user
-        case urls
         case links
+        case cover_photo
     }
 }
 
