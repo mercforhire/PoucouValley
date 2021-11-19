@@ -16,13 +16,9 @@ protocol HomeExploreViewControllerDelegate: class {
 class HomeExploreViewController: BaseViewController {
     private var itemInfo = IndicatorInfo(title: "Explore")
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var storiesCollectionView: UICollectionView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchVCContainer: UIView!
     
-    private var history: [String] = []
-    private var stories: [UnsplashPhoto]?
     private var content: [UnsplashPhoto]? {
         didSet {
             for _ in 0...(content?.count ?? 0) {
@@ -30,7 +26,7 @@ class HomeExploreViewController: BaseViewController {
             }
         }
     }
-    private let cellWidth: CGFloat = 80.0
+    
     private lazy var paginationManager: VerticalPaginationManager = {
         let manager = VerticalPaginationManager(scrollView: collectionView)
         manager.delegate = self
@@ -39,7 +35,8 @@ class HomeExploreViewController: BaseViewController {
     private var cellSizes: [CGSize] = []
     private var pagesLoaded = 0
     private var delayTimer = DelayedSearchTimer()
-    private var homeSearchViewController: HomeSearchViewController!
+    private var searchVC: HomeSearchViewController!
+    private var storiesCollectionReusableView: StoriesCollectionReusableView?
     
     weak var delegate: HomeSearchViewControllerDelegate?
     
@@ -48,17 +45,9 @@ class HomeExploreViewController: BaseViewController {
         
         navigationController?.isNavigationBarHidden = true
         
-        let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.itemSize = .init(width: cellWidth, height: storiesCollectionView.frame.height - 20)
-        flowlayout.scrollDirection = .horizontal
-        flowlayout.minimumLineSpacing = 0
-        flowlayout.minimumInteritemSpacing = 0
-        flowlayout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
-        storiesCollectionView.setCollectionViewLayout(flowlayout, animated: false)
-        
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.headerHeight = 0
+        layout.headerHeight = 130
         layout.footerHeight = 0
         layout.minimumColumnSpacing = 10
         layout.minimumInteritemSpacing = 10
@@ -66,18 +55,18 @@ class HomeExploreViewController: BaseViewController {
         collectionView.collectionViewLayout = layout
         collectionView.alwaysBounceVertical = true
         
+        collectionView.register(UINib(nibName: "StoriesCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
+        
         paginationManager.refreshViewColor = .clear
         paginationManager.loaderColor = .darkGray
-        
-        searchBar.backgroundImage = UIImage()
         
         delayTimer.delegate = self
         
         for child in children {
             if let childVC = child as? HomeSearchViewController {
-                self.homeSearchViewController = childVC
+                self.searchVC = childVC
                 delegate = childVC
-                self.homeSearchViewController.delegate = self
+                self.searchVC.delegate = self
                 break
             }
         }
@@ -87,9 +76,6 @@ class HomeExploreViewController: BaseViewController {
         super.viewDidLoad()
         
         fetchContent()
-        
-        history = AppSettingsManager.shared.getSearchHistory()
-        homeSearchViewController.historySearches = history
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,8 +89,8 @@ class HomeExploreViewController: BaseViewController {
             
             switch result {
             case .success(let response):
-                self.stories = response
-                self.storiesCollectionView.reloadData()
+                self.storiesCollectionReusableView?.stories = response
+                self.storiesCollectionReusableView?.collectionView.reloadData()
                 complete?(true)
             case .failure(let error):
                 if error.responseCode == nil {
@@ -150,6 +136,8 @@ extension HomeExploreViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         NotificationCenter.default.post(name: Notifications.HomeScreenHideTopBar, object: nil)
         searchVCContainer.isHidden = false
+        collectionView.scrollToTop(animated: false)
+        collectionView.isScrollEnabled = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -164,6 +152,7 @@ extension HomeExploreViewController: UISearchBarDelegate {
         delayTimer.textDidGetEntered(text: "")
         NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
         searchVCContainer.isHidden = true
+        collectionView.isScrollEnabled = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -172,25 +161,19 @@ extension HomeExploreViewController: UISearchBarDelegate {
         guard let text = searchBar.text, !text.trim().isEmpty else {
             NotificationCenter.default.post(name: Notifications.HomeScreenHideTopBar, object: nil)
             searchVCContainer.isHidden = false
+            collectionView.scrollToTop(animated: false)
+            collectionView.isScrollEnabled = false
             delayTimer.textDidGetEntered(text: "")
             return
         }
         
         delayTimer.textDidGetEntered(text: text)
-        
-        if !history.contains(text.trim()) {
-            history.append(text.trim())
-            let maxCount = 10
-            if history.count > maxCount {
-                history = Array(history[(history.count - 1 - maxCount)...(history.count - 1)])
-            }
-            AppSettingsManager.shared.setSearchHistory(searchHistory: history)
-            homeSearchViewController.historySearches = history
-        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        if let text = searchBar.text, text.trim().isEmpty {
+            delayTimer.textDidGetEntered(text: "")
+        }
     }
 }
 
@@ -214,40 +197,39 @@ extension HomeExploreViewController: DelayedSearchTimerDelegate {
 
 extension HomeExploreViewController: HomeExploreViewControllerDelegate {
     func updateSearchBarText(text: String) {
-        searchBar.text = text
+        storiesCollectionReusableView?.searchBar.text = text
     }
 }
 // MARK: - UICollectionViewDataSource
 extension HomeExploreViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                         withReuseIdentifier: "Header",
+                                                                         for: indexPath) as! StoriesCollectionReusableView
+        
+        self.storiesCollectionReusableView = headerView
+        headerView.searchBar.delegate = self
+        return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        
+    }
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.storiesCollectionView {
-            return stories?.count ?? 0
-        }
-        else if collectionView == self.collectionView {
-            return content?.count ?? 0
-        }
-        return 0
+        return content?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.storiesCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryCollectionViewCell", for: indexPath) as? StoryCollectionViewCell,
-                    let story = stories?[indexPath.row] else { return UICollectionViewCell() }
-            
-            cell.config(unsplashPhoto: story)
-            return cell
-        } else if collectionView == self.collectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowCollectionViewCell", for: indexPath) as? FollowCollectionViewCell, let content = content?[indexPath.row] else { return UICollectionViewCell() }
-            
-            cell.config(unsplashPhoto: content)
-            return cell
-        } else {
-            return UICollectionViewCell()
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowCollectionViewCell", for: indexPath) as? FollowCollectionViewCell, let content = content?[indexPath.row] else { return UICollectionViewCell() }
+        
+        cell.config(unsplashPhoto: content)
+        return cell
     }
 }
 
@@ -255,17 +237,11 @@ extension HomeExploreViewController: UICollectionViewDataSource {
 // MARK: - CollectionViewWaterfallLayoutDelegate
 extension HomeExploreViewController: CollectionViewWaterfallLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        if collectionView == self.collectionView {
-            return cellSizes[indexPath.item]
-        }
-        
-        return CGSize(width: cellWidth, height: storiesCollectionView.frame.height)
+        return cellSizes[indexPath.item]
     }
 }
 
 extension HomeExploreViewController: VerticalPaginationManagerDelegate {
-    
     func delay(_ delay: Double, closure: @escaping () -> Void) {
         let deadline = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(
@@ -302,5 +278,4 @@ extension HomeExploreViewController: VerticalPaginationManagerDelegate {
             }
         }
     }
-    
 }

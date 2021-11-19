@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2DA8ECC55AE12BB14D75F87C /* Pods_PoucouValley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AFCAE10C40E6C4297F0D45D /* Pods_PoucouValley.framework */; };
+		7297E5302747173600F6F33B /* StoriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */; };
+		7297E5312747173600F6F33B /* StoriesCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */; };
+		7297E53327471DE000F6F33B /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */; };
 		72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AD2736F27700B452BE /* AppDelegate.swift */; };
 		72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AF2736F27700B452BE /* SceneDelegate.swift */; };
 		72AC00B52736F27700B452BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B32736F27700B452BE /* Main.storyboard */; };
@@ -124,6 +127,9 @@
 /* Begin PBXFileReference section */
 		240736B886A5DD6675322EFA /* Pods-PoucouValley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoucouValley.release.xcconfig"; path = "Target Support Files/Pods-PoucouValley/Pods-PoucouValley.release.xcconfig"; sourceTree = "<group>"; };
 		2AFCAE10C40E6C4297F0D45D /* Pods_PoucouValley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoucouValley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionReusableView.swift; sourceTree = "<group>"; };
+		7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoriesCollectionReusableView.xib; sourceTree = "<group>"; };
+		7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		72AC00AA2736F27700B452BE /* PoucouValley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoucouValley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AC00AD2736F27700B452BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AC00AF2736F27700B452BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -317,7 +323,10 @@
 				72B2FB87273C657D00382C12 /* ProfileDetailsHeader.xib */,
 				72AC00C52737294000B452BE /* FollowCollectionViewCell.swift */,
 				72AC01BF2739F46400B452BE /* StoryCollectionViewCell.swift */,
+				7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */,
 				72B2FBB2273CAA2000382C12 /* GiftTableViewCell.swift */,
+				7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */,
+				7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -664,7 +673,9 @@
 				72B2FB9F273C6CA000382C12 /* Poppins-ExtraLight.ttf in Resources */,
 				72B2FBA6273C6CA000382C12 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				72B2FBA9273C6CA000382C12 /* OFL.txt in Resources */,
+				7297E5312747173600F6F33B /* StoriesCollectionReusableView.xib in Resources */,
 				72AC00BA2736F27900B452BE /* LaunchScreen.storyboard in Resources */,
+				7297E53327471DE000F6F33B /* StoryCollectionViewCell.xib in Resources */,
 				72AC00B72736F27900B452BE /* Assets.xcassets in Resources */,
 				72B2FBA1273C6CA000382C12 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				72AC00B52736F27700B452BE /* Main.storyboard in Resources */,
@@ -747,6 +758,7 @@
 				72C7A765273F3E3E00636346 /* SearchDealCell.swift in Sources */,
 				72B2FBCF273CC34200382C12 /* ThemeBorderRoundView.swift in Sources */,
 				72AC01B42738A80B00B452BE /* LoremSwiftum.swift in Sources */,
+				7297E5302747173600F6F33B /* StoriesCollectionReusableView.swift in Sources */,
 				72AC00C62737294000B452BE /* FollowCollectionViewCell.swift in Sources */,
 				72AC011E27378FFA00B452BE /* UICollectionView+Extensions.swift in Sources */,
 				72AC01B22738A80B00B452BE /* DelayedSearchTimer.swift in Sources */,

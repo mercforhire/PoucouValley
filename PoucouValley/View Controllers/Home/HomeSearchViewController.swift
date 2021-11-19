@@ -83,13 +83,13 @@ class HomeSearchViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var query: String = ""
-    var historySearches: [String]? {
+    var historySearches: [String] = [] {
         didSet {
             tableView.reloadRows(at: [IndexPath.init(row: 0, section: MenuSections.history.rawValue)], with: .none)
         }
     }
 
-    var recents: [UnsplashSearchResult]? {
+    var recents: [UnsplashSearchResult] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -114,12 +114,17 @@ class HomeSearchViewController: BaseViewController {
         let nib = UINib(nibName: "SearchSectionHeaderView", bundle: nil)
         tableView.register(nib, forHeaderFooterViewReuseIdentifier: "SearchSectionHeaderView")
         tableView.tableHeaderView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        var frame = CGRect.zero
+        frame.size.height = .leastNormalMagnitude
+        tableView.tableHeaderView = UIView(frame: frame)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        historySearches = AppSettingsManager.shared.getSearchHistory()
         recents = AppSettingsManager.shared.getSearchRecents()
         fetchContent()
     }
@@ -226,7 +231,19 @@ extension HomeSearchViewController: HomeSearchViewControllerDelegate {
                 } else {
                     self.recents = response
                 }
-                AppSettingsManager.shared.setSearchRecents(searchRecents: self.recents ?? [])
+                AppSettingsManager.shared.setSearchRecents(searchRecents: self.recents)
+                
+                if !self.historySearches.contains(query) {
+                    self.historySearches.append(query)
+                    let maxCount = 10
+                    if self.historySearches.count > maxCount {
+                        let count = self.historySearches.count
+                        self.historySearches = Array(self.historySearches[(count - 1 - maxCount)...(count - 1)])
+                    }
+                    AppSettingsManager.shared.setSearchHistory(searchHistory: self.historySearches)
+                }
+                
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: MenuSections.results.rawValue), at: .top, animated: false)
             case .failure(let error):
                 if error.responseCode == nil {
                     showNetworkErrorDialog()
@@ -279,8 +296,11 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
         guard let section = MenuSections(rawValue: section) else { return nil }
         
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchSectionHeaderView") as! SearchSectionHeaderView
+        
         header.titleLabel.text = section.title()
         header.clearButton.isHidden = !section.showClearButton()
+        header.clearButton.removeTarget(self, action: #selector(clearHistory), for: .touchUpInside)
+        header.clearButton.removeTarget(self, action: #selector(clearRecents), for: .touchUpInside)
         
         switch section {
         case .history:
@@ -346,7 +366,7 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
             return 0
         case .recent:
             if query.isEmpty {
-                return recents?.count ?? 0
+                return recents.count
             }
             
             return 0
@@ -394,7 +414,7 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
                 return SearchHistoriesCell()
             }
             
-            cell.config(histories: historySearches ?? []) { [weak self] searchString in
+            cell.config(histories: historySearches) { [weak self] searchString in
                 guard let self = self else { return }
                 
                 self.requestToSearch(query: searchString)
@@ -404,11 +424,10 @@ extension HomeSearchViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
             
         case .recent:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as? SearchResultCell,
-                    let recentSearch = recents?[indexPath.row] else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as? SearchResultCell else {
                 return SearchResultCell()
             }
-            
+            let recentSearch = recents[indexPath.row]
             cell.config(result: recentSearch)
             return cell
             
