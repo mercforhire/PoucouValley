@@ -1,9 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-PoucouValley/Pods-PoucouValley-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/CollectionViewWaterfallLayout/CollectionViewWaterfallLayout.framework
-${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework
-${BUILT_PRODUCTS_DIR}/ImageViewer/ImageViewer.framework
-${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
-${BUILT_PRODUCTS_DIR}/Mantis/Mantis.framework
-${BUILT_PRODUCTS_DIR}/RandomColorSwift/RandomColorSwift.framework
-${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework

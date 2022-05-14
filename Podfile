@@ -14,4 +14,5 @@ target 'PoucouValley' do
   pod 'Mantis', '~> 1.7.2'
   pod "GSKStretchyHeaderView"
   pod 'RandomColorSwift'
+  pod 'RealmSwift', '~>10'
 end
