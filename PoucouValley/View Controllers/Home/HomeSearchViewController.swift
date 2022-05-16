@@ -124,8 +124,6 @@ class HomeSearchViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        historySearches = AppSettingsManager.shared.getSearchHistory()
-        recents = AppSettingsManager.shared.getSearchRecents()
         fetchContent()
     }
     
@@ -201,12 +199,10 @@ class HomeSearchViewController: BaseViewController {
     
     @objc private func clearHistory() {
         historySearches = []
-        AppSettingsManager.shared.setSearchHistory(searchHistory: [])
     }
     
     @objc private func clearRecents() {
         recents = []
-        AppSettingsManager.shared.setSearchRecents(searchRecents: [])
     }
 }
 
@@ -231,7 +227,6 @@ extension HomeSearchViewController: HomeSearchViewControllerDelegate {
                 } else {
                     self.recents = response
                 }
-                AppSettingsManager.shared.setSearchRecents(searchRecents: self.recents)
                 
                 if !self.historySearches.contains(query) {
                     self.historySearches.append(query)
@@ -240,7 +235,6 @@ extension HomeSearchViewController: HomeSearchViewControllerDelegate {
                         let count = self.historySearches.count
                         self.historySearches = Array(self.historySearches[(count - 1 - maxCount)...(count - 1)])
                     }
-                    AppSettingsManager.shared.setSearchHistory(searchHistory: self.historySearches)
                 }
                 
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: MenuSections.results.rawValue), at: .top, animated: false)

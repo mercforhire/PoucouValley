@@ -15,4 +15,7 @@ target 'PoucouValley' do
   pod "GSKStretchyHeaderView"
   pod 'RandomColorSwift'
   pod 'RealmSwift', '~>10'
+  pod 'MercariQRScanner'
+  pod 'Valet'
+  pod 'Toucan'
 end

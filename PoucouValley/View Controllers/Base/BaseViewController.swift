@@ -6,15 +6,14 @@
 //
 
 import UIKit
-import RealmSwift
 
 class BaseViewController: UIViewController {
     var api: PoucouAPI {
         return PoucouAPI.shared
     }
-    
-    let realm = try! Realm()
-    let app = App(id: YOUR_REALM_APP_ID)
+    var appSettings: AppSettingsManager {
+        return AppSettingsManager.shared
+    }
     
     private var observer: NSObjectProtocol?
    
