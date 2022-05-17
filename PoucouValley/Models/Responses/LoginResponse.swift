@@ -11,13 +11,13 @@ import RealmSwift
 class LoginResponse: Object {
     var success: Bool
     var message: String?
-    var data: User?
+    var data: UserDetails?
     
     init(document: Document) {
         self.success = document["success"]!!.boolValue!
         self.message = document["message"]!!.stringValue!
         if let data = document["data"]??.documentValue {
-            self.data = User(document: data)
+            self.data = UserDetails(document: data)
         }
         super.init()
     }

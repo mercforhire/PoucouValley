@@ -1,5 +1,5 @@
 //
-//  Avatar.swift
+//  PVPhoto.swift
 //  PoucouValley
 //
 //  Created by Leon Chen on 2022-05-16.
@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Avatar: EmbeddedObject {
+class PVPhoto: EmbeddedObject {
     var thumbnameUrl: String
     var fullUrl: String
     

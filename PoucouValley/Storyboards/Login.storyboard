@@ -357,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="45Z-4e-Ta2">
-                                <rect key="frame" x="25" y="89" width="364" height="507"/>
+                                <rect key="frame" x="25" y="89" width="364" height="514.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2Q-hr-uVr" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
@@ -379,16 +379,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Your Email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIL-48-0lX" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="145" width="364" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="ylW-dv-EgX"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="145" width="364" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uMG-Sq-ysj" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="175" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="182.5" width="364" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="RWy-5E-cot"/>
@@ -398,14 +395,14 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pft-G9-REX">
-                                        <rect key="frame" x="0.0" y="234" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="241.5" width="364" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="bai-za-jjh"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbM-Te-afq" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="269" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="276.5" width="364" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="q6E-oL-0yy"/>
@@ -418,14 +415,14 @@
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNu-fV-j3R">
-                                        <rect key="frame" x="0.0" y="328" width="364" height="30"/>
+                                        <rect key="frame" x="0.0" y="335.5" width="364" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="gmP-g4-szp"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plv-97-5JR">
-                                        <rect key="frame" x="0.0" y="373" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="380.5" width="364" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Or sign in with Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WST-Mc-mcc" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                                 <rect key="frame" x="118.5" y="2" width="127.5" height="15"/>
@@ -465,7 +462,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frN-AN-YHB" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="408" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="415.5" width="364" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="oAF-69-JFl"/>
@@ -478,14 +475,14 @@
                                         </state>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tl8-dg-N9J">
-                                        <rect key="frame" x="0.0" y="467" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="474.5" width="364" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="1fy-rw-xVy"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-9D-5F4">
-                                        <rect key="frame" x="0.0" y="492" width="364" height="15"/>
+                                        <rect key="frame" x="0.0" y="499.5" width="364" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xss-tF-DsN">
                                                 <rect key="frame" x="75.5" y="0.0" width="213" height="15"/>
@@ -568,7 +565,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-0w-sbO">
-                                <rect key="frame" x="25" y="89" width="364" height="259"/>
+                                <rect key="frame" x="25" y="89" width="364" height="266.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwZ-8E-OzO" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
@@ -577,23 +574,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter 4 digits sent to your email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2m-ht-fHd" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="YrN-mH-vgm"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfo-FE-RSu">
-                                        <rect key="frame" x="0.0" y="90" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="97.5" width="364" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="d12-Ae-PIH"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-Nt-r9Q">
-                                        <rect key="frame" x="0.0" y="115" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="122.5" width="364" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ICg-tu-znu">
                                                 <rect key="frame" x="19.5" y="0.0" width="325" height="50"/>
@@ -661,14 +655,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbm-5X-Hux">
-                                        <rect key="frame" x="0.0" y="180" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="364" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gMg-Dn-ssN"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZY-oO-XoM" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="215" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="222.5" width="364" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="PkP-kE-F41"/>
@@ -721,7 +715,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="26L-OQ-hNG">
-                                <rect key="frame" x="25" y="89" width="364" height="259"/>
+                                <rect key="frame" x="25" y="89" width="364" height="266.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzW-Eb-bJ3" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
@@ -730,23 +724,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter 3 digits secure code on your card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-9y-bV3" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="e6b-1M-qko"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkx-Aj-yyK">
-                                        <rect key="frame" x="0.0" y="90" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="97.5" width="364" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="kfh-e1-t1a"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psg-bg-Pl1">
-                                        <rect key="frame" x="0.0" y="115" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="122.5" width="364" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-Wg-yJQ">
                                                 <rect key="frame" x="63.5" y="0.0" width="237.5" height="50"/>
@@ -803,14 +794,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyz-Kd-ZT2">
-                                        <rect key="frame" x="0.0" y="180" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="364" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="cQW-p3-5UA"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUU-8e-XvJ" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="215" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="222.5" width="364" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="b1C-uO-PE9"/>
@@ -863,7 +854,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1ns-g1-423">
-                                <rect key="frame" x="25" y="89" width="364" height="407"/>
+                                <rect key="frame" x="25" y="89" width="364" height="410.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItD-D5-zMu" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
@@ -905,23 +896,20 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="By signing up you agree with our terms of use" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cD-Xr-51M">
-                                        <rect key="frame" x="0.0" y="243" width="364" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="0QX-mu-DlA"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="243" width="364" height="18.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wh0-Xp-n0A">
-                                        <rect key="frame" x="0.0" y="273" width="364" height="40"/>
+                                        <rect key="frame" x="0.0" y="276.5" width="364" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Rjp-2b-DAW"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXQ-Dt-5M5">
-                                        <rect key="frame" x="0.0" y="328" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="331.5" width="364" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Or sign up with scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSE-f7-R1x">
                                                 <rect key="frame" x="116" y="2" width="132" height="15"/>
@@ -961,7 +949,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-Yd-wJz" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="363" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="366.5" width="364" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="xW6-tn-GXi"/>

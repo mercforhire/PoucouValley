@@ -11,6 +11,8 @@ enum ResponseMessages: String, Codable {
     case userDoesNotExist = "USER_DOESNT_EXIST"
     case validationCodeInvalid = "VALIDATION_CODE_INVALID"
     case userAlreadyDeletedAccount = "USER_ALREADY_DELETED_ACCOUNT"
+    case cardholderNotFound = "CARDHOLDER_NOT_FOUND"
+    case cardPinIncorrect = "CARD_PIN_INCORRECT"
 }
 
 enum UserTypeMode: String, Codable {
