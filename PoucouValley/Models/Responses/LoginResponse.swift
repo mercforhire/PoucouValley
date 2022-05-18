@@ -8,10 +8,10 @@
 import Foundation
 import RealmSwift
 
-class LoginResponse: Object {
-    @objc dynamic var success: Bool = false
-    @objc dynamic var message: String?
-    @objc dynamic var data: UserDetails?
+class LoginResponse: BaseObject {
+    var success: Bool = false
+    var message: String?
+    var data: UserDetails?
     
     convenience init(document: Document) {
         self.init()

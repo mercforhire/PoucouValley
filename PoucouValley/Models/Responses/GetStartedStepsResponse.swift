@@ -8,9 +8,9 @@
 import Foundation
 import RealmSwift
 
-class GetStartedStepsResponse: Object {
-    @objc dynamic var success: Bool = false
-    @objc dynamic var message: String = ""
+class GetStartedStepsResponse: BaseObject {
+    var success: Bool = false
+    var message: String = ""
     var data: List<GetStartedSteps> = List()
     
     convenience init(document: Document) {

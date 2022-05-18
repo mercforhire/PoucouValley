@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Client: Object {
+class Client: BaseObject {
     var identifier: ObjectId = ObjectId()
     var createdDate: Date = Date()
     var ownerId: ObjectId = ObjectId()

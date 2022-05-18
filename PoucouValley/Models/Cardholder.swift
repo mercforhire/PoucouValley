@@ -8,19 +8,19 @@
 import Foundation
 import RealmSwift
 
-class Cardholder: Object {
+class Cardholder: BaseObject {
     var identifier: ObjectId = ObjectId()
     var createdDate: Date = Date()
     var userId: ObjectId = ObjectId()
-    @objc dynamic var card: String?
-    @objc dynamic var firstName: String?
-    @objc dynamic var lastName: String?
-    @objc dynamic var pronoun: String?
-    @objc dynamic var gender: String?
-    @objc dynamic var birthday: Birthday?
-    @objc dynamic var address: Address?
-    @objc dynamic var contact: Contact?
-    @objc dynamic var avatar: PVPhoto?
+    var card: String?
+    var firstName: String?
+    var lastName: String?
+    var pronoun: String?
+    var gender: String?
+    var birthday: Birthday?
+    var address: Address?
+    var contact: Contact?
+    var avatar: PVPhoto?
     
     convenience init(document: Document) {
         self.init()

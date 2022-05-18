@@ -8,10 +8,10 @@
 import Foundation
 import RealmSwift
 
-class Birthday: EmbeddedObject {
-    @objc dynamic var day: Int = 0
-    @objc dynamic var month: Int = 0
-    @objc dynamic var year: Int = 0
+class Birthday: BaseEmbeddedObject {
+    var day: Int = 0
+    var month: Int = 0
+    var year: Int = 0
     
     convenience init(document: Document) {
         self.init()

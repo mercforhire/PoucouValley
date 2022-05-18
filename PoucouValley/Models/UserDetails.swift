@@ -8,10 +8,10 @@
 import Foundation
 import RealmSwift
 
-class UserDetails: Object {
-    @objc dynamic var user: User?
-    @objc dynamic var cardholder: Cardholder?
-    @objc dynamic var merchant: Merchant?
+class UserDetails: BaseObject {
+    var user: User?
+    var cardholder: Cardholder?
+    var merchant: Merchant?
     
     convenience init(document: Document) {
         self.init()

@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class GetStartedSteps: Object {
+class GetStartedSteps: BaseObject {
     var step: Int = 0
     var text: List<String> = List()
     

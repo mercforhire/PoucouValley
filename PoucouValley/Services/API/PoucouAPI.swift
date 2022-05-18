@@ -19,7 +19,7 @@ class PoucouAPI {
     
     var baseURL = "https://api.unsplash.com/"
     let service: NetworkService
-    let realm = try! Realm()
+    var realm: Realm!
     let app = App(id: AppSettingsManager.shared.getEnvironment().appID())
     var user: RLMUser {
         return app.currentUser!
@@ -28,6 +28,12 @@ class PoucouAPI {
     
     init() {
         self.service = NetworkService()
+        do {
+            self.realm = try Realm()
+        } catch {
+            try? FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+            self.realm = try! Realm()
+        }
     }
     
     func initRealm(callBack: @escaping(Bool) -> Void) {

@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Merchant: Object {
+class Merchant: BaseObject {
     var identifier: ObjectId = ObjectId()
     var createdDate: Date = Date()
     var userId: ObjectId = ObjectId()

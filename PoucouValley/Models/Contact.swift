@@ -8,13 +8,13 @@
 import Foundation
 import RealmSwift
 
-class Contact: EmbeddedObject {
-    @objc dynamic var phoneAreaCode: String?
-    @objc dynamic var phoneNumber: String?
-    @objc dynamic var website: String?
-    @objc dynamic var twitter: String?
-    @objc dynamic var facebook: String?
-    @objc dynamic var instagram: String?
+class Contact: BaseEmbeddedObject {
+    var phoneAreaCode: String?
+    var phoneNumber: String?
+    var website: String?
+    var twitter: String?
+    var facebook: String?
+    var instagram: String?
     
     convenience init(document: Document) {
         self.init()

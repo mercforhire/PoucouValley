@@ -8,9 +8,9 @@
 import Foundation
 import RealmSwift
 
-class PVPhoto: EmbeddedObject {
-    @objc dynamic var thumbnameUrl: String = ""
-    @objc dynamic var fullUrl: String = ""
+class PVPhoto: BaseEmbeddedObject {
+    var thumbnameUrl: String = ""
+    var fullUrl: String = ""
     
     convenience init(document: Document) {
         self.init()

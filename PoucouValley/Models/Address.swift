@@ -8,14 +8,14 @@
 import Foundation
 import RealmSwift
 
-class Address: EmbeddedObject {
-    @objc dynamic var unitNumber: String?
-    @objc dynamic var streetNumber: String?
-    @objc dynamic var street: String?
-    @objc dynamic var city: String?
-    @objc dynamic var province: String?
-    @objc dynamic var country: String?
-    @objc dynamic var postalCode: String?
+class Address: BaseEmbeddedObject {
+    var unitNumber: String?
+    var streetNumber: String?
+    var street: String?
+    var city: String?
+    var province: String?
+    var country: String?
+    var postalCode: String?
     
     convenience init(document: Document) {
         self.init()
