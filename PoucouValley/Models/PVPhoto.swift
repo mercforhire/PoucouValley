@@ -9,12 +9,12 @@ import Foundation
 import RealmSwift
 
 class PVPhoto: EmbeddedObject {
-    var thumbnameUrl: String
-    var fullUrl: String
+    @objc dynamic var thumbnameUrl: String = ""
+    @objc dynamic var fullUrl: String = ""
     
-    init(document: Document) {
+    convenience init(document: Document) {
+        self.init()
         self.thumbnameUrl = document["thumbnameUrl"]!!.stringValue!
         self.fullUrl = document["fullUrl"]!!.stringValue!
-        super.init()
     }
 }

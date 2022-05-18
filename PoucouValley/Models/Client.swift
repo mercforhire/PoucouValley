@@ -9,9 +9,9 @@ import Foundation
 import RealmSwift
 
 class Client: Object {
-    var identifier: ObjectId
-    var createdDate: Date
-    var ownerId: ObjectId
+    var identifier: ObjectId = ObjectId()
+    var createdDate: Date = Date()
+    var ownerId: ObjectId = ObjectId()
     var cardholderUserId: ObjectId?
     var firstName: String?
     var lastName: String?
@@ -26,11 +26,11 @@ class Client: Object {
     var hashtags: List<String> = List()
     var notes: String?
     
-    init(document: Document) {
+    convenience init(document: Document) {
+        self.init()
         self.identifier = document["_id"]!!.objectIdValue!
         self.createdDate = document["createdDate"]!!.dateValue!
         self.ownerId = document["ownerId"]!!.objectIdValue!
-        super.init()
         self.cardholderUserId = document["cardholderUserId"]??.objectIdValue
         self.firstName = document["firstName"]??.stringValue
         self.lastName = document["lastName"]??.stringValue

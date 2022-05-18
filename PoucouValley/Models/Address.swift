@@ -9,16 +9,16 @@ import Foundation
 import RealmSwift
 
 class Address: EmbeddedObject {
-    var unitNumber: String?
-    var streetNumber: String?
-    var street: String?
-    var city: String?
-    var province: String?
-    var country: String?
-    var postalCode: String?
+    @objc dynamic var unitNumber: String?
+    @objc dynamic var streetNumber: String?
+    @objc dynamic var street: String?
+    @objc dynamic var city: String?
+    @objc dynamic var province: String?
+    @objc dynamic var country: String?
+    @objc dynamic var postalCode: String?
     
-    init(document: Document) {
-        super.init()
+    convenience init(document: Document) {
+        self.init()
         self.unitNumber = document["unitNumber"]??.stringValue
         self.streetNumber = document["streetNumber"]??.stringValue
         self.street = document["street"]??.stringValue

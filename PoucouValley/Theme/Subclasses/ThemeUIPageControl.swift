@@ -1,14 +1,21 @@
 //
-//  ThemeSecondaryButton.swift
-//  crm-finixlab
+//  ThemeUIPageControl.swift
+//  PoucouValley
 //
-//  Created by Leon Chen on 2021-07-10.
+//  Created by Leon Chen on 2022-05-17.
 //
 
 import UIKit
 
-class ThemeSecondaryButton: UIButton {
+class ThemeUIPageControl: UIPageControl {
+
     private var observer: NSObjectProtocol?
+    
+    var cornerStyle: RoundCornerStyle = .small {
+        didSet {
+            roundCorners(style: cornerStyle)
+        }
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,15 +33,8 @@ class ThemeSecondaryButton: UIButton {
     }
     
     func setupUI() {
-        guard let theme = themeManager.themeData?.secondaryButtonTheme else { return }
-        
-        backgroundColor = UIColor.fromRGBString(rgbString: theme.backgroundColor)
-        if let borderColor = UIColor.fromRGBString(rgbString: theme.borderColor ?? "") {
-            addBorder(color: borderColor)
-        }
-        titleLabel?.font = theme.font.toFont()
-        setTitleColor(UIColor.fromRGBString(rgbString: theme.textColor), for: .normal)
-        roundCorners()
+        pageIndicatorTintColor = themeManager.themeData!.lighterGreen.hexColor
+        currentPageIndicatorTintColor = themeManager.themeData!.darkerGreen.hexColor
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
@@ -44,10 +44,11 @@ class ThemeSecondaryButton: UIButton {
             }
         }
     }
-
+    
     deinit {
         if observer != nil {
             NotificationCenter.default.removeObserver(observer!)
         }
     }
+
 }

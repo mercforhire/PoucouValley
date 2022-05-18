@@ -10,6 +10,10 @@ import Alamofire
 import RealmSwift
 import Realm
 
+enum RealmError: Error {
+    case decodingError
+}
+
 class PoucouAPI {
     static let shared = PoucouAPI()
     
@@ -184,18 +188,22 @@ class PoucouAPI {
         }
     }
     
-    func fetchGetStartedSteps(callBack: @escaping(GetStartedStepsResponse?) -> Void) {
+    func fetchGetStartedSteps(callBack: @escaping(Result<GetStartedStepsResponse, Error>) -> Void) {
         user.functions.api_fetchGetStartedSteps([]) { response, error in
-            guard error == nil else {
-                print("Function call failed: \(error!.localizedDescription)")
-                return
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchGetStartedSteps' and got result: \(document)")
+                callBack(.success(GetStartedStepsResponse(document: document)))
             }
-            guard case let .document(document) = response else {
-                print("Unexpected non-string result: \(response ?? "nil")")
-                return
-            }
-            print("Called function 'api_fetchGetStartedSteps' and got result: \(document)")
-            callBack(GetStartedStepsResponse(document: document))
         }
     }
     

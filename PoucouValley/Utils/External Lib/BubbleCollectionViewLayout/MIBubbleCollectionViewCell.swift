@@ -21,13 +21,13 @@ class MIBubbleCollectionViewCell: UICollectionViewCell {
     }
     
     func highlight(bgColor: UIColor = UIColor.systemIndigo) {
-        contentView.backgroundColor = themeManager.themeData!.primaryButtonTheme.backgroundColor.hexColor
+        contentView.backgroundColor = themeManager.themeData!.darkerGreen.hexColor
         lblTitle.textColor = .white
         
     }
     
     func unhighlight(bgColor: UIColor = UIColor.white) {
-        contentView.backgroundColor = themeManager.themeData!.textFieldTheme.backgroundColor.hexColor
-        lblTitle.textColor = themeManager.themeData!.importantLabelTheme.textColor.hexColor
+        contentView.backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        lblTitle.textColor = themeManager.themeData!.textLabel.hexColor
     }
 }

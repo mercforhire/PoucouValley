@@ -26,7 +26,7 @@ extension UIViewController {
     func addNavLogo() {
         let container = UIView()
         let imageView = UIImageView(image: UIImage(named: "navLogo"))
-        imageView.tintColor = themeManager.themeData!.primaryButtonTheme.backgroundColor.hexColor
+        imageView.tintColor = themeManager.themeData!.darkerGreen.hexColor
         imageView.contentMode = .scaleAspectFit
         imageView.frame = container.bounds
         container.addSubview(imageView)

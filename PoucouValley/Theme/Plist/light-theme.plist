@@ -18,6 +18,10 @@
 	<string>#a2dea4</string>
 	<key>steel</key>
 	<string>#858597</string>
+	<key>lightGray</key>
+	<string>#b2b2b2</string>
+	<key>softGreen</key>
+	<string>#7ad87d</string>
 	<key>TabBar</key>
 	<dict>
 		<key>selectedColor</key>
@@ -42,7 +46,7 @@
 			<key>size</key>
 			<integer>17</integer>
 			<key>font</key>
-			<string>SFUIDisplay</string>
+			<string>Poppins</string>
 		</dict>
 		<key>BarButton</key>
 		<dict>
@@ -53,7 +57,7 @@
 				<key>size</key>
 				<integer>17</integer>
 				<key>font</key>
-				<string>SFUIDisplay</string>
+				<string>Poppins</string>
 			</dict>
 			<key>textColor</key>
 			<string>#000000</string>

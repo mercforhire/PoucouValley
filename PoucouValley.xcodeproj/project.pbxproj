@@ -27,6 +27,14 @@
 		72707C1B2832BE28004F3C3C /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C1A2832BE28004F3C3C /* Merchant.swift */; };
 		72707C1D2832E90B004F3C3C /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C1C2832E90B004F3C3C /* Client.swift */; };
 		72707C1F2832F2FD004F3C3C /* SetupProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72707C1E2832F2FD004F3C3C /* SetupProfile.storyboard */; };
+		72707C232834874C004F3C3C /* LoginHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C222834874C004F3C3C /* LoginHomeViewController.swift */; };
+		72707C2528349560004F3C3C /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C2428349560004F3C3C /* ThemeButton.swift */; };
+		72707C2728349568004F3C3C /* ThemeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C2628349568004F3C3C /* ThemeLabel.swift */; };
+		72707C292834998A004F3C3C /* ThemeUIPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C282834998A004F3C3C /* ThemeUIPageControl.swift */; };
+		72707C2B2834A108004F3C3C /* FullScreenSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C2A2834A108004F3C3C /* FullScreenSpinner.swift */; };
+		72707C2D2834A116004F3C3C /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C2C2834A116004F3C3C /* SpinnerView.swift */; };
+		72707C2F2834A11B004F3C3C /* LottieWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C2E2834A11B004F3C3C /* LottieWrapper.swift */; };
+		72707C322834A140004F3C3C /* paperplane.json in Resources */ = {isa = PBXBuildFile; fileRef = 72707C312834A140004F3C3C /* paperplane.json */; };
 		7297E5302747173600F6F33B /* StoriesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */; };
 		7297E5312747173600F6F33B /* StoriesCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */; };
 		7297E53327471DE000F6F33B /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */; };
@@ -115,16 +123,11 @@
 		72B2FBBA273CBF9300382C12 /* ThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBB8273CBF9300382C12 /* ThemeData.swift */; };
 		72B2FBBB273CBF9300382C12 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBB9273CBF9300382C12 /* ThemeManager.swift */; };
 		72B2FBBD273CC00900382C12 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBBC273CC00900382C12 /* UIColor+Extension.swift */; };
-		72B2FBCD273CC34200382C12 /* ThemeSecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBBE273CC34100382C12 /* ThemeSecondaryButton.swift */; };
 		72B2FBCE273CC34200382C12 /* ThemeSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBBF273CC34100382C12 /* ThemeSearchBar.swift */; };
 		72B2FBCF273CC34200382C12 /* ThemeBorderRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBC0273CC34100382C12 /* ThemeBorderRoundView.swift */; };
-		72B2FBD1273CC34200382C12 /* ThemeLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBC2273CC34100382C12 /* ThemeLabelButton.swift */; };
-		72B2FBD3273CC34200382C12 /* ThemeDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBC4273CC34100382C12 /* ThemeDeleteButton.swift */; };
-		72B2FBD4273CC34200382C12 /* ThemeSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBC5273CC34100382C12 /* ThemeSubmitButton.swift */; };
 		72B2FBD6273CC34200382C12 /* ThemeBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBC7273CC34200382C12 /* ThemeBarButton.swift */; };
 		72B2FBD7273CC34200382C12 /* ThemeBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBC8273CC34200382C12 /* ThemeBorderView.swift */; };
 		72B2FBD8273CC34200382C12 /* ThemeTextFieldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBC9273CC34200382C12 /* ThemeTextFieldLabel.swift */; };
-		72B2FBD9273CC34200382C12 /* ThemeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBCA273CC34200382C12 /* ThemeScrollView.swift */; };
 		72B2FBDA273CC34200382C12 /* ThemeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBCB273CC34200382C12 /* ThemeTextField.swift */; };
 		72B2FBDB273CC34200382C12 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBCC273CC34200382C12 /* ThemeView.swift */; };
 		72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDC273CC47200382C12 /* PaddedTextField.swift */; };
@@ -165,6 +168,14 @@
 		72707C1A2832BE28004F3C3C /* Merchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
 		72707C1C2832E90B004F3C3C /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		72707C1E2832F2FD004F3C3C /* SetupProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SetupProfile.storyboard; sourceTree = "<group>"; };
+		72707C222834874C004F3C3C /* LoginHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHomeViewController.swift; sourceTree = "<group>"; };
+		72707C2428349560004F3C3C /* ThemeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
+		72707C2628349568004F3C3C /* ThemeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeLabel.swift; sourceTree = "<group>"; };
+		72707C282834998A004F3C3C /* ThemeUIPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUIPageControl.swift; sourceTree = "<group>"; };
+		72707C2A2834A108004F3C3C /* FullScreenSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenSpinner.swift; sourceTree = "<group>"; };
+		72707C2C2834A116004F3C3C /* SpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		72707C2E2834A11B004F3C3C /* LottieWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieWrapper.swift; sourceTree = "<group>"; };
+		72707C312834A140004F3C3C /* paperplane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paperplane.json; sourceTree = "<group>"; };
 		7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCollectionReusableView.swift; sourceTree = "<group>"; };
 		7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoriesCollectionReusableView.xib; sourceTree = "<group>"; };
 		7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -255,16 +266,11 @@
 		72B2FBB8273CBF9300382C12 /* ThemeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
 		72B2FBB9273CBF9300382C12 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		72B2FBBC273CC00900382C12 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		72B2FBBE273CC34100382C12 /* ThemeSecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSecondaryButton.swift; sourceTree = "<group>"; };
 		72B2FBBF273CC34100382C12 /* ThemeSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSearchBar.swift; sourceTree = "<group>"; };
 		72B2FBC0273CC34100382C12 /* ThemeBorderRoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeBorderRoundView.swift; sourceTree = "<group>"; };
-		72B2FBC2273CC34100382C12 /* ThemeLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeLabelButton.swift; sourceTree = "<group>"; };
-		72B2FBC4273CC34100382C12 /* ThemeDeleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeDeleteButton.swift; sourceTree = "<group>"; };
-		72B2FBC5273CC34100382C12 /* ThemeSubmitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSubmitButton.swift; sourceTree = "<group>"; };
 		72B2FBC7273CC34200382C12 /* ThemeBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeBarButton.swift; sourceTree = "<group>"; };
 		72B2FBC8273CC34200382C12 /* ThemeBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeBorderView.swift; sourceTree = "<group>"; };
 		72B2FBC9273CC34200382C12 /* ThemeTextFieldLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTextFieldLabel.swift; sourceTree = "<group>"; };
-		72B2FBCA273CC34200382C12 /* ThemeScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeScrollView.swift; sourceTree = "<group>"; };
 		72B2FBCB273CC34200382C12 /* ThemeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTextField.swift; sourceTree = "<group>"; };
 		72B2FBCC273CC34200382C12 /* ThemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		72B2FBDC273CC47200382C12 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
@@ -307,7 +313,6 @@
 		72707C002830ACB2004F3C3C /* Get Started */ = {
 			isa = PBXGroup;
 			children = (
-				72707C032830ACFE004F3C3C /* GetStartedCell.swift */,
 				72707C012830ACD7004F3C3C /* GetStartedViewController.swift */,
 			);
 			path = "Get Started";
@@ -325,8 +330,24 @@
 		72707C202832F9A4004F3C3C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				72707C222834874C004F3C3C /* LoginHomeViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		72707C21283486E7004F3C3C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		72707C302834A140004F3C3C /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				72707C312834A140004F3C3C /* paperplane.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		72AC00A12736F27700B452BE = {
@@ -383,6 +404,9 @@
 		72AC00C42737290B00B452BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				72707C2A2834A108004F3C3C /* FullScreenSpinner.swift */,
+				72707C2C2834A116004F3C3C /* SpinnerView.swift */,
+				72707C2E2834A11B004F3C3C /* LottieWrapper.swift */,
 				72C7A75B273F0ED500636346 /* Search screen cells */,
 				72B2FB88273C657D00382C12 /* ProfileDetailsHeader.swift */,
 				72B2FB87273C657D00382C12 /* ProfileDetailsHeader.xib */,
@@ -392,6 +416,7 @@
 				72B2FBB2273CAA2000382C12 /* GiftTableViewCell.swift */,
 				7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */,
 				7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */,
+				72707C032830ACFE004F3C3C /* GetStartedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +424,7 @@
 		72AC00C7273729F500B452BE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				72707C21283486E7004F3C3C /* New Group */,
 				72AC00CD27373C1E00B452BE /* Base */,
 				72707C002830ACB2004F3C3C /* Get Started */,
 				72AC00CA27373B8300B452BE /* Home */,
@@ -473,6 +499,7 @@
 		72AC011F2737917D00B452BE /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				72707C302834A140004F3C3C /* Lottie */,
 				72B2FBB7273CBF9300382C12 /* Class */,
 				72AC01202737917D00B452BE /* Plist */,
 				72AC01232737917D00B452BE /* Subclasses */,
@@ -493,18 +520,16 @@
 		72AC01232737917D00B452BE /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				72707C2628349568004F3C3C /* ThemeLabel.swift */,
 				72B2FBC7273CC34200382C12 /* ThemeBarButton.swift */,
 				72B2FBC0273CC34100382C12 /* ThemeBorderRoundView.swift */,
 				72B2FBC8273CC34200382C12 /* ThemeBorderView.swift */,
-				72B2FBC4273CC34100382C12 /* ThemeDeleteButton.swift */,
-				72B2FBC2273CC34100382C12 /* ThemeLabelButton.swift */,
-				72B2FBCA273CC34200382C12 /* ThemeScrollView.swift */,
+				72707C2428349560004F3C3C /* ThemeButton.swift */,
 				72B2FBBF273CC34100382C12 /* ThemeSearchBar.swift */,
-				72B2FBBE273CC34100382C12 /* ThemeSecondaryButton.swift */,
-				72B2FBC5273CC34100382C12 /* ThemeSubmitButton.swift */,
 				72B2FBCB273CC34200382C12 /* ThemeTextField.swift */,
 				72B2FBC9273CC34200382C12 /* ThemeTextFieldLabel.swift */,
 				72B2FBCC273CC34200382C12 /* ThemeView.swift */,
+				72707C282834998A004F3C3C /* ThemeUIPageControl.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -766,6 +791,7 @@
 				72B2FBA7273C6CA000382C12 /* Poppins-ExtraBold.ttf in Resources */,
 				72B2FBAB273C6CA000382C12 /* Poppins-LightItalic.ttf in Resources */,
 				72AC00C32737045800B452BE /* Home.storyboard in Resources */,
+				72707C322834A140004F3C3C /* paperplane.json in Resources */,
 				72B2FBB0273C6CA000382C12 /* Poppins-Italic.ttf in Resources */,
 				72B2FBAF273C6CA000382C12 /* Poppins-SemiBold.ttf in Resources */,
 				72B2FBA8273C6CA000382C12 /* Poppins-BlackItalic.ttf in Resources */,
@@ -838,26 +864,32 @@
 				72AC01B72738A80B00B452BE /* MIMainViewController.swift in Sources */,
 				72AC010A27378FFA00B452BE /* PHAsset+Extensions.swift in Sources */,
 				72AC01B62738A80B00B452BE /* MIBubbleCollectionViewCell.swift in Sources */,
+				72707C2D2834A116004F3C3C /* SpinnerView.swift in Sources */,
 				72B2FBBD273CC00900382C12 /* UIColor+Extension.swift in Sources */,
 				72AC010927378FFA00B452BE /* DateFormatter+Extensions.swift in Sources */,
+				72707C292834998A004F3C3C /* ThemeUIPageControl.swift in Sources */,
+				72707C2528349560004F3C3C /* ThemeButton.swift in Sources */,
 				72AC010B27378FFA00B452BE /* String+Extensions.swift in Sources */,
 				72C7A765273F3E3E00636346 /* SearchDealCell.swift in Sources */,
 				72707C112832149C004F3C3C /* PVPhoto.swift in Sources */,
 				72B2FBCF273CC34200382C12 /* ThemeBorderRoundView.swift in Sources */,
 				72AC01B42738A80B00B452BE /* LoremSwiftum.swift in Sources */,
+				72707C2728349568004F3C3C /* ThemeLabel.swift in Sources */,
 				7297E5302747173600F6F33B /* StoriesCollectionReusableView.swift in Sources */,
 				72AC00C62737294000B452BE /* FollowCollectionViewCell.swift in Sources */,
 				72AC011E27378FFA00B452BE /* UICollectionView+Extensions.swift in Sources */,
 				72AC01B22738A80B00B452BE /* DelayedSearchTimer.swift in Sources */,
 				72AC01BC2738A80B00B452BE /* TimeAgo.swift in Sources */,
 				72AC01562738689C00B452BE /* PoucouAPI.swift in Sources */,
-				72B2FBD1273CC34200382C12 /* ThemeLabelButton.swift in Sources */,
+				72707C232834874C004F3C3C /* LoginHomeViewController.swift in Sources */,
 				72AC01B02738A80B00B452BE /* KeyBoardController.swift in Sources */,
 				72AC011A27378FFA00B452BE /* UIScrollView+Extensions.swift in Sources */,
 				72B2FB8A273C657D00382C12 /* ProfileDetailsHeader.swift in Sources */,
 				72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */,
 				72707C15283217C7004F3C3C /* Address.swift in Sources */,
+				72707C2F2834A11B004F3C3C /* LottieWrapper.swift in Sources */,
 				72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */,
+				72707C2B2834A108004F3C3C /* FullScreenSpinner.swift in Sources */,
 				72AC01572738689C00B452BE /* NetworkService.swift in Sources */,
 				72AC011B27378FFA00B452BE /* Date+Extensions.swift in Sources */,
 				72AC011627378FFA00B452BE /* UITableView+Extensions.swift in Sources */,
@@ -872,7 +904,6 @@
 				72C7A767273F3F7000636346 /* SearchStoresCell.swift in Sources */,
 				72AC019E27389DD500B452BE /* HomeShopViewController.swift in Sources */,
 				72C7A7712741D1C800636346 /* SearchSectionHeaderView.swift in Sources */,
-				72B2FBD4273CC34200382C12 /* ThemeSubmitButton.swift in Sources */,
 				72AC01B92738A80B00B452BE /* RPicker.swift in Sources */,
 				72AC011927378FFA00B452BE /* UIProgressView+Extensions.swift in Sources */,
 				72C7A763273F3DBA00636346 /* SearchDealsCell.swift in Sources */,
@@ -885,13 +916,11 @@
 				72AC01C02739F46400B452BE /* StoryCollectionViewCell.swift in Sources */,
 				72AC01B12738A80B00B452BE /* DateUtil.swift in Sources */,
 				72C7A75D273F0F0E00636346 /* SearchHistoryCell.swift in Sources */,
-				72B2FBCD273CC34200382C12 /* ThemeSecondaryButton.swift in Sources */,
 				72707C1728321975004F3C3C /* Birthday.swift in Sources */,
 				72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */,
 				72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */,
 				72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */,
 				72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */,
-				72B2FBD9273CC34200382C12 /* ThemeScrollView.swift in Sources */,
 				72AC011D27378FFA00B452BE /* Double+Extensions.swift in Sources */,
 				72AC011427378FFA00B452BE /* UIWindow+Extensions.swift in Sources */,
 				72B2FBB6273CAB2000382C12 /* MyProfileViewController.swift in Sources */,
@@ -911,7 +940,6 @@
 				72C7A769273F425800636346 /* SearchHistoriesCell.swift in Sources */,
 				72707C192832BDC7004F3C3C /* UserDetails.swift in Sources */,
 				7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */,
-				72B2FBD3273CC34200382C12 /* ThemeDeleteButton.swift in Sources */,
 				72AC011027378FFA00B452BE /* UIViewController+Extension.swift in Sources */,
 				72707C132832170F004F3C3C /* Contact.swift in Sources */,
 				72AC01BA2738A80B00B452BE /* ExtendedLabel.swift in Sources */,

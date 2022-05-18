@@ -9,11 +9,12 @@ import Foundation
 import RealmSwift
 
 class GetStartedStepsResponse: Object {
-    var success: Bool
-    var message: String
-    var data: List<GetStartedSteps>?
+    @objc dynamic var success: Bool = false
+    @objc dynamic var message: String = ""
+    var data: List<GetStartedSteps> = List()
     
-    init(document: Document) {
+    convenience init(document: Document) {
+        self.init()
         self.success = document["success"]!!.boolValue!
         self.message = document["message"]!!.stringValue!
         if let steps = document["data"]??.arrayValue {
@@ -23,7 +24,6 @@ class GetStartedStepsResponse: Object {
             }
             self.data = data
         }
-        super.init()
     }
 }
 

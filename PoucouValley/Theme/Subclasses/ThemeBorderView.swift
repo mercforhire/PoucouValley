@@ -27,7 +27,7 @@ class ThemeBorderView: UIView {
     }
     
     func setupUI() {
-        guard let borderColor = themeManager.themeData?.textFieldTheme.borderColor else { return }
+        guard let borderColor = themeManager.themeData?.steel else { return }
         
         backgroundColor = UIColor.fromRGBString(rgbString: borderColor)
         
@@ -66,7 +66,7 @@ class ThemeTransparentBorderView: UIView {
     }
     
     func setupUI() {
-        guard let borderColor = themeManager.themeData?.viewColor else { return }
+        guard let borderColor = themeManager.themeData?.steel else { return }
         
         backgroundColor = UIColor.fromRGBString(rgbString: borderColor)
         

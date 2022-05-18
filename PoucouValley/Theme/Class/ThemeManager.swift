@@ -64,8 +64,8 @@ public class ThemeManager {
     }
     
     init() {
-        theme = .light
-        themeData = ThemeData(dict: loadPlist(plist: "light-theme")!)
+        theme = UIScreen.main.traitCollection.userInterfaceStyle == .light ? .light : .dark
+        themeData = UIScreen.main.traitCollection.userInterfaceStyle == .light ? ThemeData(dict: loadPlist(plist: "light-theme")!) : ThemeData(dict: loadPlist(plist: "dark-theme")!)
         apply()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleModeChanged),
@@ -76,53 +76,23 @@ public class ThemeManager {
     private func apply() {
         guard let themeData = themeData else { return }
         
-        if #available(iOS 15.0, *) {
-            let tabAppearance = UITabBarAppearance()
-            tabAppearance.configureWithOpaqueBackground()
-            tabAppearance.backgroundColor = UIColor.fromRGBString(rgbString: themeData.viewColor)
-            tabAppearance.selectionIndicatorTintColor = UIColor.fromRGBString(rgbString: themeData.tabBarTheme.selectedColor)
-            ThemeManager.updateTabBarItemAppearance(appearance: tabAppearance.compactInlineLayoutAppearance)
-            ThemeManager.updateTabBarItemAppearance(appearance: tabAppearance.inlineLayoutAppearance)
-            ThemeManager.updateTabBarItemAppearance(appearance: tabAppearance.stackedLayoutAppearance)
-            UITabBar.appearance().standardAppearance = tabAppearance
-            UITabBar.appearance().scrollEdgeAppearance = tabAppearance
-            UITabBar.appearance().barStyle = barStyle
-            
-            let navAppearance = UINavigationBarAppearance()
-            navAppearance.configureWithOpaqueBackground()
-            navAppearance.backgroundColor = UIColor.fromRGBString(rgbString: themeData.navBarTheme.backgroundColor)
-            navAppearance.titleTextAttributes = [.foregroundColor: UIColor.fromRGBString(rgbString: themeData.navBarTheme.textColor)!,
-                                                 .font: themeData.navBarTheme.font.toFont()!]
-            UINavigationBar.appearance().standardAppearance = navAppearance
-            UINavigationBar.appearance().standardAppearance = navAppearance
-            UINavigationBar.appearance().barStyle = barStyle
-        } else {
-            UITabBar.appearance().barTintColor = UIColor.fromRGBString(rgbString: themeData.viewColor)
-            UITabBar.appearance().barStyle = barStyle
-            UITabBar.appearance().unselectedItemTintColor = UIColor.fromRGBString(rgbString: themeData.tabBarTheme.unSelectedColor)
-            UITabBar.appearance().tintColor = UIColor.fromRGBString(rgbString: themeData.tabBarTheme.selectedColor)
-            
-            UINavigationBar.appearance().barStyle = barStyle
-            UINavigationBar.appearance().barTintColor = UIColor.fromRGBString(rgbString: themeData.navBarTheme.backgroundColor)
-            UINavigationBar.appearance().titleTextAttributes =
-                [.foregroundColor: UIColor.fromRGBString(rgbString: themeData.navBarTheme.textColor)!,
-                 .font: themeData.navBarTheme.font.toFont()!]
-            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            UINavigationBar.appearance().shadowImage = UIImage()
-        }
-    }
-    
-    @available(iOS 15.0, *)
-    static func updateTabBarItemAppearance(appearance: UITabBarItemAppearance) {
-        guard let themeData = ThemeManager.shared.themeData else { return }
+        UITabBar.appearance().barTintColor = themeData.whiteBackground.hexColor
+        UITabBar.appearance().barStyle = barStyle
+        UITabBar.appearance().unselectedItemTintColor = themeData.tabBarTheme.unSelectedColor.hexColor
+        UITabBar.appearance().backgroundColor = themeData.whiteBackground.hexColor
         
-        let tintColor: UIColor = UIColor.fromRGBString(rgbString: themeData.tabBarTheme.selectedColor)!
-        let unselectedItemTintColor: UIColor = UIColor.fromRGBString(rgbString: themeData.tabBarTheme.unSelectedColor)!
-        
-        appearance.selected.iconColor = tintColor
-        appearance.selected.titleTextAttributes = [.foregroundColor: tintColor]
-        appearance.normal.iconColor = unselectedItemTintColor
-        appearance.normal.titleTextAttributes = [.foregroundColor: unselectedItemTintColor]
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = themeData.whiteBackground.hexColor
+        appearance.titleTextAttributes = [.foregroundColor: themeData.navBarTheme.textColor.hexColor,
+                                          .font: themeData.navBarTheme.font.toFont()!]
+        appearance.shadowImage = UIImage()
+        appearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().tintColor = themeData.whiteBackground.hexColor
+        UINavigationBar.appearance().shadowImage = UIImage()
     }
     
     private func loadPlist(plist: String) -> [String: Any]? {
@@ -153,7 +123,12 @@ public class ThemeManager {
     }
     
     @objc func handleModeChanged() {
-        if UITraitCollection.current.userInterfaceStyle == .dark {
+        guard theme == .dark && UIScreen.main.traitCollection.userInterfaceStyle == .light ||
+                theme == .light && UIScreen.main.traitCollection.userInterfaceStyle == .dark else {
+            return
+        }
+        
+        if UIScreen.main.traitCollection.userInterfaceStyle == .dark {
             setDarkTheme()
         } else {
             setLightTheme()

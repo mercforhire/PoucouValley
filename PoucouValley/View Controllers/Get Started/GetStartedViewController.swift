@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import RealmSwift
 
 class GetStartedViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,23 +33,41 @@ class GetStartedViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = true
         page = 0
         
-        api.fetchGetStartedSteps { res in
-        }
+        
     }
     
     override func setupTheme() {
         super.setupTheme()
         
-//        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadData()
+        
         if appSettings.isGetStartedViewed() {
+            showErrorDialog(error: "Go to Home screen")
 //            let vc = StoryboardManager.loadViewController(storyboard: "Login", viewControllerId: "LoginStep1ViewController") as! LoginStep1ViewController
 //            navigationController?.pushViewController(vc, animated: false)
+        }
+    }
+    
+    func loadData() {
+        FullScreenSpinner().show()
+        
+        api.fetchGetStartedSteps { [weak self] result in
+            FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let result):
+                self?.steps = Array(result.data)
+                self?.collectionView.reloadData()
+            case .failure(let error):
+                showNetworkErrorDialog()
+            }
         }
     }
     
@@ -60,6 +79,7 @@ class GetStartedViewController: BaseViewController {
     @IBAction func nextPressed(_ sender: UIButton) {
         if page == (steps.count - 1) {
             appSettings.setGetStartedViewed(viewed: true)
+            showErrorDialog(error: "Go to Home screen")
 //            performSegue(withIdentifier: "goToLogin", sender: self)
         } else {
             page = page + 1

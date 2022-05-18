@@ -27,14 +27,13 @@ class ThemeTextField: PaddedTextField {
     }
     
     func setupUI(overrideSize: CGFloat? = nil, insets: UIEdgeInsets? = nil) {
-        guard let theme = themeManager.themeData?.textFieldTheme else { return }
+        guard let theme = themeManager.themeData else { return }
         
         self.insets = insets ?? self.insets
         borderStyle = .none
-        backgroundColor = UIColor.fromRGBString(rgbString: theme.backgroundColor)
-        addBorder(color: UIColor.fromRGBString(rgbString: theme.borderColor!)!)
-        textColor = UIColor.fromRGBString(rgbString: theme.textColor)
-        font = theme.font.toFont(overrideSize: overrideSize)
+        backgroundColor = theme.whiteBackground.hexColor
+        addBorder(color: theme.steel.hexColor)
+        textColor = theme.textLabel.hexColor
         textInsets = self.insets ?? UIEdgeInsets(top: 13, left: 15, bottom: 13, right: 15)
         roundCorners()
         

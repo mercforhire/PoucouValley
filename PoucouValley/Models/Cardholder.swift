@@ -9,20 +9,21 @@ import Foundation
 import RealmSwift
 
 class Cardholder: Object {
-    var identifier: ObjectId
-    var createdDate: Date
-    var userId: ObjectId
-    var card: String?
-    var firstName: String?
-    var lastName: String?
-    var pronoun: String?
-    var gender: String?
-    var birthday: Birthday?
-    var address: Address?
-    var contact: Contact?
-    var avatar: PVPhoto?
+    var identifier: ObjectId = ObjectId()
+    var createdDate: Date = Date()
+    var userId: ObjectId = ObjectId()
+    @objc dynamic var card: String?
+    @objc dynamic var firstName: String?
+    @objc dynamic var lastName: String?
+    @objc dynamic var pronoun: String?
+    @objc dynamic var gender: String?
+    @objc dynamic var birthday: Birthday?
+    @objc dynamic var address: Address?
+    @objc dynamic var contact: Contact?
+    @objc dynamic var avatar: PVPhoto?
     
-    init(document: Document) {
+    convenience init(document: Document) {
+        self.init()
         self.identifier = document["_id"]!!.objectIdValue!
         self.createdDate = document["createdDate"]!!.dateValue!
         self.userId = document["userId"]!!.objectIdValue!
@@ -43,6 +44,5 @@ class Cardholder: Object {
         if let document = document["avatar"]??.documentValue {
             self.avatar = PVPhoto(document: document)
         }
-        super.init()
     }
 }

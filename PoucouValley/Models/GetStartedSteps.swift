@@ -12,8 +12,9 @@ class GetStartedSteps: Object {
     var step: Int = 0
     var text: List<String> = List()
     
-    init(document: Document) {
-        super.init()
+    convenience init(document: Document) {
+        self.init()
+        
         self.step = document["step"]!!.asInt()!
         let text: List<String> = List()
         for string in document["text"]!!.arrayValue! {

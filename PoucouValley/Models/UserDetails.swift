@@ -9,13 +9,13 @@ import Foundation
 import RealmSwift
 
 class UserDetails: Object {
-    var user: User
-    var cardholder: Cardholder?
-    var merchant: Merchant?
+    @objc dynamic var user: User?
+    @objc dynamic var cardholder: Cardholder?
+    @objc dynamic var merchant: Merchant?
     
-    init(document: Document) {
+    convenience init(document: Document) {
+        self.init()
         self.user = User(document: document["user"]!!.documentValue!)
-        super.init()
         if let document = document["cardholder"]??.documentValue {
             self.cardholder = Cardholder(document: document)
         }

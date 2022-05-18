@@ -9,16 +9,16 @@ import Foundation
 import RealmSwift
 
 class LoginResponse: Object {
-    var success: Bool
-    var message: String?
-    var data: UserDetails?
+    @objc dynamic var success: Bool = false
+    @objc dynamic var message: String?
+    @objc dynamic var data: UserDetails?
     
-    init(document: Document) {
+    convenience init(document: Document) {
+        self.init()
         self.success = document["success"]!!.boolValue!
         self.message = document["message"]!!.stringValue!
         if let data = document["data"]??.documentValue {
             self.data = UserDetails(document: data)
         }
-        super.init()
     }
 }

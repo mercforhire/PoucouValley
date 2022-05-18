@@ -26,10 +26,8 @@ class ThemeBorderRoundView: UIView {
     }
     
     func setupUI() {
-        guard let theme = themeManager.themeData?.textFieldTheme else { return }
-        
-        backgroundColor = UIColor.fromRGBString(rgbString: theme.backgroundColor)
-        addBorder(color: UIColor.fromRGBString(rgbString: theme.borderColor!)!)
+        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        addBorder(color: themeManager.themeData!.steel.hexColor)
         roundCorners()
         
         if observer == nil {

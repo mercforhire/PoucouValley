@@ -18,4 +18,5 @@ target 'PoucouValley' do
   pod 'MercariQRScanner'
   pod 'Valet'
   pod 'Toucan'
+  pod 'lottie-ios'
 end

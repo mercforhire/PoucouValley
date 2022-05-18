@@ -9,15 +9,15 @@ import Foundation
 import RealmSwift
 
 class Contact: EmbeddedObject {
-    var phoneAreaCode: String?
-    var phoneNumber: String?
-    var website: String?
-    var twitter: String?
-    var facebook: String?
-    var instagram: String?
+    @objc dynamic var phoneAreaCode: String?
+    @objc dynamic var phoneNumber: String?
+    @objc dynamic var website: String?
+    @objc dynamic var twitter: String?
+    @objc dynamic var facebook: String?
+    @objc dynamic var instagram: String?
     
-    init(document: Document) {
-        super.init()
+    convenience init(document: Document) {
+        self.init()
         self.phoneAreaCode = document["phoneAreaCode"]??.stringValue
         self.phoneNumber = document["phoneNumber"]??.stringValue
         self.website = document["website"]??.stringValue

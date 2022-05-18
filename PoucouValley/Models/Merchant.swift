@@ -9,9 +9,9 @@ import Foundation
 import RealmSwift
 
 class Merchant: Object {
-    var identifier: ObjectId
-    var createdDate: Date
-    var userId: ObjectId
+    var identifier: ObjectId = ObjectId()
+    var createdDate: Date = Date()
+    var userId: ObjectId = ObjectId()
     var name: String?
     var field: String?
     var logo: PVPhoto?
@@ -20,11 +20,12 @@ class Merchant: Object {
     var photos: List<PVPhoto> = List()
     var cards: List<String> = List()
     
-    init(document: Document) {
+    convenience init(document: Document) {
+        self.init()
+        
         self.identifier = document["_id"]!!.objectIdValue!
         self.createdDate = document["createdDate"]!!.dateValue!
         self.userId = document["userId"]!!.objectIdValue!
-        super.init()
         self.name = document["name"]??.stringValue
         self.field = document["field"]??.stringValue
         if let document = document["logo"]??.documentValue {
