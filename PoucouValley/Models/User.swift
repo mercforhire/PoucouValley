@@ -11,14 +11,14 @@ import RealmSwift
 class User: BaseObject {
     var identifier: ObjectId = ObjectId()
     var email: String = ""
-    var userType: UserTypeMode = .cardholder
+    var userType: UserType = .cardholder
     var apiKey: String = ""
     
     convenience init(document: Document) {
         self.init()
         self.identifier = document["_id"]!!.objectIdValue!
         self.email = document["email"]!!.stringValue!
-        self.userType = UserTypeMode(rawValue: document["userType"]!!.stringValue!) ?? .cardholder
+        self.userType = UserType(rawValue: document["userType"]!!.stringValue!) ?? .cardholder
         self.apiKey = document["apiKey"]!!.stringValue!
     }
 }

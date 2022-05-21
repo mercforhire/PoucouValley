@@ -11,12 +11,19 @@ import RealmSwift
 
 class GetStartedViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: ThemeUIPageControl!
     @IBOutlet weak var nextButton: UIButton!
     
-    private var steps: [GetStartedSteps] = []
+    private var steps: [GetStartedSteps] = [] {
+        didSet {
+            pageControl.numberOfPages = steps.count
+        }
+    }
     private var page: Int = 0 {
         didSet {
             guard !steps.isEmpty else { return }
+            
+            pageControl.currentPage = page
             
             collectionView.scrollToItem(at: IndexPath(row: page, section: 0), at: .left, animated: true)
             
@@ -46,12 +53,10 @@ class GetStartedViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        loadData()
-        
         if appSettings.isGetStartedViewed() {
-            showErrorDialog(error: "Go to Home screen")
-//            let vc = StoryboardManager.loadViewController(storyboard: "Login", viewControllerId: "LoginStep1ViewController") as! LoginStep1ViewController
-//            navigationController?.pushViewController(vc, animated: false)
+            goToNext()
+        } else {
+            loadData()
         }
     }
     
@@ -74,16 +79,21 @@ class GetStartedViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.reloadData()
+        pageControl.transform = CGAffineTransform(scaleX: 2, y: 2)
     }
 
     @IBAction func nextPressed(_ sender: UIButton) {
         if page == (steps.count - 1) {
             appSettings.setGetStartedViewed(viewed: true)
-            showErrorDialog(error: "Go to Home screen")
-//            performSegue(withIdentifier: "goToLogin", sender: self)
+            goToNext()
         } else {
             page = page + 1
         }
+    }
+    
+    private func goToNext() {
+        let vc = StoryboardManager.loadViewController(storyboard: "Login", viewControllerId: "LoginHomeViewController") as! LoginHomeViewController
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
 

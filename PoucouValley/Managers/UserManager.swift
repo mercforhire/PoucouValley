@@ -36,7 +36,7 @@ class UserManager {
         
     }
     
-    func register(email: String, code: String, userType: UserTypeMode, completion: @escaping (Bool) -> Void) {
+    func register(email: String, code: String, userType: UserType, completion: @escaping (Bool) -> Void) {
         
     }
     

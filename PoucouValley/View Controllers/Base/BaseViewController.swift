@@ -14,6 +14,9 @@ class BaseViewController: UIViewController {
     var appSettings: AppSettingsManager {
         return AppSettingsManager.shared
     }
+    var userManager: UserManager {
+        return UserManager.shared
+    }
     
     private var observer: NSObjectProtocol?
    

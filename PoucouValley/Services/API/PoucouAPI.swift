@@ -213,19 +213,171 @@ class PoucouAPI {
         }
     }
     
+    func sendEmailCode(email: String, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        user.functions.api_sendEmailCode([AnyBSON(email)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_sendEmailCode' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
+            }
+        }
+    }
+    
+    func checkLoginEmail(email: String, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
+        user.functions.api_checkLoginEmail([AnyBSON(email)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_checkLoginEmail' and got result: \(document)")
+                callBack(.success(BooleanResponse(document: document)))
+            }
+        }
+    }
+    
+    func checkRegisterEmail(email: String, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        user.functions.api_checkRegisterEmail([AnyBSON(email)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_checkRegisterEmail' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
+            }
+        }
+    }
+    
+    func login(email: String, code: String, callBack: @escaping(Result<LoginResponse, Error>) -> Void) {
+        user.functions.api_login([AnyBSON(email), AnyBSON(code)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_login' and got result: \(document)")
+                callBack(.success(LoginResponse(document: document)))
+            }
+        }
+    }
+    
+    func loginByCard(cardNumber: String, code: String, callBack: @escaping(Result<LoginResponse, Error>) -> Void) {
+        user.functions.api_loginByCard([AnyBSON(cardNumber), AnyBSON(code)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_loginByCard' and got result: \(document)")
+                callBack(.success(LoginResponse(document: document)))
+            }
+        }
+    }
+    
+    func loginByAPIKey(loginKey: String, callBack: @escaping(Result<LoginResponse, Error>) -> Void) {
+        user.functions.api_loginByAPIKey([AnyBSON(loginKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_loginByAPIKey' and got result: \(document)")
+                callBack(.success(LoginResponse(document: document)))
+            }
+        }
+    }
+    
+    func register(email: String, code: String, userType: UserType, callBack: @escaping(Result<LoginResponse, Error>) -> Void) {
+        user.functions.api_register([AnyBSON(email), AnyBSON(code)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_login' and got result: \(document)")
+                callBack(.success(LoginResponse(document: document)))
+            }
+        }
+    }
+    
+    func registerByCard(cardNumber: String, code: String, email: String, callBack: @escaping(Result<LoginResponse, Error>) -> Void) {
+        user.functions.api_registerByCard([AnyBSON(cardNumber), AnyBSON(code), AnyBSON(email)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_registerByCard' and got result: \(document)")
+                callBack(.success(LoginResponse(document: document)))
+            }
+        }
+    }
+    
     func logout(callBack: @escaping(Bool) -> Void) {
         guard let apiKey = apiKey else { return }
         
-        user.functions.api_logOut([AnyBSON(apiKey)]) { apiKey, error in
+        user.functions.api_logOut([AnyBSON(apiKey)]) { response, error in
             guard error == nil else {
                 print("Function call failed: \(error!.localizedDescription)")
                 return
             }
-            guard case let .string(value) = apiKey else {
-                print("Unexpected non-string result: \(apiKey ?? "nil")")
+            guard case let .string(document) = response else {
+                print("Unexpected non-string result: \(response ?? "nil")")
                 return
             }
-            print("Called function 'api_logOut' and got result: \(value)")
+            print("Called function 'api_logOut' and got result: \(document)")
         }
     }
 }

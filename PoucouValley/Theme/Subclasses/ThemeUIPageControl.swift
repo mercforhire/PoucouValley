@@ -33,8 +33,8 @@ class ThemeUIPageControl: UIPageControl {
     }
     
     func setupUI() {
-        pageIndicatorTintColor = themeManager.themeData!.lighterGreen.hexColor
-        currentPageIndicatorTintColor = themeManager.themeData!.darkerGreen.hexColor
+        pageIndicatorTintColor = themeManager.themeData!.softGreen.hexColor
+        currentPageIndicatorTintColor = themeManager.themeData!.lighterGreen.hexColor
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
