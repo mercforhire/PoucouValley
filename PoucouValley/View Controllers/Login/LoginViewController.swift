@@ -87,7 +87,7 @@ class LoginViewController: BaseViewController {
                         self?.selectedEmail = email
                         self?.performSegue(withIdentifier: "goToEnterCode", sender: self)
                     } else {
-                        showErrorDialog(error: "Account with this email doesn't exist.")
+                        showErrorDialog(error: ResponseMessages.userDoesNotExist.errorMessage())
                     }
                 case .failure(let error):
                     showNetworkErrorDialog()

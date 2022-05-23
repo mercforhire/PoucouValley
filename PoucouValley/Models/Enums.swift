@@ -15,6 +15,25 @@ enum ResponseMessages: String, Codable {
     case cardholderNotFound = "CARDHOLDER_NOT_FOUND"
     case cardPinIncorrect = "CARD_PIN_INCORRECT"
     case emailAlreadyExist = "EMAIL_ALREADY_EXIST"
+    
+    func errorMessage() -> String {
+        switch self {
+        case .userDoesNotExist:
+            return "Account with this email doesn't exist."
+        case .validationCodeInvalid:
+            return "Validation code is invalid."
+        case .userAlreadyDeletedAccount:
+            return "Account with this email has been deleted."
+        case .cardholdAlreadyExist:
+            return "Cardhold already exist."
+        case .cardholderNotFound:
+            return "Cardholder not found."
+        case .cardPinIncorrect:
+            return "Card pin is incorrect."
+        case .emailAlreadyExist:
+            return "Account with this email already exist."
+        }
+    }
 }
 
 enum UserType: String, Codable {

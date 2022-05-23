@@ -213,6 +213,25 @@ class PoucouAPI {
         }
     }
     
+    func fetchBusinessTypes(callBack: @escaping(Result<GetBusinessTypesResponse, Error>) -> Void) {
+        user.functions.api_getBusinessTypes([]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getBusinessTypes' and got result: \(document)")
+                callBack(.success(GetBusinessTypesResponse(document: document)))
+            }
+        }
+    }
+    
     func sendEmailCode(email: String, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
         user.functions.api_sendEmailCode([AnyBSON(email)]) { response, error in
             DispatchQueue.main.async {

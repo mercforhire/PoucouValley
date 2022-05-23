@@ -85,7 +85,7 @@ class SignUpViewController: BaseViewController {
                         self?.proceed(email: email)
                     } else {
                         FullScreenSpinner().hide()
-                        showErrorDialog(error: "Account with this email already exist.")
+                        showErrorDialog(error: ResponseMessages.emailAlreadyExist.errorMessage())
                     }
                 case .failure(let error):
                     FullScreenSpinner().hide()

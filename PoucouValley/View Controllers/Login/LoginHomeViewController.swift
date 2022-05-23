@@ -46,12 +46,12 @@ class LoginHomeViewController: BaseViewController {
     
     private func loginUser() {
         FullScreenSpinner().show()
-        userManager.fetchUser(initialize: true) { [weak self] success in
+        userManager.loginUsingApiKey() { [weak self] success in
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
             if success {
-                self.userManager.proceedPassLogin()
+                self.userManager.goToSetupProfile()
             } else {
                 self.userManager.clearSavedInformation()
             }

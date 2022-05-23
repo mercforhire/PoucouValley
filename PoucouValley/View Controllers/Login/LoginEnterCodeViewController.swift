@@ -69,22 +69,11 @@ class LoginEnterCodeViewController: BaseViewController {
         if validate() {
             FullScreenSpinner().show()
             let code = "\(code1Field.text ?? "")\(code2Field.text ?? "")\(code3Field.text ?? "")\(code4Field.text ?? "")"
-            api.login(email: email, code: code) { [weak self] result in
+            userManager.login(email: email, code: code) { [weak self] success in
                 FullScreenSpinner().hide()
                 
-                switch result {
-                case .success(let response):
-                    if response.success {
-                        showErrorDialog(error: response.message ?? "")
-                    } else if response.message == ResponseMessages.validationCodeInvalid.rawValue {
-                        showErrorDialog(error: "Validation code is invalid")
-                    } else if response.message == ResponseMessages.userAlreadyDeletedAccount.rawValue {
-                        showErrorDialog(error: "Already deleted account")
-                    } else {
-                        showErrorDialog(error: "Unknown error")
-                    }
-                case .failure(let error):
-                    showNetworkErrorDialog()
+                if success {
+                    showErrorDialog(error: "GO TO MAIN")
                 }
             }
         }

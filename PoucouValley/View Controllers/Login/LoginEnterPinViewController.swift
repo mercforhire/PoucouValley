@@ -8,6 +8,7 @@
 import UIKit
 
 class LoginEnterPinViewController: BaseViewController {
+    var cardNumber: String!
     var mode: UserType!
     
     @IBOutlet weak var code1Field: ThemeTextField!
@@ -62,7 +63,15 @@ class LoginEnterPinViewController: BaseViewController {
     
     @IBAction func donePressed(_ sender: UIButton) {
         if validate() {
-            performSegue(withIdentifier: "goToEnterCode", sender: self)
+            FullScreenSpinner().show()
+            let code = "\(code1Field.text ?? "")\(code2Field.text ?? "")\(code3Field.text ?? "")"
+            userManager.loginWithCard(cardNumber: cardNumber, code: code) { [weak self] success in
+                FullScreenSpinner().hide()
+                
+                if success {
+                    showErrorDialog(error: "GO TO MAIN")
+                }
+            }
         }
     }
     

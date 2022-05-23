@@ -76,9 +76,9 @@ class SignUpEnterCodeViewController: BaseViewController {
                     if response.success {
                         showErrorDialog(error: response.message ?? "")
                     } else if response.message == ResponseMessages.validationCodeInvalid.rawValue {
-                        showErrorDialog(error: "Invalid validation code.")
+                        showErrorDialog(error: ResponseMessages.validationCodeInvalid.errorMessage())
                     } else if response.message == ResponseMessages.emailAlreadyExist.rawValue {
-                        showErrorDialog(error: "Email already used by another user.")
+                        showErrorDialog(error: ResponseMessages.emailAlreadyExist.errorMessage())
                     } else {
                         showErrorDialog(error: "Unknown error")
                     }

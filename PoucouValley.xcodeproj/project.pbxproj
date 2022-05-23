@@ -151,6 +151,15 @@
 		72C7D3E2283953460066F3CB /* SignUpHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3E1283953460066F3CB /* SignUpHomeViewController.swift */; };
 		72C7D3E428395C560066F3CB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3E328395C560066F3CB /* SignUpViewController.swift */; };
 		72C7D3E628399F560066F3CB /* SignUpEnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3E528399F560066F3CB /* SignUpEnterCodeViewController.swift */; };
+		72C7D3E9283AAC9A0066F3CB /* SetupInitialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3E8283AAC9A0066F3CB /* SetupInitialProfileViewController.swift */; };
+		72C7D3EC283AB7D00066F3CB /* SetupPersonNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3EB283AB7D00066F3CB /* SetupPersonNameCell.swift */; };
+		72C7D3EF283AB7E70066F3CB /* SetupInterestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3EE283AB7E70066F3CB /* SetupInterestsCell.swift */; };
+		72C7D3F1283AB8410066F3CB /* SetupEmailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3F0283AB8410066F3CB /* SetupEmailCell.swift */; };
+		72C7D3F4283AB8850066F3CB /* SetupShopNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3F3283AB8850066F3CB /* SetupShopNameCell.swift */; };
+		72C7D3F6283AB8930066F3CB /* SetupBusinessFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3F5283AB8930066F3CB /* SetupBusinessFieldCell.swift */; };
+		72C7D3F8283AC4640066F3CB /* BusinessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3F7283AC4640066F3CB /* BusinessType.swift */; };
+		72C7D3FA283AC5070066F3CB /* GetBusinessTypesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */; };
+		72C7D3FD283ADBD40066F3CB /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D3FC283ADBD40066F3CB /* ButtonTableCell.swift */; };
 		72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE253E2836B2F90061FB4A /* LoginViewController.swift */; };
 		72EE25412836C6230061FB4A /* LoginEnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -303,6 +312,15 @@
 		72C7D3E1283953460066F3CB /* SignUpHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpHomeViewController.swift; sourceTree = "<group>"; };
 		72C7D3E328395C560066F3CB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		72C7D3E528399F560066F3CB /* SignUpEnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEnterCodeViewController.swift; sourceTree = "<group>"; };
+		72C7D3E8283AAC9A0066F3CB /* SetupInitialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupInitialProfileViewController.swift; sourceTree = "<group>"; };
+		72C7D3EB283AB7D00066F3CB /* SetupPersonNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupPersonNameCell.swift; sourceTree = "<group>"; };
+		72C7D3EE283AB7E70066F3CB /* SetupInterestsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupInterestsCell.swift; sourceTree = "<group>"; };
+		72C7D3F0283AB8410066F3CB /* SetupEmailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEmailCell.swift; sourceTree = "<group>"; };
+		72C7D3F3283AB8850066F3CB /* SetupShopNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupShopNameCell.swift; sourceTree = "<group>"; };
+		72C7D3F5283AB8930066F3CB /* SetupBusinessFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBusinessFieldCell.swift; sourceTree = "<group>"; };
+		72C7D3F7283AC4640066F3CB /* BusinessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessType.swift; sourceTree = "<group>"; };
+		72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusinessTypesResponse.swift; sourceTree = "<group>"; };
+		72C7D3FC283ADBD40066F3CB /* ButtonTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
 		72EE253E2836B2F90061FB4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnterCodeViewController.swift; sourceTree = "<group>"; };
 		A7AEE07A370CA6795249CEB2 /* Pods-PoucouValley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoucouValley.debug.xcconfig"; path = "Target Support Files/Pods-PoucouValley/Pods-PoucouValley.debug.xcconfig"; sourceTree = "<group>"; };
@@ -343,6 +361,7 @@
 				72707C0A28320CF9004F3C3C /* LoginResponse.swift */,
 				72C7D3DB2837FDEF0066F3CB /* BooleanResponse.swift */,
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
+				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -443,6 +462,7 @@
 				7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */,
 				7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */,
 				72707C032830ACFE004F3C3C /* GetStartedCell.swift */,
+				72C7D3FB283ADBBD0066F3CB /* TableView Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,6 +475,7 @@
 				72AC00CA27373B8300B452BE /* Home */,
 				72707C202832F9A4004F3C3C /* Login */,
 				72707C21283486E7004F3C3C /* SignUp */,
+				72C7D3E7283AAC650066F3CB /* Setup Profile */,
 				72B2FBB4273CAB0600382C12 /* Profile */,
 			);
 			path = "View Controllers";
@@ -607,6 +628,7 @@
 				72707C182832BDC7004F3C3C /* UserDetails.swift */,
 				72707C0E2832121E004F3C3C /* Cardholder.swift */,
 				72707C1A2832BE28004F3C3C /* Merchant.swift */,
+				72C7D3F7283AC4640066F3CB /* BusinessType.swift */,
 				72707C1C2832E90B004F3C3C /* Client.swift */,
 				72707C1628321975004F3C3C /* Birthday.swift */,
 				72707C14283217C7004F3C3C /* Address.swift */,
@@ -721,6 +743,43 @@
 				72C7A76C2740984600636346 /* SearchStoreCell.swift */,
 			);
 			path = "Search screen cells";
+			sourceTree = "<group>";
+		};
+		72C7D3E7283AAC650066F3CB /* Setup Profile */ = {
+			isa = PBXGroup;
+			children = (
+				72C7D3EA283AB78E0066F3CB /* Cardholder cells */,
+				72C7D3F2283AB8640066F3CB /* Merchant cells */,
+				72C7D3E8283AAC9A0066F3CB /* SetupInitialProfileViewController.swift */,
+			);
+			path = "Setup Profile";
+			sourceTree = "<group>";
+		};
+		72C7D3EA283AB78E0066F3CB /* Cardholder cells */ = {
+			isa = PBXGroup;
+			children = (
+				72C7D3EB283AB7D00066F3CB /* SetupPersonNameCell.swift */,
+				72C7D3F0283AB8410066F3CB /* SetupEmailCell.swift */,
+				72C7D3EE283AB7E70066F3CB /* SetupInterestsCell.swift */,
+			);
+			path = "Cardholder cells";
+			sourceTree = "<group>";
+		};
+		72C7D3F2283AB8640066F3CB /* Merchant cells */ = {
+			isa = PBXGroup;
+			children = (
+				72C7D3F3283AB8850066F3CB /* SetupShopNameCell.swift */,
+				72C7D3F5283AB8930066F3CB /* SetupBusinessFieldCell.swift */,
+			);
+			path = "Merchant cells";
+			sourceTree = "<group>";
+		};
+		72C7D3FB283ADBBD0066F3CB /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				72C7D3FC283ADBD40066F3CB /* ButtonTableCell.swift */,
+			);
+			path = "TableView Cells";
 			sourceTree = "<group>";
 		};
 		A10BA6387A86372DA0B8759A /* Pods */ = {
@@ -882,6 +941,7 @@
 				72707C0B28320CF9004F3C3C /* LoginResponse.swift in Sources */,
 				72AC019C27388ED600B452BE /* HomeExploreViewController.swift in Sources */,
 				72707C062830B354004F3C3C /* GetStartedStepsResponse.swift in Sources */,
+				72C7D3EF283AB7E70066F3CB /* SetupInterestsCell.swift in Sources */,
 				72B2FBDB273CC34200382C12 /* ThemeView.swift in Sources */,
 				72C7A75F273F213900636346 /* SearchResultCell.swift in Sources */,
 				72AC00CC27373B8300B452BE /* HomeRootViewController.swift in Sources */,
@@ -918,11 +978,13 @@
 				72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */,
 				72707C15283217C7004F3C3C /* Address.swift in Sources */,
 				72707C2F2834A11B004F3C3C /* LottieWrapper.swift in Sources */,
+				72C7D3EC283AB7D00066F3CB /* SetupPersonNameCell.swift in Sources */,
 				72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */,
 				72707C2B2834A108004F3C3C /* FullScreenSpinner.swift in Sources */,
 				72AC01572738689C00B452BE /* NetworkService.swift in Sources */,
 				72C7D3E628399F560066F3CB /* SignUpEnterCodeViewController.swift in Sources */,
 				72AC011B27378FFA00B452BE /* Date+Extensions.swift in Sources */,
+				72C7D3F1283AB8410066F3CB /* SetupEmailCell.swift in Sources */,
 				72AC011627378FFA00B452BE /* UITableView+Extensions.swift in Sources */,
 				72707C0D28320D26004F3C3C /* User.swift in Sources */,
 				72B2FBD7273CC34200382C12 /* ThemeBorderView.swift in Sources */,
@@ -931,6 +993,7 @@
 				72707C1B2832BE28004F3C3C /* Merchant.swift in Sources */,
 				7201EEEA2830943600AD6585 /* UserManager.swift in Sources */,
 				72AC010C27378FFA00B452BE /* UITextView+Extensions.swift in Sources */,
+				72C7D3FA283AC5070066F3CB /* GetBusinessTypesResponse.swift in Sources */,
 				72AC01552738689C00B452BE /* APIRequestsURLs.swift in Sources */,
 				72AC010827378FFA00B452BE /* UIView+Extensions.swift in Sources */,
 				72C7A767273F3F7000636346 /* SearchStoresCell.swift in Sources */,
@@ -938,6 +1001,7 @@
 				72C7A7712741D1C800636346 /* SearchSectionHeaderView.swift in Sources */,
 				72AC01B92738A80B00B452BE /* RPicker.swift in Sources */,
 				72AC011927378FFA00B452BE /* UIProgressView+Extensions.swift in Sources */,
+				72C7D3F4283AB8850066F3CB /* SetupShopNameCell.swift in Sources */,
 				72C7A763273F3DBA00636346 /* SearchDealsCell.swift in Sources */,
 				72AC00E5273787CE00B452BE /* StoryboardManager.swift in Sources */,
 				72707C0F2832121E004F3C3C /* Cardholder.swift in Sources */,
@@ -949,6 +1013,7 @@
 				72AC01BE2738B76600B452BE /* UIAlertController+Extension.swift in Sources */,
 				72AC01C02739F46400B452BE /* StoryCollectionViewCell.swift in Sources */,
 				72AC01B12738A80B00B452BE /* DateUtil.swift in Sources */,
+				72C7D3F6283AB8930066F3CB /* SetupBusinessFieldCell.swift in Sources */,
 				72C7A75D273F0F0E00636346 /* SearchHistoryCell.swift in Sources */,
 				72707C1728321975004F3C3C /* Birthday.swift in Sources */,
 				72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */,
@@ -968,12 +1033,14 @@
 				72AC010727378FFA00B452BE /* AFError+Extensions.swift in Sources */,
 				72AC00D427373C1E00B452BE /* BaseViewController.swift in Sources */,
 				72C7A75A273F0E9100636346 /* HomeSearchViewController.swift in Sources */,
+				72C7D3F8283AC4640066F3CB /* BusinessType.swift in Sources */,
 				72AC00D827373C1E00B452BE /* BaseButtonBarPagerTabStripViewController.swift in Sources */,
 				72B2FBDA273CC34200382C12 /* ThemeTextField.swift in Sources */,
 				72AC010E27378FFA00B452BE /* UIImage+Extensions.swift in Sources */,
 				72AC010627378FFA00B452BE /* UIButton+Extensions.swift in Sources */,
 				72C7A769273F425800636346 /* SearchHistoriesCell.swift in Sources */,
 				72707C192832BDC7004F3C3C /* UserDetails.swift in Sources */,
+				72C7D3E9283AAC9A0066F3CB /* SetupInitialProfileViewController.swift in Sources */,
 				7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */,
 				72AC011027378FFA00B452BE /* UIViewController+Extension.swift in Sources */,
 				72707C132832170F004F3C3C /* Contact.swift in Sources */,
@@ -984,6 +1051,7 @@
 				72AC00E6273787CE00B452BE /* AppSettingsManager.swift in Sources */,
 				72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */,
 				72AC011727378FFA00B452BE /* TimeZone+Extensions.swift in Sources */,
+				72C7D3FD283ADBD40066F3CB /* ButtonTableCell.swift in Sources */,
 				72B2FBCE273CC34200382C12 /* ThemeSearchBar.swift in Sources */,
 				72AC010F27378FFA00B452BE /* UISearchBar+Extensions.swift in Sources */,
 				72B2FBBB273CBF9300382C12 /* ThemeManager.swift in Sources */,
