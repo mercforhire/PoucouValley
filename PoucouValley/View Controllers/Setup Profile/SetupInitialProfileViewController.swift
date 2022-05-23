@@ -26,9 +26,9 @@ class SetupInitialProfileViewController: BaseViewController {
             case .cardholderOnly:
                 return [.name, .category]
             case .cardholderWithEmail:
-                return [.name, .email, .category]
-            case .merchant:
                 return [.name, .category]
+            case .merchant:
+                return [.email, .name, .category]
             }
         }
         
@@ -49,6 +49,13 @@ class SetupInitialProfileViewController: BaseViewController {
     }
     
     private var mode: SetupProfileModes = .cardholderOnly
+    private var businessTypes: [BusinessType] = []
+    private var selectedBusinessTypes: BusinessType?
+    
+    private let FirstNameTag = 1
+    private let LastNameTag = 2
+    private let EmailTag = 3
+    private let BusinessNameTag = 4
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -61,13 +68,13 @@ class SetupInitialProfileViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        if let cardholder = userManager.user?.cardholder {
+        if let _ = userManager.user?.cardholder {
             if userManager.user?.user?.email.isEmpty ?? true {
                 mode = .cardholderOnly
             } else {
                 mode = .cardholderWithEmail
             }
-        } else if let merchant = userManager.user?.merchant {
+        } else if let _ = userManager.user?.merchant {
             mode = .merchant
         }
         
@@ -86,6 +93,14 @@ class SetupInitialProfileViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        api.fetchBusinessTypes { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.businessTypes = Array(response.data)
+            case .failure(let error):
+                break
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,26 +154,40 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupPersonNameCell else {
                 return SetupPersonNameCell()
             }
+            cell.firstNameField.tag = FirstNameTag
+            cell.lastNameField.tag = LastNameTag
+            cell.firstNameField.delegate = self
+            cell.lastNameField.delegate = self
+            cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             tableCell = cell
         case "SetupEmailCell":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupEmailCell else {
                 return SetupEmailCell()
             }
+            cell.emailField.tag = EmailTag
+            cell.emailField.delegate = self
+            cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             tableCell = cell
         case "SetupInterestsCell":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupInterestsCell else {
                 return SetupInterestsCell()
             }
+            cell.config(data: businessTypes, selectedType: selectedBusinessTypes)
+            cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             tableCell = cell
         case "SetupShopNameCell":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupShopNameCell else {
                 return SetupShopNameCell()
             }
+            cell.nameField.tag = BusinessNameTag
+            cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             tableCell = cell
         case "SetupBusinessFieldCell":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupBusinessFieldCell else {
                 return SetupBusinessFieldCell()
             }
+            cell.config(data: businessTypes, selectedType: selectedBusinessTypes)
+            cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             tableCell = cell
         default:
             tableCell = UITableViewCell()
@@ -166,4 +195,18 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
         
         return tableCell
     }
+}
+
+extension SetupInitialProfileViewController: UITextFieldDelegate {
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+       if textField.tag == FirstNameTag {
+           
+       } else if textField.tag == LastNameTag {
+           
+       } else if textField.tag == EmailTag {
+           
+       } else if textField.tag == BusinessNameTag {
+           
+       }
+   }
 }

@@ -25,4 +25,27 @@ class Contact: BaseEmbeddedObject {
         self.facebook = document["facebook"]??.stringValue
         self.instagram = document["instagram"]??.stringValue
     }
+    
+    override func toDocument() -> Document {
+        var document: Document = [:]
+        if let phoneAreaCode = phoneAreaCode {
+            document["phoneAreaCode"] = AnyBSON(phoneAreaCode)
+        }
+        if let phoneNumber = phoneNumber {
+            document["phoneNumber"] = AnyBSON(phoneNumber)
+        }
+        if let website = website {
+            document["website"] = AnyBSON(website)
+        }
+        if let twitter = twitter {
+            document["twitter"] = AnyBSON(twitter)
+        }
+        if let facebook = facebook {
+            document["facebook"] = AnyBSON(facebook)
+        }
+        if let instagram = instagram {
+            document["instagram"] = AnyBSON(instagram)
+        }
+        return document
+    }
 }

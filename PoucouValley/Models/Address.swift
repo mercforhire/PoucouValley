@@ -27,4 +27,30 @@ class Address: BaseEmbeddedObject {
         self.country = document["country"]??.stringValue
         self.postalCode = document["postalCode"]??.stringValue
     }
+    
+    override func toDocument() -> Document {
+        var document: Document = [:]
+        if let unitNumber = unitNumber {
+            document["unitNumber"] = AnyBSON(unitNumber)
+        }
+        if let streetNumber = streetNumber {
+            document["streetNumber"] = AnyBSON(streetNumber)
+        }
+        if let street = street {
+            document["street"] = AnyBSON(street)
+        }
+        if let city = city {
+            document["city"] = AnyBSON(city)
+        }
+        if let province = province {
+            document["province"] = AnyBSON(province)
+        }
+        if let country = country {
+            document["country"] = AnyBSON(country)
+        }
+        if let postalCode = postalCode {
+            document["postalCode"] = AnyBSON(postalCode)
+        }
+        return document
+    }
 }

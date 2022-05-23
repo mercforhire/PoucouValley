@@ -17,7 +17,7 @@ class UserManager {
                 return
             }
             
-            api.apiKey = user.user?.apiKey
+            api.apiKey = user.user.apiKey
         }
     }
     
@@ -138,7 +138,90 @@ class UserManager {
     
     func register(cardNumber: String, code: String, email: String, completion: @escaping (Bool) -> Void) {
         api.registerByCard(cardNumber: cardNumber, code: code, email: email) { result in
-            
+            switch result {
+            case .success(let response):
+                if response.success, let user = response.data {
+                    self.user = user
+                    completion(true)
+                } else if response.message == ResponseMessages.cardholderAlreadyExist.rawValue {
+                    showErrorDialog(error: ResponseMessages.cardholderAlreadyExist.errorMessage())
+                    completion(false)
+                } else if response.message == ResponseMessages.emailAlreadyExist.rawValue {
+                    showErrorDialog(error: ResponseMessages.emailAlreadyExist.errorMessage())
+                    completion(false)
+                } else if response.message == ResponseMessages.cardPinIncorrect.rawValue {
+                    showErrorDialog(error: ResponseMessages.cardPinIncorrect.errorMessage())
+                    completion(false)
+                } else {
+                    showErrorDialog(error: "Unknown error")
+                    completion(false)
+                }
+            case .failure(let error):
+                showNetworkErrorDialog()
+                completion(false)
+            }
+        }
+    }
+    
+    func updateCardholderInfo(firstName: String?, lastName: String?, pronoun: String?, gender: String?, birthday: Birthday?, contact: Contact?, address: Address?, avatar: PVPhoto, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
+        guard let apiKey = api.apiKey else { return }
+        
+        let params = UpdateCardholderInfoParams(apiKey: apiKey, firstName: firstName, lastName: lastName, pronoun: pronoun, gender: gender, birthday: birthday, contact: contact, address: address, avatar: avatar)
+        api.updateCardholderInfo(params: params) { result in
+            switch result {
+            case .success(let response):
+                if response.success {
+                    let cardholder = response.data
+                    self.user?.cardholder = cardholder
+                    callBack(.success(cardholder))
+                } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
+                    showErrorDialog(error: ResponseMessages.cardholderNotFound.errorMessage())
+                    callBack(.failure(ResponseError.cardholderNotFound))
+                } else {
+                    showErrorDialog(error: "Unknown error")
+                    callBack(.failure(ResponseError.unknownError))
+                }
+            case .failure(let error):
+                showNetworkErrorDialog()
+                callBack(.failure(error))
+            }
+        }
+    }
+    
+    func updateMerchantInfo(name: String?, field: String?, logo: PVPhoto? , photos: [PVPhoto]?, contact: Contact?, address: Address?, cards: [String]?, callBack: @escaping(Result<Merchant, Error>) -> Void) {
+        guard let apiKey = api.apiKey else { return }
+        
+        let params = UpdateMerchantInfoParams(apiKey: apiKey, name: name, field: field, logo: logo, photos: photos, contact: contact, address: address, cards: cards)
+        api.updateMerchantInfo(params: params) { result in
+            switch result {
+            case .success(let response):
+                if response.success {
+                    let merchant = response.data
+                    self.user?.merchant = merchant
+                    callBack(.success(merchant))
+                } else if response.message == ResponseMessages.merchantNotFound.rawValue {
+                    showErrorDialog(error: ResponseMessages.merchantNotFound.errorMessage())
+                    callBack(.failure(ResponseError.merchantNotFound))
+                } else {
+                    showErrorDialog(error: "Unknown error")
+                    callBack(.failure(ResponseError.unknownError))
+                }
+            case .failure(let error):
+                showNetworkErrorDialog()
+                callBack(.failure(error))
+            }
+        }
+    }
+    
+    func proceedPastLogin() {
+        guard let user = user else {
+            return
+        }
+
+        if user.isProfileComplete() {
+            goToSetupProfile()
+        } else {
+            goToMain()
         }
     }
     
@@ -190,7 +273,7 @@ class UserManager {
     }
     
     func saveLoginInfo() {
-        if let apiKey = user?.user?.apiKey {
+        if let apiKey = user?.user.apiKey {
             try? myValet.setString(apiKey, forKey: "apiKey")
         } else {
             try? myValet.removeObject(forKey: "apiKey")

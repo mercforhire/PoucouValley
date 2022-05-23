@@ -9,7 +9,7 @@ import UIKit
 
 class SetupShopNameCell: UITableViewCell {
 
-    @IBOutlet weak var codeField: ThemeTextField!
+    @IBOutlet weak var nameField: ThemeTextField!
     @IBOutlet weak var submitButton: ThemeRoundedGreenBlackTextButton!
     
     override func awakeFromNib() {

@@ -506,7 +506,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="4hz-bG-LMA" kind="show" id="fVA-mz-Tb2"/>
+                                            <segue destination="B5e-Qi-0kh" kind="show" id="4IF-BX-j7a"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tl8-dg-N9J">
@@ -779,10 +779,10 @@
             </objects>
             <point key="canvasLocation" x="3419" y="60"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up Enter Pin View Controller-->
         <scene sceneID="VMi-LJ-3P6">
             <objects>
-                <viewController id="SrZ-gN-wQ3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpEnterPinViewController" id="SrZ-gN-wQ3" customClass="SignUpEnterPinViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vyW-3b-tFJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -815,7 +815,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-Wg-yJQ">
                                                 <rect key="frame" x="63.5" y="0.0" width="237.5" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Fx-ih0">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Fx-ih0" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Txe-Fx-ih0" secondAttribute="height" multiplier="5:4" id="nmf-WI-Zwm"/>
@@ -828,8 +828,11 @@
                                                                 <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="SrZ-gN-wQ3" id="91j-OI-XOa"/>
+                                                        </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0X-Fw-KgT">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0X-Fw-KgT" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="87.5" y="0.0" width="62.5" height="50"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
@@ -839,8 +842,11 @@
                                                                 <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="SrZ-gN-wQ3" id="ZgE-vN-I8U"/>
+                                                        </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-mc-gld">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-mc-gld" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="175" y="0.0" width="62.5" height="50"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
@@ -850,6 +856,9 @@
                                                                 <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="SrZ-gN-wQ3" id="ktb-UY-0up"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -883,7 +892,7 @@
                                             <constraint firstAttribute="height" constant="20" id="cQW-p3-5UA"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUU-8e-XvJ" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUU-8e-XvJ" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="252" width="364" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
@@ -892,9 +901,12 @@
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="50" minY="15" maxX="50" maxY="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Done">
+                                        <state key="normal" title="Next">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nextPressed:" destination="SrZ-gN-wQ3" eventType="touchUpInside" id="9rE-Pe-TGz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -908,6 +920,9 @@
                                     <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                 </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="SrZ-gN-wQ3" eventType="touchUpInside" id="Xoy-yq-4B9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ewq-xR-rsz"/>
@@ -923,10 +938,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="Uzb-S6-hMf"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="code1Field" destination="Txe-Fx-ih0" id="Pdf-vN-e0o"/>
+                        <outlet property="code2Field" destination="k0X-Fw-KgT" id="xeC-AI-nT4"/>
+                        <outlet property="code3Field" destination="TU2-mc-gld" id="AZ9-6n-WTd"/>
+                        <outlet property="codeErrorLabel" destination="710-GM-bhP" id="awA-N1-nAJ"/>
+                        <outlet property="signUpButton" destination="QUU-8e-XvJ" id="Ipv-LL-K9b"/>
+                        <segue destination="5ya-tE-3Zx" kind="show" identifier="goToEnterEmail" id="cSI-dU-4yB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9al-hk-LVS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4226" y="60"/>
+            <point key="canvasLocation" x="2638" y="1456"/>
         </scene>
         <!--Sign Up Home View Controller-->
         <scene sceneID="vyP-yF-a5u">
@@ -1073,7 +1096,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pxv-Rv-ShO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1855" y="749"/>
+            <point key="canvasLocation" x="1854" y="779"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Jsu-HV-Mtn">
@@ -1232,12 +1255,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmG-4d-htJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2638" y="749"/>
+            <point key="canvasLocation" x="2638" y="779"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up Scan View Controller-->
         <scene sceneID="22x-kg-M5a">
             <objects>
-                <viewController id="4hz-bG-LMA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpScanViewController" id="4hz-bG-LMA" customClass="SignUpScanViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yHI-6M-Wyr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1251,7 +1274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64L-a9-G8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4225" y="749"/>
+            <point key="canvasLocation" x="1855" y="1457"/>
         </scene>
         <!--Sign Up Enter Code View Controller-->
         <scene sceneID="QBF-P4-Y1o">
@@ -1425,11 +1448,287 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWC-SO-BFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3419" y="749"/>
+            <point key="canvasLocation" x="3419" y="779"/>
+        </scene>
+        <!--Sign Up Enter Email View Controller-->
+        <scene sceneID="FZn-39-457">
+            <objects>
+                <viewController storyboardIdentifier="SignUpEnterEmailViewController" id="5ya-tE-3Zx" customClass="SignUpEnterEmailViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rtN-0t-8Fr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-Hb-th1">
+                                <rect key="frame" x="25" y="89" width="364" height="265"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7T-bg-noi" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter your email as login username" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yda-61-kgc" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9X-8A-AE1" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="97.5" width="364" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="xIc-dW-QaA"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="5ya-tE-3Zx" id="tYN-SS-xnt"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSh-jK-f1N">
+                                        <rect key="frame" x="0.0" y="156.5" width="364" height="14.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14.5" id="9pn-0j-bgU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="11"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en4-Ce-43q">
+                                        <rect key="frame" x="0.0" y="186" width="364" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Cva-hf-AWL"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyH-xa-7Dm" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="221" width="364" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="WiT-X5-ZdL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="50" minY="15" maxX="50" maxY="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Finish">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpPressed:" destination="5ya-tE-3Zx" eventType="touchUpInside" id="pF7-27-cXL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCH-BA-eo6" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
+                                <rect key="frame" x="20" y="44" width="32" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="24E-oc-z1a"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="5ya-tE-3Zx" eventType="touchUpInside" id="fE6-pa-RYR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="al2-fD-dbM"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nCH-BA-eo6" firstAttribute="top" secondItem="al2-fD-dbM" secondAttribute="top" id="6pf-Rd-t3n"/>
+                            <constraint firstItem="nCH-BA-eo6" firstAttribute="leading" secondItem="al2-fD-dbM" secondAttribute="leading" constant="20" id="7GD-Q7-bIf"/>
+                            <constraint firstItem="Hu0-Hb-th1" firstAttribute="top" secondItem="al2-fD-dbM" secondAttribute="top" constant="45" id="fTT-e4-G4g"/>
+                            <constraint firstItem="Hu0-Hb-th1" firstAttribute="leading" secondItem="al2-fD-dbM" secondAttribute="leading" constant="25" id="hfl-jq-Bav"/>
+                            <constraint firstItem="al2-fD-dbM" firstAttribute="trailing" secondItem="Hu0-Hb-th1" secondAttribute="trailing" constant="25" id="lw2-92-RDm"/>
+                            <constraint firstItem="al2-fD-dbM" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hu0-Hb-th1" secondAttribute="bottom" constant="25" id="s6f-8C-NWK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jbd-cE-rL9"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="emailErrorLabel" destination="dSh-jK-f1N" id="Kkh-bx-Vhk"/>
+                        <outlet property="emailField" destination="C9X-8A-AE1" id="Fvu-Td-qgK"/>
+                        <outlet property="signUpButton" destination="JyH-xa-7Dm" id="brl-b6-bAr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gls-LS-jqY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3419" y="1456"/>
+        </scene>
+        <!--Login Scan View Controller-->
+        <scene sceneID="cf2-A1-cww">
+            <objects>
+                <viewController storyboardIdentifier="LoginScanViewController" id="B5e-Qi-0kh" customClass="LoginScanViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qWI-tB-zDK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="iOf-rJ-x3D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AXE-u6-d1Z"/>
+                    <connections>
+                        <segue destination="0t3-gG-O1a" kind="show" id="nzR-qC-vHT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DP1-tE-Fqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2638" y="-660"/>
+        </scene>
+        <!--Login Enter Pin View Controller-->
+        <scene sceneID="TeB-WF-B42">
+            <objects>
+                <viewController storyboardIdentifier="LoginEnterPinViewController" id="0t3-gG-O1a" customClass="LoginEnterPinViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VsV-vc-qo0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Roj-Gh-udV">
+                                <rect key="frame" x="25" y="89" width="364" height="296"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hD-af-5xW" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter 3 digits secure pin on your card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPU-bd-yb7" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEg-ZA-DNY">
+                                        <rect key="frame" x="0.0" y="97.5" width="364" height="10"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="9gd-Yt-vFq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-dd-V7q">
+                                        <rect key="frame" x="0.0" y="122.5" width="364" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="4Ih-G5-dL6">
+                                                <rect key="frame" x="63.5" y="0.0" width="237.5" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-cN-7NU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="2Pr-cN-7NU" secondAttribute="height" multiplier="5:4" id="CaC-aE-QTe"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-DH-xgW">
+                                                        <rect key="frame" x="87.5" y="0.0" width="62.5" height="50"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-Gd-tFq">
+                                                        <rect key="frame" x="175" y="0.0" width="62.5" height="50"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="jx1-0R-m5l"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="4Ih-G5-dL6" firstAttribute="centerX" secondItem="dhn-dd-V7q" secondAttribute="centerX" id="2zf-eK-QKf"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Ih-G5-dL6" secondAttribute="trailing" id="4hI-r8-4mT"/>
+                                            <constraint firstItem="4Ih-G5-dL6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dhn-dd-V7q" secondAttribute="leading" id="Hux-Ix-spP"/>
+                                            <constraint firstAttribute="bottom" secondItem="4Ih-G5-dL6" secondAttribute="bottom" id="K7n-aE-FQ9"/>
+                                            <constraint firstItem="4Ih-G5-dL6" firstAttribute="top" secondItem="dhn-dd-V7q" secondAttribute="top" id="NzX-k7-7f7"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFZ-gA-IjO">
+                                        <rect key="frame" x="0.0" y="187.5" width="364" height="14.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14.5" id="nJ9-eY-bRL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="11"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjr-HA-osr">
+                                        <rect key="frame" x="0.0" y="217" width="364" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="j4e-sl-OsT"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETQ-d5-sah" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="252" width="364" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="geM-nC-xBh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="50" minY="15" maxX="50" maxY="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQI-zw-mrt" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
+                                <rect key="frame" x="20" y="44" width="32" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="yY7-IJ-hDx"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="thu-eM-aUg"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MQI-zw-mrt" firstAttribute="leading" secondItem="thu-eM-aUg" secondAttribute="leading" constant="20" id="HSh-DN-dx3"/>
+                            <constraint firstItem="thu-eM-aUg" firstAttribute="trailing" secondItem="Roj-Gh-udV" secondAttribute="trailing" constant="25" id="Isp-2W-NLY"/>
+                            <constraint firstItem="MQI-zw-mrt" firstAttribute="top" secondItem="thu-eM-aUg" secondAttribute="top" id="bDE-DT-mSl"/>
+                            <constraint firstItem="Roj-Gh-udV" firstAttribute="top" secondItem="thu-eM-aUg" secondAttribute="top" constant="45" id="btQ-wf-gnB"/>
+                            <constraint firstItem="Roj-Gh-udV" firstAttribute="leading" secondItem="thu-eM-aUg" secondAttribute="leading" constant="25" id="f8b-ev-Vj8"/>
+                            <constraint firstItem="thu-eM-aUg" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Roj-Gh-udV" secondAttribute="bottom" constant="25" id="v7r-rG-jtl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NXI-zH-KkM"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7mY-BL-opd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3422" y="-660"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LLr-Q5-mRO"/>
         <segue reference="2Gi-FV-3ct"/>
     </inferredMetricsTieBreakers>
     <resources>

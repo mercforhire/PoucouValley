@@ -289,6 +289,25 @@ class PoucouAPI {
         }
     }
     
+    func checkCardAvailable(cardNumber: String, code: String, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        user.functions.api_checkCardAvailable([AnyBSON(cardNumber), AnyBSON(code)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_checkCardAvailable' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
+            }
+        }
+    }
+    
     func login(email: String, code: String, callBack: @escaping(Result<LoginResponse, Error>) -> Void) {
         user.functions.api_login([AnyBSON(email), AnyBSON(code)]) { response, error in
             DispatchQueue.main.async {
@@ -380,6 +399,44 @@ class PoucouAPI {
                 }
                 print("Called function 'api_registerByCard' and got result: \(document)")
                 callBack(.success(LoginResponse(document: document)))
+            }
+        }
+    }
+    
+    func updateCardholderInfo(params: UpdateCardholderInfoParams,callBack: @escaping(Result<UpdateCardholderResponse, Error>) -> Void) {
+        user.functions.api_updateCardholderInfo(params.params()) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_updateCardholderInfo' and got result: \(document)")
+                callBack(.success(UpdateCardholderResponse(document: document)))
+            }
+        }
+    }
+    
+    func updateMerchantInfo(params: UpdateMerchantInfoParams,callBack: @escaping(Result<UpdateMerchantResponse, Error>) -> Void) {
+        user.functions.api_updateMerchantInfo(params.params()) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_updateMerchantInfo' and got result: \(document)")
+                callBack(.success(UpdateMerchantResponse(document: document)))
             }
         }
     }

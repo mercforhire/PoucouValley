@@ -19,4 +19,12 @@ class Birthday: BaseEmbeddedObject {
         self.month = document["month"]??.asInt() ?? 0
         self.year = document["year"]??.asInt() ?? 0
     }
+    
+    override func toDocument() -> Document {
+        var document: Document = [:]
+        document["day"] = AnyBSON(day)
+        document["month"] = AnyBSON(month)
+        document["year"] = AnyBSON(year)
+        return document
+    }
 }

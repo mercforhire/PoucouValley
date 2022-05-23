@@ -17,4 +17,11 @@ class PVPhoto: BaseEmbeddedObject {
         self.thumbnameUrl = document["thumbnameUrl"]!!.stringValue!
         self.fullUrl = document["fullUrl"]!!.stringValue!
     }
+    
+    override func toDocument() -> Document {
+        var document: Document = [:]
+        document["thumbnameUrl"] = AnyBSON(thumbnameUrl)
+        document["fullUrl"] = AnyBSON(fullUrl)
+        return document
+    }
 }

@@ -14,4 +14,8 @@ class BaseObject: Object {
 
 class BaseEmbeddedObject: EmbeddedObject {
     @objc dynamic var sample : String? = nil
+    
+    func toDocument() -> Document {
+        fatalError()
+    }
 }

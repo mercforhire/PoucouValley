@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class UserDetails: BaseObject {
-    var user: User?
+    var user: User = User()
     var cardholder: Cardholder?
     var merchant: Merchant?
     
@@ -22,5 +22,31 @@ class UserDetails: BaseObject {
         if let document = document["merchant"]??.documentValue {
             self.merchant = Merchant(document: document)
         }
+    }
+    
+    func isProfileComplete() -> Bool {
+        switch user.userType {
+        case .cardholder:
+            return !(cardholder?.firstName?.isEmpty ?? true)
+        case .merchant:
+            return !(merchant?.name?.isEmpty ?? true)
+        }
+    }
+    
+    func toUpdateCardholderInfoParams() -> UpdateCardholderInfoParams? {
+        guard let cardholder = cardholder else {
+            return nil
+        }
+        
+        var params = UpdateCardholderInfoParams(apiKey: user.apiKey)
+        params.firstName = cardholder.firstName
+        params.lastName = cardholder.lastName
+        params.pronoun = cardholder.pronoun
+        params.gender = cardholder.gender
+        params.birthday = cardholder.birthday
+        params.contact = cardholder.contact
+        params.address = cardholder.address
+        params.avatar = cardholder.avatar
+        return params
     }
 }

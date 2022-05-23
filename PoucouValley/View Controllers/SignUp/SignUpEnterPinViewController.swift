@@ -1,22 +1,23 @@
 //
-//  LoginEnterPinViewController.swift
+//  SignUpEnterPinViewController.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-05-20.
+//  Created by Leon Chen on 2022-05-23.
 //
 
 import UIKit
 
-class LoginEnterPinViewController: BaseViewController {
+class SignUpEnterPinViewController: BaseViewController {
+    var email: String!
     var cardNumber: String!
     
     @IBOutlet weak var code1Field: ThemeTextField!
     @IBOutlet weak var code2Field: ThemeTextField!
     @IBOutlet weak var code3Field: ThemeTextField!
     @IBOutlet weak var codeErrorLabel: UILabel!
-    @IBOutlet weak var loginButton: ThemeRoundedGreenBlackTextButton!
+    @IBOutlet weak var signUpButton: ThemeRoundedGreenBlackTextButton!
     
-    var codeString: String? {
+    private var codeString: String? {
         didSet {
             if let codeString = codeString, !codeString.isEmpty {
                 codeErrorLabel.text = codeString
@@ -24,6 +25,10 @@ class LoginEnterPinViewController: BaseViewController {
                 codeErrorLabel.text = ""
             }
         }
+    }
+    
+    private var pin: String {
+        return "\(code1Field.text ?? "")\(code2Field.text ?? "")\(code3Field.text ?? "")"
     }
     
     override func setup() {
@@ -59,15 +64,26 @@ class LoginEnterPinViewController: BaseViewController {
         return true
     }
     
-    @IBAction func donePressed(_ sender: UIButton) {
+    @IBAction func nextPressed(_ sender: UIButton) {
         if validate() {
             FullScreenSpinner().show()
-            let code = "\(code1Field.text ?? "")\(code2Field.text ?? "")\(code3Field.text ?? "")"
-            userManager.loginWithCard(cardNumber: cardNumber, code: code) { [weak self] success in
+            
+            api.checkCardAvailable(cardNumber: cardNumber, code: pin) { [weak self] result in
                 FullScreenSpinner().hide()
                 
-                if success {
-                    showErrorDialog(error: "GO TO MAIN")
+                switch result {
+                case .success(let response):
+                    if response.success {
+                        self?.performSegue(withIdentifier: "goToEnterEmail", sender: self)
+                    } else if response.message == ResponseMessages.cardPinIncorrect.rawValue {
+                        showErrorDialog(error: ResponseMessages.cardPinIncorrect.errorMessage())
+                    } else if response.message == ResponseMessages.cardholderAlreadyExist.rawValue {
+                        showErrorDialog(error: ResponseMessages.cardholderAlreadyExist.errorMessage())
+                    } else {
+                        showErrorDialog(error: "Unknown error")
+                    }
+                case .failure(let error):
+                    showNetworkErrorDialog()
                 }
             }
         }
@@ -92,9 +108,16 @@ class LoginEnterPinViewController: BaseViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SignUpEnterEmailViewController {
+            vc.cardNumber = cardNumber
+            vc.cardPin = pin
+        }
+    }
 }
 
-extension LoginEnterPinViewController {
+extension SignUpEnterPinViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == code1Field {
             code2Field.becomeFirstResponder()
@@ -102,10 +125,9 @@ extension LoginEnterPinViewController {
             code3Field.becomeFirstResponder()
         } else if textField == code3Field {
             code3Field.resignFirstResponder()
-            donePressed(loginButton)
+            nextPressed(signUpButton)
         }
         
         return true
     }
 }
-
