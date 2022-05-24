@@ -163,7 +163,6 @@
 		72C7D401283C0B200066F3CB /* SignUpEnterPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D400283C0B200066F3CB /* SignUpEnterPinViewController.swift */; };
 		72C7D403283C0CEF0066F3CB /* LoginScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D402283C0CEF0066F3CB /* LoginScanViewController.swift */; };
 		72C7D405283C0D030066F3CB /* SignUpScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D404283C0D030066F3CB /* SignUpScanViewController.swift */; };
-		72C7D407283C16080066F3CB /* SetupEmailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D406283C16080066F3CB /* SetupEmailCell.swift */; };
 		72C7D40A283C288D0066F3CB /* UpdateCardholderInfoParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D409283C288D0066F3CB /* UpdateCardholderInfoParams.swift */; };
 		72C7D40C283C2F370066F3CB /* UpdateMerchantInfoParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D40B283C2F370066F3CB /* UpdateMerchantInfoParams.swift */; };
 		72C7D40E283C31760066F3CB /* UpdateCardholderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D40D283C31760066F3CB /* UpdateCardholderResponse.swift */; };
@@ -332,7 +331,6 @@
 		72C7D400283C0B200066F3CB /* SignUpEnterPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEnterPinViewController.swift; sourceTree = "<group>"; };
 		72C7D402283C0CEF0066F3CB /* LoginScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScanViewController.swift; sourceTree = "<group>"; };
 		72C7D404283C0D030066F3CB /* SignUpScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScanViewController.swift; sourceTree = "<group>"; };
-		72C7D406283C16080066F3CB /* SetupEmailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupEmailCell.swift; sourceTree = "<group>"; };
 		72C7D409283C288D0066F3CB /* UpdateCardholderInfoParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCardholderInfoParams.swift; sourceTree = "<group>"; };
 		72C7D40B283C2F370066F3CB /* UpdateMerchantInfoParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMerchantInfoParams.swift; sourceTree = "<group>"; };
 		72C7D40D283C31760066F3CB /* UpdateCardholderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCardholderResponse.swift; sourceTree = "<group>"; };
@@ -790,7 +788,6 @@
 		72C7D3F2283AB8640066F3CB /* Merchant cells */ = {
 			isa = PBXGroup;
 			children = (
-				72C7D406283C16080066F3CB /* SetupEmailCell.swift */,
 				72C7D3F3283AB8850066F3CB /* SetupShopNameCell.swift */,
 				72C7D3F5283AB8930066F3CB /* SetupBusinessFieldCell.swift */,
 			);
@@ -1076,7 +1073,6 @@
 				72AC00D827373C1E00B452BE /* BaseButtonBarPagerTabStripViewController.swift in Sources */,
 				72B2FBDA273CC34200382C12 /* ThemeTextField.swift in Sources */,
 				72AC010E27378FFA00B452BE /* UIImage+Extensions.swift in Sources */,
-				72C7D407283C16080066F3CB /* SetupEmailCell.swift in Sources */,
 				72AC010627378FFA00B452BE /* UIButton+Extensions.swift in Sources */,
 				72C7A769273F425800636346 /* SearchHistoriesCell.swift in Sources */,
 				72707C192832BDC7004F3C3C /* UserDetails.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SetupInterestsCellDelegate: class {
-    func selectedBusinessType(type: BusinessType)
+    func selectedInterest(type: BusinessType)
 }
 
 class SetupInterestsCell: UITableViewCell {
@@ -64,6 +64,6 @@ extension SetupInterestsCell: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = data[indexPath.row]
-        delegate?.selectedBusinessType(type: type)
+        delegate?.selectedInterest(type: type)
     }
 }

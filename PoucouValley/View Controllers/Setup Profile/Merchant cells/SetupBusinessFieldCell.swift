@@ -18,7 +18,7 @@ class SetupBusinessFieldCell: UITableViewCell {
     
     var data: [BusinessType] = []
     var selectedType: BusinessType?
-    weak var delegate: SetupInterestsCellDelegate?
+    weak var delegate: SetupBusinessCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

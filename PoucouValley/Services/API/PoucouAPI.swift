@@ -403,7 +403,7 @@ class PoucouAPI {
         }
     }
     
-    func updateCardholderInfo(params: UpdateCardholderInfoParams,callBack: @escaping(Result<UpdateCardholderResponse, Error>) -> Void) {
+    func updateCardholderInfo(params: UpdateCardholderInfoParams, callBack: @escaping(Result<UpdateCardholderResponse, Error>) -> Void) {
         user.functions.api_updateCardholderInfo(params.params()) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
@@ -422,7 +422,7 @@ class PoucouAPI {
         }
     }
     
-    func updateMerchantInfo(params: UpdateMerchantInfoParams,callBack: @escaping(Result<UpdateMerchantResponse, Error>) -> Void) {
+    func updateMerchantInfo(params: UpdateMerchantInfoParams, callBack: @escaping(Result<UpdateMerchantResponse, Error>) -> Void) {
         user.functions.api_updateMerchantInfo(params.params()) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {

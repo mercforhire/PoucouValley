@@ -11,7 +11,7 @@ import RealmSwift
 struct UpdateMerchantInfoParams {
     var apiKey: String
     var name: String?
-    var field: String?
+    var field: BusinessType?
     var logo: PVPhoto?
     var photos: [PVPhoto]?
     var contact: Contact?
@@ -29,7 +29,7 @@ struct UpdateMerchantInfoParams {
         }
         
         if let field = field {
-            params["field"] = AnyBSON(field)
+            params["field"] = AnyBSON(field.type)
         }
         
         if let logo = logo {

@@ -163,10 +163,10 @@ class UserManager {
         }
     }
     
-    func updateCardholderInfo(firstName: String?, lastName: String?, pronoun: String?, gender: String?, birthday: Birthday?, contact: Contact?, address: Address?, avatar: PVPhoto, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
+    func updateCardholderInfo(firstName: String?, lastName: String?, pronoun: String?, gender: String?, birthday: Birthday?, contact: Contact?, address: Address?, avatar: PVPhoto?, interests: [BusinessType]?, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
         guard let apiKey = api.apiKey else { return }
         
-        let params = UpdateCardholderInfoParams(apiKey: apiKey, firstName: firstName, lastName: lastName, pronoun: pronoun, gender: gender, birthday: birthday, contact: contact, address: address, avatar: avatar)
+        let params = UpdateCardholderInfoParams(apiKey: apiKey, firstName: firstName, lastName: lastName, pronoun: pronoun, gender: gender, birthday: birthday, contact: contact, address: address, avatar: avatar, interests: interests)
         api.updateCardholderInfo(params: params) { result in
             switch result {
             case .success(let response):
@@ -188,7 +188,7 @@ class UserManager {
         }
     }
     
-    func updateMerchantInfo(name: String?, field: String?, logo: PVPhoto? , photos: [PVPhoto]?, contact: Contact?, address: Address?, cards: [String]?, callBack: @escaping(Result<Merchant, Error>) -> Void) {
+    func updateMerchantInfo(name: String?, field: BusinessType?, logo: PVPhoto? , photos: [PVPhoto]?, contact: Contact?, address: Address?, cards: [String]?, callBack: @escaping(Result<Merchant, Error>) -> Void) {
         guard let apiKey = api.apiKey else { return }
         
         let params = UpdateMerchantInfoParams(apiKey: apiKey, name: name, field: field, logo: logo, photos: photos, contact: contact, address: address, cards: cards)

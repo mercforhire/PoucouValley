@@ -18,6 +18,7 @@ struct UpdateCardholderInfoParams {
     var contact: Contact?
     var address: Address?
     var avatar: PVPhoto?
+    var interests: [BusinessType]?
     
     func params() -> [AnyBSON] {
         var array: [AnyBSON] = []
@@ -55,6 +56,12 @@ struct UpdateCardholderInfoParams {
         
         if let avatar = avatar {
             params["avatar"] = AnyBSON(avatar.toDocument())
+        }
+        
+        if let interests = interests {
+            var array: [AnyBSON] = []
+            _ = interests.map { array.append(AnyBSON($0.type)) }
+            params["interests"] = AnyBSON(array)
         }
         
         array.append(AnyBSON(params))

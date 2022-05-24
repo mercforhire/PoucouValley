@@ -21,6 +21,7 @@ class Cardholder: BaseObject {
     var address: Address?
     var contact: Contact?
     var avatar: PVPhoto?
+    var interests: List<String> = List()
     
     convenience init(document: Document) {
         self.init()
@@ -43,6 +44,13 @@ class Cardholder: BaseObject {
         }
         if let document = document["avatar"]??.documentValue {
             self.avatar = PVPhoto(document: document)
+        }
+        if let array = document["interests"]??.arrayValue {
+            let data: List<String> = List()
+            for interest in array {
+                data.append(interest!.stringValue!)
+            }
+            self.interests = data
         }
     }
 }

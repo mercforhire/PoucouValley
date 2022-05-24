@@ -7,28 +7,19 @@
 
 import UIKit
 
-enum SetupProfileModes {
-    case cardholderOnly
-    case cardholderWithEmail
-    case merchant
-}
-
 class SetupInitialProfileViewController: BaseViewController {
     enum SetupCardholderSteps: Int {
         case name
         case businessName
-        case email
         case category
         case businessCategory
         
-        static func rows(mode: SetupProfileModes) -> [SetupCardholderSteps] {
+        static func rows(mode: UserType) -> [SetupCardholderSteps] {
             switch mode {
-            case .cardholderOnly:
-                return [.name, .category]
-            case .cardholderWithEmail:
+            case .cardholder:
                 return [.name, .category]
             case .merchant:
-                return [.email, .name, .category]
+                return [.businessName, .businessCategory]
             }
         }
         
@@ -38,8 +29,6 @@ class SetupInitialProfileViewController: BaseViewController {
                 return "SetupPersonNameCell"
             case .businessName:
                 return "SetupBusinessFieldCell"
-            case .email:
-                return "SetupEmailCell"
             case .category:
                 return "SetupInterestsCell"
             case .businessCategory:
@@ -48,14 +37,21 @@ class SetupInitialProfileViewController: BaseViewController {
         }
     }
     
-    private var mode: SetupProfileModes = .cardholderOnly
     private var businessTypes: [BusinessType] = []
     private var selectedBusinessTypes: BusinessType?
     
+    // cardholder
+    private var firstName: String?
+    private var lastName: String?
+    private var interest: BusinessType?
+    
+    //merchant
+    private var businessName: String?
+    private var businessField: BusinessType?
+    
     private let FirstNameTag = 1
     private let LastNameTag = 2
-    private let EmailTag = 3
-    private let BusinessNameTag = 4
+    private let BusinessNameTag = 3
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -67,16 +63,6 @@ class SetupInitialProfileViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        
-        if let _ = userManager.user?.cardholder {
-            if userManager.user?.user?.email.isEmpty ?? true {
-                mode = .cardholderOnly
-            } else {
-                mode = .cardholderWithEmail
-            }
-        } else if let _ = userManager.user?.merchant {
-            mode = .merchant
-        }
         
         navigationController?.navigationBar.isHidden = true
         navigationController?.viewControllers = [self]
@@ -113,25 +99,54 @@ class SetupInitialProfileViewController: BaseViewController {
         if !validateCurrentStep() {
             return
         }
+        let step = SetupCardholderSteps.rows(mode: currentUser.userType)[stepNumber]
         
-        stepNumber = stepNumber + 1
+        if step == SetupCardholderSteps.rows(mode: currentUser.userType).last {
+            switch currentUser.userType {
+            case .cardholder:
+                userManager.updateCardholderInfo(firstName: firstName, lastName: lastName, pronoun: nil, gender: nil, birthday: nil, contact: nil, address: nil, avatar: nil, interests: [businessField!]) { [weak self] result in
+                    switch result {
+                    case .success(let _):
+                        self?.userManager.goToMain()
+                    case .failure(let _):
+                        break
+                    }
+                }
+            case .merchant:
+                userManager.updateMerchantInfo(name: businessName, field: businessField, logo: nil, photos: nil, contact: nil, address: nil, cards: nil) { [weak self]  result in
+                    switch result {
+                    case .success(let _):
+                        self?.userManager.goToMain()
+                    case .failure(let _):
+                        break
+                    }
+                }
+            }
+        } else {
+            stepNumber = stepNumber + 1
+        }
     }
     
     private func validateCurrentStep() -> Bool {
-        let step = SetupCardholderSteps.rows(mode: mode)[stepNumber]
+        let step = SetupCardholderSteps.rows(mode: currentUser.userType)[stepNumber]
         switch step {
         case .name:
-            break
+            guard let firstName = firstName, let lastName = lastName else { return false }
+            
+            return Validator.validate(string: firstName, validation: .isAProperName) &&
+                Validator.validate(string: lastName, validation: .containsOneAlpha)
+            
         case .businessName:
-            break
-        case .email:
-            break
+            guard let businessName = businessName else { return false }
+            
+            return Validator.validate(string: businessName, validation: .isAProperName)
+            
         case .category:
-            break
+            return interest != nil
+            
         case .businessCategory:
-            break
+            return businessField != nil
         }
-        return true
     }
 }
 
@@ -145,8 +160,7 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellName = SetupCardholderSteps.rows(mode: mode)[stepNumber].cellName()
-        
+        let cellName = SetupCardholderSteps.rows(mode: currentUser.userType)[stepNumber].cellName()
         var tableCell: UITableViewCell!
         
         switch cellName {
@@ -160,20 +174,13 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
             cell.lastNameField.delegate = self
             cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             tableCell = cell
-        case "SetupEmailCell":
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupEmailCell else {
-                return SetupEmailCell()
-            }
-            cell.emailField.tag = EmailTag
-            cell.emailField.delegate = self
-            cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
-            tableCell = cell
         case "SetupInterestsCell":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupInterestsCell else {
                 return SetupInterestsCell()
             }
             cell.config(data: businessTypes, selectedType: selectedBusinessTypes)
             cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
+            cell.delegate = self
             tableCell = cell
         case "SetupShopNameCell":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupShopNameCell else {
@@ -188,6 +195,7 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
             }
             cell.config(data: businessTypes, selectedType: selectedBusinessTypes)
             cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
+            cell.delegate = self
             tableCell = cell
         default:
             tableCell = UITableViewCell()
@@ -197,16 +205,27 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
     }
 }
 
+extension SetupInitialProfileViewController: SetupInterestsCellDelegate {
+    func selectedInterest(type: BusinessType) {
+        interest = type
+    }
+}
+
+extension SetupInitialProfileViewController: SetupBusinessCellDelegate {
+    func selectedBusinessType(type: BusinessType) {
+        businessField = type
+    }
+}
+
 extension SetupInitialProfileViewController: UITextFieldDelegate {
-   func textFieldDidBeginEditing(_ textField: UITextField) {
-       if textField.tag == FirstNameTag {
-           
-       } else if textField.tag == LastNameTag {
-           
-       } else if textField.tag == EmailTag {
-           
-       } else if textField.tag == BusinessNameTag {
-           
-       }
-   }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == FirstNameTag {
+            firstName = textField.text
+        } else if textField.tag == LastNameTag {
+            lastName = textField.text
+        } else if textField.tag == BusinessNameTag {
+            businessName = textField.text
+        }
+    }
 }

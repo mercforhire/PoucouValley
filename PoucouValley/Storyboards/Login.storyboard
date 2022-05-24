@@ -1264,8 +1264,30 @@
                     <view key="view" contentMode="scaleToFill" id="yHI-6M-Wyr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El7-t1-Vwk" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
+                                <rect key="frame" x="20" y="44" width="32" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="1GV-A1-JFy"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="B5e-Qi-0kh" eventType="touchUpInside" id="6Iw-ml-Aen"/>
+                                    <action selector="backPressed:" destination="4hz-bG-LMA" eventType="touchUpInside" id="cD3-RQ-S8v"/>
+                                    <action selector="backPressed:" destination="joe-qV-MrP" eventType="touchUpInside" id="rt6-A2-x1B"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iTV-2v-qfY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="El7-t1-Vwk" firstAttribute="leading" secondItem="iTV-2v-qfY" secondAttribute="leading" constant="20" id="sUk-4J-ug5"/>
+                            <constraint firstItem="El7-t1-Vwk" firstAttribute="top" secondItem="iTV-2v-qfY" secondAttribute="top" id="sY7-iw-dh7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TWb-cN-PKB"/>
                     <connections>
@@ -1566,8 +1588,29 @@
                     <view key="view" contentMode="scaleToFill" id="qWI-tB-zDK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9z-Uf-NHm" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
+                                <rect key="frame" x="20" y="44" width="32" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="8W4-df-Qls"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="joe-qV-MrP" eventType="touchUpInside" id="AUa-nO-skS"/>
+                                    <action selector="backPressed:" destination="B5e-Qi-0kh" eventType="touchUpInside" id="Wun-Nh-huC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iOf-rJ-x3D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T9z-Uf-NHm" firstAttribute="top" secondItem="iOf-rJ-x3D" secondAttribute="top" id="lLi-2s-vDM"/>
+                            <constraint firstItem="T9z-Uf-NHm" firstAttribute="leading" secondItem="iOf-rJ-x3D" secondAttribute="leading" constant="20" id="qYC-hc-gE4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AXE-u6-d1Z"/>
                     <connections>
