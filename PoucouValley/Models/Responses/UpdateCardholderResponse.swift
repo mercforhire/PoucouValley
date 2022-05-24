@@ -11,7 +11,7 @@ import RealmSwift
 class UpdateCardholderResponse: BaseObject {
     var success: Bool = false
     var message: String = ""
-    var data: Cardholder = Cardholder()
+    var data: Cardholder?
     
     convenience init(document: Document) {
         self.init()

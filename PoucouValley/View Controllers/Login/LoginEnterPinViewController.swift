@@ -67,7 +67,7 @@ class LoginEnterPinViewController: BaseViewController {
                 FullScreenSpinner().hide()
                 
                 if success {
-                    showErrorDialog(error: "GO TO MAIN")
+                    self?.userManager.proceedPastLogin()
                 }
             }
         }

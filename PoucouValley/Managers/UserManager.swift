@@ -12,12 +12,12 @@ import Toucan
 class UserManager {
     var user: UserDetails? {
         didSet {
-            guard let user = user else {
+            guard let user = user?.user else {
                 api.apiKey = nil
                 return
             }
             
-            api.apiKey = user.user.apiKey
+            api.apiKey = user.apiKey
         }
     }
     
@@ -170,8 +170,7 @@ class UserManager {
         api.updateCardholderInfo(params: params) { result in
             switch result {
             case .success(let response):
-                if response.success {
-                    let cardholder = response.data
+                if response.success, let cardholder = response.data {
                     self.user?.cardholder = cardholder
                     callBack(.success(cardholder))
                 } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
@@ -195,8 +194,7 @@ class UserManager {
         api.updateMerchantInfo(params: params) { result in
             switch result {
             case .success(let response):
-                if response.success {
-                    let merchant = response.data
+                if response.success, let merchant = response.data {
                     self.user?.merchant = merchant
                     callBack(.success(merchant))
                 } else if response.message == ResponseMessages.merchantNotFound.rawValue {
@@ -273,7 +271,7 @@ class UserManager {
     }
     
     func saveLoginInfo() {
-        if let apiKey = user?.user.apiKey {
+        if let apiKey = user?.user?.apiKey {
             try? myValet.setString(apiKey, forKey: "apiKey")
         } else {
             try? myValet.removeObject(forKey: "apiKey")

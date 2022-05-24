@@ -32,6 +32,7 @@ public enum Validations {
     case notSequential
     case notStartWith(String)
     case notIdenticalWithInRange(Int, Int)
+    case poucouCardNumber
 }
 
 // password must be 8 to 32 characters & contain a mix of upper & lower case letters, numbers.
@@ -371,6 +372,14 @@ class Validator {
             }
             
             return true
+            
+        case .poucouCardNumber:
+            let regex = try? NSRegularExpression(pattern: "[A-Z]-[\\d]{6}-[A-Z]")
+            let results = regex?.matches(in: string, options: [], range: NSRange(location: 0, length: string.count))
+            
+            guard let actualResults = results else { return false }
+            
+            return !actualResults.isEmpty
         }
     }
 }

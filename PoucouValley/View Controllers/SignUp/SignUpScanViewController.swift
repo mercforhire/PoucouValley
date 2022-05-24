@@ -11,7 +11,14 @@ import AVFoundation
 
 class SignUpScanViewController: BaseViewController {
     
-    var scannedCardNumber: String?
+    var scannedCardNumber: String? {
+        didSet {
+            if let _ = scannedCardNumber {
+                performSegue(withIdentifier: "goToEnterPin", sender: self)
+            }
+        }
+    }
+    @IBOutlet weak private var scannerContainer: UIView!
     
     override func setup() {
         super.setup()
@@ -46,7 +53,7 @@ class SignUpScanViewController: BaseViewController {
     
     private func setupQRScannerView() {
         let qrScannerView = QRScannerView(frame: view.bounds)
-        view.addSubview(qrScannerView)
+        scannerContainer.addSubview(qrScannerView)
         qrScannerView.configure(delegate: self, input: .init(isBlurEffectEnabled: true))
         qrScannerView.startRunning()
     }
@@ -76,5 +83,8 @@ extension SignUpScanViewController: QRScannerViewDelegate {
 
     func qrScannerView(_ qrScannerView: QRScannerView, didSuccess code: String) {
         print(code)
+        if Validator.validate(string: code, validation: .poucouCardNumber) {
+            scannedCardNumber = code
+        }
     }
 }

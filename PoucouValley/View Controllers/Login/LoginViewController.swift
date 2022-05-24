@@ -17,6 +17,9 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var loginButton: ThemeRoundedGreenBlackTextButton!
     
+    @IBOutlet weak var signInWithScanContainer: UIView!
+    @IBOutlet weak var scanButton: ThemeRoundedGreenBlackTextButton!
+    
     private var emailErrorString: String? {
         didSet {
             if let emailErrorString = emailErrorString,
@@ -40,9 +43,13 @@ class LoginViewController: BaseViewController {
         case .cardholder:
             cardholderLabel.isHidden = false
             businessLabel.isHidden = true
+            signInWithScanContainer.isHidden = false
+            scanButton.isHidden = false
         case .merchant:
             cardholderLabel.isHidden = true
             businessLabel.isHidden = false
+            signInWithScanContainer.isHidden = true
+            scanButton.isHidden = true
         default:
             break
         }

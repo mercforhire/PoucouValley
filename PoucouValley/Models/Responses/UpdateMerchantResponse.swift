@@ -11,7 +11,7 @@ import RealmSwift
 class UpdateMerchantResponse: BaseObject {
     var success: Bool = false
     var message: String = ""
-    var data: Merchant = Merchant()
+    var data: Merchant?
     
     convenience init(document: Document) {
         self.init()

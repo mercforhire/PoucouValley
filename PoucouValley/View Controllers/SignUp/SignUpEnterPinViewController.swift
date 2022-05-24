@@ -8,7 +8,6 @@
 import UIKit
 
 class SignUpEnterPinViewController: BaseViewController {
-    var email: String!
     var cardNumber: String!
     
     @IBOutlet weak var code1Field: ThemeTextField!

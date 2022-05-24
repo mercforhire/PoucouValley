@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class UserDetails: BaseObject {
-    var user: User = User()
+    var user: User?
     var cardholder: Cardholder?
     var merchant: Merchant?
     
@@ -25,6 +25,8 @@ class UserDetails: BaseObject {
     }
     
     func isProfileComplete() -> Bool {
+        guard let user = user else { return false }
+        
         switch user.userType {
         case .cardholder:
             return !(cardholder?.firstName?.isEmpty ?? true)
@@ -34,7 +36,7 @@ class UserDetails: BaseObject {
     }
     
     func toUpdateCardholderInfoParams() -> UpdateCardholderInfoParams? {
-        guard let cardholder = cardholder else {
+        guard let cardholder = cardholder, let user = user else {
             return nil
         }
         

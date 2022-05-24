@@ -74,7 +74,7 @@ class SignUpEnterCodeViewController: BaseViewController {
                 switch result {
                 case .success(let response):
                     if response.success {
-                        showErrorDialog(error: response.message ?? "")
+                        self?.userManager.proceedPastLogin()
                     } else if response.message == ResponseMessages.validationCodeInvalid.rawValue {
                         showErrorDialog(error: ResponseMessages.validationCodeInvalid.errorMessage())
                     } else if response.message == ResponseMessages.emailAlreadyExist.rawValue {

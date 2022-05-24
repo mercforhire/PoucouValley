@@ -598,6 +598,8 @@
                         <outlet property="emailErrorLabel" destination="ofU-gd-3Ck" id="ZUK-Hi-HZr"/>
                         <outlet property="emailField" destination="uMG-Sq-ysj" id="90j-xZ-gc6"/>
                         <outlet property="loginButton" destination="SbM-Te-afq" id="Va2-D7-C3J"/>
+                        <outlet property="scanButton" destination="frN-AN-YHB" id="yJw-6Q-stw"/>
+                        <outlet property="signInWithScanContainer" destination="plv-97-5JR" id="NyX-Au-KQX"/>
                         <segue destination="Dg8-Mt-1TJ" kind="show" identifier="goToEnterCode" id="edl-1g-rzg"/>
                     </connections>
                 </viewController>
@@ -1265,6 +1267,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kba-Mx-89O">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El7-t1-Vwk" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
                                 <rect key="frame" x="20" y="44" width="32" height="23.5"/>
                                 <constraints>
@@ -1285,13 +1291,18 @@
                         <viewLayoutGuide key="safeArea" id="iTV-2v-qfY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Kba-Mx-89O" firstAttribute="top" secondItem="yHI-6M-Wyr" secondAttribute="top" id="Lhy-zn-fcV"/>
+                            <constraint firstItem="Kba-Mx-89O" firstAttribute="leading" secondItem="iTV-2v-qfY" secondAttribute="leading" id="YWy-SJ-aEz"/>
+                            <constraint firstItem="iTV-2v-qfY" firstAttribute="bottom" secondItem="Kba-Mx-89O" secondAttribute="bottom" id="Yvt-Tt-XNO"/>
+                            <constraint firstItem="iTV-2v-qfY" firstAttribute="trailing" secondItem="Kba-Mx-89O" secondAttribute="trailing" id="gi8-ZJ-2TY"/>
                             <constraint firstItem="El7-t1-Vwk" firstAttribute="leading" secondItem="iTV-2v-qfY" secondAttribute="leading" constant="20" id="sUk-4J-ug5"/>
                             <constraint firstItem="El7-t1-Vwk" firstAttribute="top" secondItem="iTV-2v-qfY" secondAttribute="top" id="sY7-iw-dh7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TWb-cN-PKB"/>
                     <connections>
-                        <segue destination="SrZ-gN-wQ3" kind="show" id="tKh-ab-UNa"/>
+                        <outlet property="scannerContainer" destination="Kba-Mx-89O" id="C6R-wy-djy"/>
+                        <segue destination="SrZ-gN-wQ3" kind="show" identifier="goToEnterPin" id="tKh-ab-UNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64L-a9-G8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1589,6 +1600,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqA-Of-EZn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9z-Uf-NHm" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
                                 <rect key="frame" x="20" y="44" width="32" height="23.5"/>
                                 <constraints>
@@ -1608,13 +1623,18 @@
                         <viewLayoutGuide key="safeArea" id="iOf-rJ-x3D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="iOf-rJ-x3D" firstAttribute="leading" secondItem="eqA-Of-EZn" secondAttribute="leading" id="Eby-bq-qIQ"/>
+                            <constraint firstItem="eqA-Of-EZn" firstAttribute="bottom" secondItem="iOf-rJ-x3D" secondAttribute="bottom" id="Img-8f-LQS"/>
+                            <constraint firstItem="iOf-rJ-x3D" firstAttribute="trailing" secondItem="eqA-Of-EZn" secondAttribute="trailing" id="WYk-iW-Onr"/>
+                            <constraint firstItem="eqA-Of-EZn" firstAttribute="top" secondItem="qWI-tB-zDK" secondAttribute="top" id="big-yN-C1d"/>
                             <constraint firstItem="T9z-Uf-NHm" firstAttribute="top" secondItem="iOf-rJ-x3D" secondAttribute="top" id="lLi-2s-vDM"/>
                             <constraint firstItem="T9z-Uf-NHm" firstAttribute="leading" secondItem="iOf-rJ-x3D" secondAttribute="leading" constant="20" id="qYC-hc-gE4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AXE-u6-d1Z"/>
                     <connections>
-                        <segue destination="0t3-gG-O1a" kind="show" id="nzR-qC-vHT"/>
+                        <outlet property="scannerContainer" destination="eqA-Of-EZn" id="9gi-X8-hyD"/>
+                        <segue destination="0t3-gG-O1a" kind="show" identifier="goToEnterCode" id="nzR-qC-vHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DP1-tE-Fqs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1657,7 +1677,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="4Ih-G5-dL6">
                                                 <rect key="frame" x="63.5" y="0.0" width="237.5" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-cN-7NU">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-cN-7NU" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="2Pr-cN-7NU" secondAttribute="height" multiplier="5:4" id="CaC-aE-QTe"/>
@@ -1671,7 +1691,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-DH-xgW">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-DH-xgW" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="87.5" y="0.0" width="62.5" height="50"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
@@ -1682,7 +1702,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-Gd-tFq">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-Gd-tFq" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="175" y="0.0" width="62.5" height="50"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
@@ -1725,7 +1745,7 @@
                                             <constraint firstAttribute="height" constant="20" id="j4e-sl-OsT"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETQ-d5-sah" customClass="ThemeRoundedPinkButton" customModule="PoucouValley" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETQ-d5-sah" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="252" width="364" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
@@ -1737,6 +1757,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="donePressed:" destination="0t3-gG-O1a" eventType="touchUpInside" id="Ubr-0C-b2b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1750,6 +1773,9 @@
                                     <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                 </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="0t3-gG-O1a" eventType="touchUpInside" id="xUH-ac-MeI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="thu-eM-aUg"/>
@@ -1765,6 +1791,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="NXI-zH-KkM"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="code1Field" destination="2Pr-cN-7NU" id="mjO-Fu-xlD"/>
+                        <outlet property="code2Field" destination="vXb-DH-xgW" id="uY4-NW-q4h"/>
+                        <outlet property="code3Field" destination="tq2-Gd-tFq" id="a9w-10-NLd"/>
+                        <outlet property="codeErrorLabel" destination="EFZ-gA-IjO" id="puH-Er-bKm"/>
+                        <outlet property="loginButton" destination="ETQ-d5-sah" id="vaA-9u-JVF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mY-BL-opd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
