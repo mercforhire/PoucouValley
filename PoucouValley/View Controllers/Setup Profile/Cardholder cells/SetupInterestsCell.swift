@@ -23,6 +23,8 @@ class SetupInterestsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,7 +47,7 @@ extension SetupInterestsCell: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

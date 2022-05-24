@@ -366,7 +366,7 @@ class PoucouAPI {
     }
     
     func register(email: String, code: String, userType: UserType, callBack: @escaping(Result<LoginResponse, Error>) -> Void) {
-        user.functions.api_register([AnyBSON(email), AnyBSON(code)]) { response, error in
+        user.functions.api_register([AnyBSON(email), AnyBSON(code), AnyBSON(userType.rawValue)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")

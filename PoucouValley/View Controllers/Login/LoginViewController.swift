@@ -86,21 +86,38 @@ class LoginViewController: BaseViewController {
         if validate(), let email = emailField.text {
             FullScreenSpinner().show()
             api.checkLoginEmail(email: email) { [weak self] result in
-                FullScreenSpinner().hide()
-                
                 switch result {
                 case .success(let response):
                     if response.success {
-                        self?.selectedEmail = email
-                        self?.performSegue(withIdentifier: "goToEnterCode", sender: self)
+                        self?.proceed(email: email)
                     } else {
+                        FullScreenSpinner().hide()
                         showErrorDialog(error: ResponseMessages.userDoesNotExist.errorMessage())
                     }
                 case .failure(let error):
+                    FullScreenSpinner().hide()
                     showNetworkErrorDialog()
                 }
             }
             
+        }
+    }
+    
+    private func proceed(email: String) {
+        api.sendEmailCode(email: email) { [weak self] result in
+            FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                if response.success {
+                    self?.selectedEmail = email
+                    self?.performSegue(withIdentifier: "goToEnterCode", sender: self)
+                } else {
+                    showErrorDialog(error: response.message ?? "")
+                }
+            case .failure(let error):
+                showNetworkErrorDialog()
+            }
         }
     }
     

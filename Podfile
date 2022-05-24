@@ -19,4 +19,7 @@ target 'PoucouValley' do
   pod 'Valet'
   pod 'Toucan'
   pod 'lottie-ios'
+  pod 'IQKeyboardManagerSwift'
+  pod 'AWSS3'
+  pod 'AWSCore'
 end

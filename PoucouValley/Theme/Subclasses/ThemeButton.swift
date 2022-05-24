@@ -133,6 +133,53 @@ class RoundedButton: UIButton {
     }
 }
 
+class ThemeRoundedBlackButton: UIButton {
+    var cornerStyle: RoundCornerStyle = .small {
+        didSet {
+            roundCorners(style: cornerStyle)
+        }
+    }
+    
+    private var observer: NSObjectProtocol?
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupUI()
+    }
+    
+    func setupUI() {
+        tintColor = themeManager.themeData!.textLabel.hexColor
+        UIView.performWithoutAnimation {
+            self.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
+            self.layoutIfNeeded()
+        }
+        roundCorners(style: cornerStyle)
+        if observer == nil {
+            observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
+                                                              object: nil,
+                                                              queue: OperationQueue.main) { [weak self] (notif) in
+                self?.setupUI()
+            }
+        }
+    }
+    
+    deinit {
+        if observer != nil {
+            NotificationCenter.default.removeObserver(observer!)
+        }
+    }
+}
+
 class ThemeBlackButton: UIButton {
     private var observer: NSObjectProtocol?
     

@@ -68,22 +68,11 @@ class SignUpEnterCodeViewController: BaseViewController {
         if validate() {
             FullScreenSpinner().show()
             let code = "\(code1Field.text ?? "")\(code2Field.text ?? "")\(code3Field.text ?? "")\(code4Field.text ?? "")"
-            api.register(email: email, code: code, userType: mode) { [weak self] result in
+            userManager.register(email: email, code: code, userType: mode) { [weak self] success in
                 FullScreenSpinner().hide()
                 
-                switch result {
-                case .success(let response):
-                    if response.success {
-                        self?.userManager.proceedPastLogin()
-                    } else if response.message == ResponseMessages.validationCodeInvalid.rawValue {
-                        showErrorDialog(error: ResponseMessages.validationCodeInvalid.errorMessage())
-                    } else if response.message == ResponseMessages.emailAlreadyExist.rawValue {
-                        showErrorDialog(error: ResponseMessages.emailAlreadyExist.errorMessage())
-                    } else {
-                        showErrorDialog(error: "Unknown error")
-                    }
-                case .failure(let error):
-                    showNetworkErrorDialog()
+                if success {
+                    self?.userManager.proceedPastLogin()
                 }
             }
         }

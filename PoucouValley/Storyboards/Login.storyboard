@@ -538,7 +538,7 @@
                                                             <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <segue destination="V93-R5-Eqw" kind="show" id="2Gi-FV-3ct"/>
+                                                            <segue destination="V93-R5-Eqw" kind="show" id="xpt-gW-1dE"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1080,13 +1080,30 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCH-0k-sM1" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
+                                <rect key="frame" x="20" y="44" width="32" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="T6X-Id-4bs"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="joe-qV-MrP" eventType="touchUpInside" id="hqj-XP-7Sh"/>
+                                    <action selector="backPressed:" destination="V93-R5-Eqw" eventType="touchUpInside" id="xoH-Qd-Ww4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VLw-So-r1j"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PCH-0k-sM1" firstAttribute="leading" secondItem="VLw-So-r1j" secondAttribute="leading" constant="20" id="9aD-VU-bLU"/>
                             <constraint firstItem="1ns-g1-423" firstAttribute="top" secondItem="VLw-So-r1j" secondAttribute="top" constant="45" id="QdT-4j-uXa"/>
                             <constraint firstItem="1ns-g1-423" firstAttribute="leading" secondItem="VLw-So-r1j" secondAttribute="leading" constant="25" id="W3p-sk-EiX"/>
                             <constraint firstItem="VLw-So-r1j" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1ns-g1-423" secondAttribute="bottom" constant="25" id="iKp-Hm-QBB"/>
+                            <constraint firstItem="PCH-0k-sM1" firstAttribute="top" secondItem="VLw-So-r1j" secondAttribute="top" id="lZX-z1-jnn"/>
                             <constraint firstItem="VLw-So-r1j" firstAttribute="trailing" secondItem="1ns-g1-423" secondAttribute="trailing" constant="25" id="nXL-4p-ZM9"/>
                         </constraints>
                     </view>
@@ -1194,6 +1211,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="Sign in">
                                                             <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <segue destination="hB5-df-Qek" kind="show" id="w8P-of-HJg"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1805,7 +1825,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Gi-FV-3ct"/>
+        <segue reference="xpt-gW-1dE"/>
+        <segue reference="w8P-of-HJg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

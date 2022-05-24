@@ -14,10 +14,12 @@ class UserManager {
         didSet {
             guard let user = user?.user else {
                 api.apiKey = nil
+                saveLoginInfo()
                 return
             }
             
             api.apiKey = user.apiKey
+            saveLoginInfo()
         }
     }
     
@@ -30,7 +32,7 @@ class UserManager {
     
     init() {
         if let apiKey = try? myValet.string(forKey: "apiKey") {
-            api.service.accessToken = apiKey
+            api.apiKey = apiKey
         }
     }
     
@@ -216,7 +218,7 @@ class UserManager {
             return
         }
 
-        if user.isProfileComplete() {
+        if !user.isProfileComplete() {
             goToSetupProfile()
         } else {
             goToMain()

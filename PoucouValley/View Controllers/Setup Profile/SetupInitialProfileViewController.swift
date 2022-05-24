@@ -38,16 +38,23 @@ class SetupInitialProfileViewController: BaseViewController {
     }
     
     private var businessTypes: [BusinessType] = []
-    private var selectedBusinessTypes: BusinessType?
     
     // cardholder
     private var firstName: String?
     private var lastName: String?
-    private var interest: BusinessType?
+    private var interest: BusinessType? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     //merchant
     private var businessName: String?
-    private var businessField: BusinessType?
+    private var businessField: BusinessType? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     private let FirstNameTag = 1
     private let LastNameTag = 2
@@ -95,8 +102,9 @@ class SetupInitialProfileViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
-    @IBAction func donePressed(_ sender: UIButton) {
+    @objc func donePressed(_ sender: UIButton) {
         if !validateCurrentStep() {
+            showErrorDialog(error: "Please enter all information.")
             return
         }
         let step = SetupCardholderSteps.rows(mode: currentUser.userType)[stepNumber]
@@ -104,20 +112,20 @@ class SetupInitialProfileViewController: BaseViewController {
         if step == SetupCardholderSteps.rows(mode: currentUser.userType).last {
             switch currentUser.userType {
             case .cardholder:
-                userManager.updateCardholderInfo(firstName: firstName, lastName: lastName, pronoun: nil, gender: nil, birthday: nil, contact: nil, address: nil, avatar: nil, interests: [businessField!]) { [weak self] result in
+                userManager.updateCardholderInfo(firstName: firstName, lastName: lastName, pronoun: nil, gender: nil, birthday: nil, contact: nil, address: nil, avatar: nil, interests: [interest!]) { [weak self] result in
                     switch result {
-                    case .success(let _):
+                    case .success:
                         self?.userManager.goToMain()
-                    case .failure(let _):
+                    case .failure:
                         break
                     }
                 }
             case .merchant:
                 userManager.updateMerchantInfo(name: businessName, field: businessField, logo: nil, photos: nil, contact: nil, address: nil, cards: nil) { [weak self]  result in
                     switch result {
-                    case .success(let _):
+                    case .success:
                         self?.userManager.goToMain()
-                    case .failure(let _):
+                    case .failure:
                         break
                     }
                 }
@@ -178,7 +186,7 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupInterestsCell else {
                 return SetupInterestsCell()
             }
-            cell.config(data: businessTypes, selectedType: selectedBusinessTypes)
+            cell.config(data: businessTypes, selectedType: interest)
             cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             cell.delegate = self
             tableCell = cell
@@ -193,7 +201,7 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupBusinessFieldCell else {
                 return SetupBusinessFieldCell()
             }
-            cell.config(data: businessTypes, selectedType: selectedBusinessTypes)
+            cell.config(data: businessTypes, selectedType: businessField)
             cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             cell.delegate = self
             tableCell = cell
