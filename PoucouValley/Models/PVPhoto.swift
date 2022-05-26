@@ -9,18 +9,18 @@ import Foundation
 import RealmSwift
 
 class PVPhoto: BaseEmbeddedObject {
-    var thumbnameUrl: String = ""
+    var thumbnailUrl: String = ""
     var fullUrl: String = ""
     
     convenience init(document: Document) {
         self.init()
-        self.thumbnameUrl = document["thumbnameUrl"]!!.stringValue!
+        self.thumbnailUrl = document["thumbnailUrl"]!!.stringValue!
         self.fullUrl = document["fullUrl"]!!.stringValue!
     }
     
     override func toDocument() -> Document {
         var document: Document = [:]
-        document["thumbnameUrl"] = AnyBSON(thumbnameUrl)
+        document["thumbnailUrl"] = AnyBSON(thumbnailUrl)
         document["fullUrl"] = AnyBSON(fullUrl)
         return document
     }

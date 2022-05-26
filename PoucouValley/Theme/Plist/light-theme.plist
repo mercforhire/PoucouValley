@@ -22,6 +22,8 @@
 	<string>#b2b2b2</string>
 	<key>softGreen</key>
 	<string>#7ad87d</string>
+	<key>greyishBrown</key>
+	<string>#3f3b3a</string>
 	<key>TabBar</key>
 	<dict>
 		<key>selectedColor</key>

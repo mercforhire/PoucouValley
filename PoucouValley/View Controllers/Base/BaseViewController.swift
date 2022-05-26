@@ -17,8 +17,8 @@ class BaseViewController: UIViewController {
     var userManager: UserManager {
         return UserManager.shared
     }
-    var currentUser: User {
-        return UserManager.shared.user!.user!
+    var currentUser: UserDetails {
+        return UserManager.shared.user!
     }
     
     private var observer: NSObjectProtocol?

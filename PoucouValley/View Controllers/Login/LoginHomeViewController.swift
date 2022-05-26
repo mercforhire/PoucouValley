@@ -51,7 +51,7 @@ class LoginHomeViewController: BaseViewController {
             
             FullScreenSpinner().hide()
             if success {
-                self.userManager.goToSetupProfile()
+                self.userManager.proceedPastLogin()
             } else {
                 self.userManager.clearSavedInformation()
             }

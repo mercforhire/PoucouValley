@@ -17,6 +17,7 @@ enum ResponseError: Error {
     case cardPinIncorrect
     case emailAlreadyExist
     case merchantNotFound
+    case cardAlreadyUsed
 }
 
 enum ResponseMessages: String, Codable {
@@ -28,6 +29,7 @@ enum ResponseMessages: String, Codable {
     case cardPinIncorrect = "CARD_PIN_INCORRECT"
     case emailAlreadyExist = "EMAIL_ALREADY_EXIST"
     case merchantNotFound = "MERCHANT_NOT_FOUND"
+    case cardAlreadyUsed = "CARD_ALREADY_USED"
     
     func toError() -> Error {
         switch self {
@@ -47,6 +49,8 @@ enum ResponseMessages: String, Codable {
             return ResponseError.emailAlreadyExist
         case .merchantNotFound:
             return ResponseError.merchantNotFound
+        case .cardAlreadyUsed:
+            return ResponseError.cardAlreadyUsed
         }
     }
     
@@ -68,6 +72,8 @@ enum ResponseMessages: String, Codable {
             return "Account with this email already exist."
         case .merchantNotFound:
             return "Merchant not found."
+        case .cardAlreadyUsed:
+            return "Card already registered to another cardholder."
         }
     }
 }

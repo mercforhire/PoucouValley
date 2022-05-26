@@ -1,16 +1,16 @@
 //
-//  SignUpScanViewController.swift
+//  CardScanViewController.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-05-23.
+//  Created by Leon Chen on 2022-05-25.
 //
 
 import UIKit
 import MercariQRScanner
 import AVFoundation
 
-class SignUpScanViewController: BaseViewController {
-    
+class CardScanViewController: BaseViewController {
+
     var scannedCardNumber: String? {
         didSet {
             if let _ = scannedCardNumber {
@@ -33,6 +33,7 @@ class SignUpScanViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
+
     private func setupQRScanner() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
@@ -73,9 +74,10 @@ class SignUpScanViewController: BaseViewController {
             vc.cardNumber = scannedCardNumber
         }
     }
+
 }
 
-extension SignUpScanViewController: QRScannerViewDelegate {
+extension CardScanViewController: QRScannerViewDelegate {
     func qrScannerView(_ qrScannerView: QRScannerView, didFailure error: QRScannerError) {
         print(error)
     }

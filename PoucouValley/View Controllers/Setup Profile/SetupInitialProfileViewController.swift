@@ -107,15 +107,15 @@ class SetupInitialProfileViewController: BaseViewController {
             showErrorDialog(error: "Please enter all information.")
             return
         }
-        let step = SetupCardholderSteps.rows(mode: currentUser.userType)[stepNumber]
+        let step = SetupCardholderSteps.rows(mode: currentUser.user!.userType)[stepNumber]
         
-        if step == SetupCardholderSteps.rows(mode: currentUser.userType).last {
-            switch currentUser.userType {
+        if step == SetupCardholderSteps.rows(mode: currentUser.user!.userType).last {
+            switch currentUser.user!.userType {
             case .cardholder:
                 userManager.updateCardholderInfo(firstName: firstName, lastName: lastName, pronoun: nil, gender: nil, birthday: nil, contact: nil, address: nil, avatar: nil, interests: [interest!]) { [weak self] result in
                     switch result {
                     case .success:
-                        self?.userManager.goToMain()
+                        self?.userManager.proceedPastLogin()
                     case .failure:
                         break
                     }
@@ -124,7 +124,7 @@ class SetupInitialProfileViewController: BaseViewController {
                 userManager.updateMerchantInfo(name: businessName, field: businessField, logo: nil, photos: nil, contact: nil, address: nil, cards: nil) { [weak self]  result in
                     switch result {
                     case .success:
-                        self?.userManager.goToMain()
+                        self?.userManager.proceedPastLogin()
                     case .failure:
                         break
                     }
@@ -136,7 +136,7 @@ class SetupInitialProfileViewController: BaseViewController {
     }
     
     private func validateCurrentStep() -> Bool {
-        let step = SetupCardholderSteps.rows(mode: currentUser.userType)[stepNumber]
+        let step = SetupCardholderSteps.rows(mode: currentUser.user!.userType)[stepNumber]
         switch step {
         case .name:
             guard let firstName = firstName, let lastName = lastName else { return false }
@@ -168,7 +168,7 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellName = SetupCardholderSteps.rows(mode: currentUser.userType)[stepNumber].cellName()
+        let cellName = SetupCardholderSteps.rows(mode: currentUser.user!.userType)[stepNumber].cellName()
         var tableCell: UITableViewCell!
         
         switch cellName {

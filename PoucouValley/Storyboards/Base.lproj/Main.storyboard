@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N41-cu-wca">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N41-cu-wca">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Base Tab Bar View Controller-->
         <scene sceneID="NfY-Mv-ASh">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="N41-cu-wca" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="N41-cu-wca" customClass="BaseTabBarViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HFf-Fi-XvP">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -69,10 +69,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fsB-qN-s0l" kind="relationship" relationship="rootViewController" id="1no-6o-00H"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tuo-sI-O30" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="761" y="423"/>
+            <point key="canvasLocation" x="761" y="415"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aHr-D9-hvm">
@@ -91,7 +94,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyR-bh-qHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1435" y="423"/>
+            <point key="canvasLocation" x="1457" y="415"/>
         </scene>
         <!--MyProfileViewController-->
         <scene sceneID="qiN-Fz-hlC">
@@ -101,7 +104,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jth-Bc-fPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1435" y="820"/>
+            <point key="canvasLocation" x="1457" y="820"/>
+        </scene>
+        <!--Card-->
+        <scene sceneID="2jm-w6-QU4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Card" id="fsB-qN-s0l" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4K7-BW-EIw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ciq-O0-082" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="820"/>
         </scene>
     </scenes>
     <resources>

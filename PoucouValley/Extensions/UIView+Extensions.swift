@@ -54,6 +54,11 @@ extension UIView {
         }
     }
     
+    func addBorder(borderWidth: CGFloat = 1.0, color: UIColor = .black) {
+        layer.borderWidth = borderWidth
+        layer.borderColor = color.cgColor
+    }
+    
     func roundSelectedCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
