@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hca-rw-GMy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -75,8 +75,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-oN-EoE">
                                         <rect key="frame" x="0.0" y="80.5" width="414" height="110"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="keyboard.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rPk-7e-AhG" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="7" width="414" height="95.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="command.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rPk-7e-AhG" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="5.5" width="414" height="99"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="05x-7F-Lzr"/>
@@ -97,7 +97,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LDi-uR-Dki">
                                                 <rect key="frame" x="97" y="0.0" width="220" height="220"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="LDi-uR-Dki" secondAttribute="height" multiplier="1:1" id="Wvr-A8-ukb"/>
                                                     <constraint firstAttribute="height" constant="220" id="kss-9a-CdI"/>
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1065" y="84"/>
         </scene>
         <!--Card Info View Controller-->
         <scene sceneID="C1s-kd-jdD">
@@ -305,12 +305,32 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="Zvo-pt-HTT"/>
+                        <segue destination="Hca-rw-GMy" kind="relationship" relationship="rootViewController" id="1Nj-Ak-io0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMX-7Q-fa1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-725" y="297"/>
+        </scene>
+        <!--Card Root View Controller-->
+        <scene sceneID="TXz-9z-bNg">
+            <objects>
+                <viewController storyboardIdentifier="CardRootViewController" id="Hca-rw-GMy" customClass="CardRootViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CBt-5r-Uc4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8ji-Nz-YLs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ATA-yM-spn"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="show" identifier="goToCard" animates="NO" id="LeE-si-R4n"/>
+                        <segue destination="ZeP-jc-cqA" kind="show" identifier="goToActivateCard" animates="NO" id="waz-76-Y3h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Acd-ek-zAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="194" y="297"/>
         </scene>
         <!--Card No Card View Controller-->
         <scene sceneID="Rjl-8P-j9D">
@@ -513,6 +533,11 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="MU0-GS-kYf" id="N8Z-9D-1cm"/>
                                                 </connections>
@@ -578,6 +603,11 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="MU0-GS-kYf" id="6dG-ZK-1Bg"/>
                                                 </connections>
@@ -624,6 +654,11 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="MU0-GS-kYf" id="xn5-ic-8BA"/>
                                                 </connections>
@@ -657,6 +692,11 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="MU0-GS-kYf" id="8ZL-tx-rpz"/>
                                                 </connections>
@@ -690,6 +730,11 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="MU0-GS-kYf" id="v5O-Ch-gff"/>
                                                 </connections>
@@ -799,10 +844,10 @@
             </objects>
             <point key="canvasLocation" x="1893" y="1532"/>
         </scene>
-        <!--View Controller-->
+        <!--Card Activated Base View Controller-->
         <scene sceneID="CND-7T-oYe">
             <objects>
-                <viewController id="6Rd-l6-0M5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardActivatedBaseViewController" id="6Rd-l6-0M5" customClass="CardActivatedBaseViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QpX-55-9Iu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -879,7 +924,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Y6W-OH-hqX" kind="show" id="QzG-fi-esl"/>
+                                            <segue destination="Y6W-OH-hqX" kind="show" id="HyY-4v-mKe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -899,7 +944,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZVp-Jh-Mm3"/>
-                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ry6-uW-N5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -909,12 +953,12 @@
     <inferredMetricsTieBreakers>
         <segue reference="hBC-rd-ROy"/>
         <segue reference="7EI-R9-TFe"/>
-        <segue reference="QzG-fi-esl"/>
+        <segue reference="HyY-4v-mKe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="32" height="32"/>
+        <image name="command.circle" catalog="system" width="32" height="32"/>
         <image name="keyboard.chevron.compact.left" catalog="system" width="32" height="32"/>
-        <image name="keyboard.fill" catalog="system" width="32" height="32"/>
         <image name="lightbulb" catalog="system" width="32" height="32"/>
         <image name="shareplay" catalog="system" width="32" height="32"/>
         <image name="sun.and.horizon" catalog="system" width="32" height="32"/>

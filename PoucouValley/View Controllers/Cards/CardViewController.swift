@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UILabel_Copyable
 
 class CardViewController: BaseViewController {
 
@@ -41,6 +42,7 @@ class CardViewController: BaseViewController {
         link.isHidden = true
         merchantLogoContainer.isHidden = true
         cardNumber.text = currentUser.cardholder?.card ?? "--"
+        cardNumber.isCopyingEnabled = true
     }
     
     override func setupTheme() {

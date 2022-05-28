@@ -21,4 +21,35 @@ extension UIImage {
         }
         return nil
     }
+    
+    static func saveImageToDocumentDirectory(filename: String, jpegData: Data) -> URL? {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileName = "\(filename).jpg" // name of the image to be saved
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            try? FileManager.default.removeItem(atPath: fileURL.path)
+        }
+        if !FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try jpegData.write(to: fileURL)
+                print("JPEG saved to \(fileURL)")
+                return fileURL
+            } catch {
+                print("error saving file: \(fileURL)", error)
+            }
+        }
+        return nil
+    }
+    
+    static func loadImageFromDocumentDirectory(nameOfImage: String) -> UIImage? {
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath = paths.first{
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(nameOfImage)
+            let image = UIImage(contentsOfFile: imageURL.path)
+            return image!
+        }
+        return nil
+    }
 }

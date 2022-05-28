@@ -70,8 +70,8 @@ class CardScanViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? SignUpEnterPinViewController {
-            vc.cardNumber = scannedCardNumber
+        if let vc = segue.destination as? CardScanViewController {
+            vc.scannedCardNumber = scannedCardNumber
         }
     }
 

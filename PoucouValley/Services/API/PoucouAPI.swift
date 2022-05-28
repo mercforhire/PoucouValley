@@ -9,15 +9,43 @@ import Foundation
 import Alamofire
 import RealmSwift
 import Realm
+import AWSS3
+import AWSCore
 
 enum RealmError: Error {
     case decodingError
 }
 
+typealias progressBlock = (_ progress: Double) -> Void
+typealias completionBlock = (_ response: Any?, _ error: Error?) -> Void
+
 class PoucouAPI {
     static let shared = PoucouAPI()
     
-    var baseURL = "https://api.unsplash.com/"
+    var environment: Environments {
+        return AppSettingsManager.shared.getEnvironment()
+    }
+    
+    var baseURL: String {
+        return environment.hostUrl()
+    }
+    
+    var s3RootURL: String {
+        return environment.s3RootURL()
+    }
+    
+    var bucketName: String {
+        return environment.bucketName()
+    }
+    
+    var s3Key: String {
+        return environment.s3Key()
+    }
+    
+    var accessKey: String {
+        return environment.accessKey()
+    }
+    
     let service: NetworkService
     var realm: Realm!
     let app = App(id: AppSettingsManager.shared.getEnvironment().appID())
@@ -34,6 +62,7 @@ class PoucouAPI {
             try? FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
             self.realm = try! Realm()
         }
+        initializeS3()
     }
     
     func initRealm(callBack: @escaping(Bool) -> Void) {
@@ -52,6 +81,54 @@ class PoucouAPI {
                     callBack(true)
                 }
             }
+        }
+    }
+    
+    func initializeS3() {
+        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: s3Key, secretKey: accessKey)
+        let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+    }
+    
+    func uploadS3file(fileUrl: URL, fileName: String, progress: progressBlock?, completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?) {
+        let expression  = AWSS3TransferUtilityUploadExpression()
+        expression.progressBlock = { (task: AWSS3TransferUtilityTask, progress: Progress) -> Void in
+            print("Downloading: \(progress.fractionCompleted)")
+            if progress.isFinished {
+                print("Upload Finished...")
+            }
+        }
+        
+        expression.setValue("public-read-write", forRequestHeader: "x-amz-acl")
+        expression.setValue("public-read-write", forRequestParameter: "x-amz-acl")
+        
+        AWSS3TransferUtility.default().uploadFile(fileUrl, bucket: bucketName, key: fileName, contentType: "image/jpg", expression: expression, completionHandler: completionHandler).continueWith(block: { task in
+            if task.error != nil {
+                print("Error uploading file: \(String(describing: task.error?.localizedDescription))")
+            }
+            if task.result != nil {
+                print("Starting upload...")
+            }
+            return nil
+        })
+    }
+    
+    func deleteS3file(fileURL: String, progress: progressBlock?, completion: completionBlock?) {
+        let fileName = (fileURL as NSString).lastPathComponent
+        let request = AWSS3DeleteObjectRequest()!
+        request.bucket = bucketName
+        request.key = fileName
+        
+        let s3Service = AWSS3.default()
+        s3Service.deleteObject(request).continueWith { task in
+            if let error = task.error {
+                print("Error occurred: \(error)")
+                completion?(task.result, error)
+                return nil
+            }
+            print("Bucket deleted successfully.")
+            completion?(task.result, nil)
+            return nil
         }
     }
     

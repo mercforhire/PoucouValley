@@ -1,19 +1,18 @@
 //
-//  CardNoCardViewController.swift
+//  CardActivatedBaseViewController.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-05-24.
+//  Created by Leon Chen on 2022-05-27.
 //
 
 import UIKit
 
-class CardNoCardViewController: BaseViewController {
+class CardActivatedBaseViewController: BaseViewController {
 
     override func setup() {
         super.setup()
         
         navigationController?.navigationBar.isHidden = true
-        navigationController?.viewControllers = [self]
     }
     
     override func setupTheme() {

@@ -53,4 +53,24 @@ class Cardholder: BaseObject {
             self.interests = data
         }
     }
+    
+    func isNotCompleted() -> Bool {
+        return isGenderSet() && isBirthdaySet() && isAddressSet() && isPhoneSet()
+    }
+    
+    func isGenderSet() -> Bool {
+        return !(pronoun?.isEmpty ?? true) && !(gender?.isEmpty ?? true)
+    }
+    
+    func isBirthdaySet() -> Bool {
+        return birthday != nil
+    }
+    
+    func isAddressSet() -> Bool {
+        return address != nil
+    }
+    
+    func isPhoneSet() -> Bool {
+        return !(contact?.phoneAreaCode?.isEmpty ?? true) && !(contact?.phoneNumber?.isEmpty ?? true)
+    }
 }

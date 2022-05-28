@@ -9,33 +9,26 @@ import UIKit
 
 class MyProfileViewController: BaseViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerContainer: UIView!
+    @IBOutlet weak var avatarContainer: UIView!
+    @IBOutlet weak var avatarImageView: ThemeBlackImageView!
+    @IBOutlet weak var nameLabel: ThemeBlackTextLabel!
+    @IBOutlet weak var coinsLabel: ThemeBlackTextLabel!
     
-    private let stretchyHeader = ProfileDetailsHeader.fromNib()! as! ProfileDetailsHeader
+    @IBOutlet weak var tableView: UITableView!
     
     private var giftcards: [UnsplashPhoto]? {
         didSet {
             tableView.reloadData()
         }
     }
-    private var avatar: UnsplashPhoto? {
-        didSet {
-            stretchyHeader.configureUI(avatar: avatar)
-        }
-    }
     
     override func setup() {
-        navigationController?.navigationBar.isHidden = true
         super.setup()
-        
-        tableView.roundCorners(style: .medium)
-        
-        let headerSize = CGSize(width: tableView.frame.size.width, height: 286)
-        stretchyHeader.frame = CGRect(x: 0,
-                                      y: 0,
-                                      width: headerSize.width,
-                                      height: headerSize.height)
-        tableView.addSubview(stretchyHeader)
+        navigationController?.navigationBar.isHidden = true
+        headerContainer.roundCorners(style: .small)
+        avatarContainer.roundCorners(style: .completely)
+        avatarImageView.roundCorners(style: .completely)
     }
     
     override func viewDidLoad() {
@@ -50,25 +43,12 @@ class MyProfileViewController: BaseViewController {
         fetchContent()
     }
     
-    private func fetchContent(complete: ((Bool) -> Void)? = nil) {
-        api.getRandomAvatar { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let response):
-                self.avatar = response
-                complete?(true)
-            case .failure(let error):
-                if error.responseCode == nil {
-                    showNetworkErrorDialog()
-                } else {
-                    error.showErrorDialog()
-                    print("Error occured \(error)")
-                }
-                complete?(false)
-            }
-        }
+    
+    @IBAction func avatarPressed(_ sender: UIButton) {
         
+    }
+    
+    private func fetchContent(complete: ((Bool) -> Void)? = nil) {
         api.getGiftcards { [weak self] result in
             guard let self = self else { return }
             
@@ -86,6 +66,10 @@ class MyProfileViewController: BaseViewController {
                 complete?(false)
             }
         }
+        
+        guard let cardholder = currentUser.cardholder else { return }
+        
+        avatarImageView
     }
 }
 

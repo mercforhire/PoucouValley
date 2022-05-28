@@ -11,12 +11,59 @@ enum Environments: String {
     case production
     case development
     
+    func hostUrl() -> String {
+        switch self {
+        case .production:
+            return "https://api.unsplash.com/"
+        case .development:
+            return "https://api.unsplash.com/"
+        }
+    }
+    
     func appID() -> String {
         switch self {
         case .production:
             return "clientvalley-dev-ouotd"
         case .development:
             return "clientvalley-dev-ouotd"
+        }
+    }
+    
+    func s3RootURL() -> String {
+        switch self {
+        case .production:
+            return "https://poucouvalleydev.s3.amazonaws.com/"
+        case .development:
+            return "https://poucouvalleydev.s3.amazonaws.com/"
+        }
+        
+    }
+    
+    func bucketName() -> String {
+        switch self {
+        case .production:
+            return "poucouvalleydev"
+        case .development:
+            return "poucouvalleydev"
+        }
+        
+    }
+    
+    func s3Key() -> String {
+        switch self {
+        case .production:
+            return "AKIAWCR5T7PCETYGICA6"
+        case .development:
+            return "AKIAWCR5T7PCETYGICA6"
+        }
+    }
+    
+    func accessKey() -> String {
+        switch self {
+        case .production:
+            return "J49sndroCnjCxuoRpjLlb/EiEKACIANqwuP7rT68"
+        case .development:
+            return "J49sndroCnjCxuoRpjLlb/EiEKACIANqwuP7rT68"
         }
     }
 }

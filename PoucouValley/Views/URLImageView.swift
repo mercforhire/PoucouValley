@@ -56,7 +56,7 @@ class URLImageView: UIImageView {
             
             switch blur {
             case .none:
-                kf.setImage(with: url, placeholder: nil, options: nil) { _ in
+                kf.setImage(with: url, placeholder: nil, options: nil) { result in
                     finishAction?()
                 }
             case .weak, .strong:

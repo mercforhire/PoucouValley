@@ -47,7 +47,7 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if let navController = viewController as? UINavigationController,
-            let vc = navController.viewControllers.first as? CardViewController {
+            let _ = navController.viewControllers.first as? CardViewController {
             navigationController?.navigationBar.isHidden = true
         } else {
             navigationController?.navigationBar.isHidden = false

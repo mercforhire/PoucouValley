@@ -59,7 +59,7 @@ class UserManager {
                     showErrorDialog(error: "Unknown error.")
                     completion(false)
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
                 completion(false)
             }
@@ -83,7 +83,7 @@ class UserManager {
                     showErrorDialog(error: "Unknown error")
                     completion(false)
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
                 completion(false)
             }
@@ -107,7 +107,7 @@ class UserManager {
                     showErrorDialog(error: "Unknown error")
                     completion(false)
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
                 completion(false)
             }
@@ -131,7 +131,7 @@ class UserManager {
                     showErrorDialog(error: "Unknown error")
                     completion(false)
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
                 completion(false)
             }
@@ -158,7 +158,7 @@ class UserManager {
                     showErrorDialog(error: "Unknown error")
                     completion(false)
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
                 completion(false)
             }
@@ -166,7 +166,6 @@ class UserManager {
     }
     
     func addCardToCardholder(cardNumber: String, pin: String, completion: @escaping(Bool) -> Void) {
-        
         api.addCardToCardholder(cardNumber: cardNumber, pin: pin, callBack: { [weak self] result in
             switch result {
             case .success(let response):
@@ -186,7 +185,7 @@ class UserManager {
                     showErrorDialog(error: "Unknown error")
                     completion(false)
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
                 completion(false)
             }
@@ -273,7 +272,7 @@ class UserManager {
                 } else {
                     completion(false)
                 }
-            case .failure(let error):
+            case .failure:
                 completion(false)
             }
         }
@@ -305,6 +304,121 @@ class UserManager {
             try? myValet.setString(apiKey, forKey: "apiKey")
         } else {
             try? myValet.removeObject(forKey: "apiKey")
+        }
+    }
+    
+    func uploadPhoto(photo: UIImage, completion: @escaping (PhotoResponse?) -> Void) {
+        guard let user = user?.user else { return }
+        
+        let userId = user.identifier.stringValue
+        let filename = String.randomString(length: 5)
+        let thumbnailFileName = "\(user.identifier.stringValue)-\(filename)-thumb.jpg"
+        let fullsizeFileName = "\(user.identifier.stringValue)-\(filename)-full.jpg"
+        
+        guard let thumbnail = Toucan(image: photo).resize(CGSize(width: 250, height: 250), fitMode: Toucan.Resize.FitMode.clip).image,
+              let fullSize = Toucan(image: photo).resize(CGSize(width: 750, height: 750), fitMode: Toucan.Resize.FitMode.clip).image,
+              let thumbnailData = thumbnail.jpeg,
+              let fullSizeData = fullSize.jpeg,
+              let thumbnailDataUrl = UIImage.saveImageToDocumentDirectory(filename: thumbnailFileName, jpegData: thumbnailData),
+              let fullSizeDataUrl = UIImage.saveImageToDocumentDirectory(filename: fullsizeFileName, jpegData: fullSizeData)
+        else { return }
+        
+        let finalThumbnailName = "\(userId)/\(thumbnailFileName)"
+        let finalFullName = "\(userId)/\(fullsizeFileName)"
+        let finalThumbnailURL = "\(api.s3RootURL)\(finalThumbnailName)"
+        let finalFullURL = "\(api.s3RootURL)\(finalFullName)"
+        
+        var isSuccess: Bool = true
+        
+        let queue = DispatchQueue.global(qos: .default)
+        queue.async { [weak self] in
+            guard let self = self else { return }
+            
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            self.api.uploadS3file(fileUrl: thumbnailDataUrl,
+                                  fileName: thumbnailFileName,
+                                  progress: nil,
+                                  completionHandler: { task, error in
+                if error != nil {
+                    isSuccess = false
+                }
+                semaphore.signal()
+            })
+            semaphore.wait()
+            
+            guard isSuccess else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
+            
+            self.api.uploadS3file(fileUrl: fullSizeDataUrl,
+                                  fileName: finalFullName,
+                                  progress: nil,
+                                  completionHandler: { task, error in
+                if error != nil {
+                    isSuccess = false
+                }
+                semaphore.signal()
+            })
+            semaphore.wait()
+            
+            guard isSuccess else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if isSuccess {
+                    completion(PhotoResponse(fullsizeName: finalFullName,
+                                             thumbnailName: finalThumbnailName,
+                                             fullsizeUrl: finalFullURL,
+                                             thumbnailUrl: finalThumbnailURL))
+                } else {
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func deletePhoto(photo: PVPhoto, completion: @escaping (Bool) -> Void) {
+        var isSuccess: Bool = true
+        let queue = DispatchQueue.global(qos: .default)
+        queue.async { [weak self] in
+            guard let self = self else { return }
+            
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            self.api.deleteS3file(fileURL: photo.thumbnailUrl, progress: nil) { response, error in
+                if error != nil {
+                    isSuccess = false
+                }
+                semaphore.signal()
+            }
+            semaphore.wait()
+            
+            guard isSuccess else {
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+                return
+            }
+            
+            self.api.deleteS3file(fileURL: photo.fullUrl, progress: nil) { response, error in
+                if error != nil {
+                    isSuccess = false
+                }
+                semaphore.signal()
+            }
+            semaphore.wait()
+            
+            DispatchQueue.main.async {
+                completion(isSuccess)
+            }
         }
     }
 }
