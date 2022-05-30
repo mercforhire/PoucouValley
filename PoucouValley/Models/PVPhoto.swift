@@ -12,6 +12,12 @@ class PVPhoto: BaseEmbeddedObject {
     var thumbnailUrl: String = ""
     var fullUrl: String = ""
     
+    convenience init(thumbnailUrl: String, fullUrl: String) {
+        self.init()
+        self.thumbnailUrl = thumbnailUrl
+        self.fullUrl = fullUrl
+    }
+    
     convenience init(document: Document) {
         self.init()
         self.thumbnailUrl = document["thumbnailUrl"]!!.stringValue!

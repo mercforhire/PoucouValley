@@ -32,14 +32,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetupPersonNameCell" id="cVj-au-Fnd" customClass="SetupPersonNameCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="384"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="346.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cVj-au-Fnd" id="pjc-ji-2FQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="384"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="346.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zrb-YH-OSd">
-                                                    <rect key="frame" x="16" y="0.0" width="382" height="384"/>
+                                                    <rect key="frame" x="16" y="0.0" width="382" height="346.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell us your name so we know what to call you." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24k-07-0hZ" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="134.5"/>
@@ -47,14 +47,8 @@
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="You can not update this later." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfc-uX-s8H" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="149.5" width="382" height="22.5"/>
-                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KnB-T3-5UR" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="187" width="382" height="44"/>
+                                                            <rect key="frame" x="0.0" y="149.5" width="382" height="44"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="WtK-Gc-Ipr"/>
@@ -64,7 +58,7 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R1o-9g-RHm" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="246" width="382" height="44"/>
+                                                            <rect key="frame" x="0.0" y="208.5" width="382" height="44"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="0ri-Lw-yZe"/>
@@ -74,14 +68,14 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                         </textField>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-VQ-Vqf">
-                                                            <rect key="frame" x="0.0" y="305" width="382" height="20"/>
+                                                            <rect key="frame" x="0.0" y="267.5" width="382" height="20"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="cWp-M3-D1q"/>
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uy-Wk-P4u" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="340" width="382" height="44"/>
+                                                            <rect key="frame" x="0.0" y="302.5" width="382" height="44"/>
                                                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="UMI-Bv-GjD"/>
@@ -112,7 +106,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetupInterestsCell" id="8ZB-ko-7ha" customClass="SetupInterestsCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="428.5" width="414" height="564"/>
+                                        <rect key="frame" x="0.0" y="391" width="414" height="564"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ZB-ko-7ha" id="5Bx-ng-hVX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
@@ -216,7 +210,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetupShopNameCell" id="rDx-vr-Lgl" customClass="SetupShopNameCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="992.5" width="414" height="308"/>
+                                        <rect key="frame" x="0.0" y="955" width="414" height="308"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rDx-vr-Lgl" id="S9x-sP-btC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="308"/>
@@ -286,7 +280,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetupBusinessFieldCell" id="pzt-L9-KC9" customClass="SetupBusinessFieldCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1300.5" width="414" height="564"/>
+                                        <rect key="frame" x="0.0" y="1263" width="414" height="564"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pzt-L9-KC9" id="AxD-3A-1D8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>

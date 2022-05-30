@@ -17,6 +17,21 @@ class Address: BaseEmbeddedObject {
     var country: String?
     var postalCode: String?
     
+    func isComplete() -> Bool {
+        return !(streetNumber?.isEmpty ?? true) && !(street?.isEmpty ?? true) && !(city?.isEmpty ?? true) && !(province?.isEmpty ?? true) && !(country?.isEmpty ?? true) && !(postalCode?.isEmpty ?? true)
+    }
+    
+    convenience init(unitNumber: String?, streetNumber: String?, street: String?, city: String?, province: String?, country: String?, postalCode: String?) {
+        self.init()
+        self.unitNumber = unitNumber
+        self.streetNumber = streetNumber
+        self.street = street
+        self.city = city
+        self.province = province
+        self.country = country
+        self.postalCode = postalCode
+    }
+    
     convenience init(document: Document) {
         self.init()
         self.unitNumber = document["unitNumber"]??.stringValue

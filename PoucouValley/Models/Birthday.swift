@@ -13,6 +13,13 @@ class Birthday: BaseEmbeddedObject {
     var month: Int = 0
     var year: Int = 0
     
+    convenience init(day: Int, month: Int, year: Int) {
+        self.init()
+        self.day = day
+        self.month = month
+        self.year = year
+    }
+    
     convenience init(document: Document) {
         self.init()
         self.day = document["day"]??.asInt() ?? 0

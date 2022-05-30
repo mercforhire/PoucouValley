@@ -16,6 +16,16 @@ class Contact: BaseEmbeddedObject {
     var facebook: String?
     var instagram: String?
     
+    convenience init(phoneAreaCode: String?, phoneNumber: String?, website: String?, twitter: String?, facebook: String?, instagram: String?) {
+        self.init()
+        self.phoneAreaCode = phoneAreaCode
+        self.phoneNumber = phoneNumber
+        self.website = website
+        self.twitter = twitter
+        self.facebook = facebook
+        self.instagram = instagram
+    }
+    
     convenience init(document: Document) {
         self.init()
         self.phoneAreaCode = document["phoneAreaCode"]??.stringValue

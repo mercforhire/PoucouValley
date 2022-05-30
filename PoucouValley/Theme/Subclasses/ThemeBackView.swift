@@ -214,19 +214,19 @@ class RoundedView: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        roundCorners(style: .medium)
+        roundCorners(style: .small)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupUI()
-        roundCorners(style: .medium)
+        roundCorners(style: .small)
     }
     
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setupUI()
-        roundCorners(style: .medium)
+        roundCorners(style: .small)
     }
     
     func setupUI() {
@@ -253,19 +253,19 @@ class RoundedBorderView: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        roundCorners(style: .medium)
+        roundCorners(style: .small)
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupUI()
-        roundCorners(style: .medium)
+        roundCorners(style: .small)
     }
     
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setupUI()
-        roundCorners(style: .medium)
+        roundCorners(style: .small)
     }
     
     func setupUI() {

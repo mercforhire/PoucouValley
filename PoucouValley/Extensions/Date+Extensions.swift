@@ -132,4 +132,11 @@ extension Date {
     func add(component: Calendar.Component, value: Int) -> Date {
         return Calendar.current.date(byAdding: component, value: value, to: self)!
     }
+    
+    static func makeDate(year: Int, month: Int, day: Int) -> Date? {
+        var calendar = Calendar(identifier: .gregorian)
+         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        let components = DateComponents(year: year, month: month, day: day)
+        return calendar.date(from: components)
+    }
 }

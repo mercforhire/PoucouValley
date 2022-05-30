@@ -12,6 +12,8 @@
 		7201EEEA2830943600AD6585 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEE92830943600AD6585 /* UserManager.swift */; };
 		7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEEB2830950D00AD6585 /* PhotoResponse.swift */; };
 		7201EEEE2830A6DB00AD6585 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEED2830A6DB00AD6585 /* Enums.swift */; };
+		721BD074284471D500DD410B /* EditCardholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721BD073284471D500DD410B /* EditCardholderViewController.swift */; };
+		721BD0762844720600DD410B /* CardholderBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721BD0752844720600DD410B /* CardholderBasicInfoCell.swift */; };
 		725C20BD284062B900BACBFE /* CardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725C20BC284062B900BACBFE /* CardRootViewController.swift */; };
 		72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C012830ACD7004F3C3C /* GetStartedViewController.swift */; };
 		72707C042830ACFE004F3C3C /* GetStartedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C032830ACFE004F3C3C /* GetStartedCell.swift */; };
@@ -141,6 +143,7 @@
 		72B2FBDB273CC34200382C12 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBCC273CC34200382C12 /* ThemeView.swift */; };
 		72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDC273CC47200382C12 /* PaddedTextField.swift */; };
 		72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */; };
+		72BF2A662843475600B43F50 /* GetGoalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF2A652843475600B43F50 /* GetGoalsResponse.swift */; };
 		72C7A75A273F0E9100636346 /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7A759273F0E9100636346 /* HomeSearchViewController.swift */; };
 		72C7A75D273F0F0E00636346 /* SearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7A75C273F0F0E00636346 /* SearchHistoryCell.swift */; };
 		72C7A75F273F213900636346 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7A75E273F213900636346 /* SearchResultCell.swift */; };
@@ -192,10 +195,12 @@
 		72C7D430283EB2640066F3CB /* FetchMyCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */; };
 		72C7D432283EB4620066F3CB /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D431283EB4620066F3CB /* URLImageView.swift */; };
 		72C7D434283EF1600066F3CB /* CardScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D433283EF1600066F3CB /* CardScanViewController.swift */; };
+		72D61D282841D22C00C77302 /* SetGendersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D61D272841D22C00C77302 /* SetGendersCell.swift */; };
 		72DB597C284094E600C80FD6 /* CardActivatedBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB597B284094E600C80FD6 /* CardActivatedBaseViewController.swift */; };
 		72DB597E284098BA00C80FD6 /* ThemeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB597D284098BA00C80FD6 /* ThemeImageView.swift */; };
 		72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE253E2836B2F90061FB4A /* LoginViewController.swift */; };
 		72EE25412836C6230061FB4A /* LoginEnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */; };
+		72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F748EB28433EEF0057A2B4 /* Goal.swift */; };
 		72F92FEC284078BE00DF438C /* Clients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEB284078BE00DF438C /* Clients.storyboard */; };
 		72F92FEE284078D000DF438C /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FED284078D000DF438C /* Charts.storyboard */; };
 		72F92FF0284078E700DF438C /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEF284078E700DF438C /* Store.storyboard */; };
@@ -208,6 +213,8 @@
 		7201EEE92830943600AD6585 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7201EEEB2830950D00AD6585 /* PhotoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		7201EEED2830A6DB00AD6585 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		721BD073284471D500DD410B /* EditCardholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardholderViewController.swift; sourceTree = "<group>"; };
+		721BD0752844720600DD410B /* CardholderBasicInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderBasicInfoCell.swift; sourceTree = "<group>"; };
 		725C20BC284062B900BACBFE /* CardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRootViewController.swift; sourceTree = "<group>"; };
 		72707C012830ACD7004F3C3C /* GetStartedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		72707C032830ACFE004F3C3C /* GetStartedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedCell.swift; sourceTree = "<group>"; };
@@ -339,6 +346,7 @@
 		72B2FBCC273CC34200382C12 /* ThemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		72B2FBDC273CC47200382C12 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPaginationManager.swift; sourceTree = "<group>"; };
+		72BF2A652843475600B43F50 /* GetGoalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoalsResponse.swift; sourceTree = "<group>"; };
 		72C7A759273F0E9100636346 /* HomeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		72C7A75C273F0F0E00636346 /* SearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCell.swift; sourceTree = "<group>"; };
 		72C7A75E273F213900636346 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -390,10 +398,12 @@
 		72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyCardResponse.swift; sourceTree = "<group>"; };
 		72C7D431283EB4620066F3CB /* URLImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
 		72C7D433283EF1600066F3CB /* CardScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanViewController.swift; sourceTree = "<group>"; };
+		72D61D272841D22C00C77302 /* SetGendersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGendersCell.swift; sourceTree = "<group>"; };
 		72DB597B284094E600C80FD6 /* CardActivatedBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActivatedBaseViewController.swift; sourceTree = "<group>"; };
 		72DB597D284098BA00C80FD6 /* ThemeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeImageView.swift; sourceTree = "<group>"; };
 		72EE253E2836B2F90061FB4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnterCodeViewController.swift; sourceTree = "<group>"; };
+		72F748EB28433EEF0057A2B4 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		72F92FEB284078BE00DF438C /* Clients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Clients.storyboard; sourceTree = "<group>"; };
 		72F92FED284078D000DF438C /* Charts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Charts.storyboard; sourceTree = "<group>"; };
 		72F92FEF284078E700DF438C /* Store.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
@@ -439,6 +449,7 @@
 				72C7D3DB2837FDEF0066F3CB /* BooleanResponse.swift */,
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
 				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
+				72BF2A652843475600B43F50 /* GetGoalsResponse.swift */,
 				72C7D41E283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift */,
 			);
 			path = Responses;
@@ -482,10 +493,12 @@
 			children = (
 				728ED6FA2841606800415C01 /* CompleteProfileCell.swift */,
 				728ED6FE284182B800415C01 /* SetPronounsCell.swift */,
+				72D61D272841D22C00C77302 /* SetGendersCell.swift */,
 				728ED700284182D900415C01 /* SetBirthdayCell.swift */,
 				728ED702284182FF00415C01 /* SetAddressCell.swift */,
 				728ED7042841831600415C01 /* SetPhoneCell.swift */,
 				728ED7062841833300415C01 /* ProfileCompleteCell.swift */,
+				721BD0752844720600DD410B /* CardholderBasicInfoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -737,6 +750,7 @@
 				72707C1A2832BE28004F3C3C /* Merchant.swift */,
 				72C7D3F7283AC4640066F3CB /* BusinessType.swift */,
 				72C7D41C283DBAA80066F3CB /* PoucouCardBulletPoint.swift */,
+				72F748EB28433EEF0057A2B4 /* Goal.swift */,
 				72707C1C2832E90B004F3C3C /* Client.swift */,
 				72707C1628321975004F3C3C /* Birthday.swift */,
 				72707C14283217C7004F3C3C /* Address.swift */,
@@ -823,6 +837,7 @@
 			children = (
 				728ED6F928415E1600415C01 /* Cells */,
 				72B2FBB5273CAB2000382C12 /* MyProfileViewController.swift */,
+				721BD073284471D500DD410B /* EditCardholderViewController.swift */,
 				728ED6FC28417F0C00415C01 /* CompleteMyProfileViewController.swift */,
 			);
 			path = Profile;
@@ -1095,6 +1110,7 @@
 				72C7A75F273F213900636346 /* SearchResultCell.swift in Sources */,
 				72AC00CC27373B8300B452BE /* HomeRootViewController.swift in Sources */,
 				728ED703284182FF00415C01 /* SetAddressCell.swift in Sources */,
+				721BD074284471D500DD410B /* EditCardholderViewController.swift in Sources */,
 				72EE25412836C6230061FB4A /* LoginEnterCodeViewController.swift in Sources */,
 				72707C0928320CD7004F3C3C /* GetStartedSteps.swift in Sources */,
 				72AC01B32738A80B00B452BE /* Validator.swift in Sources */,
@@ -1153,6 +1169,7 @@
 				72AC011627378FFA00B452BE /* UITableView+Extensions.swift in Sources */,
 				728ED6FB2841606800415C01 /* CompleteProfileCell.swift in Sources */,
 				72707C0D28320D26004F3C3C /* User.swift in Sources */,
+				72D61D282841D22C00C77302 /* SetGendersCell.swift in Sources */,
 				72B2FBD7273CC34200382C12 /* ThemeBorderView.swift in Sources */,
 				72C7D415283D6D860066F3CB /* CardViewController.swift in Sources */,
 				72C7D417283D72A40066F3CB /* LabelTableCell.swift in Sources */,
@@ -1170,6 +1187,7 @@
 				72AC019E27389DD500B452BE /* HomeShopViewController.swift in Sources */,
 				72C7A7712741D1C800636346 /* SearchSectionHeaderView.swift in Sources */,
 				72AC01B92738A80B00B452BE /* RPicker.swift in Sources */,
+				721BD0762844720600DD410B /* CardholderBasicInfoCell.swift in Sources */,
 				72AC011927378FFA00B452BE /* UIProgressView+Extensions.swift in Sources */,
 				72C7D401283C0B200066F3CB /* SignUpEnterPinViewController.swift in Sources */,
 				72DB597E284098BA00C80FD6 /* ThemeImageView.swift in Sources */,
@@ -1181,6 +1199,7 @@
 				7201EEEE2830A6DB00AD6585 /* Enums.swift in Sources */,
 				72AC011227378FFA00B452BE /* UINavigationController+Extensions.swift in Sources */,
 				72C7D3DC2837FDEF0066F3CB /* BooleanResponse.swift in Sources */,
+				72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */,
 				72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */,
 				72AC01BE2738B76600B452BE /* UIAlertController+Extension.swift in Sources */,
 				72AC01C02739F46400B452BE /* StoryCollectionViewCell.swift in Sources */,
@@ -1204,6 +1223,7 @@
 				72B2FBD8273CC34200382C12 /* ThemeTextFieldLabel.swift in Sources */,
 				72B2FBD6273CC34200382C12 /* ThemeBarButton.swift in Sources */,
 				72C7D403283C0CEF0066F3CB /* LoginScanViewController.swift in Sources */,
+				72BF2A662843475600B43F50 /* GetGoalsResponse.swift in Sources */,
 				72C7D42E283EAEA00066F3CB /* Card.swift in Sources */,
 				72AC01B82738A80B00B452BE /* ImagePicker.swift in Sources */,
 				72C7D423283DD8160066F3CB /* CardNoCardViewController.swift in Sources */,

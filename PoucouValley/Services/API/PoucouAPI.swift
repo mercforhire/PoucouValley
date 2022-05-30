@@ -309,6 +309,64 @@ class PoucouAPI {
         }
     }
     
+    func fetchGoals(callBack: @escaping(Result<GetGoalsResponse, Error>) -> Void) {
+        user.functions.api_getBusinessTypes([]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getBusinessTypes' and got result: \(document)")
+                callBack(.success(GetGoalsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchCompletedGoals(callBack: @escaping(Result<GetGoalsResponse, Error>) -> Void) {
+        user.functions.api_fetchCompletedGoals([]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchCompletedGoals' and got result: \(document)")
+                callBack(.success(GetGoalsResponse(document: document)))
+            }
+        }
+    }
+    
+    func addAccomplishment(goal: Goal, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        let params: Document = ["goalId": AnyBSON(goal.identifier)]
+        user.functions.api_addAccomplishment([AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_addAccomplishment' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
+            }
+        }
+    }
+    
     func fetchPoucouCardBulletPoints(callBack: @escaping(Result<GetPoucouCardBulletPointsResponse, Error>) -> Void) {
         user.functions.api_getPoucouCardBulletPoints([]) { response, error in
             DispatchQueue.main.async {

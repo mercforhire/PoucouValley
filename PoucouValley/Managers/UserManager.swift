@@ -192,7 +192,7 @@ class UserManager {
         })
     }
     
-    func updateCardholderInfo(firstName: String?, lastName: String?, pronoun: String?, gender: String?, birthday: Birthday?, contact: Contact?, address: Address?, avatar: PVPhoto?, interests: [BusinessType]?, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
+    func updateCardholderInfo(firstName: String? = nil, lastName: String? = nil, pronoun: String? = nil, gender: String? = nil, birthday: Birthday? = nil, contact: Contact? = nil, address: Address? = nil, avatar: PVPhoto? = nil, interests: [BusinessType]? = nil, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
         guard let apiKey = api.apiKey else { return }
         
         let params = UpdateCardholderInfoParams(apiKey: apiKey, firstName: firstName, lastName: lastName, pronoun: pronoun, gender: gender, birthday: birthday, contact: contact, address: address, avatar: avatar, interests: interests)
@@ -307,7 +307,7 @@ class UserManager {
         }
     }
     
-    func uploadPhoto(photo: UIImage, completion: @escaping (PhotoResponse?) -> Void) {
+    func uploadPhoto(photo: UIImage, completion: @escaping (PVPhoto?) -> Void) {
         guard let user = user?.user else { return }
         
         let userId = user.identifier.stringValue
@@ -315,8 +315,8 @@ class UserManager {
         let thumbnailFileName = "\(user.identifier.stringValue)-\(filename)-thumb.jpg"
         let fullsizeFileName = "\(user.identifier.stringValue)-\(filename)-full.jpg"
         
-        guard let thumbnail = Toucan(image: photo).resize(CGSize(width: 250, height: 250), fitMode: Toucan.Resize.FitMode.clip).image,
-              let fullSize = Toucan(image: photo).resize(CGSize(width: 750, height: 750), fitMode: Toucan.Resize.FitMode.clip).image,
+        guard let thumbnail = Toucan(image: photo).resize(CGSize(width: 360, height: 360), fitMode: Toucan.Resize.FitMode.clip).image,
+              let fullSize = Toucan(image: photo).resize(CGSize(width: 1080, height: 1080), fitMode: Toucan.Resize.FitMode.clip).image,
               let thumbnailData = thumbnail.jpeg,
               let fullSizeData = fullSize.jpeg,
               let thumbnailDataUrl = UIImage.saveImageToDocumentDirectory(filename: thumbnailFileName, jpegData: thumbnailData),
@@ -374,10 +374,7 @@ class UserManager {
             
             DispatchQueue.main.async {
                 if isSuccess {
-                    completion(PhotoResponse(fullsizeName: finalFullName,
-                                             thumbnailName: finalThumbnailName,
-                                             fullsizeUrl: finalFullURL,
-                                             thumbnailUrl: finalThumbnailURL))
+                    completion(PVPhoto(thumbnailUrl: finalThumbnailURL, fullUrl: finalFullURL))
                 } else {
                     completion(nil)
                 }
