@@ -13,6 +13,11 @@ class Birthday: BaseEmbeddedObject {
     var month: Int = 0
     var year: Int = 0
     
+    var dateString: String {
+        let monthName = DateFormatter().monthSymbols[month]
+        return "\(year) \(monthName), \(day)"
+    }
+    
     convenience init(day: Int, month: Int, year: Int) {
         self.init()
         self.day = day

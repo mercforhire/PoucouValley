@@ -10,10 +10,18 @@ import RealmSwift
 
 class BaseObject: Object {
     @objc dynamic var sample : String? = nil
+    
+    convenience init(document: Document) {
+        self.init()
+    }
 }
 
 class BaseEmbeddedObject: EmbeddedObject {
     @objc dynamic var sample : String? = nil
+    
+    convenience init(document: Document) {
+        self.init()
+    }
     
     func toDocument() -> Document {
         fatalError()

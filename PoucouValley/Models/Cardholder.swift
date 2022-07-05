@@ -23,6 +23,10 @@ class Cardholder: BaseObject {
     var avatar: PVPhoto?
     var interests: List<String> = List()
     
+    var fullName: String {
+        return "\(firstName?.capitalizingFirstLetter() ?? "") \(lastName?.capitalizingFirstLetter() ?? "")"
+    }
+    
     convenience init(document: Document) {
         self.init()
         self.identifier = document["_id"]!!.objectIdValue!

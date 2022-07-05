@@ -7,19 +7,17 @@
 
 import UIKit
 import GSKStretchyHeaderView
-import Kingfisher
 
-class ProfileDetailsHeader: GSKStretchyHeaderView {
+class ClientDetailsHeader: GSKStretchyHeaderView {
     private var observer: NSObjectProtocol?
     
-    @IBOutlet weak var editButtonContainer: UIView!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var star: UIView!
+    @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    
-    @IBOutlet weak var nameLabelsContainer: UIStackView!
-    @IBOutlet weak var pointsContainer: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +29,6 @@ class ProfileDetailsHeader: GSKStretchyHeaderView {
         avatar.roundCorners(style: .completely)
         avatar.layer.borderColor = UIColor.white.cgColor
         avatar.layer.borderWidth = 2.0
-        editButtonContainer.roundCorners(style: .completely)
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
@@ -42,12 +39,11 @@ class ProfileDetailsHeader: GSKStretchyHeaderView {
         }
     }
     
-    func configureUI(avatar: UnsplashPhoto?) {
-        navigationTitleLabel.text = Lorem.fullName
+    func configureUI(data: Client) {
         userNameLabel.text = navigationTitleLabel.text
         
-        if let avatar = avatar, let url = URL(string: avatar.urls.small) {
-            self.avatar.kf.setImage(with: url)
+        if let urlString = data.avatar?.thumbnailUrl, let url = URL(string: urlString) {
+            avatar.kf.setImage(with: url)
         }
     }
     
@@ -56,9 +52,8 @@ class ProfileDetailsHeader: GSKStretchyHeaderView {
         alpha = max(0, min(1, alpha))
 
         avatar.alpha = alpha
-        editButtonContainer.alpha = alpha
-        nameLabelsContainer.alpha = alpha
-        pointsContainer.alpha = alpha
+        star.alpha = alpha
+        userNameLabel.alpha = alpha
 
         let navTitleFactor: CGFloat = 0.4
         var navTitleAlpha: CGFloat = 0

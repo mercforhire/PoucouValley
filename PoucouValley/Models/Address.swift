@@ -17,6 +17,10 @@ class Address: BaseEmbeddedObject {
     var country: String?
     var postalCode: String?
     
+    var addressString: String {
+        return "\(unitNumber ?? "") \(streetNumber ?? "") \(street ?? ""), \(city ?? ""), \(province ?? ""), \(country ?? ""), \(postalCode ?? "")"
+    }
+    
     func isComplete() -> Bool {
         return !(streetNumber?.isEmpty ?? true) && !(street?.isEmpty ?? true) && !(city?.isEmpty ?? true) && !(province?.isEmpty ?? true) && !(country?.isEmpty ?? true) && !(postalCode?.isEmpty ?? true)
     }

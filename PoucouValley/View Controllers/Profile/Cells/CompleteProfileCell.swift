@@ -48,10 +48,9 @@ class CompleteProfileCell: UITableViewCell {
         }
     }
 
-    func config(data: Cardholder, coinsRewardPerGoal: Int = 5) {
+    func config(all: [Goal], completed: [Goal], coinsRewardPerGoal: Int = 5) {
         goalRewardLabel.text = "\(coinsRewardPerGoal)"
-        var total = 5
-        var goalsCompleted = 0
+        
         
         if data.isGenderSet() {
             total += coinsRewardPerGoal

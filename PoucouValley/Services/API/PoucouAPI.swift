@@ -638,6 +638,48 @@ class PoucouAPI {
         }
     }
     
+    func fetchTransactions(callBack: @escaping(Result<FetchTransactionsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_fetchTransactions([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchTransactions' and got result: \(document)")
+                callBack(.success(FetchTransactionsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchWallet(callBack: @escaping(Result<FetchTransactionsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_fetchWallet([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchWallet' and got result: \(document)")
+                callBack(.success(FetchTransactionsResponse(document: document)))
+            }
+        }
+    }
+    
     func logout(callBack: @escaping(Bool) -> Void) {
         guard let apiKey = apiKey else { return }
         

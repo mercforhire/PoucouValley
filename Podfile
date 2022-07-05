@@ -23,4 +23,6 @@ target 'PoucouValley' do
   pod 'AWSS3'
   pod 'AWSCore'
   pod 'UILabel+Copyable', '~> 2.0'
+  pod 'PhoneNumberKit'
+  pod 'Charts'
 end

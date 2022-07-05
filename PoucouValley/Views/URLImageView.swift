@@ -50,7 +50,7 @@ class URLImageView: UIImageView {
         }
     }
     
-    func loadImageFromURL(urlString: String?, blur: BlurAmount, finishAction: Action? = nil) {
+    func loadImageFromURL(urlString: String?, blur: BlurAmount = .none, finishAction: Action? = nil) {
         if let urlString = urlString,
             let url = URL(string: urlString) {
             

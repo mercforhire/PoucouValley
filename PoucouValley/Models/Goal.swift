@@ -13,9 +13,17 @@ class Goal: BaseObject {
     var goal: String = ""
     var reward: Int = 0
     
+    static func == (lhs: Goal, rhs: Goal) -> Bool {
+        return lhs.goal == rhs.goal
+    }
+    
     convenience init(document: Document) {
         self.init()
         self.goal = document["goal"]!!.stringValue!
         self.reward = document["reward"]!!.asInt()!
+    }
+    
+    static func supportGoals() -> [String] {
+        return ["Add gender to profile", "Add birthday to profile", "Add address to profile", "Add phone number to profile"]
     }
 }

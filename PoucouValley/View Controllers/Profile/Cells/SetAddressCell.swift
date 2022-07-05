@@ -86,13 +86,29 @@ extension SetAddressCell: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let address = Address(unitNumber: unitField.text,
-                              streetNumber: streetNumberField.text,
-                              street: streetNameField.text,
-                              city: cityField.text,
-                              province: provinceField.text,
-                              country: countryField.text,
-                              postalCode: postalField.text)
+        if textField == unitField {
+            textField.text = textField.text?.capitalized
+        } else if textField == streetNumberField {
+            textField.text = textField.text?.capitalized
+        } else if textField == streetNameField {
+            textField.text = textField.text?.capitalized
+        } else if textField == cityField {
+            textField.text = textField.text?.capitalized
+        } else if textField == provinceField {
+            textField.text = textField.text?.capitalized
+        } else if textField == postalField {
+            textField.text = textField.text?.capitalized
+        } else if textField == countryField {
+            textField.text = textField.text?.capitalized
+        }
+        
+        let address = Address(unitNumber: unitField.text?.capitalized,
+                              streetNumber: streetNumberField.text?.capitalized,
+                              street: streetNameField.text?.capitalized,
+                              city: cityField.text?.capitalized,
+                              province: provinceField.text?.capitalized,
+                              country: countryField.text?.capitalized,
+                              postalCode: postalField.text?.capitalized)
         delegate?.setAddressCellAddressUpdated(address: address)
     }
 }
