@@ -453,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCR-iX-oct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="794"/>
+            <point key="canvasLocation" x="1064" y="794"/>
         </scene>
         <!--Card Scan View Controller-->
         <scene sceneID="kpM-8C-hQS">
@@ -947,7 +947,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ry6-uW-N5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2797" y="794"/>
+            <point key="canvasLocation" x="2723" y="794"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -956,12 +956,12 @@
         <segue reference="HyY-4v-mKe"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="chevron.backward" catalog="system" width="32" height="32"/>
-        <image name="command.circle" catalog="system" width="32" height="32"/>
-        <image name="keyboard.chevron.compact.left" catalog="system" width="32" height="32"/>
-        <image name="lightbulb" catalog="system" width="32" height="32"/>
-        <image name="shareplay" catalog="system" width="32" height="32"/>
-        <image name="sun.and.horizon" catalog="system" width="32" height="32"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="command.circle" catalog="system" width="128" height="121"/>
+        <image name="keyboard.chevron.compact.left" catalog="system" width="128" height="64"/>
+        <image name="lightbulb" catalog="system" width="113" height="128"/>
+        <image name="shareplay" catalog="system" width="128" height="73"/>
+        <image name="sun.and.horizon" catalog="system" width="128" height="80"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
