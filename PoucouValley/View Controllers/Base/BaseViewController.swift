@@ -26,6 +26,10 @@ class BaseViewController: UIViewController, ImagePickerDelegate, CropViewControl
     
     private var observer: NSObjectProtocol?
    
+    static let tableRefreshDelay: TimeInterval = 0.35
+    var mainTableView: UITableView?
+    var tableRefreshTimer: Timer?
+    
     func setup() {
         // override
         setupTheme()
@@ -95,6 +99,27 @@ class BaseViewController: UIViewController, ImagePickerDelegate, CropViewControl
         cropViewController.modalPresentationStyle = .fullScreen
         cropViewController.delegate = self
         present(cropViewController, animated: true)
+    }
+    
+    func refreshTableCellHeights(tableView: UITableView) {
+        mainTableView = tableView
+        
+        if let timer = tableRefreshTimer {
+            timer.invalidate()
+            tableRefreshTimer = nil
+        }
+        tableRefreshTimer = Timer.scheduledTimer(timeInterval: BaseViewController.tableRefreshDelay,
+                                                 target: self,
+                                                 selector: #selector(tableRefreshTimerFired),
+                                                 userInfo: nil,
+                                                 repeats: false)
+    }
+    
+    @objc func tableRefreshTimerFired() {
+        tableRefreshTimer = nil
+        
+        mainTableView?.beginUpdates()
+        mainTableView?.endUpdates()
     }
     
     // ImagePickerDelegate

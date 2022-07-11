@@ -229,11 +229,11 @@ extension MyProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch row {
         case .completeProfile:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteProfileCell", for: indexPath) as? CompleteProfileCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteProfileCell", for: indexPath) as? CompleteProfileCell, let cardholder = userManager.user?.cardholder else {
                 return CompleteProfileCell()
             }
             
-            cell.config(data: <#T##Cardholder#>)
+            cell.config(data: cardholder)
             return cell
         case .giftCard:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "GiftTableViewCell", for: indexPath) as? GiftTableViewCell,

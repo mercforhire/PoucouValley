@@ -114,26 +114,26 @@ extension CardholderDetailsViewController: UITableViewDataSource, UITableViewDel
             }
             return cell
         case .notification:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerTableCell else {
-                return LabelDividerTableCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerCell else {
+                return LabelDividerCell()
             }
             cell.label.text = "Notification Setting"
             return cell
         case .about:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerTableCell else {
-                return LabelDividerTableCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerCell else {
+                return LabelDividerCell()
             }
             cell.label.text = "About"
             return cell
         case .help:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerTableCell else {
-                return LabelDividerTableCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerCell else {
+                return LabelDividerCell()
             }
             cell.label.text = "Help"
             return cell
         case .delete:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerTableCell else {
-                return LabelDividerTableCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelDividerTableCell", for: indexPath) as? LabelDividerCell else {
+                return LabelDividerCell()
             }
             cell.label.text = "Delete Account"
             return cell

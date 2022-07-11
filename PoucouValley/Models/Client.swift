@@ -25,6 +25,7 @@ class Client: BaseObject {
     var jobTitle: String?
     var hashtags: List<String> = List()
     var notes: String?
+    var email: String?
     
     convenience init(document: Document) {
         self.init()
@@ -39,6 +40,7 @@ class Client: BaseObject {
         self.company = document["company"]??.stringValue
         self.jobTitle = document["jobTitle"]??.stringValue
         self.notes = document["notes"]??.stringValue
+        self.email = document["email"]??.stringValue
         if let document = document["birthday"]??.documentValue {
             self.birthday = Birthday(document: document)
         }

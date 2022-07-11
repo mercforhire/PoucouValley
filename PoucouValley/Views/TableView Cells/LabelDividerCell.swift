@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UILabel_Copyable
 
-class LabelDividerTableCell: UITableViewCell {
+class LabelDividerCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var divider: UIView!
@@ -26,7 +27,7 @@ class LabelDividerTableCell: UITableViewCell {
 
 }
 
-class LabelsDividerTableCell: UITableViewCell {
+class LabelsDividerCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -36,6 +37,7 @@ class LabelsDividerTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         selectionStyle = .none
+        label2.isCopyingEnabled = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,7 +48,7 @@ class LabelsDividerTableCell: UITableViewCell {
 
 }
 
-class LabelsTextViewDividerTableCell: UITableViewCell {
+class LabelsTextViewDividerCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!

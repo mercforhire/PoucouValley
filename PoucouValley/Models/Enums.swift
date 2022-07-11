@@ -88,3 +88,21 @@ extension UserType {
         self = try UserType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .cardholder
     }
 }
+
+
+enum Genders: String, Codable {
+    case male = "Male"
+    case female = "Female"
+    case other = "Other"
+    
+    func pronoun() -> String {
+        switch self {
+        case .male:
+            return "He"
+        case .female:
+            return "She"
+        case .other:
+            return "Zhe"
+        }
+    }
+}

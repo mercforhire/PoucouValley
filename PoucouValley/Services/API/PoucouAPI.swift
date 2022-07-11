@@ -680,6 +680,40 @@ class PoucouAPI {
         }
     }
     
+    func addClient(firstName: String = "", lastName: String = "", pronoun: String = "", gender: String = "", birthday: Birthday?, address: Address?, contact: Contact?, avatar: String = "", company: String = "", jobTitle: String = "", hashtags: [String] = [], notes: String = "", email: String = "", callBack: @escaping(Bool) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var hashtagData: [AnyBSON] = []
+        for tag in hashtags {
+            hashtagData.append(AnyBSON(tag))
+        }
+        let params: Document = ["firstName": AnyBSON(firstName),
+                                "lastName": AnyBSON(lastName),
+                                "pronoun": AnyBSON(pronoun),
+                                "gender": AnyBSON(gender),
+                                "birthday": birthday != nil ? AnyBSON(birthday!.toDocument()) : AnyBSON.null,
+                                "address": address != nil ? AnyBSON(address!.toDocument()) : AnyBSON.null,
+                                "contact": contact != nil ? AnyBSON(contact!.toDocument()) : AnyBSON.null,
+                                "avatar": AnyBSON(avatar),
+                                "company": AnyBSON(company),
+                                "jobTitle": AnyBSON(jobTitle),
+                                "hashtags": AnyBSON.array(hashtagData),
+                                "notes": AnyBSON(notes),
+                                "email": AnyBSON(email)]
+        
+        user.functions.api_addClient([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            guard error == nil else {
+                print("Function call failed: \(error!.localizedDescription)")
+                return
+            }
+            guard case let .string(document) = response else {
+                print("Unexpected non-string result: \(response ?? "nil")")
+                return
+            }
+            print("Called function 'api_logOut' and got result: \(document)")
+        }
+    }
+    
     func logout(callBack: @escaping(Bool) -> Void) {
         guard let apiKey = apiKey else { return }
         

@@ -49,37 +49,22 @@ class CompleteProfileCell: UITableViewCell {
     }
 
     func config(all: [Goal], completed: [Goal], coinsRewardPerGoal: Int = 5) {
-        goalRewardLabel.text = "\(coinsRewardPerGoal)"
+        var incompleteGoals: [Goal] = []
+        var totalReward: Int = 0
+        for goal in all {
+            if !completed.contains(goal) {
+                incompleteGoals.append(goal)
+            }
+            totalReward = totalReward + goal.reward
+        }
         
-        
-        if data.isGenderSet() {
-            total += coinsRewardPerGoal
-            goalsCompleted += 1
-        } else {
+        if let firstGoal = incompleteGoals.first {
+            goalRewardLabel.text = "\(firstGoal.reward)"
             setLabel2AndLabel3(label2: "Add a gender!", label3: "Tell us your gender. ")
-        }
-        
-        if data.isBirthdaySet() {
-            total += coinsRewardPerGoal
-            goalsCompleted += 1
         } else {
-            setLabel2AndLabel3(label2: "Add birthday!", label3: "Tell us your birthday. ")
+            goalRewardLabel.text = "--"
+            setLabel2AndLabel3(label2: "All goals complete!", label3: "")
         }
-        
-        if data.isAddressSet() {
-            total += coinsRewardPerGoal
-            goalsCompleted += 1
-        } else {
-            setLabel2AndLabel3(label2: "Add address!", label3: "Tell us your address. ")
-        }
-        
-        if data.isPhoneSet() {
-            total += coinsRewardPerGoal
-            goalsCompleted += 1
-        } else {
-            setLabel2AndLabel3(label2: "Add phone number!", label3: "Tell us your phone number. ")
-        }
-        
-        totalRewardLabel.text = "\(4 * coinsRewardPerGoal)"
+        totalRewardLabel.text = "\(totalReward)"
     }
 }
