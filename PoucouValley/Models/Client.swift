@@ -26,6 +26,7 @@ class Client: BaseObject {
     var hashtags: List<String> = List()
     var notes: String?
     var email: String?
+    var card: String?
     
     convenience init(document: Document) {
         self.init()
@@ -60,5 +61,10 @@ class Client: BaseObject {
             }
             self.hashtags = data
         }
+        self.card = document["card"]??.stringValue
+    }
+    
+    var fullName: String {
+        return "\(firstName?.capitalizingFirstLetter() ?? "") \(lastName?.capitalizingFirstLetter() ?? "")"
     }
 }

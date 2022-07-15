@@ -48,7 +48,7 @@ class CompleteProfileCell: UITableViewCell {
         }
     }
 
-    func config(all: [Goal], completed: [Goal], coinsRewardPerGoal: Int = 5) {
+    func config(all: [Goal], completed: [Goal]) {
         var incompleteGoals: [Goal] = []
         var totalReward: Int = 0
         for goal in all {

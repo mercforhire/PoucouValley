@@ -55,7 +55,7 @@
 			<key>font</key>
 			<dict>
 				<key>weight</key>
-				<string>black</string>
+				<string>bold</string>
 				<key>size</key>
 				<integer>17</integer>
 				<key>font</key>

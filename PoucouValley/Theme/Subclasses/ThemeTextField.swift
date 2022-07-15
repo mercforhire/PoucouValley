@@ -34,7 +34,7 @@ class ThemeTextField: PaddedTextField {
         backgroundColor = theme.whiteBackground.hexColor
         addBorder(color: theme.steel.hexColor)
         textColor = theme.textLabel.hexColor
-        textInsets = self.insets ?? UIEdgeInsets(top: 13, left: 15, bottom: 13, right: 15)
+        textInsets = self.insets ?? UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         roundCorners()
         
         if observer == nil {

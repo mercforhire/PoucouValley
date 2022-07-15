@@ -4,6 +4,8 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>To scan QR code on the membership cards</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To upload photos for client profile</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

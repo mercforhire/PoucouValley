@@ -24,9 +24,9 @@ class ThemeBarButton: UIBarButtonItem {
     func setupUI() {
         guard let navButtonTheme = themeManager.themeData?.navBarTheme.barButton else { return }
         
-        tintColor = UIColor.fromRGBString(rgbString: navButtonTheme.textColor)!
+        tintColor = navButtonTheme.textColor.hexColor
         setTitleTextAttributes([.font: navButtonTheme.font.toFont()!,
-                                .foregroundColor: UIColor.fromRGBString(rgbString: navButtonTheme.textColor)!],
+                                .foregroundColor: navButtonTheme.textColor.hexColor],
                                for: .normal)
         
         if observer == nil {

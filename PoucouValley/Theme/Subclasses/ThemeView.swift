@@ -26,7 +26,7 @@ public class ThemeView: UIView {
     }
     
     func setupUI() {
-        backgroundColor = themeManager.themeData!.defaultBackground.hexColor
+        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,

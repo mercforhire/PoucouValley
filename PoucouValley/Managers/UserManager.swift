@@ -308,7 +308,10 @@ class UserManager {
     }
     
     func uploadPhoto(photo: UIImage, completion: @escaping (PVPhoto?) -> Void) {
-        guard let user = user?.user else { return }
+        guard let user = user?.user else {
+            completion(nil)
+            return
+        }
         
         let userId = user.identifier.stringValue
         let filename = String.randomString(length: 5)

@@ -58,4 +58,8 @@ class Contact: BaseEmbeddedObject {
         }
         return document
     }
+    
+    func getPhoneNumberString() -> String {
+        return phoneAreaCode + phoneNumber
+    }
 }

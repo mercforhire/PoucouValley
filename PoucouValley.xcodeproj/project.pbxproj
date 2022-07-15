@@ -17,6 +17,7 @@
 		72358B882877D89E00D504A2 /* DividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72358B872877D89E00D504A2 /* DividerCell.swift */; };
 		72386AC52879F1CD0072032C /* CreateNewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */; };
 		723AF2772845CEEF008FF3E1 /* CardholderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723AF2752845CED3008FF3E1 /* CardholderDetailsViewController.swift */; };
+		723D6CAF287C27EC00D6B596 /* ThemeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723D6CAE287C27EC00D6B596 /* ThemeTextView.swift */; };
 		7242D6EC2848694A00034BA8 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7242D6EB2848694A00034BA8 /* Wallet.swift */; };
 		725ACC24287625EF007D255F /* ClientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725ACC23287625EF007D255F /* ClientDetailsViewController.swift */; };
 		725ACC28287733DF007D255F /* IconLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725ACC27287733DF007D255F /* IconLinkCell.swift */; };
@@ -214,6 +215,11 @@
 		72DB597E284098BA00C80FD6 /* ThemeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB597D284098BA00C80FD6 /* ThemeImageView.swift */; };
 		72DECD8C287335EB00C929C1 /* ClientDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */; };
 		72DECD8E287335F600C929C1 /* ClientDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */; };
+		72E847E4287DAED1004C0672 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E3287DAED1004C0672 /* EditClientViewController.swift */; };
+		72E847E6287DF966004C0672 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E5287DF966004C0672 /* ClientsViewController.swift */; };
+		72E847E8287F6622004C0672 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E7287F6622004C0672 /* ClientCell.swift */; };
+		72E847EA287FDB56004C0672 /* FetchClientsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */; };
+		72E847EC287FF393004C0672 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EB287FF392004C0672 /* MessageComposer.swift */; };
 		72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE253E2836B2F90061FB4A /* LoginViewController.swift */; };
 		72EE25412836C6230061FB4A /* LoginEnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */; };
 		72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F748EB28433EEF0057A2B4 /* Goal.swift */; };
@@ -234,6 +240,7 @@
 		72358B872877D89E00D504A2 /* DividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCell.swift; sourceTree = "<group>"; };
 		72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewClientViewController.swift; sourceTree = "<group>"; };
 		723AF2752845CED3008FF3E1 /* CardholderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardholderDetailsViewController.swift; sourceTree = "<group>"; };
+		723D6CAE287C27EC00D6B596 /* ThemeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeTextView.swift; path = ../../../../cplapp/CupidLove/CupidLove/Theme/Subclasses/ThemeTextView.swift; sourceTree = "<group>"; };
 		7242D6EB2848694A00034BA8 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		725ACC23287625EF007D255F /* ClientDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewController.swift; sourceTree = "<group>"; };
 		725ACC27287733DF007D255F /* IconLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLinkCell.swift; sourceTree = "<group>"; };
@@ -433,6 +440,11 @@
 		72DB597D284098BA00C80FD6 /* ThemeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeImageView.swift; sourceTree = "<group>"; };
 		72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetailsHeader.swift; sourceTree = "<group>"; };
 		72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientDetailsHeader.xib; sourceTree = "<group>"; };
+		72E847E3287DAED1004C0672 /* EditClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
+		72E847E5287DF966004C0672 /* ClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewController.swift; sourceTree = "<group>"; };
+		72E847E7287F6622004C0672 /* ClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
+		72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClientsResponse.swift; sourceTree = "<group>"; };
+		72E847EB287FF392004C0672 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		72EE253E2836B2F90061FB4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnterCodeViewController.swift; sourceTree = "<group>"; };
 		72F748EB28433EEF0057A2B4 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -467,6 +479,8 @@
 			children = (
 				725ACC23287625EF007D255F /* ClientDetailsViewController.swift */,
 				72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */,
+				72E847E3287DAED1004C0672 /* EditClientViewController.swift */,
+				72E847E5287DF966004C0672 /* ClientsViewController.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -503,6 +517,7 @@
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
 				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
 				7261B840284544E400E9ABC5 /* FetchTransactionsResponse.swift */,
+				72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */,
 				72BF2A652843475600B43F50 /* GetGoalsResponse.swift */,
 				72C7D41E283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift */,
 			);
@@ -745,6 +760,7 @@
 				72DB597D284098BA00C80FD6 /* ThemeImageView.swift */,
 				72B2FBCB273CC34200382C12 /* ThemeTextField.swift */,
 				72B2FBC9273CC34200382C12 /* ThemeTextFieldLabel.swift */,
+				723D6CAE287C27EC00D6B596 /* ThemeTextView.swift */,
 				72B2FBCC273CC34200382C12 /* ThemeView.swift */,
 				72707C282834998A004F3C3C /* ThemeUIPageControl.swift */,
 				72C7D429283E9B460066F3CB /* ThemeBackView.swift */,
@@ -827,6 +843,7 @@
 				72AC01AF2738A80B00B452BE /* TimeAgo.swift */,
 				72B2FBDC273CC47200382C12 /* PaddedTextField.swift */,
 				72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */,
+				72E847EB287FF392004C0672 /* MessageComposer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -958,6 +975,7 @@
 		72C7D3FB283ADBBD0066F3CB /* TableView Cells */ = {
 			isa = PBXGroup;
 			children = (
+				72E847E7287F6622004C0672 /* ClientCell.swift */,
 				72C7D3FC283ADBD40066F3CB /* ButtonTableCell.swift */,
 				72C7D416283D72A40066F3CB /* LabelTableCell.swift */,
 				72C7D418283D72C40066F3CB /* IconLabelsCell.swift */,
@@ -1182,11 +1200,13 @@
 			files = (
 				72AC010527378FFA00B452BE /* UIImageView+Extension.swift in Sources */,
 				72B2FBBA273CBF9300382C12 /* ThemeData.swift in Sources */,
+				72E847E8287F6622004C0672 /* ClientCell.swift in Sources */,
 				72C7D3FF283C09F20066F3CB /* SignUpEnterEmailViewController.swift in Sources */,
 				72707C0B28320CF9004F3C3C /* LoginResponse.swift in Sources */,
 				72AC019C27388ED600B452BE /* HomeExploreViewController.swift in Sources */,
 				72707C062830B354004F3C3C /* GetStartedStepsResponse.swift in Sources */,
 				72C7D3EF283AB7E70066F3CB /* SetupInterestsCell.swift in Sources */,
+				72E847E6287DF966004C0672 /* ClientsViewController.swift in Sources */,
 				72B2FBDB273CC34200382C12 /* ThemeView.swift in Sources */,
 				72C7A75F273F213900636346 /* SearchResultCell.swift in Sources */,
 				72AC00CC27373B8300B452BE /* HomeRootViewController.swift in Sources */,
@@ -1258,6 +1278,7 @@
 				72C7D415283D6D860066F3CB /* CardViewController.swift in Sources */,
 				72C7D417283D72A40066F3CB /* LabelTableCell.swift in Sources */,
 				72C7D41F283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift in Sources */,
+				72E847EA287FDB56004C0672 /* FetchClientsResponse.swift in Sources */,
 				72707C342834AAF7004F3C3C /* BaseObject.swift in Sources */,
 				72707C1D2832E90B004F3C3C /* Client.swift in Sources */,
 				72707C1B2832BE28004F3C3C /* Merchant.swift in Sources */,
@@ -1295,6 +1316,7 @@
 				72C7A75D273F0F0E00636346 /* SearchHistoryCell.swift in Sources */,
 				72707C1728321975004F3C3C /* Birthday.swift in Sources */,
 				72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */,
+				72E847E4287DAED1004C0672 /* EditClientViewController.swift in Sources */,
 				72C7D430283EB2640066F3CB /* FetchMyCardResponse.swift in Sources */,
 				72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */,
 				72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */,
@@ -1309,6 +1331,7 @@
 				7261B83D284487DA00E9ABC5 /* TransactionCell.swift in Sources */,
 				72B2FBB6273CAB2000382C12 /* MyProfileViewController.swift in Sources */,
 				72AC011527378FFA00B452BE /* CLPlacemark+Extensions.swift in Sources */,
+				723D6CAF287C27EC00D6B596 /* ThemeTextView.swift in Sources */,
 				72AC01BB2738A80B00B452BE /* CommonUtils.swift in Sources */,
 				72B2FBD8273CC34200382C12 /* ThemeTextFieldLabel.swift in Sources */,
 				72B2FBD6273CC34200382C12 /* ThemeBarButton.swift in Sources */,
@@ -1351,6 +1374,7 @@
 				72B2FBCE273CC34200382C12 /* ThemeSearchBar.swift in Sources */,
 				72AC010F27378FFA00B452BE /* UISearchBar+Extensions.swift in Sources */,
 				72B2FBBB273CBF9300382C12 /* ThemeManager.swift in Sources */,
+				72E847EC287FF393004C0672 /* MessageComposer.swift in Sources */,
 				72C7A76B273F429A00636346 /* SearchSuggestionCell.swift in Sources */,
 				72707C042830ACFE004F3C3C /* GetStartedCell.swift in Sources */,
 			);

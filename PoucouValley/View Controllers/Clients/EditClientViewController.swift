@@ -1,16 +1,17 @@
 //
-//  CreateNewClientViewController.swift
+//  EditClientViewController.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-07-09.
+//  Created by Leon Chen on 2022-07-12.
 //
 
 import UIKit
 import PhotosUI
 import Mantis
 
-class CreateNewClientViewController: BaseViewController {
-
+class EditClientViewController: BaseViewController {
+    var client: Client!
+    
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var avatarImageView: URLImageView!
@@ -135,13 +136,41 @@ class CreateNewClientViewController: BaseViewController {
         
         notesTextView.text = ""
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadData()
     }
     
+    private func loadData() {
+        avatar = client.avatar
+        firstNameField.text = client.firstName
+        lastNameField.text = client.lastName
+        emailField.text = client.email
+        phoneAreaCodeField.text = client.contact?.phoneAreaCode
+        phoneField.text = client.contact?.phoneNumber
+        if let genderString = client.gender {
+            gender = Genders(rawValue: genderString)
+        }
+        birthday = client.birthday
+        unitNumberField.text = client.address?.unitNumber
+        streetNumberField.text = client.address?.streetNumber
+        streetNameField.text = client.address?.street
+        cityField.text = client.address?.city
+        provinceField.text = client.address?.province
+        postalField.text = client.address?.postalCode
+        countryField.text = client.address?.country
+        companyField.text = client.company
+        jobField.text = client.jobTitle
+        webField.text = client.contact?.website
+        facebookField.text = client.contact?.facebook
+        twitterField.text = client.contact?.twitter
+        instagramField.text = client.contact?.instagram
+        tags = Array(client.hashtags)
+        notesTextView.text = client.notes
+    }
     
     @IBAction func editAvatarPressed(_ sender: UIButton) {
         if let photo = avatar {
@@ -202,30 +231,31 @@ class CreateNewClientViewController: BaseViewController {
                               instagram: instagramField.text)
         
         FullScreenSpinner().show()
-        api.addClient(firstName: firstNameField.text ?? "",
-                      lastName: lastNameField.text ?? "",
-                      pronoun: gender?.pronoun() ?? "",
-                      gender: gender?.rawValue ?? "",
-                      birthday: birthday,
-                      address: address,
-                      contact: contact,
-                      avatar: avatar?.fullUrl ?? "",
-                      company: companyField.text ?? "",
-                      jobTitle: jobField.text ?? "",
-                      hashtags: tags,
-                      notes: notesTextView.text ?? "",
-                      email: emailField.text ?? "") { [weak self] success in
+        api.editClient(clientId: client.identifier, firstName: firstNameField.text ?? "",
+                       lastName: lastNameField.text ?? "",
+                       pronoun: gender?.pronoun() ?? "",
+                       gender: gender?.rawValue ?? "",
+                       birthday: birthday,
+                       address: address,
+                       contact: contact,
+                       avatar: avatar?.fullUrl ?? "",
+                       company: companyField.text ?? "",
+                       jobTitle: jobField.text ?? "",
+                       hashtags: tags,
+                       notes: notesTextView.text ?? "",
+                       email: emailField.text ?? "") { [weak self] success in
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
 
             self.showClientSavedDialog()
         }
+        
     }
     
     private func showClientSavedDialog() {
         let clientName = "\(firstNameField.text ?? "") \(lastNameField.text ?? "")"
-        let ac = UIAlertController(title: "New Client", message: "Client \(clientName) has been added", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Edit Client", message: "Client \(clientName) has been edited", preferredStyle: .alert)
         let action = UIAlertAction(title: "Okay", style: .default) { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }
@@ -410,7 +440,7 @@ class CreateNewClientViewController: BaseViewController {
     }
 }
 
-extension CreateNewClientViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EditClientViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tags.count + 1
     }
@@ -440,7 +470,7 @@ extension CreateNewClientViewController: UICollectionViewDelegate, UICollectionV
     }
 }
 
-extension CreateNewClientViewController: MICollectionViewBubbleLayoutDelegate {
+extension EditClientViewController: MICollectionViewBubbleLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, itemSizeAt indexPath: NSIndexPath) -> CGSize {
         if indexPath.row < tags.count {
             let interest = tags[indexPath.row]
