@@ -220,6 +220,12 @@
 		72E847E8287F6622004C0672 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E7287F6622004C0672 /* ClientCell.swift */; };
 		72E847EA287FDB56004C0672 /* FetchClientsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */; };
 		72E847EC287FF393004C0672 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EB287FF392004C0672 /* MessageComposer.swift */; };
+		72E847EE28815C55004C0672 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847ED28815C55004C0672 /* GroupsViewController.swift */; };
+		72E847F02881BDC4004C0672 /* LabelsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847EF2881BDC4004C0672 /* LabelsCell.swift */; };
+		72E847F42882A3AD004C0672 /* SendConfirmationDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E847F22882A3AD004C0672 /* SendConfirmationDialog.xib */; };
+		72E847F52882A3AD004C0672 /* SendConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F32882A3AD004C0672 /* SendConfirmationDialog.swift */; };
+		72E847F7288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F6288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift */; };
+		72E847F92886EBC2004C0672 /* GroupClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */; };
 		72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE253E2836B2F90061FB4A /* LoginViewController.swift */; };
 		72EE25412836C6230061FB4A /* LoginEnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */; };
 		72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F748EB28433EEF0057A2B4 /* Goal.swift */; };
@@ -445,6 +451,12 @@
 		72E847E7287F6622004C0672 /* ClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
 		72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClientsResponse.swift; sourceTree = "<group>"; };
 		72E847EB287FF392004C0672 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		72E847ED28815C55004C0672 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		72E847EF2881BDC4004C0672 /* LabelsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsCell.swift; sourceTree = "<group>"; };
+		72E847F22882A3AD004C0672 /* SendConfirmationDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendConfirmationDialog.xib; sourceTree = "<group>"; };
+		72E847F32882A3AD004C0672 /* SendConfirmationDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendConfirmationDialog.swift; sourceTree = "<group>"; };
+		72E847F6288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClientGroupsStatisticsResponse.swift; sourceTree = "<group>"; };
+		72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupClientsViewController.swift; sourceTree = "<group>"; };
 		72EE253E2836B2F90061FB4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnterCodeViewController.swift; sourceTree = "<group>"; };
 		72F748EB28433EEF0057A2B4 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -481,6 +493,8 @@
 				72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */,
 				72E847E3287DAED1004C0672 /* EditClientViewController.swift */,
 				72E847E5287DF966004C0672 /* ClientsViewController.swift */,
+				72E847ED28815C55004C0672 /* GroupsViewController.swift */,
+				72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -517,6 +531,7 @@
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
 				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
 				7261B840284544E400E9ABC5 /* FetchTransactionsResponse.swift */,
+				72E847F6288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift */,
 				72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */,
 				72BF2A652843475600B43F50 /* GetGoalsResponse.swift */,
 				72C7D41E283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift */,
@@ -644,6 +659,7 @@
 				72B2FBB2273CAA2000382C12 /* GiftTableViewCell.swift */,
 				7297E52E2747173600F6F33B /* StoriesCollectionReusableView.swift */,
 				7297E52F2747173600F6F33B /* StoriesCollectionReusableView.xib */,
+				72E847F12882A3AD004C0672 /* SendConfirmationDialog */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -979,6 +995,7 @@
 				72C7D3FC283ADBD40066F3CB /* ButtonTableCell.swift */,
 				72C7D416283D72A40066F3CB /* LabelTableCell.swift */,
 				72C7D418283D72C40066F3CB /* IconLabelsCell.swift */,
+				72E847EF2881BDC4004C0672 /* LabelsCell.swift */,
 				7261B83C284487DA00E9ABC5 /* TransactionCell.swift */,
 				72C6A0652845DAF800AFCD8C /* LabelDividerCell.swift */,
 				72358B872877D89E00D504A2 /* DividerCell.swift */,
@@ -1036,6 +1053,15 @@
 				72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */,
 			);
 			path = ClientDetailsHeader;
+			sourceTree = "<group>";
+		};
+		72E847F12882A3AD004C0672 /* SendConfirmationDialog */ = {
+			isa = PBXGroup;
+			children = (
+				72E847F22882A3AD004C0672 /* SendConfirmationDialog.xib */,
+				72E847F32882A3AD004C0672 /* SendConfirmationDialog.swift */,
+			);
+			path = SendConfirmationDialog;
 			sourceTree = "<group>";
 		};
 		A10BA6387A86372DA0B8759A /* Pods */ = {
@@ -1120,6 +1146,7 @@
 				72B2FBA5273C6CA000382C12 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				72B2FBB1273C6CA000382C12 /* Poppins-MediumItalic.ttf in Resources */,
 				72B2FBA2273C6CA000382C12 /* Poppins-BoldItalic.ttf in Resources */,
+				72E847F42882A3AD004C0672 /* SendConfirmationDialog.xib in Resources */,
 				72B2FBAC273C6CA000382C12 /* Poppins-Bold.ttf in Resources */,
 				72F92FF0284078E700DF438C /* Store.storyboard in Resources */,
 				72B2FB9F273C6CA000382C12 /* Poppins-ExtraLight.ttf in Resources */,
@@ -1225,6 +1252,7 @@
 				72B2FBBD273CC00900382C12 /* UIColor+Extension.swift in Sources */,
 				72AC010927378FFA00B452BE /* DateFormatter+Extensions.swift in Sources */,
 				72707C292834998A004F3C3C /* ThemeUIPageControl.swift in Sources */,
+				72E847F52882A3AD004C0672 /* SendConfirmationDialog.swift in Sources */,
 				72707C2528349560004F3C3C /* ThemeButton.swift in Sources */,
 				72C7D40C283C2F370066F3CB /* UpdateMerchantInfoParams.swift in Sources */,
 				72AC010B27378FFA00B452BE /* String+Extensions.swift in Sources */,
@@ -1242,6 +1270,7 @@
 				72C7D41B283D751E0066F3CB /* CardInfoViewController.swift in Sources */,
 				7297E5302747173600F6F33B /* StoriesCollectionReusableView.swift in Sources */,
 				72C7D42A283E9B460066F3CB /* ThemeBackView.swift in Sources */,
+				72E847EE28815C55004C0672 /* GroupsViewController.swift in Sources */,
 				72AC00C62737294000B452BE /* FollowCollectionViewCell.swift in Sources */,
 				72C7D432283EB4620066F3CB /* URLImageView.swift in Sources */,
 				72AC011E27378FFA00B452BE /* UICollectionView+Extensions.swift in Sources */,
@@ -1253,6 +1282,7 @@
 				72AC01562738689C00B452BE /* PoucouAPI.swift in Sources */,
 				72707C232834874C004F3C3C /* LoginHomeViewController.swift in Sources */,
 				728ED6FD28417F0C00415C01 /* CompleteMyProfileViewController.swift in Sources */,
+				72E847F7288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift in Sources */,
 				72AC01B02738A80B00B452BE /* KeyBoardController.swift in Sources */,
 				72AC011A27378FFA00B452BE /* UIScrollView+Extensions.swift in Sources */,
 				72C7D3E428395C560066F3CB /* SignUpViewController.swift in Sources */,
@@ -1331,6 +1361,7 @@
 				7261B83D284487DA00E9ABC5 /* TransactionCell.swift in Sources */,
 				72B2FBB6273CAB2000382C12 /* MyProfileViewController.swift in Sources */,
 				72AC011527378FFA00B452BE /* CLPlacemark+Extensions.swift in Sources */,
+				72E847F02881BDC4004C0672 /* LabelsCell.swift in Sources */,
 				723D6CAF287C27EC00D6B596 /* ThemeTextView.swift in Sources */,
 				72AC01BB2738A80B00B452BE /* CommonUtils.swift in Sources */,
 				72B2FBD8273CC34200382C12 /* ThemeTextFieldLabel.swift in Sources */,
@@ -1364,6 +1395,7 @@
 				72B2FBB3273CAA2000382C12 /* GiftTableViewCell.swift in Sources */,
 				7261B841284544E400E9ABC5 /* FetchTransactionsResponse.swift in Sources */,
 				72C7A761273F2AA600636346 /* SearchNoResultCell.swift in Sources */,
+				72E847F92886EBC2004C0672 /* GroupClientsViewController.swift in Sources */,
 				72386AC52879F1CD0072032C /* CreateNewClientViewController.swift in Sources */,
 				72AC00E6273787CE00B452BE /* AppSettingsManager.swift in Sources */,
 				72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */,

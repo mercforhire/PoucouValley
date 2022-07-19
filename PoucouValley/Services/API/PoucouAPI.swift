@@ -52,7 +52,7 @@ class PoucouAPI {
     var user: RLMUser {
         return app.currentUser!
     }
-    var apiKey: String?
+    var apiKey: String? = "2a3463b80bddac713766ce3ee1145a1f5ffffbfe47dca22bb0046351bd114555ea9b36ad8fc8c02af7dec26ff747ee2780e10c14dfed75883a71f64488cd694d"
     
     init() {
         self.service = NetworkService()
@@ -680,10 +680,31 @@ class PoucouAPI {
         }
     }
     
-    func fetchClientList(callBack: @escaping(Result<FetchClientsResponse, Error>) -> Void) {
+    func fetchClientGroupsStatistics(callBack: @escaping(Result<FetchClientGroupsStatisticsResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
-        user.functions.api_getClientList([AnyBSON(apiKey)]) { response, error in
+        user.functions.api_getClientGroupsStatistics([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getClientGroupsStatistics' and got result: \(document)")
+                callBack(.success(FetchClientGroupsStatisticsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchClients(callBack: @escaping(Result<FetchClientsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_getClients([AnyBSON(apiKey)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -696,6 +717,90 @@ class PoucouAPI {
                     return
                 }
                 print("Called function 'getClientList' and got result: \(document)")
+                callBack(.success(FetchClientsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchActivatedClients(callBack: @escaping(Result<FetchClientsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_getActivatedClients([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getActivatedClients' and got result: \(document)")
+                callBack(.success(FetchClientsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchFollowedClients(callBack: @escaping(Result<FetchClientsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_getFollowedClients([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getActivatedClients' and got result: \(document)")
+                callBack(.success(FetchClientsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchScannedClients(callBack: @escaping(Result<FetchClientsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_getScannedClients([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getScannedClients' and got result: \(document)")
+                callBack(.success(FetchClientsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchInputtedClients(callBack: @escaping(Result<FetchClientsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_getInputtedClients([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getInputtedClients' and got result: \(document)")
                 callBack(.success(FetchClientsResponse(document: document)))
             }
         }

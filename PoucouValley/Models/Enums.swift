@@ -106,3 +106,27 @@ enum Genders: String, Codable {
         }
     }
 }
+
+enum ClientGroupTypes: Int {
+    case activated
+    case followed
+    case inputted
+    case scanned
+
+    static func getRows() -> [ClientGroupTypes] {
+        return [.activated, .followed, .inputted, .scanned]
+    }
+    
+    func title() -> String {
+        switch self {
+        case .activated:
+            return "Activated Users"
+        case .followed:
+            return "Followers"
+        case .inputted:
+            return "Inputted Users"
+        case .scanned:
+            return "Scanned Users"
+        }
+    }
+}

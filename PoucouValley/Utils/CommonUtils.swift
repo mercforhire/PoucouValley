@@ -13,6 +13,7 @@ typealias Action = () -> Void
 class Notifications {
     static let HomeScreenShowTopBar: Notification.Name = Notification.Name("HomeScreenShowTopBar")
     static let HomeScreenHideTopBar: Notification.Name = Notification.Name("HomeScreenHideTopBar")
+    static let MailComposeDismissed: Notification.Name = Notification.Name("MailComposeDismissed")
 }
 
 func showErrorDialog(error: String) {

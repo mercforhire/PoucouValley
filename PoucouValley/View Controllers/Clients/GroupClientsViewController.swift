@@ -1,24 +1,24 @@
 //
-//  ClientsViewController.swift
+//  GroupClientsViewController.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-07-12.
+//  Created by Leon Chen on 2022-07-19.
 //
 
 import UIKit
 
-class ClientsViewController: BaseViewController {
-
+class GroupClientsViewController: BaseViewController {
+    var type: ClientGroupTypes!
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var icons: [UIView]!
     @IBOutlet weak var usersCountLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var contextButtonsContainer: UIView!
     
     private var clients: [Client]? {
         didSet {
-            shouldSearch(text: searchBar.text ?? "")
+            shouldSearch(text: searchBar.text ?? "" )
         }
     }
     
@@ -33,6 +33,7 @@ class ClientsViewController: BaseViewController {
             tableView.reloadData()
         }
     }
+    private var clickedClient: Client?
     private var delayTimer = DelayedSearchTimer()
     private lazy var composer: MessageComposer = MessageComposer()
     
@@ -44,6 +45,7 @@ class ClientsViewController: BaseViewController {
         super.setup()
         
         delayTimer.delegate = self
+        title = type.title()
     }
     
     override func viewDidLoad() {
@@ -59,12 +61,32 @@ class ClientsViewController: BaseViewController {
     }
     
     private func loadData() {
-        clients == nil ? FullScreenSpinner().show() : nil
-        
-        api.fetchClients { [weak self] result in
+        let callBack: (Result<FetchClientsResponse, Error>) -> Void = { [weak self] result in
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                self.clients = Array(response.data)
+            case .failure:
+                showNetworkErrorDialog()
+            }
+        }
+        
+        clients == nil ? FullScreenSpinner().show() : nil
+        
+        switch type {
+        case .activated:
+            api.fetchActivatedClients(callBack: callBack)
+        case .followed:
+            api.fetchFollowedClients(callBack: callBack)
+        case .inputted:
+            api.fetchInputtedClients(callBack: callBack)
+        case .scanned:
+            api.fetchScannedClients(callBack: callBack)
+        default:
+            break
         }
     }
     
@@ -110,18 +132,16 @@ class ClientsViewController: BaseViewController {
             showErrorDialog(error: "Can't send SMS on this device.")
         }
     }
-    
-    @IBAction func groupsPressed(_ sender: UIButton) {
-        
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ClientDetailsViewController,
+            let client = clickedClient {
+            vc.client = client
+        }
     }
-    
-    @IBAction func deletePressed(_ sender: Any) {
-        
-    }
-    
 }
 
-extension ClientsViewController: DelayedSearchTimerDelegate {
+extension GroupClientsViewController: DelayedSearchTimerDelegate {
     func shouldSearch(text: String) {
         guard let clients = clients else {
             return
@@ -142,7 +162,7 @@ extension ClientsViewController: DelayedSearchTimerDelegate {
     }
 }
 
-extension ClientsViewController: UITableViewDataSource, UITableViewDelegate {
+extension GroupClientsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -167,9 +187,10 @@ extension ClientsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if showingClients.count == 0 {
-            
             return
         }
         let client = showingClients[indexPath.row]
+        clickedClient = client
+        performSegue(withIdentifier: "goToClientDetail", sender: self)
     }
 }

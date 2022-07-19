@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendConfirmationDialog">
+            <connections>
+                <outlet property="container1" destination="4n2-PY-W0F" id="Egg-z0-hha"/>
+                <outlet property="containerView" destination="iN0-l3-epB" id="4jt-JA-unj"/>
+                <outlet property="dimBackground" destination="YGH-eF-QPO" id="rHk-Wg-aoE"/>
+                <outlet property="imageView" destination="TCo-dp-qCI" id="QHd-dJ-YpP"/>
+                <outlet property="primaryActionButton" destination="rzX-1Z-MX6" id="53P-hk-stO"/>
+                <outlet property="secondaryActionButton" destination="dWW-lT-K2X" id="wuJ-as-4Vz"/>
+                <outlet property="titleLabel" destination="Gx3-1N-h01" id="cgj-MC-G16"/>
+                <outlet property="tutorialContainerView" destination="cY2-ZX-Twy" id="tO3-kg-J3V"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGH-eF-QPO" userLabel="Clickable Dim Background">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="0.54591181509999998" colorSpace="calibratedRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGq-2s-xwt" userLabel="Dismiss button">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </button>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-ZX-Twy" userLabel="Tutorial Container">
+                    <rect key="frame" x="29" y="200.5" width="356" height="495"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4n2-PY-W0F" customClass="ThemeRoundedWhiteView" customModule="PoucouValley" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="356" height="495"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Zbr-Tr-A1w">
+                                    <rect key="frame" x="31" y="31" width="294" height="433"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to continue to sent an [X] to the selected [Y] users? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gx3-1N-h01" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="80"/>
+                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptop" translatesAutoresizingMaskIntoConstraints="NO" id="TCo-dp-qCI">
+                                            <rect key="frame" x="0.0" y="103" width="294" height="196"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="TCo-dp-qCI" secondAttribute="height" multiplier="6:4" id="rJb-im-1Cc"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzX-1Z-MX6" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="322" width="294" height="44"/>
+                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="75s-dr-lgY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                            <inset key="contentEdgeInsets" minX="50" minY="15" maxX="50" maxY="15"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Continue">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWW-lT-K2X">
+                                            <rect key="frame" x="0.0" y="389" width="294" height="44"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="jzP-SZ-mft"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
+                                            <inset key="contentEdgeInsets" minX="50" minY="15" maxX="50" maxY="15"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Cancel">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Zbr-Tr-A1w" secondAttribute="bottom" constant="31" id="QAj-mw-2DK"/>
+                                <constraint firstItem="Zbr-Tr-A1w" firstAttribute="leading" secondItem="4n2-PY-W0F" secondAttribute="leading" constant="31" id="bPk-zp-lFy"/>
+                                <constraint firstAttribute="trailing" secondItem="Zbr-Tr-A1w" secondAttribute="trailing" constant="31" id="hYo-Pb-Tx9"/>
+                                <constraint firstItem="Zbr-Tr-A1w" firstAttribute="top" secondItem="4n2-PY-W0F" secondAttribute="top" constant="31" id="rY3-Xl-b6H"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="4n2-PY-W0F" secondAttribute="bottom" id="KSZ-lY-jc8"/>
+                        <constraint firstItem="4n2-PY-W0F" firstAttribute="leading" secondItem="cY2-ZX-Twy" secondAttribute="leading" id="OpC-Na-EDg"/>
+                        <constraint firstItem="4n2-PY-W0F" firstAttribute="top" secondItem="cY2-ZX-Twy" secondAttribute="top" id="gWH-8t-Mto"/>
+                        <constraint firstAttribute="trailing" secondItem="4n2-PY-W0F" secondAttribute="trailing" id="teQ-18-dph"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="YGH-eF-QPO" secondAttribute="bottom" id="1Du-Ww-V4h"/>
+                <constraint firstItem="YGH-eF-QPO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4YH-aL-ja9"/>
+                <constraint firstItem="cY2-ZX-Twy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="29" id="5Xg-Y8-JFm"/>
+                <constraint firstAttribute="trailing" secondItem="YGH-eF-QPO" secondAttribute="trailing" id="7VQ-H7-FJh"/>
+                <constraint firstItem="cY2-ZX-Twy" firstAttribute="centerY" secondItem="qGq-2s-xwt" secondAttribute="centerY" id="CwQ-LV-SNh"/>
+                <constraint firstAttribute="trailing" secondItem="cY2-ZX-Twy" secondAttribute="trailing" constant="29" id="e35-Fj-RHi"/>
+                <constraint firstItem="cY2-ZX-Twy" firstAttribute="centerX" secondItem="qGq-2s-xwt" secondAttribute="centerX" id="g58-JE-MA2"/>
+                <constraint firstItem="qGq-2s-xwt" firstAttribute="top" secondItem="YGH-eF-QPO" secondAttribute="top" id="lbL-rY-Pln"/>
+                <constraint firstItem="YGH-eF-QPO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pN1-XS-JuS"/>
+                <constraint firstItem="qGq-2s-xwt" firstAttribute="trailing" secondItem="YGH-eF-QPO" secondAttribute="trailing" id="zFd-Qr-1kz"/>
+                <constraint firstItem="qGq-2s-xwt" firstAttribute="leading" secondItem="YGH-eF-QPO" secondAttribute="leading" id="zHf-Df-RxJ"/>
+                <constraint firstItem="qGq-2s-xwt" firstAttribute="bottom" secondItem="YGH-eF-QPO" secondAttribute="bottom" id="zvk-Fv-EhL"/>
+            </constraints>
+            <point key="canvasLocation" x="13.043478260869566" y="50.223214285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="laptop" width="179" height="179"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -60,6 +60,6 @@ class Contact: BaseEmbeddedObject {
     }
     
     func getPhoneNumberString() -> String {
-        return phoneAreaCode + phoneNumber
+        return (phoneAreaCode ?? "") + (phoneNumber ?? "")
     }
 }
