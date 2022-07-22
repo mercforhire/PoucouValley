@@ -15,12 +15,13 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PIctureTextDialog" customModule="PoucouValley" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PictureTextDialog" customModule="PoucouValley" customModuleProvider="target">
             <connections>
                 <outlet property="container1" destination="4n2-PY-W0F" id="Egg-z0-hha"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="4jt-JA-unj"/>
                 <outlet property="dimBackground" destination="YGH-eF-QPO" id="rHk-Wg-aoE"/>
                 <outlet property="subLabel" destination="IUS-PA-Wbo" id="yI8-XS-vh5"/>
+                <outlet property="titleLabel" destination="Wz9-Ig-EKh" id="Rcy-Pl-NPh"/>
                 <outlet property="tutorialContainerView" destination="cY2-ZX-Twy" id="tO3-kg-J3V"/>
             </connections>
         </placeholder>

@@ -8,6 +8,7 @@
 import Foundation
 import Valet
 import Toucan
+import RealmSwift
 
 class UserManager {
     var user: UserDetails? {
@@ -308,26 +309,26 @@ class UserManager {
     }
     
     func uploadPhoto(photo: UIImage, completion: @escaping (PVPhoto?) -> Void) {
-        guard let user = user?.user else {
-            completion(nil)
-            return
+        var userId: ObjectId! = user?.user?.identifier
+        // demo code
+        if userId == nil {
+            userId = try! ObjectId(string: "62d2fec69f467f7f9e50c8e9")
         }
         
-        let userId = user.identifier.stringValue
         let filename = String.randomString(length: 5)
-        let thumbnailFileName = "\(user.identifier.stringValue)-\(filename)-thumb.jpg"
-        let fullsizeFileName = "\(user.identifier.stringValue)-\(filename)-full.jpg"
+        let thumbnailFileName = "\(filename)-thumb.jpg"
+        let fullsizeFileName = "\(filename)-full.jpg"
         
         guard let thumbnail = Toucan(image: photo).resize(CGSize(width: 360, height: 360), fitMode: Toucan.Resize.FitMode.clip).image,
-              let fullSize = Toucan(image: photo).resize(CGSize(width: 1080, height: 1080), fitMode: Toucan.Resize.FitMode.clip).image,
+              let fullSize = Toucan(image: photo).resize(CGSize(width: 720, height: 720), fitMode: Toucan.Resize.FitMode.clip).image,
               let thumbnailData = thumbnail.jpeg,
               let fullSizeData = fullSize.jpeg,
               let thumbnailDataUrl = UIImage.saveImageToDocumentDirectory(filename: thumbnailFileName, jpegData: thumbnailData),
               let fullSizeDataUrl = UIImage.saveImageToDocumentDirectory(filename: fullsizeFileName, jpegData: fullSizeData)
         else { return }
         
-        let finalThumbnailName = "\(userId)/\(thumbnailFileName)"
-        let finalFullName = "\(userId)/\(fullsizeFileName)"
+        let finalThumbnailName = "\(userId.stringValue)/\(thumbnailFileName)"
+        let finalFullName = "\(userId.stringValue)/\(fullsizeFileName)"
         let finalThumbnailURL = "\(api.s3RootURL)\(finalThumbnailName)"
         let finalFullURL = "\(api.s3RootURL)\(finalFullName)"
         
@@ -340,7 +341,7 @@ class UserManager {
             let semaphore = DispatchSemaphore(value: 0)
             
             self.api.uploadS3file(fileUrl: thumbnailDataUrl,
-                                  fileName: thumbnailFileName,
+                                  fileName: finalThumbnailName,
                                   progress: nil,
                                   completionHandler: { task, error in
                 if error != nil {

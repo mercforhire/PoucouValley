@@ -93,7 +93,7 @@ class PoucouAPI {
     func uploadS3file(fileUrl: URL, fileName: String, progress: progressBlock?, completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?) {
         let expression  = AWSS3TransferUtilityUploadExpression()
         expression.progressBlock = { (task: AWSS3TransferUtilityTask, progress: Progress) -> Void in
-            print("Downloading: \(progress.fractionCompleted)")
+            print("Uploading: \(progress.fractionCompleted)")
             if progress.isFinished {
                 print("Upload Finished...")
             }
@@ -114,7 +114,7 @@ class PoucouAPI {
     }
     
     func deleteS3file(fileURL: String, progress: progressBlock?, completion: completionBlock?) {
-        let fileName = (fileURL as NSString).lastPathComponent
+        let fileName = fileURL.components(separatedBy: s3RootURL).last
         let request = AWSS3DeleteObjectRequest()!
         request.bucket = bucketName
         request.key = fileName
@@ -806,6 +806,27 @@ class PoucouAPI {
         }
     }
     
+    func fetchClient(clientId: ObjectId, callBack: @escaping(Result<FetchClientResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_fetchClient([AnyBSON(apiKey), AnyBSON(clientId)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchClient' and got result: \(document)")
+                callBack(.success(FetchClientResponse(document: document)))
+            }
+        }
+    }
+    
     func addClient(firstName: String = "", lastName: String = "", pronoun: String = "", gender: String = "", birthday: Birthday?, address: Address?, contact: Contact?, avatar: String = "", company: String = "", jobTitle: String = "", hashtags: [String] = [], notes: String = "", email: String = "", callBack: @escaping(Result<StringResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
@@ -828,56 +849,60 @@ class PoucouAPI {
                                 "email": AnyBSON(email)]
         
         user.functions.api_addClient([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
-            guard error == nil else {
-                print("Function call failed: \(error!.localizedDescription)")
-                callBack(.failure(error!))
-                return
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_addClient' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
             }
-            guard case let .document(document) = response else {
-                print("Unexpected non-string result: \(response ?? "nil")")
-                callBack(.failure(RealmError.decodingError))
-                return
-            }
-            print("Called function 'api_addClient' and got result: \(document)")
-            callBack(.success(StringResponse(document: document)))
         }
     }
     
-    func editClient(clientId: ObjectId, firstName: String = "", lastName: String = "", pronoun: String = "", gender: String = "", birthday: Birthday?, address: Address?, contact: Contact?, avatar: String = "", company: String = "", jobTitle: String = "", hashtags: [String] = [], notes: String = "", email: String = "", callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+    func editClient(clientId: ObjectId, firstName: String? = nil, lastName: String? = nil, pronoun: String? = nil, gender: String? = nil, birthday: Birthday? = nil, address: Address? = nil, contact: Contact? = nil, avatar: PVPhoto? = nil, company: String? = nil, jobTitle: String? = nil, hashtags: [String]? = nil, notes: String? = nil, email: String? = nil, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
         
         guard let apiKey = apiKey else { return }
         
         var hashtagData: [AnyBSON] = []
-        for tag in hashtags {
+        for tag in hashtags ?? [] {
             hashtagData.append(AnyBSON(tag))
         }
-        let params: Document = ["firstName": AnyBSON(firstName),
-                                "lastName": AnyBSON(lastName),
-                                "pronoun": AnyBSON(pronoun),
-                                "gender": AnyBSON(gender),
+        let params: Document = ["firstName": firstName != nil ? AnyBSON(firstName!) : AnyBSON.null,
+                                "lastName": lastName != nil ? AnyBSON(lastName!) : AnyBSON.null,
+                                "pronoun": pronoun != nil ? AnyBSON(pronoun!) : AnyBSON.null,
+                                "gender": gender != nil ? AnyBSON(gender!) : AnyBSON.null,
                                 "birthday": birthday != nil ? AnyBSON(birthday!.toDocument()) : AnyBSON.null,
                                 "address": address != nil ? AnyBSON(address!.toDocument()) : AnyBSON.null,
                                 "contact": contact != nil ? AnyBSON(contact!.toDocument()) : AnyBSON.null,
-                                "avatar": AnyBSON(avatar),
-                                "company": AnyBSON(company),
-                                "jobTitle": AnyBSON(jobTitle),
-                                "hashtags": AnyBSON.array(hashtagData),
-                                "notes": AnyBSON(notes),
-                                "email": AnyBSON(email)]
+                                "avatar": avatar != nil ? AnyBSON(avatar!.toDocument()) : AnyBSON.null,
+                                "company": company != nil ? AnyBSON(company!) : AnyBSON.null,
+                                "jobTitle": jobTitle != nil ? AnyBSON(jobTitle!) : AnyBSON.null,
+                                "hashtags": !hashtagData.isEmpty ? AnyBSON.array(hashtagData) : AnyBSON.null,
+                                "notes": notes != nil ? AnyBSON(notes!) : AnyBSON.null,
+                                "email": email != nil ? AnyBSON(email!) : AnyBSON.null]
         
         user.functions.api_editClient([AnyBSON(apiKey), AnyBSON(clientId), AnyBSON(params)]) { response, error in
-            guard error == nil else {
-                print("Function call failed: \(error!.localizedDescription)")
-                callBack(.failure(error!))
-                return
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_editClient' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
             }
-            guard case let .document(document) = response else {
-                print("Unexpected non-string result: \(response ?? "nil")")
-                callBack(.failure(RealmError.decodingError))
-                return
-            }
-            print("Called function 'api_editClient' and got result: \(document)")
-            callBack(.success(StringResponse(document: document)))
         }
     }
     
@@ -889,18 +914,43 @@ class PoucouAPI {
         }
         
         user.functions.api_deleteClients([AnyBSON(apiKey), AnyBSON.array(clientIds)]) { response, error in
-            guard error == nil else {
-                print("Function call failed: \(error!.localizedDescription)")
-                callBack(.failure(error!))
-                return
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_deleteClients' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
             }
-            guard case let .document(document) = response else {
-                print("Unexpected non-string result: \(response ?? "nil")")
-                callBack(.failure(RealmError.decodingError))
-                return
+        }
+    }
+    
+    func scanCard(cardNumber: String, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        let params: Document = ["cardNumber": AnyBSON(cardNumber)]
+        
+        user.functions.api_scanCard([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_scanCard' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
             }
-            print("Called function 'api_deleteClients' and got result: \(document)")
-            callBack(.success(StringResponse(document: document)))
         }
     }
     
@@ -908,15 +958,17 @@ class PoucouAPI {
         guard let apiKey = apiKey else { return }
         
         user.functions.api_logOut([AnyBSON(apiKey)]) { response, error in
-            guard error == nil else {
-                print("Function call failed: \(error!.localizedDescription)")
-                return
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    return
+                }
+                guard case let .string(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    return
+                }
+                print("Called function 'api_logOut' and got result: \(document)")
             }
-            guard case let .string(document) = response else {
-                print("Unexpected non-string result: \(response ?? "nil")")
-                return
-            }
-            print("Called function 'api_logOut' and got result: \(document)")
         }
     }
 }

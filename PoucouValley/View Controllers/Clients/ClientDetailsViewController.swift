@@ -9,7 +9,7 @@ import UIKit
 import PhoneNumberKit
 
 class ClientDetailsViewController: BaseViewController {
-    enum ClientDetailsRows: Int {
+    private enum ClientDetailsRows: Int {
         case contactSection
         case email
         case phone
@@ -76,8 +76,6 @@ class ClientDetailsViewController: BaseViewController {
                 return "Notes"
             case .notes:
                 return ""
-            default:
-                return ""
             }
         }
         
@@ -94,10 +92,6 @@ class ClientDetailsViewController: BaseViewController {
                                              .jobTitle,
                                              .divider2,
                                              .socialSection,
-                                             .websiteLink,
-                                             .twitterLink,
-                                             .facebookLink,
-                                             .instagramLink,
                                              .tagsSection,
                                              .tags,
                                              .divider3,
@@ -135,7 +129,14 @@ class ClientDetailsViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.navigationBar.isHidden = true
+        let headerSize = CGSize(width: tableView.frame.size.width, height: 200)
+        stretchyHeader.frame = CGRect(x: 0,
+                                      y: 0,
+                                      width: headerSize.width,
+                                      height: headerSize.height)
+        tableView.addSubview(stretchyHeader)
+        stretchyHeader.backButton.addTarget(self, action: #selector(backPressed(_:)), for: .touchUpInside)
+        stretchyHeader.editButton.addTarget(self, action: #selector(editPressed(_:)), for: .touchUpInside)
     }
     
     override func setupTheme() {
@@ -147,16 +148,45 @@ class ClientDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
+        refreshUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
         
+        api.fetchClient(clientId: client.identifier) { [weak self] result in
+            switch result {
+            case .success(let response):
+                if let client = response.data {
+                    self?.client = client
+                    self?.refreshUI()
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
     }
 
-    private func loadData() {
+    private func refreshUI() {
+        stretchyHeader.config(data: client)
         tableView.reloadData()
+    }
+    
+    @objc func editPressed(_ sender: UIBarButtonItem? = nil) {
+        performSegue(withIdentifier: "goToEdit", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? EditClientViewController {
+            vc.client = client
+        }
     }
 }
 
@@ -194,7 +224,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            cell.label2.text = client.email
+            cell.label2.text = client.email ?? "--"
             cell.divider.isHidden = true
             return cell
             
@@ -203,10 +233,11 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            if let contact = client.contact, let phoneNumber = try? phoneNumberKit.parse("\(contact.phoneAreaCode ?? "")\(contact.phoneNumber ?? "")")  {
+            if let contact = client.contact,
+                let phoneNumber = try? phoneNumberKit.parse("\(contact.phoneAreaCode ?? "")\(contact.phoneNumber ?? "")")  {
                 cell.label2.text = phoneNumber.numberString
             } else {
-                cell.label2.text = ""
+                cell.label2.text = "\(client.contact?.phoneAreaCode ?? "")\(client.contact?.phoneNumber ?? "")"
             }
             
             cell.divider.isHidden = true
@@ -217,7 +248,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            cell.label2.text = client.gender
+            cell.label2.text = client.gender ?? "--"
             cell.divider.isHidden = true
             return cell
             
@@ -226,7 +257,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            cell.label2.text = client.birthday?.dateString
+            cell.label2.text = client.birthday?.dateString ?? "--"
             cell.divider.isHidden = true
             return cell
             
@@ -235,7 +266,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            cell.label2.text = client.address?.addressString
+            cell.label2.text = client.address?.addressString ?? "--"
             cell.divider.isHidden = true
             return cell
             
@@ -244,7 +275,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            cell.label2.text = client.company
+            cell.label2.text = client.company ?? "--"
             cell.divider.isHidden = true
             return cell
             
@@ -253,7 +284,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            cell.label2.text = client.jobTitle
+            cell.label2.text = client.jobTitle ?? "--"
             cell.divider.isHidden = true
             return cell
             
@@ -305,7 +336,5 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.divider.isHidden = true
             return cell
         }
-        
-        return UITableViewCell()
     }
 }

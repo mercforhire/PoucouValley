@@ -64,6 +64,7 @@ extension HashTagsTableViewCell: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MIBubbleCollectionViewCell", for: indexPath) as! MIBubbleCollectionViewCell
         let tag = tags[indexPath.row]
         cell.lblTitle.text = tag
+        cell.addBorder(color: .lightGray)
         return cell
     }
     

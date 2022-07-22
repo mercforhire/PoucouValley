@@ -18,6 +18,10 @@ class Birthday: BaseEmbeddedObject {
         return "\(year) \(monthName), \(day)"
     }
     
+    var date: Date? {
+        return Date.makeDate(year: year, month: month, day: day)
+    }
+    
     convenience init(day: Int, month: Int, year: Int) {
         self.init()
         self.day = day

@@ -52,7 +52,7 @@ class EditClientViewController: BaseViewController {
     
     var avatar: PVPhoto? {
         didSet {
-            if let avatar = avatar {
+            if let avatar = avatar, !avatar.thumbnailUrl.isEmpty, !avatar.fullUrl.isEmpty {
                 avatarImageView.loadImageFromURL(urlString: avatar.thumbnailUrl)
                 editAvatarButton.setImage(UIImage.init(systemName: "minus.circle.fill"), for: .normal)
             } else {
@@ -108,6 +108,7 @@ class EditClientViewController: BaseViewController {
     private let kCellHeight: CGFloat = 37
     private let kItemPadding = 12
     private var imagePicker: ImagePicker!
+    private let datePicker = UIDatePicker()
     
     override func setup() {
         super.setup()
@@ -117,13 +118,14 @@ class EditClientViewController: BaseViewController {
         avatarImageView.backgroundColor = themeManager.themeData?.defaultBackground.hexColor
         avatarImageView.roundCorners(style: .completely)
         
-        let datePicker = UIDatePicker()
         datePicker.date = Date().getPastOrFutureDate(years: -18)
         datePicker.datePickerMode = .date
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.sizeToFit()
-        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        datePicker.addTarget(self,
+                             action: #selector(datePickerValueChanged(_:)),
+                             for: .valueChanged)
         birthdayField.inputView = datePicker
         
         let bubbleLayout = MICollectionViewBubbleLayout()
@@ -170,10 +172,14 @@ class EditClientViewController: BaseViewController {
         instagramField.text = client.contact?.instagram
         tags = Array(client.hashtags)
         notesTextView.text = client.notes
+        
+        if let birthday = client.birthday?.date {
+            datePicker.date = birthday
+        }
     }
     
     @IBAction func editAvatarPressed(_ sender: UIButton) {
-        if let photo = avatar {
+        if let photo = avatar, !photo.thumbnailUrl.isEmpty, !photo.fullUrl.isEmpty {
             // delete photo from S3
             FullScreenSpinner().show()
             userManager.deletePhoto(photo: photo) { [weak self] success in
@@ -181,7 +187,7 @@ class EditClientViewController: BaseViewController {
                 
                 FullScreenSpinner().hide()
                 if success {
-                    self.avatar = nil
+                    self.deleteClientAvatar()
                 } else {
                     showErrorDialog(error: "Failed to delete photo")
                 }
@@ -196,6 +202,34 @@ class EditClientViewController: BaseViewController {
                 } else {
                     showErrorDialog(error: "Please enable photo library access for this app in the phone settings.")
                 }
+            }
+        }
+    }
+    
+    private func deleteClientAvatar() {
+        api.editClient(clientId: client.identifier,
+                       avatar: PVPhoto(thumbnailUrl: "", fullUrl: "")) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                self.avatar = nil
+            default:
+                break
+            }
+        }
+    }
+    
+    private func uploadClientAvatar(photo: PVPhoto) {
+        api.editClient(clientId: client.identifier,
+                       avatar: photo) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success:
+                self.avatar = photo
+            default:
+                break
             }
         }
     }
@@ -231,14 +265,16 @@ class EditClientViewController: BaseViewController {
                               instagram: instagramField.text)
         
         FullScreenSpinner().show()
-        api.editClient(clientId: client.identifier, firstName: firstNameField.text ?? "",
+        
+        api.editClient(clientId: client.identifier,
+                       firstName: firstNameField.text ?? "",
                        lastName: lastNameField.text ?? "",
                        pronoun: gender?.pronoun() ?? "",
                        gender: gender?.rawValue ?? "",
                        birthday: birthday,
                        address: address,
                        contact: contact,
-                       avatar: avatar?.fullUrl ?? "",
+                       avatar: avatar,
                        company: companyField.text ?? "",
                        jobTitle: jobField.text ?? "",
                        hashtags: tags,
@@ -358,7 +394,7 @@ class EditClientViewController: BaseViewController {
                 FullScreenSpinner().hide()
                 
                 if let uploadedPhoto = uploadedPhoto {
-                    self?.avatar = uploadedPhoto
+                    self?.uploadClientAvatar(photo: uploadedPhoto)
                 }
             }
         }
@@ -385,7 +421,7 @@ class EditClientViewController: BaseViewController {
         // email OR phone
         var emailValid = false
         var phoneValid = false
-        if let email = emailField.text {
+        if let email = emailField.text, !email.isEmpty {
             if Validator.validate(string: email, validation: .email) {
                 emailValid = true
             } else {
@@ -394,7 +430,7 @@ class EditClientViewController: BaseViewController {
             }
         }
         
-        if let areaCode = phoneAreaCodeField.text, !areaCode.isEmpty, let phone = phoneField.text {
+        if let areaCode = phoneAreaCodeField.text, !areaCode.isEmpty, let phone = phoneField.text, !phone.isEmpty {
             if Validator.validate(string: phone, validation: .containsOneNumber) {
                 phoneValid = true
             } else {
@@ -485,7 +521,7 @@ extension EditClientViewController: MICollectionViewBubbleLayoutDelegate {
             
             return size
         } else {
-            return CGSize.init(width: kCellHeight, height: kCellHeight)
+            return CGSize(width: kCellHeight, height: kCellHeight)
         }
     }
 }

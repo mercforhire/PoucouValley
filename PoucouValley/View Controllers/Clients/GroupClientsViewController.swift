@@ -19,6 +19,7 @@ class GroupClientsViewController: BaseViewController {
     private var clients: [Client]? {
         didSet {
             shouldSearch(text: searchBar.text ?? "" )
+            usersCountLabel.text = "Users \(clients?.count ?? 0)"
         }
     }
     
@@ -68,7 +69,11 @@ class GroupClientsViewController: BaseViewController {
             
             switch result {
             case .success(let response):
-                self.clients = Array(response.data)
+                if response.success {
+                    self.clients = Array(response.data)
+                } else {
+                    showErrorDialog(error: response.message)
+                }
             case .failure:
                 showNetworkErrorDialog()
             }
@@ -139,6 +144,27 @@ class GroupClientsViewController: BaseViewController {
             vc.client = client
         }
     }
+    
+    @objc func checkmarkButtonPressed(_ sender: UIButton) {
+        let client = showingClients[sender.tag]
+        
+        if selected.contains(client), let index = selected.firstIndex(of: client) {
+            selected.remove(at: index)
+        } else {
+            selected.append(client)
+        }
+    }
+    
+    @IBAction func selectAllPressed(_ sender: UIButton) {
+        if !selected.isEmpty {
+            // Unselect All
+            selected.removeAll()
+        } else {
+            // Select All
+            selected.removeAll()
+            selected.append(contentsOf: showingClients)
+        }
+    }
 }
 
 extension GroupClientsViewController: DelayedSearchTimerDelegate {
@@ -162,13 +188,49 @@ extension GroupClientsViewController: DelayedSearchTimerDelegate {
     }
 }
 
+extension GroupClientsViewController: UISearchBarDelegate {
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let text = searchBar.text, !text.trim().isEmpty {
+            delayTimer.textDidGetEntered(text: text)
+        } else {
+            delayTimer.textDidGetEntered(text: "")
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        delayTimer.textDidGetEntered(text: "")
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        guard let text = searchBar.text, !text.trim().isEmpty else {
+            delayTimer.textDidGetEntered(text: "")
+            return
+        }
+        
+        delayTimer.textDidGetEntered(text: text)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let text = searchBar.text, !text.trim().isEmpty {
+            delayTimer.textDidGetEntered(text: text)
+        } else {
+            delayTimer.textDidGetEntered(text: "")
+        }
+    }
+}
+
 extension GroupClientsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return showingClients.count
+        return max(1, showingClients.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -181,7 +243,11 @@ extension GroupClientsViewController: UITableViewDataSource, UITableViewDelegate
             return ClientCell()
         }
         let client = showingClients[indexPath.row]
-        cell.config(client: client)
+        cell.config(client: client,
+                    showCheck: true,
+                    checked: selected.contains(client))
+        cell.checkmarkButton.tag = indexPath.row
+        cell.checkmarkButton.addTarget(self, action: #selector(checkmarkButtonPressed), for: .touchUpInside)
         return cell
     }
     

@@ -14,6 +14,7 @@ class ClientCell: UITableViewCell {
     @IBOutlet weak var avatar: URLImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var checkmarkButton: UIButton!
     
     var showCheck: Bool = false {
         didSet {
@@ -45,20 +46,23 @@ class ClientCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func config(client: Client) {
+    func config(client: Client, showCheck: Bool, checked: Bool) {
         if let thumbnailUrl = client.avatar?.thumbnailUrl {
             avatar.loadImageFromURL(urlString: thumbnailUrl)
         } else {
             avatar.image = UIImage.init(systemName: "person.fill")
         }
+        
         nameLabel.text = client.fullName
+        
         if let cardNumber = client.card, !cardNumber.isEmpty  {
             numberLabel.text = cardNumber
             numberLabel.isHidden = false
         } else {
             numberLabel.isHidden = true
         }
-        showCheck = false
-        checked = false
+        
+        self.showCheck = showCheck
+        self.checked = checked
     }
 }

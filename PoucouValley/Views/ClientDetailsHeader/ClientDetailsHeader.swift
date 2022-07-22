@@ -7,17 +7,18 @@
 
 import UIKit
 import GSKStretchyHeaderView
+import UILabel_Copyable
 
 class ClientDetailsHeader: GSKStretchyHeaderView {
     private var observer: NSObjectProtocol?
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var star: UIView!
-    @IBOutlet weak var starButton: UIButton!
-    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var avatar: URLImageView!
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var cardNumberLabel: UILabel!
+    @IBOutlet weak var createdDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +27,8 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
     }
     
     func setupUI() {
+        cardNumberLabel.isCopyingEnabled = true
+        
         avatar.roundCorners(style: .completely)
         avatar.layer.borderColor = UIColor.white.cgColor
         avatar.layer.borderWidth = 2.0
@@ -39,8 +42,17 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
         }
     }
     
-    func configureUI(data: Client) {
-        userNameLabel.text = navigationTitleLabel.text
+    func config(data: Client) {
+        userNameLabel.text = data.fullName
+        createdDateLabel.text = "Created on \(DateUtil.convert(input: data.createdDate, outputFormat: .format5) ?? "--")"
+        
+        if let cardNumber = data.card {
+            cardNumberLabel.text = cardNumber
+            cardNumberLabel.isHidden = false
+        } else {
+            cardNumberLabel.text = ""
+            cardNumberLabel.isHidden = true
+        }
         
         if let urlString = data.avatar?.thumbnailUrl, let url = URL(string: urlString) {
             avatar.kf.setImage(with: url)
@@ -52,7 +64,6 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
         alpha = max(0, min(1, alpha))
 
         avatar.alpha = alpha
-        star.alpha = alpha
         userNameLabel.alpha = alpha
 
         let navTitleFactor: CGFloat = 0.4

@@ -8,9 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Light.ttf">
-            <string>Poppins-Light</string>
-        </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
@@ -25,11 +22,16 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-kH-KIc">
-                    <rect key="frame" x="161" y="366" width="68" height="68"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKN-ih-ohr">
+                    <rect key="frame" x="157.66666666666666" y="362.66666666666669" width="75" height="75"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-kH-KIc" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                    <rect key="frame" x="157.66666666666666" y="362.66666666666669" width="75" height="75"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="68" id="4bP-u3-OxX"/>
-                        <constraint firstAttribute="height" constant="68" id="9YK-yg-h84"/>
+                        <constraint firstAttribute="width" constant="75" id="4bP-u3-OxX"/>
+                        <constraint firstAttribute="height" constant="75" id="9YK-yg-h84"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -43,12 +45,8 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKN-ih-ohr" customClass="AvatarImage" customModule="PoucouValley" customModuleProvider="target">
-                    <rect key="frame" x="161" y="366" width="68" height="68"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vbL-Py-qax">
-                    <rect key="frame" x="0.0" y="436" width="390" height="59.333333333333314"/>
+                    <rect key="frame" x="0.0" y="439.66666666666669" width="390" height="46.333333333333314"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRt-Jw-3vW">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="25.333333333333332"/>
@@ -57,15 +55,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A-123466-B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkN-Bl-9Cz">
-                            <rect key="frame" x="0.0" y="25.333333333333314" width="390" height="18.333333333333329"/>
-                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                            <rect key="frame" x="0.0" y="25.333333333333314" width="390" height="21"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanned user/manually added" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4e-9c-j13">
-                            <rect key="frame" x="0.0" y="43.666666666666686" width="390" height="15.666666666666664"/>
-                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -135,8 +127,10 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="avatar" destination="VKN-ih-ohr" id="4HB-Nn-OeC"/>
+                <outlet property="avatar" destination="IDV-kH-KIc" id="dwP-nh-tFs"/>
                 <outlet property="backButton" destination="6A9-IA-2zC" id="w27-ov-cES"/>
+                <outlet property="cardNumberLabel" destination="IkN-Bl-9Cz" id="cSt-zs-ZU8"/>
+                <outlet property="createdDateLabel" destination="8OY-Jw-syb" id="W4I-bJ-6jL"/>
                 <outlet property="editButton" destination="QgI-h3-bbs" id="15G-b0-2hA"/>
                 <outlet property="navigationTitleLabel" destination="ePj-xy-EI5" id="Txn-eh-S0d"/>
                 <outlet property="userNameLabel" destination="QRt-Jw-3vW" id="O20-AZ-exF"/>
@@ -146,7 +140,7 @@
     </objects>
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="pencil" catalog="system" width="32" height="32"/>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

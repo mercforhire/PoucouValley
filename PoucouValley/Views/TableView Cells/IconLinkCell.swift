@@ -30,16 +30,16 @@ class IconLinkCell: UITableViewCell {
     
     func configFacebook(facebookName: String?) {
         iconImageView.image = UIImage(named: "Icon-facebook")!
-        linkButton.setTitle("@" + (facebookName ?? ""), for: .normal)
+        linkButton.setTitle((facebookName ?? ""), for: .normal)
     }
     
     func configTwitter(twitterName: String?) {
         iconImageView.image = UIImage(named: "Icon-twitter")!
-        linkButton.setTitle("@" + (twitterName ?? ""), for: .normal)
+        linkButton.setTitle((twitterName ?? ""), for: .normal)
     }
     
     func configInstagram(igName: String?) {
         iconImageView.image = UIImage(named: "Icon-instagram")!
-        linkButton.setTitle("@" + (igName ?? ""), for: .normal)
+        linkButton.setTitle((igName ?? ""), for: .normal)
     }
 }

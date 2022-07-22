@@ -51,7 +51,7 @@ class CreateNewClientViewController: BaseViewController {
     
     var avatar: PVPhoto? {
         didSet {
-            if let avatar = avatar {
+            if let avatar = avatar, !avatar.thumbnailUrl.isEmpty, !avatar.fullUrl.isEmpty {
                 avatarImageView.loadImageFromURL(urlString: avatar.thumbnailUrl)
                 editAvatarButton.setImage(UIImage.init(systemName: "minus.circle.fill"), for: .normal)
             } else {
@@ -107,6 +107,7 @@ class CreateNewClientViewController: BaseViewController {
     private let kCellHeight: CGFloat = 37
     private let kItemPadding = 12
     private var imagePicker: ImagePicker!
+    private let datePicker = UIDatePicker()
     
     override func setup() {
         super.setup()
@@ -116,13 +117,14 @@ class CreateNewClientViewController: BaseViewController {
         avatarImageView.backgroundColor = themeManager.themeData?.defaultBackground.hexColor
         avatarImageView.roundCorners(style: .completely)
         
-        let datePicker = UIDatePicker()
         datePicker.date = Date().getPastOrFutureDate(years: -18)
         datePicker.datePickerMode = .date
         datePicker.locale = .current
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.sizeToFit()
-        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        datePicker.addTarget(self,
+                             action: #selector(datePickerValueChanged(_:)),
+                             for: .valueChanged)
         birthdayField.inputView = datePicker
         
         let bubbleLayout = MICollectionViewBubbleLayout()
@@ -144,7 +146,7 @@ class CreateNewClientViewController: BaseViewController {
     
     
     @IBAction func editAvatarPressed(_ sender: UIButton) {
-        if let photo = avatar {
+        if let photo = avatar, !photo.thumbnailUrl.isEmpty, !photo.fullUrl.isEmpty {
             // delete photo from S3
             FullScreenSpinner().show()
             userManager.deletePhoto(photo: photo) { [weak self] success in
@@ -202,6 +204,7 @@ class CreateNewClientViewController: BaseViewController {
                               instagram: instagramField.text)
         
         FullScreenSpinner().show()
+        
         api.addClient(firstName: firstNameField.text ?? "",
                       lastName: lastNameField.text ?? "",
                       pronoun: gender?.pronoun() ?? "",
@@ -355,7 +358,7 @@ class CreateNewClientViewController: BaseViewController {
         // email OR phone
         var emailValid = false
         var phoneValid = false
-        if let email = emailField.text {
+        if let email = emailField.text, !email.isEmpty {
             if Validator.validate(string: email, validation: .email) {
                 emailValid = true
             } else {
@@ -364,7 +367,7 @@ class CreateNewClientViewController: BaseViewController {
             }
         }
         
-        if let areaCode = phoneAreaCodeField.text, !areaCode.isEmpty, let phone = phoneField.text {
+        if let areaCode = phoneAreaCodeField.text, !areaCode.isEmpty, let phone = phoneField.text, !phone.isEmpty {
             if Validator.validate(string: phone, validation: .containsOneNumber) {
                 phoneValid = true
             } else {
@@ -455,7 +458,7 @@ extension CreateNewClientViewController: MICollectionViewBubbleLayoutDelegate {
             
             return size
         } else {
-            return CGSize.init(width: kCellHeight, height: kCellHeight)
+            return CGSize(width: kCellHeight, height: kCellHeight)
         }
     }
 }

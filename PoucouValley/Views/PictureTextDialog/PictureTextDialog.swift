@@ -6,8 +6,11 @@
 
 import UIKit
 
+protocol PictureTextDialogDelegate: class {
+    func dismissedDialog(dialog: PictureTextDialog)
+}
 
-struct DialogConfig {
+struct PictureTextDialogConfig {
     var image: UIImage?
     var primaryLabel: String = ""
     var secondLabel: String = ""
@@ -35,11 +38,12 @@ class PictureTextDialog: UIView {
     @IBOutlet weak var subLabel: ThemeGreyLabel!
     
     // MARK: - Variables
+    weak var delegate: PictureTextDialogDelegate?
     
     private var showDimOverlay: Bool = false
     // sometimes adding tutorial view breaks autolayout constraints. In this case, add tutorial view as a subview of UI window instead
     private var overUIWindow: Bool = false
-    private var config: DialogConfig?
+    private var config: PictureTextDialogConfig?
     
     private func setupUI() {
         Bundle.main.loadNibNamed("TwoChoicesDialog", owner: self, options: nil)
@@ -77,7 +81,7 @@ class PictureTextDialog: UIView {
     }
     
     // MARK: - Public
-    func configure(config: DialogConfig,
+    func configure(config: PictureTextDialogConfig,
                    showDimOverlay: Bool = false,
                    overUIWindow: Bool = false) {
         self.config = config
@@ -115,8 +119,9 @@ class PictureTextDialog: UIView {
                        animations: {
                         self.hideAllViews()
                         self.layoutIfNeeded()
-        }) { _ in
-            self.removeFromSuperview()
+        }) { [weak self] _ in
+            self?.removeFromSuperview()
+            self?.delegate?.dismissedDialog(dialog: self)
         }
     }
     

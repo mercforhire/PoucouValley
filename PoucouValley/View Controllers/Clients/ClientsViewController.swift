@@ -19,6 +19,7 @@ class ClientsViewController: BaseViewController {
     private var clients: [Client]? {
         didSet {
             shouldSearch(text: searchBar.text ?? "")
+            usersCountLabel.text = "Users \(clients?.count ?? 0)"
         }
     }
     
@@ -33,6 +34,7 @@ class ClientsViewController: BaseViewController {
             tableView.reloadData()
         }
     }
+    private var clickedClient: Client?
     private var delayTimer = DelayedSearchTimer()
     private lazy var composer: MessageComposer = MessageComposer()
     
@@ -65,6 +67,17 @@ class ClientsViewController: BaseViewController {
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                if response.success {
+                    self.clients = Array(response.data)
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
         }
     }
     
@@ -112,13 +125,48 @@ class ClientsViewController: BaseViewController {
     }
     
     @IBAction func groupsPressed(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "goToGroups", sender: self)
     }
     
     @IBAction func deletePressed(_ sender: Any) {
+        guard !selected.isEmpty else { return }
         
+        FullScreenSpinner().show()
+        
+        api.deleteClients(clients: selected) { [weak self] result in
+            guard let self = self else { return }
+            
+            FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                if response.success {
+                    self.loadData()
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
+        }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ClientDetailsViewController,
+            let client = clickedClient {
+            vc.client = client
+        }
+    }
+    
+    @objc func checkmarkButtonPressed(_ sender: UIButton) {
+        let client = showingClients[sender.tag]
+        
+        if selected.contains(client), let index = selected.firstIndex(of: client) {
+            selected.remove(at: index)
+        } else {
+            selected.append(client)
+        }
+    }
 }
 
 extension ClientsViewController: DelayedSearchTimerDelegate {
@@ -148,7 +196,7 @@ extension ClientsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return showingClients.count
+        return max(1, showingClients.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -161,7 +209,11 @@ extension ClientsViewController: UITableViewDataSource, UITableViewDelegate {
             return ClientCell()
         }
         let client = showingClients[indexPath.row]
-        cell.config(client: client)
+        cell.config(client: client,
+                    showCheck: true,
+                    checked: selected.contains(client))
+        cell.checkmarkButton.tag = indexPath.row
+        cell.checkmarkButton.addTarget(self, action: #selector(checkmarkButtonPressed), for: .touchUpInside)
         return cell
     }
     
@@ -171,5 +223,7 @@ extension ClientsViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         let client = showingClients[indexPath.row]
+        clickedClient = client
+        performSegue(withIdentifier: "goToClientDetail", sender: self)
     }
 }

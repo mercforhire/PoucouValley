@@ -20,8 +20,8 @@ class PVPhoto: BaseEmbeddedObject {
     
     convenience init(document: Document) {
         self.init()
-        self.thumbnailUrl = document["thumbnailUrl"]!!.stringValue!
-        self.fullUrl = document["fullUrl"]!!.stringValue!
+        self.thumbnailUrl = document["thumbnailUrl"]??.stringValue ?? ""
+        self.fullUrl = document["fullUrl"]??.stringValue ?? ""
     }
     
     override func toDocument() -> Document {

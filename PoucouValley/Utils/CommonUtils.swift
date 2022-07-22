@@ -14,9 +14,10 @@ class Notifications {
     static let HomeScreenShowTopBar: Notification.Name = Notification.Name("HomeScreenShowTopBar")
     static let HomeScreenHideTopBar: Notification.Name = Notification.Name("HomeScreenHideTopBar")
     static let MailComposeDismissed: Notification.Name = Notification.Name("MailComposeDismissed")
+    static let CardScanned: Notification.Name = Notification.Name("CardScanned")
 }
 
-func showErrorDialog(error: String) {
+func showErrorDialog(error: String? = "Unknown error") {
     DispatchQueue.main.async {
         guard let topVC = UIViewController.topViewController else { return }
         
