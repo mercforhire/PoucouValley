@@ -827,7 +827,7 @@ class PoucouAPI {
         }
     }
     
-    func addClient(firstName: String = "", lastName: String = "", pronoun: String = "", gender: String = "", birthday: Birthday?, address: Address?, contact: Contact?, avatar: String = "", company: String = "", jobTitle: String = "", hashtags: [String] = [], notes: String = "", email: String = "", callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+    func addClient(firstName: String = "", lastName: String = "", pronoun: String = "", gender: String = "", birthday: Birthday?, address: Address?, contact: Contact?, avatar: PVPhoto? = nil, company: String = "", jobTitle: String = "", hashtags: [String] = [], notes: String = "", email: String = "", callBack: @escaping(Result<StringResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
         var hashtagData: [AnyBSON] = []
@@ -841,7 +841,7 @@ class PoucouAPI {
                                 "birthday": birthday != nil ? AnyBSON(birthday!.toDocument()) : AnyBSON.null,
                                 "address": address != nil ? AnyBSON(address!.toDocument()) : AnyBSON.null,
                                 "contact": contact != nil ? AnyBSON(contact!.toDocument()) : AnyBSON.null,
-                                "avatar": AnyBSON(avatar),
+                                "avatar": avatar != nil ? AnyBSON(avatar!.toDocument()) : AnyBSON.null,
                                 "company": AnyBSON(company),
                                 "jobTitle": AnyBSON(jobTitle),
                                 "hashtags": AnyBSON.array(hashtagData),

@@ -25,6 +25,8 @@ class GetStartedCell: UICollectionViewCell {
     }
     
     func config(data: GetStartedSteps) {
+        iconImageView.image = UIImage(named: data.image)
+        
         var count = 0
         for text in data.text {
             switch count {

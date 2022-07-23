@@ -311,7 +311,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-O3-JU8">
                                                                     <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="h7m-M3-D0G">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="h7m-M3-D0G" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="1.5" width="33" height="30"/>
                                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </imageView>
@@ -408,6 +408,7 @@
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
+                                                    <outlet property="avatar" destination="h7m-M3-D0G" id="1qF-ZL-K3E"/>
                                                     <outlet property="checkmark" destination="pAM-ry-FGe" id="j4g-g9-54g"/>
                                                     <outlet property="checkmarkButton" destination="PRe-c6-RUQ" id="FK5-mU-xny"/>
                                                     <outlet property="checkmarkContainer" destination="qmL-2r-U4E" id="GUu-XO-csy"/>
@@ -439,9 +440,6 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <outlet property="label" destination="zKu-1e-mJf" id="Gnc-zU-6P0"/>
-                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -497,7 +495,6 @@
                                                                 <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                                 <connections>
                                                                     <action selector="deletePressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tU5-rE-7FV"/>
-                                                                    <action selector="emailPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fxz-CG-Smy"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -544,7 +541,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="barcode.viewfinder" catalog="system" id="Mhu-N9-725" customClass="ThemeBarButton" customModule="PoucouValley" customModuleProvider="target">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="scanPressed:" destination="Y6W-OH-hqX" id="5jL-4K-ed9"/>
                                 <segue destination="S1o-bc-eeg" kind="show" id="RXw-eQ-FIW"/>
                             </connections>
                         </barButtonItem>
@@ -1194,7 +1190,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="postal-code"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="postal-code"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ncb-FL-ZCU" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="837" width="364" height="40"/>
@@ -2023,7 +2019,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="postal-code"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="postal-code"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QIb-4U-0E0" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="837" width="364" height="40"/>

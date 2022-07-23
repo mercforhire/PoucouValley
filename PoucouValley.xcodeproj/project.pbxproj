@@ -498,13 +498,13 @@
 			isa = PBXGroup;
 			children = (
 				725ACC23287625EF007D255F /* ClientDetailsViewController.swift */,
+				72E847E5287DF966004C0672 /* ClientsViewController.swift */,
 				72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */,
 				72E847E3287DAED1004C0672 /* EditClientViewController.swift */,
-				72E847E5287DF966004C0672 /* ClientsViewController.swift */,
-				72E847ED28815C55004C0672 /* GroupsViewController.swift */,
-				72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */,
-				726CB8BB2888DE4A0086D436 /* ScanClientCardViewController.swift */,
 				726CB8C1288972D10086D436 /* EnterClientCardNumberViewController.swift */,
+				72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */,
+				72E847ED28815C55004C0672 /* GroupsViewController.swift */,
+				726CB8BB2888DE4A0086D436 /* ScanClientCardViewController.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";

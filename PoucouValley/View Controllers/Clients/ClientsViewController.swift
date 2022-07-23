@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CRRefresh
 
 class ClientsViewController: BaseViewController {
 
@@ -28,8 +29,10 @@ class ClientsViewController: BaseViewController {
         didSet {
             if !selected.isEmpty {
                 selectButton.setTitle("Unselect All", for: .normal)
+                contextButtonsContainer.isHidden = false
             } else {
                 selectButton.setTitle("Select All", for: .normal)
+                contextButtonsContainer.isHidden = true
             }
             tableView.reloadData()
         }
@@ -46,18 +49,25 @@ class ClientsViewController: BaseViewController {
         super.setup()
         
         delayTimer.delegate = self
+        contextButtonsContainer.isHidden = true
+        
+        tableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
+            /// start refresh
+            /// Do anything you want...
+            self?.loadData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadData()
     }
     
     private func loadData() {
@@ -67,11 +77,14 @@ class ClientsViewController: BaseViewController {
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
+            self.tableView.cr.endHeaderRefresh()
             
             switch result {
             case .success(let response):
                 if response.success {
-                    self.clients = Array(response.data)
+                    let clients = Array(response.data)
+                    self.clients = clients
+                    self.selected.removeAll()
                 } else {
                     showErrorDialog(error: response.message)
                 }
@@ -131,24 +144,40 @@ class ClientsViewController: BaseViewController {
     @IBAction func deletePressed(_ sender: Any) {
         guard !selected.isEmpty else { return }
         
-        FullScreenSpinner().show()
-        
-        api.deleteClients(clients: selected) { [weak self] result in
+        let ac = UIAlertController(title: "Delete clients", message: nil, preferredStyle: .actionSheet)
+        let action1 = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
             guard let self = self else { return }
             
-            FullScreenSpinner().hide()
+            FullScreenSpinner().show()
             
-            switch result {
-            case .success(let response):
-                if response.success {
-                    self.loadData()
-                } else {
-                    showErrorDialog(error: response.message)
+            self.api.deleteClients(clients: self.selected) { [weak self] result in
+                guard let self = self else { return }
+                
+                FullScreenSpinner().hide()
+                
+                switch result {
+                case .success(let response):
+                    if response.success {
+                        let notDeleted = self.selected.filter { client in
+                            return client.card != nil
+                        }
+                        if !notDeleted.isEmpty {
+                            showErrorDialog(error: "Poucon cardholders can not be deleted.")
+                        }
+                        self.loadData()
+                    } else {
+                        showErrorDialog(error: response.message)
+                    }
+                case .failure:
+                    showNetworkErrorDialog()
                 }
-            case .failure:
-                showNetworkErrorDialog()
             }
         }
+        ac.addAction(action1)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        ac.addAction(cancelAction)
+        present(ac, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -183,7 +212,7 @@ extension ClientsViewController: DelayedSearchTimerDelegate {
             showingClients = clients
         }
         showingClients = showingClients.sorted(by: { leftClient, rightClient in
-            return leftClient.firstName ?? "" > rightClient.firstName ?? ""
+            return leftClient.firstName ?? "" < rightClient.firstName ?? ""
         })
         
         tableView.reloadData()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CRRefresh
 
 class GroupClientsViewController: BaseViewController {
     var type: ClientGroupTypes!
@@ -47,18 +48,24 @@ class GroupClientsViewController: BaseViewController {
         
         delayTimer.delegate = self
         title = type.title()
+        
+        tableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
+            /// start refresh
+            /// Do anything you want...
+            self?.loadData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadData()
     }
     
     private func loadData() {
@@ -66,11 +73,14 @@ class GroupClientsViewController: BaseViewController {
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
+            self.tableView.cr.endHeaderRefresh()
             
             switch result {
             case .success(let response):
                 if response.success {
-                    self.clients = Array(response.data)
+                    let clients = Array(response.data)
+                    self.clients = clients
+                    self.selected.removeAll()
                 } else {
                     showErrorDialog(error: response.message)
                 }

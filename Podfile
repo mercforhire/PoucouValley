@@ -25,4 +25,5 @@ target 'PoucouValley' do
   pod 'UILabel+Copyable', '~> 2.0'
   pod 'PhoneNumberKit'
   pod 'Charts'
+  pod 'CRRefresh'
 end

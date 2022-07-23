@@ -11,7 +11,7 @@ class GroupsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var data: FetchClientGroupsStatisticsResponse? {
+    private var data: GroupsStatistics? {
         didSet {
             tableView.reloadData()
         }
@@ -49,7 +49,11 @@ class GroupsViewController: BaseViewController {
             
             switch result {
             case .success(let response):
-                self.data = response
+                if response.success, let data = response.data {
+                    self.data = data
+                } else {
+                    showErrorDialog(error: response.message)
+                }
             case .failure:
                 showNetworkErrorDialog()
             }
@@ -81,26 +85,26 @@ extension GroupsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.label.text = row.title()
         switch row {
         case .activated:
-            if let activatedClients = data?.data?.activatedClients, let totalCards = data?.data?.totalCards {
+            if let activatedClients = data?.activatedClients, let totalCards = data?.totalCards {
                 cell.label2.text = "\(activatedClients)/\(totalCards)"
             } else {
                 cell.label2.text = "--"
             }
             
         case .followed:
-            if let followedClients = data?.data?.followedClients {
+            if let followedClients = data?.followedClients {
                 cell.label2.text = "\(followedClients)"
             } else {
                 cell.label2.text = "--"
             }
         case .inputted:
-            if let inputtedClients = data?.data?.inputtedClients {
+            if let inputtedClients = data?.inputtedClients {
                 cell.label2.text = "\(inputtedClients)"
             } else {
                 cell.label2.text = "--"
             }
         case .scanned:
-            if let scannedClients = data?.data?.scannedClients {
+            if let scannedClients = data?.scannedClients {
                 cell.label2.text = "\(scannedClients)"
             } else {
                 cell.label2.text = "--"

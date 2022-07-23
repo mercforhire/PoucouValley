@@ -10,12 +10,15 @@ import RealmSwift
 
 class GetStartedSteps: BaseObject {
     var step: Int = 0
+    var image: String = ""
     var text: List<String> = List()
     
     convenience init(document: Document) {
         self.init()
         
         self.step = document["step"]!!.asInt()!
+        self.image = document["image"]!!.stringValue!
+        
         let text: List<String> = List()
         for string in document["text"]!!.arrayValue! {
             text.append(string!.stringValue!)

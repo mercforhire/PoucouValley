@@ -212,17 +212,26 @@ class CreateNewClientViewController: BaseViewController {
                       birthday: birthday,
                       address: address,
                       contact: contact,
-                      avatar: avatar?.fullUrl ?? "",
+                      avatar: avatar,
                       company: companyField.text ?? "",
                       jobTitle: jobField.text ?? "",
                       hashtags: tags,
                       notes: notesTextView.text ?? "",
-                      email: emailField.text ?? "") { [weak self] success in
+                      email: emailField.text ?? "") { [weak self] result in
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
-
-            self.showClientSavedDialog()
+            
+            switch result {
+            case .success(let response):
+                if response.success {
+                    self.showClientSavedDialog()
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
         }
     }
     
@@ -265,7 +274,7 @@ class CreateNewClientViewController: BaseViewController {
             textfield.text = self?.tags[selectedTagIndex]
         }
         
-        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { [weak self] _ in
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { [weak self] _ in
             if let newTag = ac.textFields![0].text, !newTag.isEmpty {
                 self?.tags[selectedTagIndex] = newTag
                 self?.tagsCollectionView.reloadData()
@@ -293,7 +302,7 @@ class CreateNewClientViewController: BaseViewController {
             textfield.placeholder = "New tag"
         }
         
-        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { [weak self] _ in
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { [weak self] _ in
             if let newTag = ac.textFields![0].text, !newTag.isEmpty {
                 self?.tags.append(newTag)
                 self?.tagsCollectionView.reloadData()

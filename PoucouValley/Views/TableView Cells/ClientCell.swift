@@ -38,6 +38,7 @@ class ClientCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         selectionStyle = .none
+        avatar.roundCorners(style: .completely)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -59,6 +60,7 @@ class ClientCell: UITableViewCell {
             numberLabel.text = cardNumber
             numberLabel.isHidden = false
         } else {
+            numberLabel.text = nil
             numberLabel.isHidden = true
         }
         

@@ -43,6 +43,7 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
     }
     
     func config(data: Client) {
+        navigationTitleLabel.text = data.fullName
         userNameLabel.text = data.fullName
         createdDateLabel.text = "Created on \(DateUtil.convert(input: data.createdDate, outputFormat: .format5) ?? "--")"
         
@@ -65,7 +66,8 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
 
         avatar.alpha = alpha
         userNameLabel.alpha = alpha
-
+        createdDateLabel.alpha = alpha
+        
         let navTitleFactor: CGFloat = 0.4
         var navTitleAlpha: CGFloat = 0
         if stretchFactor < navTitleFactor {

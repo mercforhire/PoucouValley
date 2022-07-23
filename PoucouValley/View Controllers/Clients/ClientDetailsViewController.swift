@@ -158,12 +158,14 @@ class ClientDetailsViewController: BaseViewController {
         api.fetchClient(clientId: client.identifier) { [weak self] result in
             switch result {
             case .success(let response):
-                if let client = response.data {
+                if response.success, let client = response.data {
                     self?.client = client
                     self?.refreshUI()
+                } else {
+                    showErrorDialog(error: response.message)
                 }
-            default:
-                break
+            case .failure:
+                showNetworkErrorDialog()
             }
         }
     }

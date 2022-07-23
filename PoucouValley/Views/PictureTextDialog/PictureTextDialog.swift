@@ -120,8 +120,10 @@ class PictureTextDialog: UIView {
                         self.hideAllViews()
                         self.layoutIfNeeded()
         }) { [weak self] _ in
-            self?.removeFromSuperview()
-            self?.delegate?.dismissedDialog(dialog: self)
+            guard let self = self else { return }
+            
+            self.removeFromSuperview()
+            self.delegate?.dismissedDialog(dialog: self)
         }
     }
     
