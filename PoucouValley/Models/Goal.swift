@@ -19,6 +19,7 @@ class Goal: BaseObject {
     
     convenience init(document: Document) {
         self.init()
+        self.identifier = document["_id"]!!.objectIdValue!
         self.goal = document["goal"]!!.stringValue!
         self.reward = document["reward"]!!.asInt()!
     }

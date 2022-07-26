@@ -18,7 +18,7 @@ class Merchant: BaseObject {
     var address: Address?
     var contact: Contact?
     var photos: List<PVPhoto> = List()
-    var cards: List<String> = List()
+    var cards: List<Card> = List()
     
     convenience init(document: Document) {
         self.init()
@@ -45,9 +45,9 @@ class Merchant: BaseObject {
             self.photos = data
         }
         if let array = document["cards"]??.arrayValue {
-            let data: List<String> = List()
+            let data: List<Card> = List()
             for card in array {
-                data.append(card!.stringValue!)
+                data.append(Card(document: card!.documentValue!))
             }
             self.cards = data
         }

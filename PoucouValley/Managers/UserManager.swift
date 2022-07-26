@@ -32,9 +32,11 @@ class UserManager {
     }
     
     init() {
-        if let apiKey = try? myValet.string(forKey: "apiKey") {
-            api.apiKey = apiKey
-        }
+        // demo code:
+        api.apiKey = "0c5db8fc2f306da86659a7d3d06ab48701dac2de4f15558bd66d7e984515783fab12fabb4a1c7cbcad93d69ab0f6c8455c8826b22ccf8bbb153a78d6462b571f"
+//        if let apiKey = try? myValet.string(forKey: "apiKey") {
+//            api.apiKey = apiKey
+//        }
     }
     
     func isLoggedIn() -> Bool {

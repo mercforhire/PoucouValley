@@ -70,7 +70,7 @@ class GetStartedViewController: BaseViewController {
             case .success(let result):
                 self?.steps = Array(result.data)
                 self?.collectionView.reloadData()
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
             }
         }

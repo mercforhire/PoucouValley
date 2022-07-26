@@ -25,10 +25,11 @@ class GiftTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func config(unsplashPhoto: UnsplashPhoto) {
-        if let url = URL(string: unsplashPhoto.urls.small) {
+    func config(data: Gift) {
+        if let photoUrl = data.photos.first,
+            let url = URL(string: photoUrl) {
             background.kf.setImage(with: url)
         }
-        cardLabel.text = "\(50 * Int.random(in: 1...10)) Coins - $\(5 * Int.random(in: 1...20)) Gift Card"
+        cardLabel.text = "\(data.costInCoins) Coins - \(data.name)"
     }
 }

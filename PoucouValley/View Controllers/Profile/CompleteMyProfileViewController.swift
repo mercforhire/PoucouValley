@@ -8,92 +8,77 @@
 import UIKit
 import RealmSwift
 
-class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelegate, SetGendersCellDelegate, SetBirthdayCellDelegate, SetAddressCellDelegate, SetPhoneCellDelegate {
+enum SetupSteps: Int {
+    case gender
+    case birthday
+    case address
+    case phone
+    case completed
     
-    private enum SetupSteps: Int {
-        case pronoun
-        case gender
-        case birthday
-        case address
-        case phone
-        case completed
-        
-        func getGoalName() -> String? {
-            switch self {
-            case .pronoun, .gender:
-                return "Add gender to profile"
-            case .birthday:
-                return "Add birthday to profile"
-            case .address:
-                return "Add address to profile"
-            case .phone:
-                return "Add phone number to profile"
-            default:
-                break
-            }
+    func getGoalName() -> String? {
+        switch self {
+        case .gender:
+            return "Add gender to profile"
+        case .birthday:
+            return "Add birthday to profile"
+        case .address:
+            return "Add address to profile"
+        case .phone:
+            return "Add phone number to profile"
+        default:
+            break
+        }
+        return nil
+    }
+    
+    static func getSetupStepFrom(goal: Goal) -> SetupSteps? {
+        switch goal.goal {
+        case "Add gender to profile":
+            return .gender
+        case "Add birthday to profile":
+            return .birthday
+        case "Add address to profile":
+            return .address
+        case "Add phone number to profile":
+            return .phone
+        default:
             return nil
         }
-        
-        static func goalsNames() -> [String] {
-            return [SetupSteps.gender.getGoalName()!, SetupSteps.birthday.getGoalName()!,  SetupSteps.address.getGoalName()!,
-                    SetupSteps.phone.getGoalName()!]
-        }
-        
-        static func goals() -> [SetupSteps] {
-            return [.gender, .birthday, .address, .phone]
-        }
     }
+}
+
+class CompleteMyProfileViewController: BaseViewController, SetGendersCellDelegate, SetBirthdayCellDelegate, SetAddressCellDelegate, SetPhoneCellDelegate {
+    
     
     @IBOutlet var progressBars: [UIView]!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextButton: ThemeRoundedGreenBlackTextButton!
     
-    private var steps: [SetupSteps] = [.completed]
-    private var currentStep: Int = 0 {
+    private var steps: [SetupSteps] {
+        var array: [SetupSteps]  = []
+        for goal in goals ?? [] {
+            if let step = SetupSteps.getSetupStepFrom(goal: goal) {
+                array.append(step)
+            }
+        }
+        array.append(.completed)
+        return array
+    }
+    
+    private var currentStepIndex: Int = 0 {
         didSet {
             if steps.first == .completed {
                 nextButton.setTitle("Hooray", for: .normal)
-            } else if currentStep == (steps.count - 1) {
+            } else if currentStepIndex == (steps.count - 1) {
                 nextButton.setTitle("Finish", for: .normal)
             } else {
                 nextButton.setTitle("Next", for: .normal)
             }
-            switch steps[currentStep] {
-            case .pronoun:
-                for progressBar in progressBars {
-                    progressBar.backgroundColor = .lightGray
-                }
-            case .gender:
-                for progressBar in progressBars {
-                    progressBar.backgroundColor = .lightGray
-                }
-            case .birthday:
-                for progressBar in progressBars {
-                    if progressBar.tag == 0  {
-                        progressBar.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
-                    } else {
-                        progressBar.backgroundColor = .lightGray
-                    }
-                }
-            case .address:
-                for progressBar in progressBars {
-                    if progressBar.tag == 0 || progressBar.tag == 1 {
-                        progressBar.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
-                    } else {
-                        progressBar.backgroundColor = .lightGray
-                    }
-                }
-            case .phone:
-                for progressBar in progressBars {
-                    if progressBar.tag == 0 || progressBar.tag == 1 || progressBar.tag == 2 {
-                        progressBar.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
-                    } else {
-                        progressBar.backgroundColor = .lightGray
-                    }
-                }
-            case .completed:
-                for progressBar in progressBars {
+            for progressBar in progressBars {
+                if progressBar.tag <= currentStepIndex  {
                     progressBar.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
+                } else {
+                    progressBar.backgroundColor = .lightGray
                 }
             }
             tableView.reloadData()
@@ -101,8 +86,16 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
     }
     private var goals: [Goal]?
     private var completedGoals: [Goal]?
+    private var imcompletedGoals: [Goal]? {
+        guard let goals = goals, let completedGoals = completedGoals else {
+            return nil
+        }
+        
+        return goals.filter { goal in
+            return !completedGoals.contains(goal)
+        }
+    }
     
-    private var pronoun: String?
     private var gender: String?
     private var birthday: Birthday?
     private var address: Address?
@@ -111,9 +104,6 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
     override func setup() {
         super.setup()
         
-        navigationController?.navigationBar.isHidden = true
-        
-        pronoun = currentUser.cardholder?.pronoun
         gender = currentUser.cardholder?.gender
         birthday = currentUser.cardholder?.birthday
         address = currentUser.cardholder?.address
@@ -140,6 +130,17 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.isHidden = true
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTableView),
+                                               name: Notifications.RequestTableViewUpdate,
+                                               object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: Notifications.RequestTableViewUpdate, object: nil)
     }
     
     func loadData() {
@@ -154,12 +155,12 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
             
             self.api.fetchGoals() { [weak self] result in
                 switch result {
-                case .success(let result):
-                    self?.goals? = []
-                    for goal in Array(result.data) {
-                        if SetupSteps.goalsNames().contains(goal.goal) {
-                            self?.goals?.append(goal)
-                        }
+                case .success(let response):
+                    if response.success {
+                        self?.goals = Array(response.data)
+                    } else {
+                        showErrorDialog(error: response.message)
+                        isSuccess = false
                     }
                 case .failure:
                     showNetworkErrorDialog()
@@ -178,8 +179,13 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
             
             self.api.fetchCompletedGoals { [weak self] result in
                 switch result {
-                case .success(let result):
-                    self?.completedGoals = Array(result.data)
+                case .success(let response):
+                    if response.success {
+                        self?.completedGoals = Array(response.data)
+                    } else {
+                        showErrorDialog(error: response.message)
+                        isSuccess = false
+                    }
                 case .failure:
                     showNetworkErrorDialog()
                     isSuccess = false
@@ -199,9 +205,7 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
     }
     
     private func validateCurrentStep() -> Bool {
-        switch steps[currentStep] {
-        case .pronoun:
-            return pronoun != nil
+        switch steps[currentStepIndex] {
         case .gender:
             return gender != nil
         case .birthday:
@@ -220,60 +224,62 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
             return
         }
         
-        switch steps[currentStep] {
-        case .pronoun:
-            userManager.updateCardholderInfo(pronoun: pronoun) { [weak self] result in
-                switch result {
-                case .success:
-                    self?.currentStep += 1
-                case .failure:
-                    break
-                }
-            }
+        FullScreenSpinner().show()
+        let currentStep = steps[currentStepIndex]
+        
+        switch currentStep {
         case .gender:
             userManager.updateCardholderInfo(gender: gender) { [weak self] result in
+                FullScreenSpinner().hide()
+                
                 switch result {
                 case .success:
-                    self?.currentStep += 1
+                    self?.currentStepIndex += 1
+                    self?.markGoalAsComplete(step: currentStep)
                 case .failure:
                     break
                 }
             }
         case .birthday:
             userManager.updateCardholderInfo(birthday: birthday) { [weak self] result in
+                FullScreenSpinner().hide()
+                
                 switch result {
                 case .success:
-                    self?.currentStep += 1
+                    self?.currentStepIndex += 1
+                    self?.markGoalAsComplete(step: currentStep)
                 case .failure:
                     break
                 }
             }
         case .address:
             userManager.updateCardholderInfo(address: address) { [weak self] result in
+                FullScreenSpinner().hide()
+                
                 switch result {
                 case .success:
-                    self?.currentStep += 1
+                    self?.currentStepIndex += 1
+                    self?.markGoalAsComplete(step: currentStep)
                 case .failure:
                     break
                 }
             }
         case .phone:
             userManager.updateCardholderInfo(contact: contact) { [weak self] result in
+                FullScreenSpinner().hide()
+                
                 switch result {
                 case .success:
-                    self?.currentStep += 1
+                    self?.currentStepIndex += 1
+                    self?.markGoalAsComplete(step: currentStep)
                 case .failure:
                     break
                 }
             }
-        default:
-            break
+        case .completed:
+            navigationController?.popViewController(animated: true)
         }
         
-    }
-    
-    func setPronounsCellUpdated(pronoun: String?) {
-        self.pronoun = pronoun
     }
     
     func setGendersCellUpdated(gender: String?) {
@@ -301,6 +307,38 @@ class CompleteMyProfileViewController: BaseViewController, SetPronounsCellDelega
         
         return nil
     }
+    
+    @objc private func updateTableView() {
+        UIView.performWithoutAnimation {
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+        }
+    }
+    
+    private func markGoalAsComplete(step: SetupSteps, complete: ((Bool) -> Void)? = nil) {
+        let completedGoal = goals?.filter({ goal in
+            return goal.goal == step.getGoalName()
+        }).first
+        
+        guard let completedGoal = completedGoal else {
+            return
+        }
+        
+        api.addAccomplishment(goal: completedGoal) { result in
+            switch result {
+            case .success(let response):
+                if response.success {
+                    complete?(true)
+                } else {
+                    showErrorDialog(error: response.message ?? "Unknown error")
+                    complete?(false)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+                complete?(false)
+            }
+        }
+    }
 }
 
 extension CompleteMyProfileViewController: UITableViewDataSource, UITableViewDelegate {
@@ -313,18 +351,11 @@ extension CompleteMyProfileViewController: UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cardholder = currentUser.cardholder else { return UITableViewCell() }
+        guard let cardholder = currentUser.cardholder, !steps.isEmpty else { return UITableViewCell() }
         
-        let step = steps[currentStep]
+        let step = steps[currentStepIndex]
         
         switch step {
-        case .pronoun:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SetPronounsCell", for: indexPath) as? SetPronounsCell else {
-                return SetPronounsCell()
-            }
-            cell.config(data: cardholder)
-            cell.delegate = self
-            return cell
         case .gender:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SetGendersCell", for: indexPath) as? SetGendersCell else {
                 return SetGendersCell()

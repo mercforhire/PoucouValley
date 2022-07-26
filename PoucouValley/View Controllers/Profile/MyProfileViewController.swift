@@ -12,8 +12,19 @@ class MyProfileViewController: BaseViewController {
 
     private enum TableRows: Int {
         case completeProfile
-        case sectionTitle
+        case sectionTitle1
         case giftCard
+        
+        func title() -> String {
+            switch self {
+            case .completeProfile:
+                return "Complete Profile"
+            case .sectionTitle1:
+                return "Exchange gift"
+            case .giftCard:
+                return "Gift Card"
+            }
+        }
     }
     
     @IBOutlet weak var headerContainer: UIView!
@@ -23,9 +34,10 @@ class MyProfileViewController: BaseViewController {
     @IBOutlet weak var coinsLabel: ThemeBlackTextLabel!
     @IBOutlet weak var tableView: UITableView!
     
+    private var wallet: Wallet?
     private var goals: [Goal]?
     private var completedGoals: [Goal]?
-    private var giftcards: [UnsplashPhoto]?
+    private var gifts: [Gift]?
     private var rows: [TableRows] {
         var rows: [TableRows] = []
         if let goals = goals, let completedGoals = completedGoals {
@@ -33,8 +45,8 @@ class MyProfileViewController: BaseViewController {
                 rows.append(.completeProfile)
             }
         }
-        rows.append(.sectionTitle)
-        for _ in giftcards ?? [] {
+        rows.append(.sectionTitle1)
+        for _ in gifts ?? [] {
             rows.append(.giftCard)
         }
         return rows
@@ -42,16 +54,16 @@ class MyProfileViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        navigationController?.navigationBar.isHidden = true
+        
         headerContainer.roundCorners(style: .small)
         avatarContainer.roundCorners(style: .completely)
         avatarImageView.roundCorners(style: .completely)
-        avatarImageView.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
     }
     
     override func setupTheme() {
         super.setupTheme()
         
+        avatarImageView.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
         view.backgroundColor = themeManager.themeData?.lighterGreen.hexColor
     }
     
@@ -59,12 +71,18 @@ class MyProfileViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        refreshProfileHeader()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchContents()
+        navigationController?.navigationBar.isHidden = true
+        
+        wallet == nil ? FullScreenSpinner().show() : nil
+        fetchContents { success in
+            FullScreenSpinner().hide()
+        }
     }
     
     @IBAction func avatarPressed(_ sender: UIButton) {
@@ -94,12 +112,34 @@ class MyProfileViewController: BaseViewController {
             }
             semaphore.wait()
             
+            self.api.fetchWallet { [weak self] result in
+                switch result {
+                case .success(let response):
+                    if response.success, let wallet = response.data {
+                        self?.wallet = wallet
+                    } else {
+                        showErrorDialog(error: response.message)
+                        isSuccess = false
+                    }
+                case .failure:
+                    isSuccess = false
+                }
+                semaphore.signal()
+            }
+            semaphore.wait()
+            
             self.api.fetchGoals { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self?.goals = Array(response.data).filter({ goal in
-                        return Goal.supportGoals().contains(goal.goal)
-                    })
+                    if response.success {
+                        let data = response.data
+                        self?.goals = Array(data).filter({ goal in
+                            return Goal.supportGoals().contains(goal.goal)
+                        })
+                    } else {
+                        showErrorDialog(error: response.message)
+                        isSuccess = false
+                    }
                 case .failure:
                     isSuccess = false
                 }
@@ -110,9 +150,15 @@ class MyProfileViewController: BaseViewController {
             self.api.fetchCompletedGoals { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self?.completedGoals = Array(response.data).filter({ goal in
-                        return Goal.supportGoals().contains(goal.goal)
-                    })
+                    if response.success {
+                        let data = response.data
+                        self?.completedGoals = Array(data).filter({ goal in
+                            return Goal.supportGoals().contains(goal.goal)
+                        })
+                    } else {
+                        showErrorDialog(error: response.message)
+                        isSuccess = false
+                    }
                 case .failure:
                     isSuccess = false
                 }
@@ -120,12 +166,18 @@ class MyProfileViewController: BaseViewController {
             }
             semaphore.wait()
             
-            self.api.getGiftcards { [weak self] result in
+            self.api.fetchGifts { [weak self] result in
                 guard let self = self else { return }
                 
                 switch result {
                 case .success(let response):
-                    self.giftcards = response
+                    if response.success {
+                        let data = response.data
+                        self.gifts = Array(data)
+                    } else {
+                        showErrorDialog(error: response.message)
+                        isSuccess = false
+                    }
                 case .failure:
                     isSuccess = false
                 }
@@ -145,6 +197,8 @@ class MyProfileViewController: BaseViewController {
         if let avatar = currentUser.cardholder?.avatar {
             avatarImageView.loadImageFromURL(urlString: avatar.thumbnailUrl)
         }
+        nameLabel.text = userManager.user?.cardholder?.fullName ?? "--"
+        coinsLabel.text = "\(wallet?.coins ?? 0)"
     }
     
     private func uploadPhoto(photo: UIImage) {
@@ -237,20 +291,32 @@ extension MyProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case .giftCard:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "GiftTableViewCell", for: indexPath) as? GiftTableViewCell,
-                    let giftcard = giftcards?[indexPath.row - (rows.firstIndex(of: .giftCard) ?? 0)] else {
+                    let gift = gifts?[indexPath.row - (rows.firstIndex(of: .giftCard) ?? 0)] else {
                 return GiftTableViewCell()
             }
             
-            cell.config(unsplashPhoto: giftcard)
+            cell.config(data: gift)
             return cell
-        case .sectionTitle:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "GiftTableViewCell", for: indexPath) as? GiftTableViewCell,
-                    let giftcard = giftcards?[indexPath.row - (rows.firstIndex(of: .giftCard) ?? 0)] else {
-                return GiftTableViewCell()
+        case .sectionTitle1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableCell", for: indexPath) as? LabelTableCell else {
+                return LabelTableCell()
             }
             
-            cell.config(unsplashPhoto: giftcard)
+            cell.headerLabel.text = row.title()
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = rows[indexPath.row]
+        
+        switch row {
+        case .completeProfile:
+            performSegue(withIdentifier: "goToCompleteProfile", sender: self)
+        case .giftCard:
+            break
+        default:
+            break
         }
     }
 }

@@ -43,48 +43,39 @@ class SetBirthdayCell: UITableViewCell {
                 dayButton.setTitleColor(.black, for: .normal)
                 yearButton.setTitleColor(.black, for: .normal)
                 
-                UIView.animate(withDuration: 0.3) {
-                    self.monthContainer.isHidden = false
-                    self.dayContainer.isHidden = true
-                    self.yearContainer.isHidden = true
-                    self.layoutIfNeeded()
-                }
+                self.monthContainer.isHidden = false
+                self.dayContainer.isHidden = true
+                self.yearContainer.isHidden = true
             case .day:
                 divider.isHidden = false
                 monthButton.setTitleColor(.black, for: .normal)
                 dayButton.setTitleColor(themeManager.themeData!.lighterGreen.hexColor, for: .normal)
                 yearButton.setTitleColor(.black, for: .normal)
                 
-                UIView.animate(withDuration: 0.3) {
-                    self.monthContainer.isHidden = true
-                    self.dayContainer.isHidden = false
-                    self.yearContainer.isHidden = true
-                    self.layoutIfNeeded()
-                }
+                self.monthContainer.isHidden = true
+                self.dayContainer.isHidden = false
+                self.yearContainer.isHidden = true
             case .year:
                 divider.isHidden = false
                 monthButton.setTitleColor(.black, for: .normal)
                 dayButton.setTitleColor(.black, for: .normal)
                 yearButton.setTitleColor(themeManager.themeData!.lighterGreen.hexColor, for: .normal)
                 
-                UIView.animate(withDuration: 0.3) {
-                    self.monthContainer.isHidden = true
-                    self.dayContainer.isHidden = true
-                    self.yearContainer.isHidden = false
-                    self.layoutIfNeeded()
-                }
+                self.monthContainer.isHidden = true
+                self.dayContainer.isHidden = true
+                self.yearContainer.isHidden = false
             default:
                 divider.isHidden = true
                 monthButton.setTitleColor(.black, for: .normal)
                 dayButton.setTitleColor(.black, for: .normal)
                 yearButton.setTitleColor(.black, for: .normal)
                 
-                UIView.animate(withDuration: 0.3) {
-                    self.monthContainer.isHidden = true
-                    self.dayContainer.isHidden = true
-                    self.yearContainer.isHidden = true
-                    self.layoutIfNeeded()
-                }
+                self.monthContainer.isHidden = true
+                self.dayContainer.isHidden = true
+                self.yearContainer.isHidden = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                NotificationCenter.default.post(name: Notifications.RequestTableViewUpdate, object: nil)
             }
         }
     }

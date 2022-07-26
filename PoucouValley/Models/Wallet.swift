@@ -16,7 +16,7 @@ class Wallet: BaseObject {
     
     convenience init(document: Document) {
         self.init()
-        self.identifier = document["_Id"]!!.objectIdValue!
+        self.identifier = document["_id"]!!.objectIdValue!
         self.createdDate = document["createdDate"]!!.dateValue!
         self.userId = document["userId"]!!.objectIdValue!
         self.coins = document["coins"]!!.asInt()!

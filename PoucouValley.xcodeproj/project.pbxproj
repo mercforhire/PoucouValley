@@ -31,6 +31,9 @@
 		726CB8BE288972670086D436 /* GroupsStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CB8BD288972670086D436 /* GroupsStatistics.swift */; };
 		726CB8C0288972820086D436 /* FetchClientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CB8BF288972820086D436 /* FetchClientResponse.swift */; };
 		726CB8C2288972D10086D436 /* EnterClientCardNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CB8C1288972D10086D436 /* EnterClientCardNumberViewController.swift */; };
+		726CB8CC288D66830086D436 /* FetchWalletResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CB8CB288D66830086D436 /* FetchWalletResponse.swift */; };
+		726CB8CE288D68DC0086D436 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CB8CD288D68DC0086D436 /* Gift.swift */; };
+		726CB8D0288D6BBB0086D436 /* FetchGiftsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CB8CF288D6BBB0086D436 /* FetchGiftsResponse.swift */; };
 		72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C012830ACD7004F3C3C /* GetStartedViewController.swift */; };
 		72707C042830ACFE004F3C3C /* GetStartedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C032830ACFE004F3C3C /* GetStartedCell.swift */; };
 		72707C062830B354004F3C3C /* GetStartedStepsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C052830B354004F3C3C /* GetStartedStepsResponse.swift */; };
@@ -264,6 +267,9 @@
 		726CB8BD288972670086D436 /* GroupsStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsStatistics.swift; sourceTree = "<group>"; };
 		726CB8BF288972820086D436 /* FetchClientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClientResponse.swift; sourceTree = "<group>"; };
 		726CB8C1288972D10086D436 /* EnterClientCardNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterClientCardNumberViewController.swift; sourceTree = "<group>"; };
+		726CB8CB288D66830086D436 /* FetchWalletResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWalletResponse.swift; sourceTree = "<group>"; };
+		726CB8CD288D68DC0086D436 /* Gift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		726CB8CF288D6BBB0086D436 /* FetchGiftsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchGiftsResponse.swift; sourceTree = "<group>"; };
 		72707C012830ACD7004F3C3C /* GetStartedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		72707C032830ACFE004F3C3C /* GetStartedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedCell.swift; sourceTree = "<group>"; };
 		72707C052830B354004F3C3C /* GetStartedStepsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStartedStepsResponse.swift; sourceTree = "<group>"; };
@@ -538,6 +544,8 @@
 				72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */,
 				72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */,
 				7261B840284544E400E9ABC5 /* FetchTransactionsResponse.swift */,
+				726CB8CF288D6BBB0086D436 /* FetchGiftsResponse.swift */,
+				726CB8CB288D66830086D436 /* FetchWalletResponse.swift */,
 				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
 				72BF2A652843475600B43F50 /* GetGoalsResponse.swift */,
 				72C7D41E283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift */,
@@ -853,6 +861,7 @@
 				72707C122832170F004F3C3C /* Contact.swift */,
 				72707C102832149C004F3C3C /* PVPhoto.swift */,
 				7261B83E2845092600E9ABC5 /* Transaction.swift */,
+				726CB8CD288D68DC0086D436 /* Gift.swift */,
 				7242D6EB2848694A00034BA8 /* Wallet.swift */,
 				726CB8BD288972670086D436 /* GroupsStatistics.swift */,
 			);
@@ -1250,6 +1259,7 @@
 				72C7A75F273F213900636346 /* SearchResultCell.swift in Sources */,
 				72AC00CC27373B8300B452BE /* HomeRootViewController.swift in Sources */,
 				728ED703284182FF00415C01 /* SetAddressCell.swift in Sources */,
+				726CB8CC288D66830086D436 /* FetchWalletResponse.swift in Sources */,
 				72EE25412836C6230061FB4A /* LoginEnterCodeViewController.swift in Sources */,
 				72707C0928320CD7004F3C3C /* GetStartedSteps.swift in Sources */,
 				7261B83F2845092600E9ABC5 /* Transaction.swift in Sources */,
@@ -1377,6 +1387,7 @@
 				72B2FBB6273CAB2000382C12 /* MyProfileViewController.swift in Sources */,
 				72AC011527378FFA00B452BE /* CLPlacemark+Extensions.swift in Sources */,
 				72E847F02881BDC4004C0672 /* LabelsCell.swift in Sources */,
+				726CB8CE288D68DC0086D436 /* Gift.swift in Sources */,
 				723D6CAF287C27EC00D6B596 /* ThemeTextView.swift in Sources */,
 				72AC01BB2738A80B00B452BE /* CommonUtils.swift in Sources */,
 				72B2FBD8273CC34200382C12 /* ThemeTextFieldLabel.swift in Sources */,
@@ -1409,6 +1420,7 @@
 				72AC01BA2738A80B00B452BE /* ExtendedLabel.swift in Sources */,
 				72C7D3E2283953460066F3CB /* SignUpHomeViewController.swift in Sources */,
 				72B2FBB3273CAA2000382C12 /* GiftTableViewCell.swift in Sources */,
+				726CB8D0288D6BBB0086D436 /* FetchGiftsResponse.swift in Sources */,
 				7261B841284544E400E9ABC5 /* FetchTransactionsResponse.swift in Sources */,
 				72C7A761273F2AA600636346 /* SearchNoResultCell.swift in Sources */,
 				72E847F92886EBC2004C0672 /* GroupClientsViewController.swift in Sources */,

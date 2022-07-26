@@ -15,6 +15,7 @@ class Notifications {
     static let HomeScreenHideTopBar: Notification.Name = Notification.Name("HomeScreenHideTopBar")
     static let MailComposeDismissed: Notification.Name = Notification.Name("MailComposeDismissed")
     static let CardScanned: Notification.Name = Notification.Name("CardScanned")
+    static let RequestTableViewUpdate: Notification.Name = Notification.Name("RequestTableViewUpdate")
 }
 
 func showErrorDialog(error: String? = "Unknown error") {

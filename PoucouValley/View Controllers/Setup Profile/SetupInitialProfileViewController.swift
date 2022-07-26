@@ -28,7 +28,7 @@ class SetupInitialProfileViewController: BaseViewController {
             case .name:
                 return "SetupPersonNameCell"
             case .businessName:
-                return "SetupBusinessFieldCell"
+                return "SetupShopNameCell"
             case .category:
                 return "SetupInterestsCell"
             case .businessCategory:
@@ -37,7 +37,11 @@ class SetupInitialProfileViewController: BaseViewController {
         }
     }
     
-    private var businessTypes: [BusinessType] = []
+    private var businessTypes: [BusinessType] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // cardholder
     private var firstName: String?
@@ -89,9 +93,14 @@ class SetupInitialProfileViewController: BaseViewController {
         api.fetchBusinessTypes { [weak self] result in
             switch result {
             case .success(let response):
-                self?.businessTypes = Array(response.data)
-            case .failure(let error):
-                break
+                if response.success {
+                    let data = response.data
+                    self?.businessTypes = Array(data)
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
             }
         }
     }
@@ -103,6 +112,8 @@ class SetupInitialProfileViewController: BaseViewController {
     }
     
     @objc func donePressed(_ sender: UIButton) {
+        view.endEditing(true)
+        
         if !validateCurrentStep() {
             showErrorDialog(error: "Please enter all information.")
             return
@@ -195,6 +206,7 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
                 return SetupShopNameCell()
             }
             cell.nameField.tag = BusinessNameTag
+            cell.nameField.delegate = self
             cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             tableCell = cell
         case "SetupBusinessFieldCell":

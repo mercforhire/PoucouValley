@@ -52,7 +52,7 @@ class PoucouAPI {
     var user: RLMUser {
         return app.currentUser!
     }
-    var apiKey: String? = "2a3463b80bddac713766ce3ee1145a1f5ffffbfe47dca22bb0046351bd114555ea9b36ad8fc8c02af7dec26ff747ee2780e10c14dfed75883a71f64488cd694d"
+    var apiKey: String?
     
     init() {
         self.service = NetworkService()
@@ -152,21 +152,6 @@ class PoucouAPI {
         let url = baseURL + APIRequestURLs.getStories.rawValue
         
         service.httpRequest(url: url, method: APIRequestURLs.getStories.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
-            }
-        }
-    }
-    
-    func getGiftcards(callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 10, "order_by": "latest", "page": 1]
-        let url = baseURL + APIRequestURLs.getGiftcards.rawValue
-        
-        service.httpRequest(url: url, method: APIRequestURLs.getGiftcards.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
             switch result {
             case .success(let response):
                 callBack(.success(response))
@@ -310,7 +295,7 @@ class PoucouAPI {
     }
     
     func fetchGoals(callBack: @escaping(Result<GetGoalsResponse, Error>) -> Void) {
-        user.functions.api_getBusinessTypes([]) { response, error in
+        user.functions.api_fetchGoals([]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -322,14 +307,16 @@ class PoucouAPI {
                     callBack(.failure(RealmError.decodingError))
                     return
                 }
-                print("Called function 'api_getBusinessTypes' and got result: \(document)")
+                print("Called function 'api_fetchGoals' and got result: \(document)")
                 callBack(.success(GetGoalsResponse(document: document)))
             }
         }
     }
     
     func fetchCompletedGoals(callBack: @escaping(Result<GetGoalsResponse, Error>) -> Void) {
-        user.functions.api_fetchCompletedGoals([]) { response, error in
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_fetchCompletedGoals([AnyBSON(apiKey)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -348,8 +335,10 @@ class PoucouAPI {
     }
     
     func addAccomplishment(goal: Goal, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
         let params: Document = ["goalId": AnyBSON(goal.identifier)]
-        user.functions.api_addAccomplishment([AnyBSON(params)]) { response, error in
+        user.functions.api_addAccomplishment([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -362,6 +351,32 @@ class PoucouAPI {
                     return
                 }
                 print("Called function 'api_addAccomplishment' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
+            }
+        }
+    }
+    
+    func addAccomplishments(goals: [Goal], callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var goalIdsData: [AnyBSON] = []
+        for goal in goals {
+            goalIdsData.append(AnyBSON(goal.identifier))
+        }
+        let params: Document = ["goalIds": AnyBSON.array(goalIdsData)]
+        user.functions.api_addAccomplishments([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_addAccomplishments' and got result: \(document)")
                 callBack(.success(StringResponse(document: document)))
             }
         }
@@ -638,6 +653,25 @@ class PoucouAPI {
         }
     }
     
+    func fetchGifts(callBack: @escaping(Result<FetchGiftsResponse, Error>) -> Void) {
+        user.functions.api_fetchGifts([]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchGifts' and got result: \(document)")
+                callBack(.success(FetchGiftsResponse(document: document)))
+            }
+        }
+    }
+    
     func fetchTransactions(callBack: @escaping(Result<FetchTransactionsResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
@@ -659,7 +693,7 @@ class PoucouAPI {
         }
     }
     
-    func fetchWallet(callBack: @escaping(Result<FetchTransactionsResponse, Error>) -> Void) {
+    func fetchWallet(callBack: @escaping(Result<FetchWalletResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
         user.functions.api_fetchWallet([AnyBSON(apiKey)]) { response, error in
@@ -675,7 +709,7 @@ class PoucouAPI {
                     return
                 }
                 print("Called function 'api_fetchWallet' and got result: \(document)")
-                callBack(.success(FetchTransactionsResponse(document: document)))
+                callBack(.success(FetchWalletResponse(document: document)))
             }
         }
     }
