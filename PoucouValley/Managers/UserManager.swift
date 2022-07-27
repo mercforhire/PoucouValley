@@ -33,7 +33,7 @@ class UserManager {
     
     init() {
         // demo code:
-        api.apiKey = "0c5db8fc2f306da86659a7d3d06ab48701dac2de4f15558bd66d7e984515783fab12fabb4a1c7cbcad93d69ab0f6c8455c8826b22ccf8bbb153a78d6462b571f"
+        api.apiKey = "35d4400a0722290fd669bbd8b3dae042bae43339193cfe7d6816f9a448664fcfdcb90a1e1e1edfb9210a7e926d81afead1c95bdf9eae6079a6d9e64a574be555"
 //        if let apiKey = try? myValet.string(forKey: "apiKey") {
 //            api.apiKey = apiKey
 //        }

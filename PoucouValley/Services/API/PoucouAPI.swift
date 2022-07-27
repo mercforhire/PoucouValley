@@ -988,20 +988,45 @@ class PoucouAPI {
         }
     }
     
-    func logout(callBack: @escaping(Bool) -> Void) {
+    func logout(callBack: @escaping(Result<StringResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
         user.functions.api_logOut([AnyBSON(apiKey)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
                     return
                 }
-                guard case let .string(document) = response else {
+                guard case let .document(document) = response else {
                     print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
                     return
                 }
                 print("Called function 'api_logOut' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
+            }
+        }
+    }
+    
+    func deleteAccount(reason: String, callBack: @escaping(Result<StringResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        let params: Document = ["reason": AnyBSON(reason)]
+        user.functions.api_deleteAccount([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_deleteAccount' and got result: \(document)")
+                callBack(.success(StringResponse(document: document)))
             }
         }
     }

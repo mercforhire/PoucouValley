@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CRRefresh
 
 class CardholderDetailsViewController: BaseViewController {
     
@@ -25,10 +26,17 @@ class CardholderDetailsViewController: BaseViewController {
     }
     
     @IBOutlet weak var tableView: UITableView!
+    private var reason: String = ""
     
     override func setup() {
         super.setup()
         navigationController?.navigationBar.isHidden = true
+        
+        tableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
+            /// start refresh
+            /// Do anything you want...
+            self?.loadData()
+        }
     }
     
     override func setupTheme() {
@@ -46,9 +54,17 @@ class CardholderDetailsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        navigationController?.navigationBar.isHidden = true
+        loadData()
     }
 
+    private func loadData(complete: ((Bool) -> Void)? = nil) {
+        userManager.fetchUser { [weak self] success in
+            self?.tableView.reloadData()
+            complete?(success)
+        }
+    }
+    
     @objc func updatePressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToEditProfile", sender: self)
     }
@@ -61,6 +77,80 @@ class CardholderDetailsViewController: BaseViewController {
         ac.addAction(yesAction)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         ac.addAction(cancelAction)
+        present(ac, animated: true)
+    }
+    
+    private func showDeleteConfirmation() {
+        let alert = UIAlertController(title: "Delete account", message: "Please select a reason for deleting your account", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Billing Issue", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.reason = "Billing Issue"
+            self.showAreYouSure()
+        }))
+        alert.addAction(UIAlertAction(title: "Dissatisfied with service", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.reason = "Dissatisfied with service"
+            self.showAreYouSure()
+        }))
+        alert.addAction(UIAlertAction(title: "Other", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.reason = "Other"
+            self.showAreYouSure()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAreYouSure() {
+        let alert = UIAlertController(title: "Are you sure?", message: "Deleting your profile to create a new account may affect who you see on the platform, and we want you to have the best experience possible.", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Delete account", style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.showFinalConfirmationDialog()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showFinalConfirmationDialog() {
+        let ac = UIAlertController(title: "Delete account?", message: "This action cannot be undone. Type \"delete\" to confirm.", preferredStyle: .alert)
+        ac.addTextField { textfield in
+            textfield.keyboardType = .asciiCapable
+            textfield.placeholder = "type delete"
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        ac.addAction(cancelAction)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { [unowned ac] _ in
+            if let answer = ac.textFields![0].text {
+                if answer == "delete" {
+                    FullScreenSpinner().show()
+                    self.api.deleteAccount(reason: self.reason) { [weak self] result in
+                        
+                        FullScreenSpinner().hide()
+                        
+                        switch result {
+                        case .success(let response):
+                            if response.success {
+                                self?.userManager.logout()
+                            } else {
+                                showErrorDialog(error: response.message)
+                            }
+                        case .failure:
+                            showNetworkErrorDialog()
+                        }
+                    }
+                } else {
+                    showErrorDialog(error: "\"delete\" was not typed, delete account action cancelled")
+                }
+            } else {
+                showErrorDialog(error: "\"delete\" was not typed, delete account action cancelled")
+            }
+        }
+        ac.addAction(confirmAction)
+        
         present(ac, animated: true)
     }
 }
@@ -85,7 +175,7 @@ extension CardholderDetailsViewController: UITableViewDataSource, UITableViewDel
         case .help:
             print("help")
         case .delete:
-            print("delete")
+            showDeleteConfirmation()
         default:
             break
         }

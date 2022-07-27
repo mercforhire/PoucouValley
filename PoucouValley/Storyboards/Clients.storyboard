@@ -557,9 +557,6 @@
                         <outlet property="selectButton" destination="5EF-NZ-Pif" id="HMQ-L3-pgM"/>
                         <outlet property="tableView" destination="6pH-zs-a5P" id="n0r-x7-cag"/>
                         <outlet property="usersCountLabel" destination="r6e-oC-j6V" id="h0G-7E-Vug"/>
-                        <outletCollection property="icons" destination="yYz-Po-r3g" collectionClass="NSMutableArray" id="czb-EN-ALe"/>
-                        <outletCollection property="icons" destination="GrF-7v-xoL" collectionClass="NSMutableArray" id="0J9-Ip-0lh"/>
-                        <outletCollection property="icons" destination="DDI-Z1-oBM" collectionClass="NSMutableArray" id="OmL-EW-eD5"/>
                         <segue destination="Hsn-nU-qzR" kind="show" identifier="goToClientDetail" id="Z9h-G8-bJR"/>
                         <segue destination="npG-5m-7bL" kind="show" identifier="goToGroups" id="0DT-im-GM8"/>
                     </connections>
@@ -592,7 +589,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Section title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYe-or-pP2" customClass="ThemeTextFieldLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="5" width="99" height="20"/>
+                                                    <rect key="frame" x="24" y="5" width="90" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="9S3-8w-erJ"/>
                                                     </constraints>
@@ -643,14 +640,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelsDividerCell" id="TWt-85-aus" customClass="LabelsDividerCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96.5" width="414" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="96.5" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TWt-85-aus" id="CWl-Rf-4pp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DP4-sX-7wl" customClass="ThemeTextFieldLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="5" width="30.5" height="20"/>
+                                                    <rect key="frame" x="24" y="5" width="28.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="vv8-Eg-ojG"/>
                                                     </constraints>
@@ -659,10 +656,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awt-1H-Cfq">
-                                                    <rect key="frame" x="24" y="25" width="367" height="34.5"/>
+                                                    <rect key="frame" x="24" y="25" width="367" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwB-5s-STA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                             <nil key="textColor"/>
@@ -677,7 +674,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrN-Q0-UTa" customClass="ThemeBorderView" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="50.5" width="366" height="1"/>
+                                                    <rect key="frame" x="24" y="46" width="366" height="1"/>
                                                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="4FJ-IT-dai"/>
@@ -706,7 +703,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IconLinkCell" id="kjH-C4-JgO" customClass="IconLinkCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="156" width="414" height="35"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="414" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kjH-C4-JgO" id="p6E-VN-uxA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
@@ -716,7 +713,7 @@
                                                     <rect key="frame" x="24" y="0.0" width="367" height="25"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MME-g9-QhY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="188" height="25"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="25"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die.face.6.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-po-6xd">
                                                                     <rect key="frame" x="0.0" y="1" width="25" height="22.5"/>
@@ -727,7 +724,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75v-4E-ESR">
-                                                                    <rect key="frame" x="30" y="0.0" width="158" height="25"/>
+                                                                    <rect key="frame" x="30" y="0.0" width="137" height="25"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" title="@Johntheanalyst"/>
@@ -769,7 +766,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HashTagsTableViewCell" id="Vr6-6R-CLk" customClass="HashTagsTableViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="191" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="186.5" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vr6-6R-CLk" id="cYp-ZC-BZw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
@@ -789,14 +786,14 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MIBubbleCollectionViewCell" id="aby-pm-HVW" customClass="MIBubbleCollectionViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fp7-b5-zjL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hip-Hop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq0-x0-2VZ">
-                                                                        <rect key="frame" x="7" y="5" width="71" height="24"/>
+                                                                        <rect key="frame" x="7" y="5" width="65" height="20"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>

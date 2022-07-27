@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CRRefresh
 
 class MyCoinsHistoryViewController: BaseViewController {
 
@@ -19,22 +20,28 @@ class MyCoinsHistoryViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        navigationController?.navigationBar.isHidden = true
+        
+        tableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
+            /// start refresh
+            /// Do anything you want...
+            self?.loadData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchContent()
+        navigationController?.navigationBar.isHidden = true
     }
 
-    private func fetchContent(complete: ((Bool) -> Void)? = nil) {
+    private func loadData(complete: ((Bool) -> Void)? = nil) {
         transactions == nil ? FullScreenSpinner().show() : nil
         
         api.fetchTransactions { [weak self] result in

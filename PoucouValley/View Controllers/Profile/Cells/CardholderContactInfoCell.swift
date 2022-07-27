@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import PhoneNumberKit
 import RealmSwift
 
 class CardholderContactInfoCell: UITableViewCell {
@@ -16,12 +15,10 @@ class CardholderContactInfoCell: UITableViewCell {
     @IBOutlet weak var phoneLabel: ThemeBlackTextLabel!
     @IBOutlet weak var addressLabel: ThemeBlackTextLabel!
     @IBOutlet weak var updateButton: ThemeRoundedGreenBlackTextButton!
-    private let phoneNumberKit = PhoneNumberKit()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        PhoneNumberKit.CountryCodePicker.commonCountryCodes = ["US", "CA"]
         selectionStyle = .none
     }
 
@@ -38,8 +35,8 @@ class CardholderContactInfoCell: UITableViewCell {
             return
         }
         
-        if let contact = cardholder.contact, let phoneNumber = try? phoneNumberKit.parse("\(contact.phoneAreaCode ?? "")\(contact.phoneNumber ?? "")")  {
-            phoneLabel.text = phoneNumber.numberString
+        if let contact = cardholder.contact {
+            phoneLabel.text = "\(contact.phoneAreaCode ?? "")\(contact.phoneNumber ?? "")"
         } else {
             phoneLabel.text = "--"
         }

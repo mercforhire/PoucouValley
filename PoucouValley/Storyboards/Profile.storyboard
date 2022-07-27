@@ -2407,8 +2407,9 @@
                                                                     <rect key="frame" x="0.0" y="31" width="336" height="20"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHp-ha-1Db" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="20"/>
                                                                             <constraints>
+                                                                                <constraint firstAttribute="width" constant="70" id="JSG-Zb-CJ7"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="NNB-5w-tpx"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -2416,7 +2417,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="John Doe" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFW-9i-NsO" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="79.5" y="0.0" width="256.5" height="20"/>
+                                                                            <rect key="frame" x="80" y="0.0" width="256" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="6I0-0b-wEC"/>
                                                                             </constraints>
@@ -2586,13 +2587,16 @@
                                                                     <rect key="frame" x="0.0" y="59" width="336" height="39.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcM-yu-xQb" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="57" height="39.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="39.5"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="60" id="Ug8-Eg-mFn"/>
+                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGe-cc-7zj" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="67" y="0.0" width="269" height="39.5"/>
+                                                                            <rect key="frame" x="70" y="0.0" width="266" height="39.5"/>
                                                                             <string key="text">1234 Richmond Street,
 Ontario, A6B 2V7</string>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -2668,6 +2672,9 @@ Ontario, A6B 2V7</string>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="headerLabel" destination="Lo5-o7-ljM" id="rjg-LR-CQF"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelDividerTableCell" id="wQ8-xO-qEj" customClass="LabelDividerCell" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="490" width="414" height="52"/>
@@ -2749,6 +2756,9 @@ Ontario, A6B 2V7</string>
                                                 <constraint firstItem="Sjw-ZD-Ep5" firstAttribute="width" secondItem="6UV-9K-3B6" secondAttribute="width" multiplier="0.5" id="Vdy-13-XeZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="button" destination="Sjw-ZD-Ep5" id="g8N-dP-kcR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -3115,7 +3125,6 @@ Ontario, A6B 2V7</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="amountLabel" destination="MvZ-mx-qVV" id="bzW-BY-rMu"/>
-                                            <outlet property="bodyLabel" destination="HXP-Of-yj4" id="JDT-0f-KPd"/>
                                             <outlet property="itemName" destination="HXP-Of-yj4" id="sSC-Eu-msD"/>
                                             <outlet property="transactionDate" destination="0k5-l3-1V1" id="PiS-5i-0YO"/>
                                             <outlet property="transactionType" destination="p0n-km-2Ol" id="0Dm-bx-f5V"/>
@@ -3173,7 +3182,7 @@ Ontario, A6B 2V7</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fST-zS-Xxr"/>
+        <segue reference="MdS-3T-Rek"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bitcoinsign.circle.fill" catalog="system" width="128" height="121"/>

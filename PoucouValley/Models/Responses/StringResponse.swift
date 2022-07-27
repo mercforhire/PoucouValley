@@ -16,7 +16,7 @@ class StringResponse: BaseObject {
     convenience init(document: Document) {
         self.init()
         self.success = document["success"]!!.boolValue!
-        self.message = document["message"]!!.stringValue!
+        self.message = document["message"]??.stringValue
         self.data = document["data"]??.stringValue
     }
 }

@@ -27,20 +27,20 @@ class TransactionCell: UITableViewCell {
     }
 
     func config(data: Transaction) {
-        itemName.text = data.itemName
+        if !data.itemName.isEmpty {
+            itemName.text = data.itemName
+        } else if let merchant = data.merchant {
+            itemName.text = merchant.name
+        }
         transactionType.text = data.itemType.capitalizingFirstLetter()
         transactionDate.text = DateUtil.convert(input: data.createdDate, outputFormat: .format12)
         
         var sign = ""
-        switch data.itemType {
-        case "redeem":
-            sign = "-"
-            amountLabel.textColor = .red
-        case "reward":
+        if data.cost > 0 {
             sign = "+"
             amountLabel.textColor = .green
-        default:
-            sign = "-"
+        } else {
+            sign = ""
             amountLabel.textColor = themeManager.themeData!.textLabel.hexColor
         }
         amountLabel.text = "\(sign)\(data.cost)"
