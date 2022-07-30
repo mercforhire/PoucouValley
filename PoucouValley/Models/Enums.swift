@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AuthenticationServices
 
 enum ResponseError: Error {
     case unknownError
@@ -128,5 +129,123 @@ enum ClientGroupTypes: Int {
         case .scanned:
             return "Scanned Users"
         }
+    }
+}
+
+/*
+ [
+    {
+       "_id":{
+          "$oid":"62702a4c3d95e39c8df54b92"
+       },
+       "type":"Sports",
+       "order":{
+          "$numberInt":"0"
+       }
+    },
+    {
+       "_id":{
+          "$oid":"62702a113d95e39c8df54b90"
+       },
+       "type":"Food",
+       "order":{
+          "$numberInt":"1"
+       }
+    },
+    {
+       "_id":{
+          "$oid":"62702a5a3d95e39c8df54b93"
+       },
+       "type":"Clothes",
+       "order":{
+          "$numberInt":"2"
+       }
+    },
+    {
+       "_id":{
+          "$oid":"62702a653d95e39c8df54b94"
+       },
+       "type":"Pets",
+       "order":{
+          "$numberInt":"3"
+       }
+    },
+    {
+       "_id":{
+          "$oid":"62702a713d95e39c8df54b95"
+       },
+       "type":"Fun",
+       "order":{
+          "$numberInt":"4"
+       }
+    },
+    {
+       "_id":{
+          "$oid":"62702a783d95e39c8df54b96"
+       },
+       "type":"Finance",
+       "order":{
+          "$numberInt":"5"
+       }
+    },
+    {
+       "_id":{
+          "$oid":"62e2d994d1053c065401d158"
+       },
+       "type":"Gifts",
+       "order":{
+          "$numberInt":"6"
+       }
+    },
+    {
+       "_id":{
+          "$oid":"62e2d9f3d1053c065401d159"
+       },
+       "type":"Other",
+       "order":{
+          "$numberInt":"7"
+       }
+    }
+ ]
+ */
+enum BusinessCategories: String, Codable {
+    case sports = "Sports"
+    case food = "Food"
+    case clothes = "Clothes"
+    case pets = "Pets"
+    case fun = "Fun"
+    case finance = "Finance"
+    case gifts = "Gifts"
+    case other = "Other"
+    
+    static func list() -> [BusinessCategories] {
+        return [.sports, .food, .clothes, .pets, .fun, .finance, .gifts, .other]
+    }
+    
+    func iconName() -> String {
+        switch self {
+        case .sports:
+            return "Icon-gym"
+        case .food:
+            return "Icon-food"
+        case .clothes :
+            return "Icon-clothing-store"
+        case .pets:
+            return "Icon-dog"
+        case .fun:
+            return "Icon-hat-wizard"
+        case .finance:
+            return "Icon-money-bill"
+        case .gifts:
+            return "Icon-gifts"
+        case .other:
+            return "Icon-flower"
+        }
+    }
+}
+
+extension BusinessCategories {
+    init(from decoder: Decoder) throws {
+        self = try BusinessCategories(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .other
     }
 }

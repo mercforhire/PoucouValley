@@ -55,22 +55,11 @@ class HomeRootViewController: BaseButtonBarPagerTabStripViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(showTopBar(_:)),
-                                               name: Notifications.HomeScreenShowTopBar,
-                                               object: nil)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(hideTopBar(_:)),
-                                               name: Notifications.HomeScreenHideTopBar,
-                                               object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        NotificationCenter.default.removeObserver(self, name: Notifications.HomeScreenShowTopBar, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notifications.HomeScreenHideTopBar, object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

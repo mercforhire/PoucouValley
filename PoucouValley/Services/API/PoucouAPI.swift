@@ -132,126 +132,70 @@ class PoucouAPI {
         }
     }
     
-    func getPhotos(page: Int, callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 25, "order_by": "latest", "page": page]
-        let url = baseURL + APIRequestURLs.getPhotos.rawValue
+    func fetchPlans(callBack: @escaping(Result<ExplorePlansResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
         
-        service.httpRequest(url: url, method: APIRequestURLs.getPhotos.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
+        user.functions.api_explorePlans([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_explorePlans' and got result: \(document)")
+                callBack(.success(ExplorePlansResponse(document: document)))
             }
         }
     }
     
-    func getStories(callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 10, "order_by": "latest", "page": 1]
-        let url = baseURL + APIRequestURLs.getStories.rawValue
+    func searchPlans(keyword: String, callBack: @escaping(Result<SearchPlansResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
         
-        service.httpRequest(url: url, method: APIRequestURLs.getStories.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
+        let params: Document = ["keyword": AnyBSON(keyword)]
+        user.functions.api_searchPlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_searchPlans' and got result: \(document)")
+                callBack(.success(SearchPlansResponse(document: document)))
             }
         }
     }
     
-    func getDeals(callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 20, "order_by": "latest", "page": 1]
-        let url = baseURL + APIRequestURLs.getDeals.rawValue
+    func fetchShops(category: BusinessCategories?, callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
         
-        service.httpRequest(url: url, method: APIRequestURLs.getDeals.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
-            }
+        var params: Document = [:]
+        if let category = category {
+            params["category"] = AnyBSON(category.rawValue)
         }
-    }
-    
-    func getStores(callBack: @escaping(Result<[UnsplashPhoto], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 20, "order_by": "latest", "page": 1]
-        let url = baseURL + APIRequestURLs.getStores.rawValue
-        
-        service.httpRequest(url: url, method: APIRequestURLs.getStores.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
-            }
-        }
-    }
-    
-    func getCommonKeywords(callBack: @escaping(Result<[UnsplashTopic], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 20, "order_by": "latest", "page": 1]
-        let url = baseURL + APIRequestURLs.getCommonKeywords.rawValue
-        
-        service.httpRequest(url: url, method: APIRequestURLs.getCommonKeywords.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashTopic]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
-            }
-        }
-    }
-    
-    func getCategories(callBack: @escaping(Result<[UnsplashTopic], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 20, "order_by": "latest", "page": 2]
-        let url = baseURL + APIRequestURLs.getCommonKeywords.rawValue
-        
-        service.httpRequest(url: url, method: APIRequestURLs.getCommonKeywords.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashTopic]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
-            }
-        }
-    }
-    
-    func getSearchCollections(query: String, callBack: @escaping(Result<[UnsplashSearchResult], AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ",
-                                      "per_page": 20,
-                                      "order_by": "latest",
-                                      "page": 1,
-                                      "query": query]
-        let url = baseURL + APIRequestURLs.search.rawValue
-        
-        service.httpRequest(url: url, method: APIRequestURLs.search.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<UnsplashSearchCollectionsResponse>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response.results))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
-            }
-        }
-    }
-    
-    func getRandomAvatar(callBack: @escaping(Result<UnsplashPhoto?, AFError>) -> Void) {
-        let params: [String : Any] = ["client_id": "S7r_wj5LDB-aPbhupkBM5DEfdGQXcfViXQCCSXcDUCQ", "per_page": 100, "order_by": "latest"]
-        let url = baseURL + APIRequestURLs.getAvatars.rawValue
-        
-        service.httpRequest(url: url, method: APIRequestURLs.getAvatars.getHTTPMethod(), parameters: params, headers: Headers.defaultHeader()) { (result: AFResult<[UnsplashPhoto]>) in
-            switch result {
-            case .success(let response):
-                callBack(.success(response.randomElement()))
-            case .failure(let error):
-                callBack(.failure(error))
-                print ("Error occured \(error)")
+        user.functions.api_explorePlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_explorePlans' and got result: \(document)")
+                callBack(.success(ExploreShopsResponse(document: document)))
             }
         }
     }

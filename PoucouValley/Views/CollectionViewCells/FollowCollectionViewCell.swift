@@ -13,8 +13,6 @@ class FollowCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var pin: UIImageView!
-    @IBOutlet weak var label3: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,26 +24,36 @@ class FollowCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func config(unsplashPhoto: UnsplashPhoto) {
-        if let url = URL(string: unsplashPhoto.urls.small) {
+    func config(plan: Plan) {
+        if let thumbnailUrlString = plan.photos.first?.thumbnailUrl,
+            let url = URL(string: thumbnailUrlString) {
             imageView.kf.setImage(with: url)
+        } else {
+            imageView.image = nil
         }
-        if let title = unsplashPhoto.descrip ?? unsplashPhoto.alt_description, !title.isEmpty {
+        
+        if let title = plan.title, !title.isEmpty {
             label1.text = title
             label1.isHidden = false
         } else {
             label1.isHidden = true
         }
         
-        label2.text = unsplashPhoto.user.name
-        
-        if let location = unsplashPhoto.user.location {
-            label3.text = location
-            pin.isHidden = false
-            label3.isHidden = false
-        } else {
-            pin.isHidden = true
-            label3.isHidden = true
+        label2.text = plan.planDescription
+    }
+    
+    func config(merchant: Merchant) {
+        if let thumbnailUrlString = merchant.logo?.thumbnailUrl,
+            let url = URL(string: thumbnailUrlString) {
+            imageView.kf.setImage(with: url)
         }
+        if let title = merchant.name, !title.isEmpty {
+            label1.text = title
+            label1.isHidden = false
+        } else {
+            label1.isHidden = true
+        }
+        
+        label2.text = merchant.field
     }
 }

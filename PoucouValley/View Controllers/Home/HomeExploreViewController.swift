@@ -17,33 +17,38 @@ class HomeExploreViewController: BaseViewController {
     private var itemInfo = IndicatorInfo(title: "Explore")
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchVCContainer: UIView!
     
-    private var content: [UnsplashPhoto]? {
+    
+    private var plans: [Plan]? {
         didSet {
-            for _ in 0...(content?.count ?? 0) {
-                cellSizes.append(generateRandomSize())
+            plansCellSizes.removeAll()
+            for _ in 0...(plans?.count ?? 0) {
+                plansCellSizes.append(generateRandomSize())
             }
+            collectionView.reloadData()
         }
     }
     
-    private lazy var paginationManager: VerticalPaginationManager = {
-        let manager = VerticalPaginationManager(scrollView: collectionView)
-        manager.delegate = self
-        return manager
-    }()
-    private var cellSizes: [CGSize] = []
-    private var pagesLoaded = 0
+    private var searchResults: [Plan]? {
+        didSet {
+            searchResultsCellSizes.removeAll()
+            for _ in 0...(searchResults?.count ?? 0) {
+                searchResultsCellSizes.append(generateRandomSize())
+            }
+            collectionView.reloadData()
+        }
+    }
+    
+    private var plansCellSizes: [CGSize] = []
+    private var searchResultsCellSizes: [CGSize] = []
+    
     private var delayTimer = DelayedSearchTimer()
-    private var searchVC: HomeSearchViewController!
     private var storiesCollectionReusableView: StoriesCollectionReusableView?
     
-    weak var delegate: HomeSearchViewControllerDelegate?
+    private var searchMode: Bool = false
     
     override func setup() {
         super.setup()
-        
-        navigationController?.isNavigationBarHidden = true
         
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -57,19 +62,7 @@ class HomeExploreViewController: BaseViewController {
         
         collectionView.register(UINib(nibName: "StoriesCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
         
-        paginationManager.refreshViewColor = .clear
-        paginationManager.loaderColor = .darkGray
-        
         delayTimer.delegate = self
-        
-        for child in children {
-            if let childVC = child as? HomeSearchViewController {
-                self.searchVC = childVC
-                delegate = childVC
-                self.searchVC.delegate = self
-                break
-            }
-        }
     }
     
     override func viewDidLoad() {
@@ -81,44 +74,25 @@ class HomeExploreViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func fetchContent(complete: ((Bool) -> Void)? = nil) {
-        api.getStories { [weak self] result in
+        api.fetchPlans { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let response):
-                self.storiesCollectionReusableView?.stories = response
-                self.storiesCollectionReusableView?.collectionView.reloadData()
-                complete?(true)
-            case .failure(let error):
-                if error.responseCode == nil {
-                    showNetworkErrorDialog()
+                if response.success, let data = response.data {
+                    self.plans = Array(data)
+                    complete?(true)
                 } else {
-                    error.showErrorDialog()
-                    print("Error occured \(error)")
+                    showErrorDialog(error: response.message)
+                    complete?(false)
                 }
-                complete?(false)
-            }
-        }
-        
-        api.getPhotos(page: pagesLoaded + 1) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let response):
-                self.content = response
-                self.pagesLoaded = self.pagesLoaded + 1
-                self.collectionView.reloadData()
                 complete?(true)
-            case .failure(let error):
-                if error.responseCode == nil {
-                    showNetworkErrorDialog()
-                } else {
-                    error.showErrorDialog()
-                    print("Error occured \(error)")
-                }
+            case .failure:
+                showNetworkErrorDialog()
                 complete?(false)
             }
         }
@@ -130,14 +104,33 @@ class HomeExploreViewController: BaseViewController {
         let randomSize = CGSize(width: width, height: width + random)
         return randomSize
     }
+    
+    private func requestToSearch(query: String?) {
+        guard let query = query, !query.isEmpty else {
+            self.searchResults = nil
+            return
+        }
+        
+        api.searchPlans(keyword: query) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success(let response):
+                if response.success {
+                    self.searchResults = Array(response.data)
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
+        }
+    }
 }
 
 extension HomeExploreViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        NotificationCenter.default.post(name: Notifications.HomeScreenHideTopBar, object: nil)
-        searchVCContainer.isHidden = false
         collectionView.scrollToTop(animated: false)
-        collectionView.isScrollEnabled = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -150,19 +143,13 @@ extension HomeExploreViewController: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.resignFirstResponder()
         delayTimer.textDidGetEntered(text: "")
-        NotificationCenter.default.post(name: Notifications.HomeScreenShowTopBar, object: nil)
-        searchVCContainer.isHidden = true
-        collectionView.isScrollEnabled = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
         guard let text = searchBar.text, !text.trim().isEmpty else {
-            NotificationCenter.default.post(name: Notifications.HomeScreenHideTopBar, object: nil)
-            searchVCContainer.isHidden = false
             collectionView.scrollToTop(animated: false)
-            collectionView.isScrollEnabled = false
             delayTimer.textDidGetEntered(text: "")
             return
         }
@@ -187,10 +174,12 @@ extension HomeExploreViewController: DelayedSearchTimerDelegate {
     func shouldSearch(text: String) {
         let text: String = text.trim()
         
-        if text.count < 3 {
-            delegate?.requestToSearch(query: nil)
+        if text.count <= 3 {
+            searchMode = false
+            searchResults = nil
         } else {
-            delegate?.requestToSearch(query: text)
+            searchMode = true
+            
         }
     }
 }
@@ -222,14 +211,29 @@ extension HomeExploreViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return content?.count ?? 0
+        if searchMode {
+            return searchResults?.count ?? 0
+        } else {
+            return plans?.count ?? 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowCollectionViewCell", for: indexPath) as? FollowCollectionViewCell, let content = content?[indexPath.row] else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowCollectionViewCell", for: indexPath) as? FollowCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.config(unsplashPhoto: content)
-        return cell
+        if searchMode {
+            guard let plan = searchResults?[indexPath.row] else {
+                return cell
+            }
+            cell.config(plan: plan)
+            return cell
+        } else {
+            guard let plan = plans?[indexPath.row] else {
+                return cell
+            }
+            cell.config(plan: plan)
+            return cell
+        }
     }
 }
 
@@ -237,45 +241,10 @@ extension HomeExploreViewController: UICollectionViewDataSource {
 // MARK: - CollectionViewWaterfallLayoutDelegate
 extension HomeExploreViewController: CollectionViewWaterfallLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return cellSizes[indexPath.item]
-    }
-}
-
-extension HomeExploreViewController: VerticalPaginationManagerDelegate {
-    func delay(_ delay: Double, closure: @escaping () -> Void) {
-        let deadline = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(
-            deadline: deadline,
-            execute: closure
-        )
-    }
-    
-    func loadMore(completion: @escaping (Bool) -> Void) {
-        delay(0.5) { [weak self] in
-            guard let self = self else { return }
-            
-            self.api.getPhotos(page: self.pagesLoaded + 1) { [weak self] result in
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let response):
-                    self.content?.append(contentsOf: response)
-                    for _ in 0...response.count {
-                        self.cellSizes.append(self.generateRandomSize())
-                    }
-                    self.pagesLoaded = self.pagesLoaded + 1
-                    self.collectionView.reloadData()
-                    completion(true)
-                case .failure(let error):
-                    if error.responseCode == nil {
-                        showNetworkErrorDialog()
-                    } else {
-                        error.showErrorDialog()
-                        print("Error occured \(error)")
-                    }
-                    completion(false)
-                }
-            }
+        if searchMode {
+            return searchResultsCellSizes[indexPath.item]
+        } else {
+            return plansCellSizes[indexPath.item]
         }
     }
 }
