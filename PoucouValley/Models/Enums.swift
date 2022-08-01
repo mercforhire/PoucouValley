@@ -242,6 +242,10 @@ enum BusinessCategories: String, Codable {
             return "Icon-flower"
         }
     }
+    
+    func icon() -> UIImage? {
+        return UIImage(named: iconName())
+    }
 }
 
 extension BusinessCategories {

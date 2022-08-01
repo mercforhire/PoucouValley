@@ -224,6 +224,8 @@
 		72DECD8C287335EB00C929C1 /* ClientDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */; };
 		72DECD8E287335F600C929C1 /* ClientDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */; };
 		72E263492895793C00BF2AA2 /* SearchPlansResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E263482895793C00BF2AA2 /* SearchPlansResponse.swift */; };
+		72E2634B2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2634A2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift */; };
+		72E2634D2896D1CC00BF2AA2 /* MerchantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2634C2896D1CC00BF2AA2 /* MerchantTableViewCell.swift */; };
 		72E847E4287DAED1004C0672 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E3287DAED1004C0672 /* EditClientViewController.swift */; };
 		72E847E6287DF966004C0672 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E5287DF966004C0672 /* ClientsViewController.swift */; };
 		72E847E8287F6622004C0672 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E7287F6622004C0672 /* ClientCell.swift */; };
@@ -464,6 +466,8 @@
 		72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetailsHeader.swift; sourceTree = "<group>"; };
 		72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientDetailsHeader.xib; sourceTree = "<group>"; };
 		72E263482895793C00BF2AA2 /* SearchPlansResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlansResponse.swift; sourceTree = "<group>"; };
+		72E2634A2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAndLabelNormalCell.swift; sourceTree = "<group>"; };
+		72E2634C2896D1CC00BF2AA2 /* MerchantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantTableViewCell.swift; sourceTree = "<group>"; };
 		72E847E3287DAED1004C0672 /* EditClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
 		72E847E5287DF966004C0672 /* ClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewController.swift; sourceTree = "<group>"; };
 		72E847E7287F6622004C0672 /* ClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
@@ -526,6 +530,7 @@
 				72AC00C52737294000B452BE /* FollowCollectionViewCell.swift */,
 				72AC01BF2739F46400B452BE /* StoryCollectionViewCell.swift */,
 				7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */,
+				72E2634A2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift */,
 				72358B8528773D3F00D504A2 /* SimpleImageCell.swift */,
 			);
 			path = CollectionViewCells;
@@ -1019,6 +1024,7 @@
 			isa = PBXGroup;
 			children = (
 				72E847E7287F6622004C0672 /* ClientCell.swift */,
+				72E2634C2896D1CC00BF2AA2 /* MerchantTableViewCell.swift */,
 				72C7D3FC283ADBD40066F3CB /* ButtonTableCell.swift */,
 				72C7D416283D72A40066F3CB /* LabelTableCell.swift */,
 				72C7D418283D72C40066F3CB /* IconLabelsCell.swift */,
@@ -1289,6 +1295,7 @@
 				726CB8BE288972670086D436 /* GroupsStatistics.swift in Sources */,
 				72C7D428283DEECE0066F3CB /* PictureTextDialog.swift in Sources */,
 				72C7D42C283E9CF70066F3CB /* CardActivateViewController.swift in Sources */,
+				72E2634D2896D1CC00BF2AA2 /* MerchantTableViewCell.swift in Sources */,
 				72C7A765273F3E3E00636346 /* SearchDealCell.swift in Sources */,
 				72707C112832149C004F3C3C /* PVPhoto.swift in Sources */,
 				72C7D40A283C288D0066F3CB /* UpdateCardholderInfoParams.swift in Sources */,
@@ -1435,6 +1442,7 @@
 				72AC00E6273787CE00B452BE /* AppSettingsManager.swift in Sources */,
 				72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */,
 				72AC011727378FFA00B452BE /* TimeZone+Extensions.swift in Sources */,
+				72E2634B2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift in Sources */,
 				725ACC28287733DF007D255F /* IconLinkCell.swift in Sources */,
 				726AD981289415F40051F456 /* ExplorePlansResponse.swift in Sources */,
 				72C7D3FD283ADBD40066F3CB /* ButtonTableCell.swift in Sources */,

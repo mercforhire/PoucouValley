@@ -175,14 +175,11 @@ class PoucouAPI {
         }
     }
     
-    func fetchShops(category: BusinessCategories?, callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
+    func searchShops(keyword: String, callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
-        var params: Document = [:]
-        if let category = category {
-            params["category"] = AnyBSON(category.rawValue)
-        }
-        user.functions.api_explorePlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+        let params: Document = ["keyword": AnyBSON(keyword)]
+        user.functions.api_searchPlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -194,7 +191,53 @@ class PoucouAPI {
                     callBack(.failure(RealmError.decodingError))
                     return
                 }
-                print("Called function 'api_explorePlans' and got result: \(document)")
+                print("Called function 'api_searchPlans' and got result: \(document)")
+                callBack(.success(ExploreShopsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchShops(category: BusinessCategories?, callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var params: Document = [:]
+        if let category = category {
+            params["category"] = AnyBSON(category.rawValue)
+        }
+        user.functions.api_exploreShops([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_exploreShops' and got result: \(document)")
+                callBack(.success(ExploreShopsResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchFollowedShops(callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_exploreFollowing([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_exploreFollowing' and got result: \(document)")
                 callBack(.success(ExploreShopsResponse(document: document)))
             }
         }

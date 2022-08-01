@@ -262,6 +262,48 @@ class ThemeGreyButton: UIButton {
     }
 }
 
+class ThemeGreenButton: UIButton {
+    private var observer: NSObjectProtocol?
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupUI()
+    }
+    
+    func setupUI() {
+        backgroundColor = themeManager.themeData!.lighterGreen.hexColor
+        tintColor = .white
+        UIView.performWithoutAnimation {
+            self.setTitleColor(.white, for: .normal)
+            self.layoutIfNeeded()
+        }
+        
+        if observer == nil {
+            observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
+                                                              object: nil,
+                                                              queue: OperationQueue.main) { [weak self] (notif) in
+                self?.setupUI()
+            }
+        }
+    }
+    
+    deinit {
+        if observer != nil {
+            NotificationCenter.default.removeObserver(observer!)
+        }
+    }
+}
+
 class ThemeTransBlackButton: UIButton {
     private var observer: NSObjectProtocol?
     

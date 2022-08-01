@@ -11,7 +11,7 @@ import RealmSwift
 class ExploreShopsResponse: BaseObject {
     var success: Bool = false
     var message: String = ""
-    var data: List<Merchant> = List()
+    var data: List<Merchant>?
     
     convenience init(document: Document) {
         self.init()

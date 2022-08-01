@@ -9,15 +9,10 @@ import UIKit
 import CollectionViewWaterfallLayout
 import XLPagerTabStrip
 
-protocol HomeExploreViewControllerDelegate: class {
-    func updateSearchBarText(text: String)
-}
-
 class HomeExploreViewController: BaseViewController {
     private var itemInfo = IndicatorInfo(title: "Explore")
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     private var plans: [Plan]? {
         didSet {
@@ -45,7 +40,11 @@ class HomeExploreViewController: BaseViewController {
     private var delayTimer = DelayedSearchTimer()
     private var storiesCollectionReusableView: StoriesCollectionReusableView?
     
-    private var searchMode: Bool = false
+    private var searchMode: Bool = false {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func setup() {
         super.setup()
@@ -116,8 +115,8 @@ class HomeExploreViewController: BaseViewController {
 
             switch result {
             case .success(let response):
-                if response.success {
-                    self.searchResults = Array(response.data)
+                if response.success, let data = response.data {
+                    self.searchResults = Array(data)
                 } else {
                     showErrorDialog(error: response.message)
                 }
@@ -184,11 +183,6 @@ extension HomeExploreViewController: DelayedSearchTimerDelegate {
     }
 }
 
-extension HomeExploreViewController: HomeExploreViewControllerDelegate {
-    func updateSearchBarText(text: String) {
-        storiesCollectionReusableView?.searchBar.text = text
-    }
-}
 // MARK: - UICollectionViewDataSource
 extension HomeExploreViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath

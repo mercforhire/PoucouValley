@@ -19,6 +19,15 @@ class Merchant: BaseObject {
     var contact: Contact?
     var photos: List<PVPhoto> = List()
     var cards: List<Card> = List()
+    var visits: Int?
+    var followers: Int?
+    
+    var category: BusinessCategories {
+        guard let field = field else {
+            return .other
+        }
+        return BusinessCategories(rawValue: field) ?? .other
+    }
     
     convenience init(document: Document) {
         self.init()
@@ -51,5 +60,7 @@ class Merchant: BaseObject {
             }
             self.cards = data
         }
+        self.visits = document["visits"]??.asInt()
+        self.followers = document["followers"]??.asInt()
     }
 }

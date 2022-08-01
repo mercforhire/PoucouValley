@@ -11,7 +11,7 @@ import RealmSwift
 class SearchPlansResponse: BaseObject {
     var success: Bool = false
     var message: String = ""
-    var data: List<Plan> = List()
+    var data: List<Plan>?
     
     convenience init(document: Document) {
         self.init()
