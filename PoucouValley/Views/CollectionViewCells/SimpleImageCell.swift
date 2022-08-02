@@ -18,3 +18,15 @@ class SimpleImageCell: UICollectionViewCell {
         super.prepareForReuse()
     }
 }
+
+class SimpleURLImageCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: URLImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+}

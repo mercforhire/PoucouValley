@@ -243,6 +243,30 @@ class PoucouAPI {
         }
     }
     
+    func fetchFollowShopStatus(merchant: Merchant, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var params: Document = [:]
+        params["merchantUserId"] = AnyBSON(merchant.identifier)
+        
+        user.functions.api_fetchFollowShopStatus([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchFollowShopStatus' and got result: \(document)")
+                callBack(.success(BooleanResponse(document: document)))
+            }
+        }
+    }
+    
     func fetchGetStartedSteps(callBack: @escaping(Result<GetStartedStepsResponse, Error>) -> Void) {
         user.functions.api_fetchGetStartedSteps([]) { response, error in
             DispatchQueue.main.async {

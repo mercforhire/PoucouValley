@@ -38,7 +38,7 @@ class HomeExploreViewController: BaseViewController {
     private var searchResultsCellSizes: [CGSize] = []
     
     private var delayTimer = DelayedSearchTimer()
-    private var storiesCollectionReusableView: StoriesCollectionReusableView?
+    private var storiesCollectionReusableView: SearchBarCollectionHeaderView?
     
     private var searchMode: Bool = false {
         didSet {
@@ -59,7 +59,7 @@ class HomeExploreViewController: BaseViewController {
         collectionView.collectionViewLayout = layout
         collectionView.alwaysBounceVertical = true
         
-        collectionView.register(UINib(nibName: "StoriesCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
+        collectionView.register(UINib(nibName: "SearchBarCollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
         
         delayTimer.delegate = self
     }
@@ -189,7 +189,7 @@ extension HomeExploreViewController: UICollectionViewDataSource {
     ) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                          withReuseIdentifier: "Header",
-                                                                         for: indexPath) as! StoriesCollectionReusableView
+                                                                         for: indexPath) as! SearchBarCollectionHeaderView
         
         self.storiesCollectionReusableView = headerView
         headerView.searchBar.delegate = self

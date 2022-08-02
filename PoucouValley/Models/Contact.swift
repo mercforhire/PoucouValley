@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class Contact: BaseEmbeddedObject {
+    var email: String?
     var phoneAreaCode: String?
     var phoneNumber: String?
     var website: String?
@@ -16,8 +17,9 @@ class Contact: BaseEmbeddedObject {
     var facebook: String?
     var instagram: String?
     
-    convenience init(phoneAreaCode: String?, phoneNumber: String?, website: String?, twitter: String?, facebook: String?, instagram: String?) {
+    convenience init(email: String?, phoneAreaCode: String?, phoneNumber: String?, website: String?, twitter: String?, facebook: String?, instagram: String?) {
         self.init()
+        self.email = email
         self.phoneAreaCode = phoneAreaCode
         self.phoneNumber = phoneNumber
         self.website = website
@@ -28,6 +30,7 @@ class Contact: BaseEmbeddedObject {
     
     convenience init(document: Document) {
         self.init()
+        self.email = document["email"]??.stringValue
         self.phoneAreaCode = document["phoneAreaCode"]??.stringValue
         self.phoneNumber = document["phoneNumber"]??.stringValue
         self.website = document["website"]??.stringValue
@@ -38,6 +41,9 @@ class Contact: BaseEmbeddedObject {
     
     override func toDocument() -> Document {
         var document: Document = [:]
+        if let email = email {
+            document["email"] = AnyBSON(email)
+        }
         if let phoneAreaCode = phoneAreaCode {
             document["phoneAreaCode"] = AnyBSON(phoneAreaCode)
         }

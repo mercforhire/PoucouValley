@@ -14,6 +14,7 @@ class Merchant: BaseObject {
     var userId: ObjectId = ObjectId()
     var name: String?
     var field: String?
+    var merchantDescription: String?
     var logo: PVPhoto?
     var address: Address?
     var contact: Contact?
@@ -37,6 +38,7 @@ class Merchant: BaseObject {
         self.userId = document["userId"]!!.objectIdValue!
         self.name = document["name"]??.stringValue
         self.field = document["field"]??.stringValue
+        self.merchantDescription = document["description"]??.stringValue
         if let document = document["logo"]??.documentValue {
             self.logo = PVPhoto(document: document)
         }
