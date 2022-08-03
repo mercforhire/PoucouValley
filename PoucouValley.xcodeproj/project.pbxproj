@@ -13,11 +13,15 @@
 		7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEEB2830950D00AD6585 /* PhotoResponse.swift */; };
 		7201EEEE2830A6DB00AD6585 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEED2830A6DB00AD6585 /* Enums.swift */; };
 		720FD77C289A1DB6001FF536 /* MerchantProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */; };
+		720FD77E289A1E97001FF536 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77D289A1E97001FF536 /* NewPostViewController.swift */; };
+		720FD780289A1EA4001FF536 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77F289A1EA4001FF536 /* EditPostViewController.swift */; };
+		720FD782289A1EF1001FF536 /* EditMerchantProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD781289A1EF1001FF536 /* EditMerchantProfileViewController.swift */; };
+		720FD784289A233A001FF536 /* MerchantSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD783289A233A001FF536 /* MerchantSettingsViewController.swift */; };
 		721BD0762844720600DD410B /* CardholderBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721BD0752844720600DD410B /* CardholderBasicInfoCell.swift */; };
 		72358B8628773D3F00D504A2 /* SimpleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72358B8528773D3F00D504A2 /* SimpleImageCell.swift */; };
 		72358B882877D89E00D504A2 /* DividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72358B872877D89E00D504A2 /* DividerCell.swift */; };
 		72386AC52879F1CD0072032C /* CreateNewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */; };
-		723AF2772845CEEF008FF3E1 /* CardholderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723AF2752845CED3008FF3E1 /* CardholderDetailsViewController.swift */; };
+		723AF2772845CEEF008FF3E1 /* CardholderSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723AF2752845CED3008FF3E1 /* CardholderSettingsViewController.swift */; };
 		723D6CAF287C27EC00D6B596 /* ThemeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723D6CAE287C27EC00D6B596 /* ThemeTextView.swift */; };
 		7242D6EC2848694A00034BA8 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7242D6EB2848694A00034BA8 /* Wallet.swift */; };
 		725ACC24287625EF007D255F /* ClientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725ACC23287625EF007D255F /* ClientDetailsViewController.swift */; };
@@ -258,11 +262,15 @@
 		7201EEEB2830950D00AD6585 /* PhotoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		7201EEED2830A6DB00AD6585 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantProfileViewController.swift; sourceTree = "<group>"; };
+		720FD77D289A1E97001FF536 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		720FD77F289A1EA4001FF536 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		720FD781289A1EF1001FF536 /* EditMerchantProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMerchantProfileViewController.swift; sourceTree = "<group>"; };
+		720FD783289A233A001FF536 /* MerchantSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantSettingsViewController.swift; sourceTree = "<group>"; };
 		721BD0752844720600DD410B /* CardholderBasicInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderBasicInfoCell.swift; sourceTree = "<group>"; };
 		72358B8528773D3F00D504A2 /* SimpleImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleImageCell.swift; sourceTree = "<group>"; };
 		72358B872877D89E00D504A2 /* DividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCell.swift; sourceTree = "<group>"; };
 		72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewClientViewController.swift; sourceTree = "<group>"; };
-		723AF2752845CED3008FF3E1 /* CardholderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardholderDetailsViewController.swift; sourceTree = "<group>"; };
+		723AF2752845CED3008FF3E1 /* CardholderSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardholderSettingsViewController.swift; sourceTree = "<group>"; };
 		723D6CAE287C27EC00D6B596 /* ThemeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeTextView.swift; path = ../../../../cplapp/CupidLove/CupidLove/Theme/Subclasses/ThemeTextView.swift; sourceTree = "<group>"; };
 		7242D6EB2848694A00034BA8 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		725ACC23287625EF007D255F /* ClientDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewController.swift; sourceTree = "<group>"; };
@@ -522,6 +530,10 @@
 			isa = PBXGroup;
 			children = (
 				720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */,
+				720FD77D289A1E97001FF536 /* NewPostViewController.swift */,
+				720FD77F289A1EA4001FF536 /* EditPostViewController.swift */,
+				720FD781289A1EF1001FF536 /* EditMerchantProfileViewController.swift */,
+				720FD783289A233A001FF536 /* MerchantSettingsViewController.swift */,
 			);
 			path = "Merchant Profile";
 			sourceTree = "<group>";
@@ -683,11 +695,11 @@
 				72707C1E2832F2FD004F3C3C /* SetupProfile.storyboard */,
 				72AC00B32736F27700B452BE /* Main.storyboard */,
 				72AC00C22737045800B452BE /* Home.storyboard */,
-				72E2634F2899556C00BF2AA2 /* Shops.storyboard */,
 				72C7D411283D60150066F3CB /* Card.storyboard */,
 				72F92FEB284078BE00DF438C /* Clients.storyboard */,
-				72F92FED284078D000DF438C /* Charts.storyboard */,
+				72E2634F2899556C00BF2AA2 /* Shops.storyboard */,
 				72B2FB85273C554200382C12 /* Profile.storyboard */,
+				72F92FED284078D000DF438C /* Charts.storyboard */,
 				72F92FEF284078E700DF438C /* Merchant.storyboard */,
 			);
 			path = Storyboards;
@@ -980,7 +992,7 @@
 			children = (
 				728ED6F928415E1600415C01 /* Cells */,
 				72B2FBB5273CAB2000382C12 /* MyProfileViewController.swift */,
-				723AF2752845CED3008FF3E1 /* CardholderDetailsViewController.swift */,
+				723AF2752845CED3008FF3E1 /* CardholderSettingsViewController.swift */,
 				728ED6FC28417F0C00415C01 /* CompleteMyProfileViewController.swift */,
 				729837E1284480E500C6462B /* MyCoinsHistoryViewController.swift */,
 				7261B84228454B6500E9ABC5 /* EditCardholderDetailsViewController.swift */,
@@ -1309,6 +1321,7 @@
 				72707C0928320CD7004F3C3C /* GetStartedSteps.swift in Sources */,
 				7261B83F2845092600E9ABC5 /* Transaction.swift in Sources */,
 				72AC01B32738A80B00B452BE /* Validator.swift in Sources */,
+				720FD780289A1EA4001FF536 /* EditPostViewController.swift in Sources */,
 				72C7D410283C31820066F3CB /* UpdateMerchantResponse.swift in Sources */,
 				72AC01B52738A80B00B452BE /* MICollectionViewBubbleLayout.swift in Sources */,
 				72AC01B72738A80B00B452BE /* MIMainViewController.swift in Sources */,
@@ -1420,6 +1433,7 @@
 				72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */,
 				72E847E4287DAED1004C0672 /* EditClientViewController.swift in Sources */,
 				72C7D430283EB2640066F3CB /* FetchMyCardResponse.swift in Sources */,
+				720FD782289A1EF1001FF536 /* EditMerchantProfileViewController.swift in Sources */,
 				72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */,
 				72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */,
 				725C20BD284062B900BACBFE /* CardRootViewController.swift in Sources */,
@@ -1429,7 +1443,7 @@
 				725ACC24287625EF007D255F /* ClientDetailsViewController.swift in Sources */,
 				72C7D405283C0D030066F3CB /* SignUpScanViewController.swift in Sources */,
 				72E263492895793C00BF2AA2 /* SearchPlansResponse.swift in Sources */,
-				723AF2772845CEEF008FF3E1 /* CardholderDetailsViewController.swift in Sources */,
+				723AF2772845CEEF008FF3E1 /* CardholderSettingsViewController.swift in Sources */,
 				72C6A0662845DAF800AFCD8C /* LabelDividerCell.swift in Sources */,
 				7261B83D284487DA00E9ABC5 /* TransactionCell.swift in Sources */,
 				72E2635228995A7A00BF2AA2 /* ShopDetailsCollectionHeaderView.swift in Sources */,
@@ -1444,6 +1458,7 @@
 				72C7D403283C0CEF0066F3CB /* LoginScanViewController.swift in Sources */,
 				72BF2A662843475600B43F50 /* GetGoalsResponse.swift in Sources */,
 				72C7D42E283EAEA00066F3CB /* Card.swift in Sources */,
+				720FD77E289A1E97001FF536 /* NewPostViewController.swift in Sources */,
 				72DECD8C287335EB00C929C1 /* ClientDetailsHeader.swift in Sources */,
 				72AC01B82738A80B00B452BE /* ImagePicker.swift in Sources */,
 				72C7D423283DD8160066F3CB /* CardNoCardViewController.swift in Sources */,
@@ -1477,6 +1492,7 @@
 				72386AC52879F1CD0072032C /* CreateNewClientViewController.swift in Sources */,
 				72AC00E6273787CE00B452BE /* AppSettingsManager.swift in Sources */,
 				72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */,
+				720FD784289A233A001FF536 /* MerchantSettingsViewController.swift in Sources */,
 				72AC011727378FFA00B452BE /* TimeZone+Extensions.swift in Sources */,
 				72E2634B2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift in Sources */,
 				725ACC28287733DF007D255F /* IconLinkCell.swift in Sources */,

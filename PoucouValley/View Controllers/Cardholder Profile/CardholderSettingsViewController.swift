@@ -8,7 +8,7 @@
 import UIKit
 import CRRefresh
 
-class CardholderDetailsViewController: BaseViewController {
+class CardholderSettingsViewController: BaseViewController {
     
     private enum TableRows: Int {
         case basicInfo
@@ -155,7 +155,7 @@ class CardholderDetailsViewController: BaseViewController {
     }
 }
 
-extension CardholderDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+extension CardholderSettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

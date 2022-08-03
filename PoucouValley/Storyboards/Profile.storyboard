@@ -2323,10 +2323,10 @@
             </objects>
             <point key="canvasLocation" x="2718.840579710145" y="4102.9017857142853"/>
         </scene>
-        <!--Cardholder Details View Controller-->
+        <!--Cardholder Settings View Controller-->
         <scene sceneID="bBv-bn-4mr">
             <objects>
-                <viewController storyboardIdentifier="CardholderDetailsViewController" id="2p7-8l-iQR" customClass="CardholderDetailsViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardholderSettingsViewController" id="2p7-8l-iQR" customClass="CardholderSettingsViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vez-Vl-y0y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3162,7 +3162,7 @@ Ontario, A6B 2V7</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fST-zS-Xxr"/>
+        <segue reference="MdS-3T-Rek"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bitcoinsign.circle.fill" catalog="system" width="128" height="121"/>
