@@ -15,6 +15,9 @@ class Plan: BaseObject {
     var merchant: ObjectId = ObjectId()
     var photos: List<PVPhoto> = List()
     var title: String?
+    var price: Double?
+    var discountedPrice: Double?
+    var hashtags: List<String> = List()
     
     convenience init(document: Document) {
         self.init()
@@ -29,5 +32,14 @@ class Plan: BaseObject {
             self.photos = data
         }
         self.title = document["title"]??.stringValue ?? ""
+        self.price = document["price"]??.asDouble()
+        self.discountedPrice = document["discountedPrice"]??.asDouble()
+        if let array = document["hashtags"]??.arrayValue {
+            let data: List<String> = List()
+            for tag in array {
+                data.append(tag!.stringValue!)
+            }
+            self.hashtags = data
+        }
     }
 }

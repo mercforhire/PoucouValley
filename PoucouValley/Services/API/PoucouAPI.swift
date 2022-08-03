@@ -225,7 +225,7 @@ class PoucouAPI {
     func fetchFollowedShops(callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
-        user.functions.api_exploreFollowing([AnyBSON(apiKey)]) { response, error in
+        user.functions.api_fetchFollowedShops([AnyBSON(apiKey)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -237,7 +237,7 @@ class PoucouAPI {
                     callBack(.failure(RealmError.decodingError))
                     return
                 }
-                print("Called function 'api_exploreFollowing' and got result: \(document)")
+                print("Called function 'api_fetchFollowedShops' and got result: \(document)")
                 callBack(.success(ExploreShopsResponse(document: document)))
             }
         }
@@ -263,6 +263,30 @@ class PoucouAPI {
                 }
                 print("Called function 'api_fetchFollowShopStatus' and got result: \(document)")
                 callBack(.success(BooleanResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchMerchantPlans(merchant: Merchant, callBack: @escaping(Result<ExplorePlansResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var params: Document = [:]
+        params["merchantUserId"] = AnyBSON(merchant.identifier)
+        
+        user.functions.api_fetchMerchantPlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchMerchantPlans' and got result: \(document)")
+                callBack(.success(ExplorePlansResponse(document: document)))
             }
         }
     }

@@ -29,9 +29,10 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
         // Initialization code
         collectionView.delegate = self
         collectionView.dataSource = self
+        pageControl.numberOfPages = 1
     }
     
-    func config(data: Merchant) {
+    func config(data: Merchant, following: Bool) {
         if let logo = data.logo {
             logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
         } else if let firstPhoto = data.photos.first {
@@ -44,6 +45,8 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
         numberFollowersLabel.text = numberFollowersLabel.text?.replacingOccurrences(of: "[X]", with: "\(data.visits ?? 0)")
         shopCategoryLabel.text = data.field
         shopDescriptionLabel.text = data.merchantDescription
+        
+        followButton.setTitle(following ? "Unfolllow" : "Follow", for: .normal)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

@@ -12,6 +12,7 @@
 		7201EEEA2830943600AD6585 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEE92830943600AD6585 /* UserManager.swift */; };
 		7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEEB2830950D00AD6585 /* PhotoResponse.swift */; };
 		7201EEEE2830A6DB00AD6585 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEED2830A6DB00AD6585 /* Enums.swift */; };
+		720FD77C289A1DB6001FF536 /* MerchantProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */; };
 		721BD0762844720600DD410B /* CardholderBasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721BD0752844720600DD410B /* CardholderBasicInfoCell.swift */; };
 		72358B8628773D3F00D504A2 /* SimpleImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72358B8528773D3F00D504A2 /* SimpleImageCell.swift */; };
 		72358B882877D89E00D504A2 /* DividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72358B872877D89E00D504A2 /* DividerCell.swift */; };
@@ -229,6 +230,7 @@
 		72E263502899556C00BF2AA2 /* Shops.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72E2634F2899556C00BF2AA2 /* Shops.storyboard */; };
 		72E2635228995A7A00BF2AA2 /* ShopDetailsCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E2635128995A7A00BF2AA2 /* ShopDetailsCollectionHeaderView.swift */; };
 		72E2635428995A8A00BF2AA2 /* ShopDetailsCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72E2635328995A8A00BF2AA2 /* ShopDetailsCollectionHeaderView.xib */; };
+		72E263662899A7AA00BF2AA2 /* ShopDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E263652899A7AA00BF2AA2 /* ShopDetailsViewController.swift */; };
 		72E847E4287DAED1004C0672 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E3287DAED1004C0672 /* EditClientViewController.swift */; };
 		72E847E6287DF966004C0672 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E5287DF966004C0672 /* ClientsViewController.swift */; };
 		72E847E8287F6622004C0672 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847E7287F6622004C0672 /* ClientCell.swift */; };
@@ -245,7 +247,7 @@
 		72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F748EB28433EEF0057A2B4 /* Goal.swift */; };
 		72F92FEC284078BE00DF438C /* Clients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEB284078BE00DF438C /* Clients.storyboard */; };
 		72F92FEE284078D000DF438C /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FED284078D000DF438C /* Charts.storyboard */; };
-		72F92FF0284078E700DF438C /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEF284078E700DF438C /* Store.storyboard */; };
+		72F92FF0284078E700DF438C /* Merchant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEF284078E700DF438C /* Merchant.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,6 +257,7 @@
 		7201EEE92830943600AD6585 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7201EEEB2830950D00AD6585 /* PhotoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		7201EEED2830A6DB00AD6585 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantProfileViewController.swift; sourceTree = "<group>"; };
 		721BD0752844720600DD410B /* CardholderBasicInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderBasicInfoCell.swift; sourceTree = "<group>"; };
 		72358B8528773D3F00D504A2 /* SimpleImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleImageCell.swift; sourceTree = "<group>"; };
 		72358B872877D89E00D504A2 /* DividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCell.swift; sourceTree = "<group>"; };
@@ -474,6 +477,7 @@
 		72E2634F2899556C00BF2AA2 /* Shops.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shops.storyboard; sourceTree = "<group>"; };
 		72E2635128995A7A00BF2AA2 /* ShopDetailsCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsCollectionHeaderView.swift; sourceTree = "<group>"; };
 		72E2635328995A8A00BF2AA2 /* ShopDetailsCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailsCollectionHeaderView.xib; sourceTree = "<group>"; };
+		72E263652899A7AA00BF2AA2 /* ShopDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailsViewController.swift; sourceTree = "<group>"; };
 		72E847E3287DAED1004C0672 /* EditClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
 		72E847E5287DF966004C0672 /* ClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewController.swift; sourceTree = "<group>"; };
 		72E847E7287F6622004C0672 /* ClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
@@ -490,7 +494,7 @@
 		72F748EB28433EEF0057A2B4 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		72F92FEB284078BE00DF438C /* Clients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Clients.storyboard; sourceTree = "<group>"; };
 		72F92FED284078D000DF438C /* Charts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Charts.storyboard; sourceTree = "<group>"; };
-		72F92FEF284078E700DF438C /* Store.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
+		72F92FEF284078E700DF438C /* Merchant.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Merchant.storyboard; sourceTree = "<group>"; };
 		A7AEE07A370CA6795249CEB2 /* Pods-PoucouValley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoucouValley.debug.xcconfig"; path = "Target Support Files/Pods-PoucouValley/Pods-PoucouValley.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -512,6 +516,14 @@
 				2AFCAE10C40E6C4297F0D45D /* Pods_PoucouValley.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		720FD77A289A1D7E001FF536 /* Merchant Profile */ = {
+			isa = PBXGroup;
+			children = (
+				720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */,
+			);
+			path = "Merchant Profile";
 			sourceTree = "<group>";
 		};
 		725ACC22287625C9007D255F /* Clients */ = {
@@ -554,21 +566,21 @@
 			isa = PBXGroup;
 			children = (
 				72C7D3DB2837FDEF0066F3CB /* BooleanResponse.swift */,
+				726AD980289415F40051F456 /* ExplorePlansResponse.swift */,
+				726AD982289427F30051F456 /* ExploreShopsResponse.swift */,
 				72E847F6288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift */,
 				726CB8BF288972820086D436 /* FetchClientResponse.swift */,
 				72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */,
+				726CB8CF288D6BBB0086D436 /* FetchGiftsResponse.swift */,
 				72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */,
 				7261B840284544E400E9ABC5 /* FetchTransactionsResponse.swift */,
-				726AD980289415F40051F456 /* ExplorePlansResponse.swift */,
-				72E263482895793C00BF2AA2 /* SearchPlansResponse.swift */,
-				726AD982289427F30051F456 /* ExploreShopsResponse.swift */,
-				726CB8CF288D6BBB0086D436 /* FetchGiftsResponse.swift */,
 				726CB8CB288D66830086D436 /* FetchWalletResponse.swift */,
 				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
 				72BF2A652843475600B43F50 /* GetGoalsResponse.swift */,
 				72C7D41E283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift */,
 				72707C052830B354004F3C3C /* GetStartedStepsResponse.swift */,
 				72707C0A28320CF9004F3C3C /* LoginResponse.swift */,
+				72E263482895793C00BF2AA2 /* SearchPlansResponse.swift */,
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
 				72C7D40D283C31760066F3CB /* UpdateCardholderResponse.swift */,
 				72C7D40F283C31820066F3CB /* UpdateMerchantResponse.swift */,
@@ -673,10 +685,10 @@
 				72AC00C22737045800B452BE /* Home.storyboard */,
 				72E2634F2899556C00BF2AA2 /* Shops.storyboard */,
 				72C7D411283D60150066F3CB /* Card.storyboard */,
-				72B2FB85273C554200382C12 /* Profile.storyboard */,
 				72F92FEB284078BE00DF438C /* Clients.storyboard */,
 				72F92FED284078D000DF438C /* Charts.storyboard */,
-				72F92FEF284078E700DF438C /* Store.storyboard */,
+				72B2FB85273C554200382C12 /* Profile.storyboard */,
+				72F92FEF284078E700DF438C /* Merchant.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -715,8 +727,9 @@
 				72707C21283486E7004F3C3C /* SignUp */,
 				72C7D3E7283AAC650066F3CB /* Setup Profile */,
 				72C7D413283D6D6F0066F3CB /* Cards */,
-				72B2FBB4273CAB0600382C12 /* Profile */,
 				725ACC22287625C9007D255F /* Clients */,
+				72B2FBB4273CAB0600382C12 /* Cardholder Profile */,
+				720FD77A289A1D7E001FF536 /* Merchant Profile */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -962,7 +975,7 @@
 			path = Poppins;
 			sourceTree = "<group>";
 		};
-		72B2FBB4273CAB0600382C12 /* Profile */ = {
+		72B2FBB4273CAB0600382C12 /* Cardholder Profile */ = {
 			isa = PBXGroup;
 			children = (
 				728ED6F928415E1600415C01 /* Cells */,
@@ -972,7 +985,7 @@
 				729837E1284480E500C6462B /* MyCoinsHistoryViewController.swift */,
 				7261B84228454B6500E9ABC5 /* EditCardholderDetailsViewController.swift */,
 			);
-			path = Profile;
+			path = "Cardholder Profile";
 			sourceTree = "<group>";
 		};
 		72B2FBB7273CBF9300382C12 /* Class */ = {
@@ -1101,6 +1114,7 @@
 		72E2634E2899553500BF2AA2 /* Shops */ = {
 			isa = PBXGroup;
 			children = (
+				72E263652899A7AA00BF2AA2 /* ShopDetailsViewController.swift */,
 			);
 			path = Shops;
 			sourceTree = "<group>";
@@ -1198,7 +1212,7 @@
 				72B2FBA2273C6CA000382C12 /* Poppins-BoldItalic.ttf in Resources */,
 				72E847F42882A3AD004C0672 /* SendConfirmationDialog.xib in Resources */,
 				72B2FBAC273C6CA000382C12 /* Poppins-Bold.ttf in Resources */,
-				72F92FF0284078E700DF438C /* Store.storyboard in Resources */,
+				72F92FF0284078E700DF438C /* Merchant.storyboard in Resources */,
 				72E263502899556C00BF2AA2 /* Shops.storyboard in Resources */,
 				72B2FB9F273C6CA000382C12 /* Poppins-ExtraLight.ttf in Resources */,
 				72B2FBA6273C6CA000382C12 /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -1328,6 +1342,7 @@
 				72C7D42A283E9B460066F3CB /* ThemeBackView.swift in Sources */,
 				72E847EE28815C55004C0672 /* GroupsViewController.swift in Sources */,
 				72AC00C62737294000B452BE /* FollowCollectionViewCell.swift in Sources */,
+				72E263662899A7AA00BF2AA2 /* ShopDetailsViewController.swift in Sources */,
 				72C7D432283EB4620066F3CB /* URLImageView.swift in Sources */,
 				72AC011E27378FFA00B452BE /* UICollectionView+Extensions.swift in Sources */,
 				728ED701284182D900415C01 /* SetBirthdayCell.swift in Sources */,
@@ -1458,6 +1473,7 @@
 				726AD97F289405B80051F456 /* Plan.swift in Sources */,
 				72C7A761273F2AA600636346 /* SearchNoResultCell.swift in Sources */,
 				72E847F92886EBC2004C0672 /* GroupClientsViewController.swift in Sources */,
+				720FD77C289A1DB6001FF536 /* MerchantProfileViewController.swift in Sources */,
 				72386AC52879F1CD0072032C /* CreateNewClientViewController.swift in Sources */,
 				72AC00E6273787CE00B452BE /* AppSettingsManager.swift in Sources */,
 				72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */,

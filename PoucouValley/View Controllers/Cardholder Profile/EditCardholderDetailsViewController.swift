@@ -70,7 +70,7 @@ class EditCardholderDetailsViewController: BaseViewController {
         if let contact = currentUser.cardholder?.contact {
             self.contact = contact
         } else {
-            contact = Contact(phoneAreaCode: "", phoneNumber: "", website: nil, twitter: nil, facebook: nil, instagram: nil)
+            contact = Contact(email: nil, phoneAreaCode: "", phoneNumber: "", website: nil, twitter: nil, facebook: nil, instagram: nil)
         }
         
         if let address = currentUser.cardholder?.address {

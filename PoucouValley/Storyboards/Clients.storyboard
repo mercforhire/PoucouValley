@@ -332,14 +332,14 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p6A-HD-Ike">
                                                                             <rect key="frame" x="0.0" y="-3" width="299" height="39.5"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8N-XQ-lxx">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8N-XQ-lxx">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="299" height="25.5"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRT-vs-A9N">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRT-vs-A9N">
                                                                                     <rect key="frame" x="0.0" y="25.5" width="299" height="14"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
@@ -541,7 +541,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="barcode.viewfinder" catalog="system" id="Mhu-N9-725" customClass="ThemeBarButton" customModule="PoucouValley" customModuleProvider="target">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="S1o-bc-eeg" kind="show" id="RXw-eQ-FIW"/>
+                                <segue destination="S1o-bc-eeg" kind="show" id="HHe-zF-gYt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="nFU-JM-iSw" customClass="ThemeBarButton" customModule="PoucouValley" customModuleProvider="target">
@@ -589,7 +589,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Section title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYe-or-pP2" customClass="ThemeTextFieldLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="5" width="90" height="20"/>
+                                                    <rect key="frame" x="24" y="5" width="99" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="9S3-8w-erJ"/>
                                                     </constraints>
@@ -640,14 +640,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelsDividerCell" id="TWt-85-aus" customClass="LabelsDividerCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96.5" width="414" height="55"/>
+                                        <rect key="frame" x="0.0" y="96.5" width="414" height="59.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TWt-85-aus" id="CWl-Rf-4pp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DP4-sX-7wl" customClass="ThemeTextFieldLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="5" width="28.5" height="20"/>
+                                                    <rect key="frame" x="24" y="5" width="30.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="vv8-Eg-ojG"/>
                                                     </constraints>
@@ -656,10 +656,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awt-1H-Cfq">
-                                                    <rect key="frame" x="24" y="25" width="367" height="30"/>
+                                                    <rect key="frame" x="24" y="25" width="367" height="34.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwB-5s-STA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="25.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                             <nil key="textColor"/>
@@ -674,7 +674,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrN-Q0-UTa" customClass="ThemeBorderView" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="46" width="366" height="1"/>
+                                                    <rect key="frame" x="24" y="50.5" width="366" height="1"/>
                                                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="4FJ-IT-dai"/>
@@ -703,7 +703,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IconLinkCell" id="kjH-C4-JgO" customClass="IconLinkCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="151.5" width="414" height="35"/>
+                                        <rect key="frame" x="0.0" y="156" width="414" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kjH-C4-JgO" id="p6E-VN-uxA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
@@ -713,7 +713,7 @@
                                                     <rect key="frame" x="24" y="0.0" width="367" height="25"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MME-g9-QhY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="25"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="188" height="25"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die.face.6.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kQc-po-6xd">
                                                                     <rect key="frame" x="0.0" y="1" width="25" height="22.5"/>
@@ -724,7 +724,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75v-4E-ESR">
-                                                                    <rect key="frame" x="30" y="0.0" width="137" height="25"/>
+                                                                    <rect key="frame" x="30" y="0.0" width="158" height="25"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" title="@Johntheanalyst"/>
@@ -766,7 +766,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HashTagsTableViewCell" id="Vr6-6R-CLk" customClass="HashTagsTableViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="186.5" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="191" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vr6-6R-CLk" id="cYp-ZC-BZw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
@@ -786,14 +786,14 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MIBubbleCollectionViewCell" id="aby-pm-HVW" customClass="MIBubbleCollectionViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fp7-b5-zjL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="79" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hip-Hop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq0-x0-2VZ">
-                                                                        <rect key="frame" x="7" y="5" width="65" height="20"/>
+                                                                        <rect key="frame" x="7" y="5" width="71" height="24"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -2899,7 +2899,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChQ-zf-DGj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770" y="-713"/>
+            <point key="canvasLocation" x="1772" y="-743"/>
         </scene>
         <!--Enter Client Card Number View Controller-->
         <scene sceneID="NEo-zY-xcQ">
@@ -3096,10 +3096,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIu-K5-oQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="-713"/>
+            <point key="canvasLocation" x="2739" y="-743"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DOm-ag-C7h">
+            <objects>
+                <navigationController storyboardIdentifier="ScanCard" automaticallyAdjustsScrollViewInsets="NO" id="aow-Wd-Yly" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="x6A-uN-ibq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iEt-8w-3hq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S1o-bc-eeg" kind="relationship" relationship="rootViewController" id="3Wk-t5-Upl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vAe-YD-wAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="917" y="-743"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="3Wk-t5-Upl"/>
         <segue reference="Z9h-G8-bJR"/>
     </inferredMetricsTieBreakers>
     <resources>

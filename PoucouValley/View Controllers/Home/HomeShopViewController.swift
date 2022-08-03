@@ -161,6 +161,68 @@ extension HomeShopViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
+extension HomeShopViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return max(1, merchants?.count ?? 0)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if searchMode {
+            if (searchResults?.count ?? 0) == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NoResultsCell", for: indexPath)
+                return cell
+            }
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MerchantTableViewCell", for: indexPath) as? MerchantTableViewCell else {
+                return MerchantTableViewCell()
+            }
+            let merchant = searchResults![indexPath.row]
+            cell.config(merchant: merchant)
+            return cell
+        } else {
+            if (merchants?.count ?? 0) == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NoShopsCell", for: indexPath)
+                return cell
+            }
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MerchantTableViewCell", for: indexPath) as? MerchantTableViewCell else {
+                return MerchantTableViewCell()
+            }
+            let merchant = merchants![indexPath.row]
+            cell.config(merchant: merchant)
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if searchMode {
+            if (searchResults?.count ?? 0) == 0 {
+                return
+            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MerchantTableViewCell", for: indexPath) as? MerchantTableViewCell else {
+                return MerchantTableViewCell()
+            }
+            let merchant = searchResults![indexPath.row]
+            clickedMerchant = merchant
+            performSegue(withIdentifier: "goToMerchant", sender: self)
+        } else {
+            if (merchants?.count ?? 0) == 0 {
+                return
+            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MerchantTableViewCell", for: indexPath) as? MerchantTableViewCell else {
+                return MerchantTableViewCell()
+            }
+            let merchant = merchants![indexPath.row]
+            clickedMerchant = merchant
+            performSegue(withIdentifier: "goToMerchant", sender: self)
+        }
+    }
+}
+
 extension HomeShopViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         tableView.scrollToTop(animated: false)
@@ -216,3 +278,4 @@ extension HomeShopViewController: IndicatorInfoProvider {
         return itemInfo
     }
 }
+

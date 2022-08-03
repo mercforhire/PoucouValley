@@ -106,6 +106,6 @@ extension HomeFollowingViewController: UITableViewDataSource, UITableViewDelegat
         }
         let merchant = merchants![indexPath.row]
         clickedMerchant = merchant
-        performSegue(withIdentifier: "goToShopDetail", sender: self)
+        performSegue(withIdentifier: "goToMerchant", sender: self)
     }
 }

@@ -257,7 +257,8 @@ class EditClientViewController: BaseViewController {
                               country: countryField.text,
                               postalCode: postalField.text)
         
-        let contact = Contact(phoneAreaCode: phoneAreaCodeField.text,
+        let contact = Contact(email: nil,
+                              phoneAreaCode: phoneAreaCodeField.text,
                               phoneNumber: phoneField.text,
                               website: webField.text,
                               twitter: twitterField.text,

@@ -213,23 +213,23 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MerchantTableViewCell" id="nus-M2-1sP" customClass="MerchantTableViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="371.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="376"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nus-M2-1sP" id="jf2-5Y-xLO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="371.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="376"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wk9-9g-FsW">
-                                                    <rect key="frame" x="15" y="5" width="384" height="361.5"/>
+                                                    <rect key="frame" x="15" y="5" width="384" height="366"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="jWb-sh-1xm">
-                                                            <rect key="frame" x="7" y="7" width="370" height="347.5"/>
+                                                            <rect key="frame" x="7" y="7" width="370" height="352"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mjQ-D0-c6h" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="276.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="281"/>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ike-KN-HMi">
-                                                                    <rect key="frame" x="0.0" y="289.5" width="370" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="294" width="370" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uez-ka-6MG" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="292.5" height="21"/>
@@ -255,7 +255,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ubm-lS-wFw">
-                                                                    <rect key="frame" x="0.0" y="323.5" width="370" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="328" width="370" height="24"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="[X] visitors" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3id-8m-WjN" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="175" height="24"/>
@@ -304,7 +304,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyCell" id="ysE-ls-MRI">
-                                        <rect key="frame" x="0.0" y="416" width="414" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="420.5" width="414" height="54.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ysE-ls-MRI" id="WJ7-g8-s70">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="54.5"/>
@@ -346,11 +346,22 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="5lC-Ti-9uE" id="yLF-0o-D6A"/>
+                        <segue destination="Ut1-nh-Mng" kind="show" identifier="goToMerchant" id="4zD-Dv-9ec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcU-wF-zRa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="930" y="781"/>
+        </scene>
+        <!--ShopDetailsViewController-->
+        <scene sceneID="pix-nB-ixR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Shops" referencedIdentifier="ShopDetailsViewController" id="Ut1-nh-Mng" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OH0-Nf-rzj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i40-oH-DiD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="578" y="1231"/>
         </scene>
         <!--Home Shop View Controller-->
         <scene sceneID="rrK-db-oFs">
@@ -609,6 +620,7 @@
                         <outlet property="categoryCollectionView" destination="2s6-kK-Xcs" id="erh-Gc-JbK"/>
                         <outlet property="searchBar" destination="bqz-JT-Rfl" id="F29-MG-4sT"/>
                         <outlet property="tableView" destination="kCv-lh-0kD" id="Xla-k0-x80"/>
+                        <segue destination="Ut1-nh-Mng" kind="show" identifier="goToMerchant" id="rR2-Ze-eK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3E-wl-2G8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -631,6 +643,9 @@
             <point key="canvasLocation" x="-1278" y="258"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rR2-Ze-eK7"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon-dog" width="10.5" height="9.5"/>
         <image name="Icon-sliders" width="10" height="8.5"/>

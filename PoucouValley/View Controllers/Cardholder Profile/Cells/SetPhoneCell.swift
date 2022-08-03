@@ -55,7 +55,7 @@ extension SetPhoneCell: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let contact = Contact(phoneAreaCode: areaCodeField.text, phoneNumber: phoneField.text, website: nil, twitter: nil, facebook: nil, instagram: nil)
+        let contact = Contact(email: nil, phoneAreaCode: areaCodeField.text, phoneNumber: phoneField.text, website: nil, twitter: nil, facebook: nil, instagram: nil)
         delegate?.setPhoneCellPhoneUpdated(contact: contact)
     }
 }
