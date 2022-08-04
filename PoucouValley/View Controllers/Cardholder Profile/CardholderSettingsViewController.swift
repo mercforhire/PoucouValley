@@ -30,7 +30,6 @@ class CardholderSettingsViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        navigationController?.navigationBar.isHidden = true
         
         tableView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
             /// start refresh

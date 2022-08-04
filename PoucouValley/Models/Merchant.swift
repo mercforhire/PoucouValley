@@ -20,6 +20,7 @@ class Merchant: BaseObject {
     var contact: Contact?
     var photos: List<PVPhoto> = List()
     var cards: List<Card> = List()
+    var hashtags: List<String> = List()
     var visits: Int?
     var followers: Int?
     
@@ -61,6 +62,13 @@ class Merchant: BaseObject {
                 data.append(Card(document: card!.documentValue!))
             }
             self.cards = data
+        }
+        if let array = document["hashtags"]??.arrayValue {
+            let data: List<String> = List()
+            for tag in array {
+                data.append(tag!.stringValue!)
+            }
+            self.hashtags = data
         }
         self.visits = document["visits"]??.asInt()
         self.followers = document["followers"]??.asInt()

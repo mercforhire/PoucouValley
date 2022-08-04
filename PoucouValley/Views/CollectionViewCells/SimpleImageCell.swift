@@ -19,6 +19,19 @@ class SimpleImageCell: UICollectionViewCell {
     }
 }
 
+class URLImageTopRightButtonCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: URLImageView!
+    @IBOutlet weak var button: UIButton!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+}
+
 class SimpleURLImageCell: UICollectionViewCell {
     @IBOutlet weak var imageView: URLImageView!
     

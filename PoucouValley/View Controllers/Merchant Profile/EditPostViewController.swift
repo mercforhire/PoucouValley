@@ -8,7 +8,8 @@
 import UIKit
 
 class EditPostViewController: BaseViewController {
-
+    var plan: Plan!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

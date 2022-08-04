@@ -1,44 +1,59 @@
 //
-//  ShopDetailsCollectionHeaderView.swift
+//  MerchantDetailsHeaderView.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-08-02.
+//  Created by Leon Chen on 2022-08-03.
 //
 
 import UIKit
+import UILabel_Copyable
 
-class ShopDetailsCollectionHeaderView: UICollectionReusableView {
+class MerchantDetailsHeaderView: UICollectionReusableView {
+
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: ThemeUIPageControl!
+    
+    @IBOutlet weak var topRoundedView: ThemeBackView!
+    @IBOutlet weak var visitsLabel: ThemeBlackTextLabel!
+    @IBOutlet weak var followersLabel: ThemeBlackTextLabel!
     @IBOutlet weak var logoImageView: URLImageView!
-    @IBOutlet weak var shopNameLabel: ThemeBlackTextLabel!
-    @IBOutlet weak var numberFollowersLabel: ThemeDarkLabel!
-    @IBOutlet weak var followButton: ThemeGreenButton!
-    @IBOutlet weak var shopCategoryLabel: ThemeBlackTextLabel!
-    @IBOutlet weak var shopDescriptionLabel: ThemeBlackTextLabel!
-    @IBOutlet weak var hashtagsLabel: ThemeDarkLabel!
+    
+    @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var webButton: UIButton!
+    @IBOutlet weak var igButton: UIButton!
+    @IBOutlet weak var twitButton: UIButton!
+    @IBOutlet weak var fbButton: UIButton!
+    
+    @IBOutlet weak var addressLabel: ThemeBlackTextLabel!
+    @IBOutlet weak var addPostButton: ThemeBlackBgWhiteTextButton!
     
     var photos: [PVPhoto] = [] {
         didSet {
             pageControl.numberOfPages = photos.count
             collectionView.reloadData()
+            
+            if !photos.isEmpty {
+                collectionView.scrollToItem(at: [IndexPath(row: 0, section: 0)], at: .centeredHorizontally, animated: true)
+            }
         }
     }
-        
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        addressLabel.isCopyingEnabled = true
+        topRoundedView.roundSelectedCorners(corners: [.topLeft, .topRight], radius: 30)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         pageControl.numberOfPages = 1
-        shopNameLabel.text = ""
-        numberFollowersLabel.text = ""
-        shopCategoryLabel.text = ""
-        shopDescriptionLabel.text = ""
-        hashtagsLabel.text = ""
+        visitsLabel.text = "--"
+        followersLabel.text = "--"
+        logoImageView.image = nil
+        addressLabel.text = ""
     }
     
-    func config(data: Merchant, following: Bool) {
+    func config(data: Merchant) {
         if let logo = data.logo {
             logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
         } else if let firstPhoto = data.photos.first {
@@ -47,18 +62,10 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
             logoImageView.image = UIImage(named: "store")
         }
         
-        shopNameLabel.text = data.name
-        numberFollowersLabel.text = numberFollowersLabel.text?.replacingOccurrences(of: "[X]", with: "\(data.visits ?? 0)")
-        shopCategoryLabel.text = data.field
-        shopDescriptionLabel.text = data.merchantDescription
-        
-        var tagsString = "#"
-        for tag in data.hashtags {
-            tagsString = "\(tagsString), #\(tag)"
-        }
-        hashtagsLabel.text = tagsString
-        
-        followButton.setTitle(following ? "Unfolllow" : "Follow", for: .normal)
+        visitsLabel.text = "\(data.visits ?? 0)"
+        followersLabel.text = "\(data.followers ?? 0)"
+        addressLabel.text = data.address?.addressString ?? "No address provided"
+        photos = Array(data.photos)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -69,7 +76,7 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
     }
 }
 
-extension ShopDetailsCollectionHeaderView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MerchantDetailsHeaderView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }

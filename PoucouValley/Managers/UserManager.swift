@@ -195,10 +195,8 @@ class UserManager {
         })
     }
     
-    func updateCardholderInfo(firstName: String? = nil, lastName: String? = nil, pronoun: String? = nil, gender: String? = nil, birthday: Birthday? = nil, contact: Contact? = nil, address: Address? = nil, avatar: PVPhoto? = nil, interests: [BusinessType]? = nil, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
-        guard let apiKey = api.apiKey else { return }
-        
-        let params = UpdateCardholderInfoParams(apiKey: apiKey, firstName: firstName, lastName: lastName, pronoun: pronoun, gender: gender, birthday: birthday, contact: contact, address: address, avatar: avatar, interests: interests)
+    func updateCardholderInfo(firstName: String? = nil, lastName: String? = nil, pronoun: String? = nil, gender: String? = nil, birthday: Birthday? = nil, contact: Contact? = nil, address: Address? = nil, avatar: PVPhoto? = nil, interests: [BusinessCategories]? = nil, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
+        let params = UpdateCardholderInfoParams(firstName: firstName, lastName: lastName, pronoun: pronoun, gender: gender, birthday: birthday, contact: contact, address: address, avatar: avatar, interests: interests)
         api.updateCardholderInfo(params: params) { result in
             switch result {
             case .success(let response):
@@ -219,10 +217,8 @@ class UserManager {
         }
     }
     
-    func updateMerchantInfo(name: String?, field: BusinessType?, logo: PVPhoto? , photos: [PVPhoto]?, contact: Contact?, address: Address?, cards: [String]?, callBack: @escaping(Result<Merchant, Error>) -> Void) {
-        guard let apiKey = api.apiKey else { return }
-        
-        let params = UpdateMerchantInfoParams(apiKey: apiKey, name: name, field: field, logo: logo, photos: photos, contact: contact, address: address, cards: cards)
+    func updateMerchantInfo(name: String?, field: BusinessCategories?, logo: PVPhoto? , photos: [PVPhoto]?, contact: Contact?, address: Address?, cards: [String]?, callBack: @escaping(Result<Merchant, Error>) -> Void) {
+        let params = UpdateMerchantInfoParams(name: name, field: field, logo: logo, photos: photos, contact: contact, address: address, cards: cards)
         api.updateMerchantInfo(params: params) { result in
             switch result {
             case .success(let response):

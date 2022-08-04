@@ -9,7 +9,6 @@ import Foundation
 import RealmSwift
 
 struct UpdateCardholderInfoParams {
-    var apiKey: String
     var firstName: String?
     var lastName: String?
     var pronoun: String?
@@ -18,12 +17,9 @@ struct UpdateCardholderInfoParams {
     var contact: Contact?
     var address: Address?
     var avatar: PVPhoto?
-    var interests: [BusinessType]?
+    var interests: [BusinessCategories]?
     
-    func params() -> [AnyBSON] {
-        var array: [AnyBSON] = []
-        array.append(AnyBSON(apiKey))
-        
+    func toDocument() -> Document {
         var params: Document = [:]
         
         if let firstName = firstName {
@@ -60,11 +56,10 @@ struct UpdateCardholderInfoParams {
         
         if let interests = interests {
             var array: [AnyBSON] = []
-            _ = interests.map { array.append(AnyBSON($0.type)) }
+            _ = interests.map { array.append(AnyBSON($0.rawValue)) }
             params["interests"] = AnyBSON(array)
         }
         
-        array.append(AnyBSON(params))
-        return array
+        return params
     }
 }

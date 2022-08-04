@@ -608,7 +608,9 @@ class PoucouAPI {
     }
     
     func updateCardholderInfo(params: UpdateCardholderInfoParams, callBack: @escaping(Result<UpdateCardholderResponse, Error>) -> Void) {
-        user.functions.api_updateCardholderInfo(params.params()) { response, error in
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_updateCardholderInfo([AnyBSON(apiKey), AnyBSON(params.toDocument())]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -627,7 +629,9 @@ class PoucouAPI {
     }
     
     func updateMerchantInfo(params: UpdateMerchantInfoParams, callBack: @escaping(Result<UpdateMerchantResponse, Error>) -> Void) {
-        user.functions.api_updateMerchantInfo(params.params()) { response, error in
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_updateMerchantInfo([AnyBSON(apiKey), AnyBSON(params.toDocument())]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")

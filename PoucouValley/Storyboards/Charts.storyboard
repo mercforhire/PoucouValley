@@ -45,7 +45,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FwA-v0-Ub6">
                                                                         <rect key="frame" x="0.0" y="0.0" width="225" height="72"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gem" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-LP-Tef">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gem2" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-LP-Tef">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="72"/>
                                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
@@ -64,8 +64,8 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xZ3-gh-v4d">
                                                                         <rect key="frame" x="0.0" y="82" width="225" height="72"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eYO-KR-ulI">
-                                                                                <rect key="frame" x="0.0" y="-0.5" width="52" height="72"/>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge" translatesAutoresizingMaskIntoConstraints="NO" id="eYO-KR-ulI">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="72"/>
                                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="50" id="HDt-64-0Lg"/>
@@ -137,8 +137,9 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f8-43-NCS">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="77.5" height="46"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4td-HQ-Kt3">
-                                                                                        <rect key="frame" x="16" y="1.5" width="46" height="43.5"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redheart" translatesAutoresizingMaskIntoConstraints="NO" id="4td-HQ-Kt3">
+                                                                                        <rect key="frame" x="16" y="0.0" width="46" height="46"/>
+                                                                                        <color key="tintColor" systemColor="systemPinkColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="4td-HQ-Kt3" secondAttribute="height" multiplier="1:1" id="RvA-Sc-JaV"/>
                                                                                             <constraint firstAttribute="width" constant="46" id="l6Z-gZ-NkQ"/>
@@ -193,8 +194,9 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="148-8e-GJf">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="77.5" height="46"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repeat" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g7W-85-MNC">
-                                                                                        <rect key="frame" x="16" y="1.5" width="46" height="43"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="door" translatesAutoresizingMaskIntoConstraints="NO" id="g7W-85-MNC">
+                                                                                        <rect key="frame" x="16" y="0.0" width="46" height="46"/>
+                                                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="g7W-85-MNC" secondAttribute="height" multiplier="1:1" id="IO7-9z-Abj"/>
                                                                                             <constraint firstAttribute="width" constant="46" id="UMR-h3-t6Q"/>
@@ -295,8 +297,8 @@ Flows from last month.
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgB-fZ-eyR">
                                                                         <rect key="frame" x="192" y="0.0" width="182" height="125"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup.and.saucer.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UAm-g9-Hfz">
-                                                                                <rect key="frame" x="0.0" y="0.5" width="182" height="123.5"/>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="UAm-g9-Hfz">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="182" height="125"/>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -413,16 +415,22 @@ Flows from last month.
         </scene>
     </scenes>
     <resources>
-        <image name="cup.and.saucer.fill" catalog="system" width="128" height="91"/>
-        <image name="gem" width="13.5" height="13.5"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="mic.badge.plus" catalog="system" width="121" height="128"/>
-        <image name="repeat" catalog="system" width="128" height="98"/>
+        <image name="badge" width="29.5" height="31.5"/>
+        <image name="door" width="35" height="28"/>
+        <image name="gem2" width="33.5" height="32.5"/>
+        <image name="redheart" width="30" height="27.5"/>
+        <image name="trophy" width="102" height="94"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

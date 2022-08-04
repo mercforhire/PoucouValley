@@ -66,6 +66,8 @@ class URLImageView: UIImageView {
                     finishAction?()
                 }
             }
+        } else {
+            image = nil
         }
     }
     

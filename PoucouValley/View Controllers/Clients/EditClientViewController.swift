@@ -179,7 +179,10 @@ class EditClientViewController: BaseViewController {
     }
     
     @IBAction func editAvatarPressed(_ sender: UIButton) {
-        if let photo = avatar, !photo.thumbnailUrl.isEmpty, !photo.fullUrl.isEmpty {
+        if let photo = avatar,
+            !photo.thumbnailUrl.isEmpty,
+            !photo.fullUrl.isEmpty {
+            
             // delete photo from S3
             FullScreenSpinner().show()
             userManager.deletePhoto(photo: photo) { [weak self] success in
@@ -506,11 +509,9 @@ extension EditClientViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row < tags.count {
             selectedTagIndex = indexPath.row
-            
             tagPressed()
         } else {
             selectedTagIndex = nil
-            
             showAddTagDialog()
         }
     }

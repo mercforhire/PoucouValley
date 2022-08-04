@@ -39,6 +39,7 @@ class HomeShopViewController: BaseViewController {
             fetchContent()
         }
     }
+    private var clickedMerchant: Merchant?
     
     override func setup() {
         super.setup()
@@ -133,6 +134,12 @@ class HomeShopViewController: BaseViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ShopDetailsViewController, let clickedMerchant = clickedMerchant {
+            vc.merchant = clickedMerchant
+        }
+    }
 }
 
 extension HomeShopViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -203,18 +210,12 @@ extension HomeShopViewController: UITableViewDataSource, UITableViewDelegate {
             if (searchResults?.count ?? 0) == 0 {
                 return
             }
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MerchantTableViewCell", for: indexPath) as? MerchantTableViewCell else {
-                return MerchantTableViewCell()
-            }
             let merchant = searchResults![indexPath.row]
             clickedMerchant = merchant
             performSegue(withIdentifier: "goToMerchant", sender: self)
         } else {
             if (merchants?.count ?? 0) == 0 {
                 return
-            }
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MerchantTableViewCell", for: indexPath) as? MerchantTableViewCell else {
-                return MerchantTableViewCell()
             }
             let merchant = merchants![indexPath.row]
             clickedMerchant = merchant

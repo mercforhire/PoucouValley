@@ -9,19 +9,17 @@ import Foundation
 import RealmSwift
 
 struct UpdateMerchantInfoParams {
-    var apiKey: String
     var name: String?
-    var field: BusinessType?
+    var field: BusinessCategories?
     var logo: PVPhoto?
     var photos: [PVPhoto]?
     var contact: Contact?
     var address: Address?
     var cards: [String]?
+    var description: String?
+    var hashtags: [String]?
     
-    func params() -> [AnyBSON] {
-        var array: [AnyBSON] = []
-        array.append(AnyBSON(apiKey))
-        
+    func toDocument() -> Document {
         var params: Document = [:]
         
         if let name = name {
@@ -29,11 +27,15 @@ struct UpdateMerchantInfoParams {
         }
         
         if let field = field {
-            params["field"] = AnyBSON(field.type)
+            params["field"] = AnyBSON(field.rawValue)
         }
         
         if let logo = logo {
             params["logo"] = AnyBSON(logo.toDocument())
+        }
+        
+        if let description = description {
+            params["description"] = AnyBSON(description)
         }
         
         if let photos = photos {
@@ -56,7 +58,12 @@ struct UpdateMerchantInfoParams {
             params["photos"] = AnyBSON(array)
         }
         
-        array.append(AnyBSON(params))
-        return array
+        if let hashtags = hashtags {
+            var array: [AnyBSON] = []
+            _ = hashtags.map { array.append(AnyBSON($0)) }
+            params["hashtags"] = AnyBSON(array)
+        }
+        
+        return params
     }
 }

@@ -62,8 +62,8 @@
             filePath = "PoucouValley/Managers/UserManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "updateMerchantInfo(name:field:logo:photos:contact:address:cards:callBack:)"
             landmarkType = "7">
          </BreakpointContent>
