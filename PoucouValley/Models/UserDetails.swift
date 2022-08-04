@@ -12,6 +12,9 @@ class UserDetails: BaseObject {
     var user: User?
     var cardholder: Cardholder?
     var merchant: Merchant?
+    var userType: UserType? {
+        return user?.userType
+    }
     
     convenience init(document: Document) {
         self.init()
@@ -36,11 +39,11 @@ class UserDetails: BaseObject {
     }
     
     func toUpdateCardholderInfoParams() -> UpdateCardholderInfoParams? {
-        guard let cardholder = cardholder, let user = user else {
+        guard let cardholder = cardholder else {
             return nil
         }
         
-        var params = UpdateCardholderInfoParams(firstName: cardholder.firstName, lastName: cardholder.lastName, pronoun: cardholder.pronoun, gender: cardholder.gender, birthday: cardholder.birthday, contact: cardholder.contact, address: cardholder.address, avatar: cardholder.avatar, interests: nil)
+        let params = UpdateCardholderInfoParams(firstName: cardholder.firstName, lastName: cardholder.lastName, pronoun: cardholder.pronoun, gender: cardholder.gender, birthday: cardholder.birthday, contact: cardholder.contact, address: cardholder.address, avatar: cardholder.avatar, interests: nil)
         return params
     }
 }

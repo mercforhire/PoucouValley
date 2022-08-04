@@ -753,6 +753,48 @@ class PoucouAPI {
         }
     }
     
+    func fetchPerformanceData(callBack: @escaping(Result<FetchPerformanceResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_fetchPerformanceData([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'fetchPerformanceData' and got result: \(document)")
+                callBack(.success(FetchPerformanceResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchVisitors(callBack: @escaping(Result<GetVisitorsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_getVisitors([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getVisitors' and got result: \(document)")
+                callBack(.success(GetVisitorsResponse(document: document)))
+            }
+        }
+    }
+    
     func fetchClientGroupsStatistics(callBack: @escaping(Result<FetchClientGroupsStatisticsResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         

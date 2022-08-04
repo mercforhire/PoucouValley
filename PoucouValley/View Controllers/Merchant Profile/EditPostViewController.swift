@@ -63,8 +63,8 @@ class EditPostViewController: BaseViewController {
         titleField.text = plan.title
         descriptionTextView.text = plan.planDescription
         
-        priceField.text = plan.price != nil ? "\(plan.price)" : nil
-        discountedPriceField.text = plan.discountedPrice != nil ? "\(plan.discountedPrice)" : nil
+        priceField.text = plan.price != nil ? "\(plan.price!)" : nil
+        discountedPriceField.text = plan.discountedPrice != nil ? "\(plan.discountedPrice!)" : nil
     }
     
     @objc func deletePhotoPressed(_ sender: UIButton) {

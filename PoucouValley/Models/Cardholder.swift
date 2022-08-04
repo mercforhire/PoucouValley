@@ -21,7 +21,7 @@ class Cardholder: BaseObject {
     var address: Address?
     var contact: Contact?
     var avatar: PVPhoto?
-    var interests: List<String> = List()
+    var interests: [BusinessCategories] = []
     
     var fullName: String {
         return "\(firstName?.capitalizingFirstLetter() ?? "") \(lastName?.capitalizingFirstLetter() ?? "")"
@@ -50,11 +50,15 @@ class Cardholder: BaseObject {
             self.avatar = PVPhoto(document: document)
         }
         if let array = document["interests"]??.arrayValue {
-            let data: List<String> = List()
+            var businessCategories: [BusinessCategories] = []
             for interest in array {
-                data.append(interest!.stringValue!)
+                guard let interestString = interest?.stringValue,
+                      let businessCategory = BusinessCategories(rawValue: interestString)
+                else { continue }
+                
+                businessCategories.append(businessCategory)
             }
-            self.interests = data
+            self.interests = businessCategories
         }
     }
     

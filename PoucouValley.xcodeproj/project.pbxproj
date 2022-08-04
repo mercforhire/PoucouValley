@@ -81,6 +81,12 @@
 		72997ABF289B17AA00F745A8 /* MerchantDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */; };
 		72997AC1289B45E800F745A8 /* EmptyPostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC0289B45E700F745A8 /* EmptyPostsCell.swift */; };
 		72997AC3289B675400F745A8 /* AddPlanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC2289B675400F745A8 /* AddPlanResponse.swift */; };
+		72997AC5289C175800F745A8 /* VisitorRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC4289C175800F745A8 /* VisitorRecord.swift */; };
+		72997AC7289C185400F745A8 /* GetVisitorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC6289C185400F745A8 /* GetVisitorsResponse.swift */; };
+		72997ACA289C1AE100F745A8 /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC9289C1AE100F745A8 /* PerformanceViewController.swift */; };
+		72997ACC289C46A200F745A8 /* PerformanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997ACB289C46A200F745A8 /* PerformanceData.swift */; };
+		72997ACE289C47E700F745A8 /* FetchPerformanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997ACD289C47E700F745A8 /* FetchPerformanceResponse.swift */; };
+		72997AD3289C5F2E00F745A8 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AD2289C5F2E00F745A8 /* DayAxisValueFormatter.swift */; };
 		72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AD2736F27700B452BE /* AppDelegate.swift */; };
 		72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AF2736F27700B452BE /* SceneDelegate.swift */; };
 		72AC00B52736F27700B452BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B32736F27700B452BE /* Main.storyboard */; };
@@ -334,6 +340,12 @@
 		72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchantDetailsHeaderView.xib; sourceTree = "<group>"; };
 		72997AC0289B45E700F745A8 /* EmptyPostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPostsCell.swift; sourceTree = "<group>"; };
 		72997AC2289B675400F745A8 /* AddPlanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanResponse.swift; sourceTree = "<group>"; };
+		72997AC4289C175800F745A8 /* VisitorRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorRecord.swift; sourceTree = "<group>"; };
+		72997AC6289C185400F745A8 /* GetVisitorsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVisitorsResponse.swift; sourceTree = "<group>"; };
+		72997AC9289C1AE100F745A8 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
+		72997ACB289C46A200F745A8 /* PerformanceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceData.swift; sourceTree = "<group>"; };
+		72997ACD289C47E700F745A8 /* FetchPerformanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPerformanceResponse.swift; sourceTree = "<group>"; };
+		72997AD2289C5F2E00F745A8 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
 		72AC00AA2736F27700B452BE /* PoucouValley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoucouValley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AC00AD2736F27700B452BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AC00AF2736F27700B452BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -586,6 +598,7 @@
 		72707C0728320CC4004F3C3C /* Responses */ = {
 			isa = PBXGroup;
 			children = (
+				72997AC2289B675400F745A8 /* AddPlanResponse.swift */,
 				72C7D3DB2837FDEF0066F3CB /* BooleanResponse.swift */,
 				726AD980289415F40051F456 /* ExplorePlansResponse.swift */,
 				726AD982289427F30051F456 /* ExploreShopsResponse.swift */,
@@ -596,11 +609,12 @@
 				72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */,
 				7261B840284544E400E9ABC5 /* FetchTransactionsResponse.swift */,
 				726CB8CB288D66830086D436 /* FetchWalletResponse.swift */,
+				72997ACD289C47E700F745A8 /* FetchPerformanceResponse.swift */,
 				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
 				72BF2A652843475600B43F50 /* GetGoalsResponse.swift */,
+				72997AC6289C185400F745A8 /* GetVisitorsResponse.swift */,
 				72C7D41E283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift */,
 				72707C052830B354004F3C3C /* GetStartedStepsResponse.swift */,
-				72997AC2289B675400F745A8 /* AddPlanResponse.swift */,
 				72707C0A28320CF9004F3C3C /* LoginResponse.swift */,
 				72E263482895793C00BF2AA2 /* SearchPlansResponse.swift */,
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
@@ -641,6 +655,14 @@
 				72707C312834A140004F3C3C /* paperplane.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		72997AC8289C1A0600F745A8 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				72997AC9289C1AE100F745A8 /* PerformanceViewController.swift */,
+			);
+			path = Performance;
 			sourceTree = "<group>";
 		};
 		72AC00A12736F27700B452BE = {
@@ -736,6 +758,7 @@
 				72C7D3E7283AAC650066F3CB /* Setup Profile */,
 				72C7D413283D6D6F0066F3CB /* Cards */,
 				725ACC22287625C9007D255F /* Clients */,
+				72997AC8289C1A0600F745A8 /* Performance */,
 				72B2FBB4273CAB0600382C12 /* Cardholder Profile */,
 				720FD77A289A1D7E001FF536 /* Merchant Profile */,
 			);
@@ -881,31 +904,33 @@
 		72AC015827387BB200B452BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				72707C14283217C7004F3C3C /* Address.swift */,
 				72707C332834AAF7004F3C3C /* BaseObject.swift */,
-				72707C0728320CC4004F3C3C /* Responses */,
-				72C7D408283C28700066F3CB /* Params */,
-				7201EEEB2830950D00AD6585 /* PhotoResponse.swift */,
-				72AC015927387BB200B452BE /* UnsplashPhoto.swift */,
+				72707C1628321975004F3C3C /* Birthday.swift */,
+				72C7D3F7283AC4640066F3CB /* BusinessType.swift */,
+				72C7D42D283EAEA00066F3CB /* Card.swift */,
+				72707C0E2832121E004F3C3C /* Cardholder.swift */,
+				72707C1C2832E90B004F3C3C /* Client.swift */,
+				72707C122832170F004F3C3C /* Contact.swift */,
 				7201EEED2830A6DB00AD6585 /* Enums.swift */,
 				72707C0828320CD7004F3C3C /* GetStartedSteps.swift */,
-				72707C0C28320D26004F3C3C /* User.swift */,
-				72C7D42D283EAEA00066F3CB /* Card.swift */,
-				72707C182832BDC7004F3C3C /* UserDetails.swift */,
-				72707C0E2832121E004F3C3C /* Cardholder.swift */,
-				72707C1A2832BE28004F3C3C /* Merchant.swift */,
-				72C7D3F7283AC4640066F3CB /* BusinessType.swift */,
-				72C7D41C283DBAA80066F3CB /* PoucouCardBulletPoint.swift */,
-				72F748EB28433EEF0057A2B4 /* Goal.swift */,
-				72707C1C2832E90B004F3C3C /* Client.swift */,
-				72707C1628321975004F3C3C /* Birthday.swift */,
-				72707C14283217C7004F3C3C /* Address.swift */,
-				72707C122832170F004F3C3C /* Contact.swift */,
-				72707C102832149C004F3C3C /* PVPhoto.swift */,
-				7261B83E2845092600E9ABC5 /* Transaction.swift */,
 				726CB8CD288D68DC0086D436 /* Gift.swift */,
-				726AD97E289405B80051F456 /* Plan.swift */,
-				7242D6EB2848694A00034BA8 /* Wallet.swift */,
+				72F748EB28433EEF0057A2B4 /* Goal.swift */,
 				726CB8BD288972670086D436 /* GroupsStatistics.swift */,
+				72707C1A2832BE28004F3C3C /* Merchant.swift */,
+				72C7D408283C28700066F3CB /* Params */,
+				7201EEEB2830950D00AD6585 /* PhotoResponse.swift */,
+				72997ACB289C46A200F745A8 /* PerformanceData.swift */,
+				726AD97E289405B80051F456 /* Plan.swift */,
+				72C7D41C283DBAA80066F3CB /* PoucouCardBulletPoint.swift */,
+				72707C102832149C004F3C3C /* PVPhoto.swift */,
+				72707C0728320CC4004F3C3C /* Responses */,
+				7261B83E2845092600E9ABC5 /* Transaction.swift */,
+				72AC015927387BB200B452BE /* UnsplashPhoto.swift */,
+				72707C0C28320D26004F3C3C /* User.swift */,
+				72707C182832BDC7004F3C3C /* UserDetails.swift */,
+				72997AC4289C175800F745A8 /* VisitorRecord.swift */,
+				7242D6EB2848694A00034BA8 /* Wallet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -915,6 +940,7 @@
 			children = (
 				72AC01A42738A80B00B452BE /* External Lib */,
 				72AC01A02738A80B00B452BE /* KeyBoardController.swift */,
+				72997AD2289C5F2E00F745A8 /* DayAxisValueFormatter.swift */,
 				72AC01A12738A80B00B452BE /* DateUtil.swift */,
 				72AC01A22738A80B00B452BE /* DelayedSearchTimer.swift */,
 				72AC01A32738A80B00B452BE /* Validator.swift */,
@@ -1328,6 +1354,7 @@
 				72AC01B32738A80B00B452BE /* Validator.swift in Sources */,
 				720FD780289A1EA4001FF536 /* EditPostViewController.swift in Sources */,
 				72C7D410283C31820066F3CB /* UpdateMerchantResponse.swift in Sources */,
+				72997AC7289C185400F745A8 /* GetVisitorsResponse.swift in Sources */,
 				72AC01B52738A80B00B452BE /* MICollectionViewBubbleLayout.swift in Sources */,
 				72AC01B72738A80B00B452BE /* MIMainViewController.swift in Sources */,
 				72AC010A27378FFA00B452BE /* PHAsset+Extensions.swift in Sources */,
@@ -1385,6 +1412,7 @@
 				72707C2B2834A108004F3C3C /* FullScreenSpinner.swift in Sources */,
 				72C6A0642845D63800AFCD8C /* CardholderContactInfoCell.swift in Sources */,
 				72DB597C284094E600C80FD6 /* CardActivatedBaseViewController.swift in Sources */,
+				72997ACC289C46A200F745A8 /* PerformanceData.swift in Sources */,
 				72AC01572738689C00B452BE /* NetworkService.swift in Sources */,
 				72C7D421283DCDE80066F3CB /* BaseTabBarViewController.swift in Sources */,
 				72C7D3E628399F560066F3CB /* SignUpEnterCodeViewController.swift in Sources */,
@@ -1398,6 +1426,7 @@
 				72C7D415283D6D860066F3CB /* CardViewController.swift in Sources */,
 				72C7D417283D72A40066F3CB /* LabelTableCell.swift in Sources */,
 				72C7D41F283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift in Sources */,
+				72997ACA289C1AE100F745A8 /* PerformanceViewController.swift in Sources */,
 				72E847EA287FDB56004C0672 /* FetchClientsResponse.swift in Sources */,
 				72997ABE289B17AA00F745A8 /* MerchantDetailsHeaderView.swift in Sources */,
 				72707C342834AAF7004F3C3C /* BaseObject.swift in Sources */,
@@ -1409,6 +1438,7 @@
 				72C7D3FA283AC5070066F3CB /* GetBusinessTypesResponse.swift in Sources */,
 				72AC010827378FFA00B452BE /* UIView+Extensions.swift in Sources */,
 				72C7A767273F3F7000636346 /* SearchStoresCell.swift in Sources */,
+				72997ACE289C47E700F745A8 /* FetchPerformanceResponse.swift in Sources */,
 				72AC019E27389DD500B452BE /* HomeShopViewController.swift in Sources */,
 				72358B8628773D3F00D504A2 /* SimpleImageCell.swift in Sources */,
 				72C7A7712741D1C800636346 /* SearchSectionHeaderView.swift in Sources */,
@@ -1442,6 +1472,7 @@
 				720FD782289A1EF1001FF536 /* EditMerchantProfileViewController.swift in Sources */,
 				72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */,
 				72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */,
+				72997AD3289C5F2E00F745A8 /* DayAxisValueFormatter.swift in Sources */,
 				725C20BD284062B900BACBFE /* CardRootViewController.swift in Sources */,
 				72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */,
 				72AC011D27378FFA00B452BE /* Double+Extensions.swift in Sources */,
@@ -1499,6 +1530,7 @@
 				72386AC52879F1CD0072032C /* CreateNewClientViewController.swift in Sources */,
 				72AC00E6273787CE00B452BE /* AppSettingsManager.swift in Sources */,
 				72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */,
+				72997AC5289C175800F745A8 /* VisitorRecord.swift in Sources */,
 				720FD784289A233A001FF536 /* MerchantSettingsViewController.swift in Sources */,
 				72AC011727378FFA00B452BE /* TimeZone+Extensions.swift in Sources */,
 				72E2634B2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift in Sources */,

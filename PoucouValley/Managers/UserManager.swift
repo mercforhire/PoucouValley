@@ -256,7 +256,19 @@ class UserManager {
     }
     
     private func goToMain() {
-        StoryboardManager.load(storyboard: "Main")
+        guard let user = user else {
+            return
+        }
+        
+        switch user.userType {
+        case .cardholder:
+            StoryboardManager.load(storyboard: "Main", viewControllerId: "Cardholder")
+        case .merchant:
+            StoryboardManager.load(storyboard: "Main", viewControllerId: "Merchant")
+        default:
+            break
+        }
+        
     }
     
     func fetchUser(completion: @escaping (Bool) -> Void) {

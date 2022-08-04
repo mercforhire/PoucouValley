@@ -6,12 +6,15 @@
 //
 
 import UIKit
-import PhoneNumberKit
 import RealmSwift
 
 class EditCardholderDetailsViewController: BaseViewController {
+    
+    @IBOutlet weak var interestsTableView: UITableView!
+    @IBOutlet weak var interestsTableViewHeight: NSLayoutConstraint!
 
-    @IBOutlet weak var phoneNumberField: PhoneNumberTextField!
+    @IBOutlet weak var areaCodeField: ThemeTextField!
+    @IBOutlet weak var phoneNumberField: ThemeTextField!
     
     @IBOutlet weak var unitField: ThemeTextField!
     @IBOutlet weak var streetNumberField: ThemeTextField!
@@ -21,12 +24,14 @@ class EditCardholderDetailsViewController: BaseViewController {
     @IBOutlet weak var postalField: ThemeTextField!
     @IBOutlet weak var countryField: ThemeTextField!
     
+    var selectedCategories: [BusinessCategories] = []
+    
     private var contact: Contact? {
         didSet {
-            guard let contact = contact,
-                  let phoneNumber = try? phoneNumberKit.parse("\(contact.phoneAreaCode ?? "")\(contact.phoneNumber ?? "")") else { return }
+            guard let contact = contact else { return }
             
-            phoneNumberField.text = phoneNumberKit.format(phoneNumber, toType: .national, withPrefix: true)
+            areaCodeField.text = contact.phoneAreaCode
+            phoneNumberField.text = contact.phoneNumber
         }
     }
     
@@ -42,15 +47,12 @@ class EditCardholderDetailsViewController: BaseViewController {
         }
     }
     
-    private let phoneNumberKit = PhoneNumberKit()
-    
     override func setup() {
         super.setup()
         
         navigationController?.navigationBar.isHidden = true
-        PhoneNumberKit.CountryCodePicker.commonCountryCodes = ["US", "CA"]
-        phoneNumberField.withFlag = true
-        phoneNumberField.withPrefix = true
+
+        interestsTableViewHeight.constant = CGFloat(50 * BusinessCategories.list().count)
     }
     
     override func setupTheme() {
@@ -78,6 +80,8 @@ class EditCardholderDetailsViewController: BaseViewController {
         } else {
             address = Address(unitNumber: "", streetNumber: "", street: "", city: "", province: "", country: "", postalCode: "")
         }
+        
+        selectedCategories = currentUser.cardholder?.interests ?? []
     }
 
     @IBAction func updatePressed(_ sender: ThemeRoundedGreenBlackTextButton) {
@@ -99,10 +103,11 @@ class EditCardholderDetailsViewController: BaseViewController {
 
 extension EditCardholderDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == phoneNumberField {
+        if textField == areaCodeField {
+            phoneNumberField.becomeFirstResponder()
+        } else if textField == phoneNumberField {
             textField.resignFirstResponder()
-        }
-        if textField == unitField {
+        } else if textField == unitField {
             streetNumberField.becomeFirstResponder()
         } else if textField == streetNumberField {
             streetNameField.becomeFirstResponder()
@@ -122,25 +127,60 @@ extension EditCardholderDetailsViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == phoneNumberField {
-            guard let phoneNumber = try? phoneNumberKit.parse(textField.text ?? "") else { return }
-            
-            contact?.phoneAreaCode = "\(phoneNumber.countryCode)"
-            contact?.phoneNumber = "\(phoneNumber.nationalNumber)"
+        if textField == areaCodeField {
+            contact?.phoneAreaCode = textField.text
+        } else if textField == phoneNumberField {
+            contact?.phoneNumber = textField.text
         } else if textField == unitField {
-            address?.unitNumber = textField.text?.capitalized
+            address?.unitNumber = textField.text
         } else if textField == streetNumberField {
-            address?.streetNumber = textField.text?.capitalized
+            address?.streetNumber = textField.text
         } else if textField == streetNameField {
-            address?.street = textField.text?.capitalized
+            address?.street = textField.text
         } else if textField == cityField {
-            address?.city = textField.text?.capitalized
+            address?.city = textField.text
         } else if textField == provinceField {
-            address?.province = textField.text?.capitalized
+            address?.province = textField.text
         } else if textField == postalField {
-            address?.postalCode = textField.text?.capitalized
+            address?.postalCode = textField.text
         } else if textField == countryField {
-            address?.country = textField.text?.capitalized
+            address?.country = textField.text
+        }
+    }
+}
+
+extension EditCardholderDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return BusinessCategories.list().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonTableCell", for: indexPath) as? ButtonTableCell else {
+            return ButtonTableCell()
+        }
+        let type = BusinessCategories.list()[indexPath.row]
+        cell.button.setTitle(type.rawValue, for: .normal)
+        
+        if selectedCategories.contains(type) {
+            cell.button.addBorder(color: themeManager.themeData!.lighterGreen.hexColor)
+        } else {
+            cell.button.addBorder(color: .clear)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = BusinessCategories.list()[indexPath.row]
+        
+        if selectedCategories.contains(type),
+            let index = selectedCategories.firstIndex(of: type) {
+            selectedCategories.remove(at: index)
+        } else {
+            selectedCategories.append(type)
         }
     }
 }

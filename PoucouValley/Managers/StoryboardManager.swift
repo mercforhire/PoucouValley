@@ -9,15 +9,18 @@ import Foundation
 import UIKit
 
 class StoryboardManager: NSObject {
-    class func load(storyboard: String, animated: Bool = true, completion: ((UIViewController) -> Void)? = nil) {
+    class func load(storyboard: String, viewControllerId: String? = nil, animated: Bool = true, completion: ((UIViewController) -> Void)? = nil) {
         guard let window = UIViewController.window else {
             return
         }
         
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         
-        guard let rootController = storyboard.instantiateInitialViewController() else {
-            return
+        var rootController: UIViewController!
+        if let viewControllerId = viewControllerId {
+            rootController = storyboard.instantiateViewController(withIdentifier: viewControllerId)
+        } else {
+            rootController = storyboard.instantiateInitialViewController()
         }
         
         if animated {
