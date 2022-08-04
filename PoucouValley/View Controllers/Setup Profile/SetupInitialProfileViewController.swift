@@ -37,7 +37,7 @@ class SetupInitialProfileViewController: BaseViewController {
         }
     }
     
-    private var businessTypes: [BusinessType] = [] {
+    private var businessTypes: [BusinessCategories] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -46,7 +46,7 @@ class SetupInitialProfileViewController: BaseViewController {
     // cardholder
     private var firstName: String?
     private var lastName: String?
-    private var interest: BusinessType? {
+    private var interest: BusinessCategories? {
         didSet {
             tableView.reloadData()
         }
@@ -54,7 +54,7 @@ class SetupInitialProfileViewController: BaseViewController {
     
     //merchant
     private var businessName: String?
-    private var businessField: BusinessType? {
+    private var businessField: BusinessCategories? {
         didSet {
             tableView.reloadData()
         }
@@ -90,19 +90,7 @@ class SetupInitialProfileViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        api.fetchBusinessTypes { [weak self] result in
-            switch result {
-            case .success(let response):
-                if response.success {
-                    let data = response.data
-                    self?.businessTypes = Array(data)
-                } else {
-                    showErrorDialog(error: response.message)
-                }
-            case .failure:
-                showNetworkErrorDialog()
-            }
-        }
+        businessTypes = BusinessCategories.list()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -226,13 +214,13 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
 }
 
 extension SetupInitialProfileViewController: SetupInterestsCellDelegate {
-    func selectedInterest(type: BusinessType) {
+    func selectedInterest(type: BusinessCategories) {
         interest = type
     }
 }
 
 extension SetupInitialProfileViewController: SetupBusinessCellDelegate {
-    func selectedBusinessType(type: BusinessType) {
+    func selectedBusinessType(type: BusinessCategories) {
         businessField = type
     }
 }

@@ -126,11 +126,11 @@ class EditMerchantProfileViewController: BaseViewController {
     
     private func fetchData(complete: ((Bool) -> Void)? = nil) {
         userManager.fetchUser { [weak self] success in
-            self?.loadData()
+            self?.refreshViewController()
         }
     }
     
-    private func loadData() {
+    private func refreshViewController() {
         logo = merchant.logo
         photos = Array(merchant.photos)
         hashtags = Array(merchant.hashtags)

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SetupBusinessCellDelegate: class {
-    func selectedBusinessType(type: BusinessType)
+    func selectedBusinessType(type: BusinessCategories)
 }
 
 class SetupBusinessFieldCell: UITableViewCell {
@@ -16,8 +16,8 @@ class SetupBusinessFieldCell: UITableViewCell {
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var submitButton: ThemeRoundedGreenBlackTextButton!
     
-    var data: [BusinessType] = []
-    var selectedType: BusinessType?
+    var data: [BusinessCategories] = []
+    var selectedType: BusinessCategories?
     weak var delegate: SetupBusinessCellDelegate?
     
     override func awakeFromNib() {
@@ -33,7 +33,7 @@ class SetupBusinessFieldCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func config(data: [BusinessType], selectedType: BusinessType?) {
+    func config(data: [BusinessCategories], selectedType: BusinessCategories?) {
         self.data = data
         self.selectedType = selectedType
         tableView.reloadData()
@@ -55,8 +55,8 @@ extension SetupBusinessFieldCell: UITableViewDataSource, UITableViewDelegate {
             return ButtonTableCell()
         }
         let type = data[indexPath.row]
-        cell.button.setTitle(type.type, for: .normal)
-        if type.type == selectedType?.type {
+        cell.button.setTitle(type.rawValue, for: .normal)
+        if type == selectedType {
             cell.button.addBorder(color: themeManager.themeData!.lighterGreen.hexColor)
         } else {
             cell.button.addBorder(color: .clear)

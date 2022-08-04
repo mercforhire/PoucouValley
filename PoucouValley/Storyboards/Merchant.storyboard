@@ -531,6 +531,9 @@
                                                         <state key="normal" title="Post">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="savePressed:" destination="ijO-tI-sR2" eventType="touchUpInside" id="NCb-Ku-Grx"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

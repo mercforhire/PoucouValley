@@ -33,7 +33,7 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
             collectionView.reloadData()
             
             if !photos.isEmpty {
-                collectionView.scrollToItem(at: [IndexPath(row: 0, section: 0)], at: .centeredHorizontally, animated: true)
+                collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: true)
             }
         }
     }

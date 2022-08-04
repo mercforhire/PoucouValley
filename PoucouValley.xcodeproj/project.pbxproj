@@ -80,6 +80,7 @@
 		72997ABE289B17AA00F745A8 /* MerchantDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997ABC289B17AA00F745A8 /* MerchantDetailsHeaderView.swift */; };
 		72997ABF289B17AA00F745A8 /* MerchantDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */; };
 		72997AC1289B45E800F745A8 /* EmptyPostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC0289B45E700F745A8 /* EmptyPostsCell.swift */; };
+		72997AC3289B675400F745A8 /* AddPlanResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC2289B675400F745A8 /* AddPlanResponse.swift */; };
 		72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AD2736F27700B452BE /* AppDelegate.swift */; };
 		72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AF2736F27700B452BE /* SceneDelegate.swift */; };
 		72AC00B52736F27700B452BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B32736F27700B452BE /* Main.storyboard */; };
@@ -332,6 +333,7 @@
 		72997ABC289B17AA00F745A8 /* MerchantDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantDetailsHeaderView.swift; sourceTree = "<group>"; };
 		72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchantDetailsHeaderView.xib; sourceTree = "<group>"; };
 		72997AC0289B45E700F745A8 /* EmptyPostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPostsCell.swift; sourceTree = "<group>"; };
+		72997AC2289B675400F745A8 /* AddPlanResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanResponse.swift; sourceTree = "<group>"; };
 		72AC00AA2736F27700B452BE /* PoucouValley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoucouValley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AC00AD2736F27700B452BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AC00AF2736F27700B452BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 				72BF2A652843475600B43F50 /* GetGoalsResponse.swift */,
 				72C7D41E283DBBA90066F3CB /* GetPoucouCardBulletPointsResponse.swift */,
 				72707C052830B354004F3C3C /* GetStartedStepsResponse.swift */,
+				72997AC2289B675400F745A8 /* AddPlanResponse.swift */,
 				72707C0A28320CF9004F3C3C /* LoginResponse.swift */,
 				72E263482895793C00BF2AA2 /* SearchPlansResponse.swift */,
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
@@ -1454,6 +1457,7 @@
 				72AC011527378FFA00B452BE /* CLPlacemark+Extensions.swift in Sources */,
 				72E847F02881BDC4004C0672 /* LabelsCell.swift in Sources */,
 				726CB8CE288D68DC0086D436 /* Gift.swift in Sources */,
+				72997AC3289B675400F745A8 /* AddPlanResponse.swift in Sources */,
 				723D6CAF287C27EC00D6B596 /* ThemeTextView.swift in Sources */,
 				72AC01BB2738A80B00B452BE /* CommonUtils.swift in Sources */,
 				72B2FBD8273CC34200382C12 /* ThemeTextFieldLabel.swift in Sources */,

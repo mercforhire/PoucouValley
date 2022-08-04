@@ -40,15 +40,7 @@ class UserDetails: BaseObject {
             return nil
         }
         
-        var params = UpdateCardholderInfoParams(apiKey: user.apiKey)
-        params.firstName = cardholder.firstName
-        params.lastName = cardholder.lastName
-        params.pronoun = cardholder.pronoun
-        params.gender = cardholder.gender
-        params.birthday = cardholder.birthday
-        params.contact = cardholder.contact
-        params.address = cardholder.address
-        params.avatar = cardholder.avatar
+        var params = UpdateCardholderInfoParams(firstName: cardholder.firstName, lastName: cardholder.lastName, pronoun: cardholder.pronoun, gender: cardholder.gender, birthday: cardholder.birthday, contact: cardholder.contact, address: cardholder.address, avatar: cardholder.avatar, interests: nil)
         return params
     }
 }

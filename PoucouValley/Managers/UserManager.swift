@@ -306,13 +306,34 @@ class UserManager {
         }
     }
     
-    func uploadPhoto(photo: UIImage, completion: @escaping (PVPhoto?) -> Void) {
-        var userId: ObjectId! = user?.user?.identifier
-        // demo code
-        if userId == nil {
-            userId = try! ObjectId(string: "62d2fec69f467f7f9e50c8e9")
-        }
+    func uploadPhotos(photos: [UIImage], completion: @escaping ([PVPhoto], [UIImage]) -> Void) {
+        var uploadedPhotos: [PVPhoto] = []
+        var failedUploadedImages: [UIImage] = []
         
+        let queue = DispatchQueue.global(qos: .background)
+        queue.async { [weak self] in
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            for photo in photos {
+                self?.uploadPhoto(photo: photo, completion: { pvPhoto in
+                    if let uploadedPhoto = pvPhoto {
+                        uploadedPhotos.append(uploadedPhoto)
+                    } else {
+                        failedUploadedImages.append(photo)
+                    }
+                    semaphore.signal()
+                })
+                semaphore.wait()
+            }
+            
+            DispatchQueue.main.async {
+                completion(uploadedPhotos, failedUploadedImages)
+            }
+        }
+    }
+    
+    func uploadPhoto(photo: UIImage, completion: @escaping (PVPhoto?) -> Void) {
+        let userId: ObjectId! = user?.user?.identifier
         let filename = String.randomString(length: 5)
         let thumbnailFileName = "\(filename)-thumb.jpg"
         let fullsizeFileName = "\(filename)-full.jpg"
@@ -380,6 +401,32 @@ class UserManager {
                 } else {
                     completion(nil)
                 }
+            }
+        }
+    }
+    
+    func deletedPhotos(photos: [PVPhoto], completion: @escaping ([PVPhoto], [PVPhoto]) -> Void) {
+        var deletedPhotos: [PVPhoto] = []
+        var failedToDeletedPhotos: [PVPhoto] = []
+        
+        let queue = DispatchQueue.global(qos: .background)
+        queue.async { [weak self] in
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            for photo in photos {
+                self?.deletePhoto(photo: photo, completion: { success in
+                    if success {
+                        deletedPhotos.append(photo)
+                    } else {
+                        failedToDeletedPhotos.append(photo)
+                    }
+                    semaphore.signal()
+                })
+                semaphore.wait()
+            }
+            
+            DispatchQueue.main.async {
+                completion(deletedPhotos, failedToDeletedPhotos)
             }
         }
     }

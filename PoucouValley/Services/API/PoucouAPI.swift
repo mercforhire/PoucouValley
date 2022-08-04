@@ -1027,6 +1027,80 @@ class PoucouAPI {
         }
     }
     
+    func addPlan(title: String, description: String, photos: [PVPhoto], price: Double?, discountedPrice: Double?, hashtags: [String]?, callBack: @escaping(Result<AddPlanResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var photosData: [AnyBSON] = []
+        for photo in photos {
+            photosData.append(AnyBSON(photo.toDocument()))
+        }
+        var hashtagData: [AnyBSON] = []
+        for tag in hashtags ?? [] {
+            hashtagData.append(AnyBSON(tag))
+        }
+        
+        let params: Document = ["title": AnyBSON(title),
+                                "description": AnyBSON(description),
+                                "photos": AnyBSON.array(photosData),
+                                "price": price != nil ? AnyBSON(price!) : AnyBSON.null,
+                                "discountedPrice": discountedPrice != nil ? AnyBSON(discountedPrice!) : AnyBSON.null,
+                                "hashtags": !hashtagData.isEmpty ? AnyBSON.array(hashtagData) : AnyBSON.null]
+        
+        user.functions.api_addPlan([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_addPlan' and got result: \(document)")
+                callBack(.success(AddPlanResponse(document: document)))
+            }
+        }
+    }
+    
+    func editPlan(plan: Plan, title: String, description: String, photos: [PVPhoto], price: Double?, discountedPrice: Double?, hashtags: [String]?, callBack: @escaping(Result<AddPlanResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var photosData: [AnyBSON] = []
+        for photo in photos {
+            photosData.append(AnyBSON(photo.toDocument()))
+        }
+        var hashtagData: [AnyBSON] = []
+        for tag in hashtags ?? [] {
+            hashtagData.append(AnyBSON(tag))
+        }
+        
+        let params: Document = ["title": AnyBSON(title),
+                                "description": AnyBSON(description),
+                                "photos": AnyBSON.array(photosData),
+                                "price": price != nil ? AnyBSON(price!) : AnyBSON.null,
+                                "discountedPrice": discountedPrice != nil ? AnyBSON(discountedPrice!) : AnyBSON.null,
+                                "hashtags": !hashtagData.isEmpty ? AnyBSON.array(hashtagData) : AnyBSON.null]
+        
+        user.functions.api_editPlan([AnyBSON(apiKey), AnyBSON(plan.identifier), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_editPlan' and got result: \(document)")
+                callBack(.success(AddPlanResponse(document: document)))
+            }
+        }
+    }
+    
     func logout(callBack: @escaping(Result<StringResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
