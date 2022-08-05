@@ -23,6 +23,8 @@ class HomeFollowingViewController: BaseViewController {
     
     override func setupTheme() {
         super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData!.defaultBackground.hexColor
     }
     
     override func setup() {

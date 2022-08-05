@@ -121,7 +121,7 @@ class HomeShopViewController: BaseViewController {
             return
         }
         
-        api.searchShops(keyword: query) { [weak self] result in
+        api.searchShops(keyword: query, category: category) { [weak self] result in
             guard let self = self else { return }
 
             switch result {
@@ -157,7 +157,8 @@ extension HomeShopViewController: UICollectionViewDelegate, UICollectionViewData
         } else {
             cell.unhighlight()
         }
-        cell.roundCorners(style: .medium)
+        cell.contentView.roundCorners(style: .medium)
+        cell.addShadow(style: .medium)
         return cell
     }
     

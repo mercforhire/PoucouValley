@@ -25,10 +25,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1I-nI-uVI">
                     <rect key="frame" x="0.0" y="44" width="414" height="881"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="rNY-If-aGC">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rNY-If-aGC">
                             <rect key="frame" x="15" y="15" width="384" height="851"/>
                             <subviews>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HHD-5u-zbd">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HHD-5u-zbd">
                                     <rect key="frame" x="0.0" y="0.0" width="384" height="307"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -47,7 +47,7 @@
                                     </connections>
                                 </collectionView>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="M5q-Mz-b8s" customClass="ThemeUIPageControl" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="330" width="384" height="10"/>
+                                    <rect key="frame" x="0.0" y="322" width="384" height="10"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="WDn-3o-AkJ"/>
@@ -56,7 +56,7 @@
                                     <color key="currentPageIndicatorTintColor" systemColor="systemGreenColor"/>
                                 </pageControl>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tvs-NF-G7T">
-                                    <rect key="frame" x="0.0" y="363" width="384" height="48"/>
+                                    <rect key="frame" x="0.0" y="347" width="384" height="48"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJH-Kw-eIt">
                                             <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
@@ -109,7 +109,7 @@
                                                 <constraint firstItem="1gF-Uw-v6g" firstAttribute="top" secondItem="brT-eC-c5R" secondAttribute="top" id="fRK-S4-GTP"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRT-HD-bQA" customClass="ThemeGreenButton" customModule="PoucouValley" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRT-HD-bQA" customClass="ThemeRoundedGreenWhiteTextButton" customModule="PoucouValley" customModuleProvider="target">
                                             <rect key="frame" x="307" y="0.0" width="77" height="48"/>
                                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
@@ -122,7 +122,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finance" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZK-MO-j1u" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="434" width="384" height="20"/>
+                                    <rect key="frame" x="0.0" y="410" width="384" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="3zO-cC-2EM"/>
@@ -132,7 +132,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdS-fN-glg" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="477" width="384" height="227"/>
+                                    <rect key="frame" x="0.0" y="445" width="384" height="227"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <string key="text">Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.</string>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
@@ -140,7 +140,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="#deadlights #jacklad #schooner " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26b-n7-0UL" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="727" width="384" height="81"/>
+                                    <rect key="frame" x="0.0" y="687" width="384" height="129"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

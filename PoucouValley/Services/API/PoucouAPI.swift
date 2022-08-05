@@ -175,10 +175,13 @@ class PoucouAPI {
         }
     }
     
-    func searchShops(keyword: String, callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
+    func searchShops(keyword: String, category: BusinessCategories?, callBack: @escaping(Result<ExploreShopsResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
-        let params: Document = ["keyword": AnyBSON(keyword)]
+        let params: Document = [
+            "keyword": AnyBSON(keyword),
+            "category": category != nil ? AnyBSON(category!.rawValue) : AnyBSON.null
+        ]
         user.functions.api_searchShops([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
@@ -286,6 +289,30 @@ class PoucouAPI {
                     return
                 }
                 print("Called function 'api_fetchMerchantPlans' and got result: \(document)")
+                callBack(.success(ExplorePlansResponse(document: document)))
+            }
+        }
+    }
+    
+    func api_fetchRelatedPlans(plan: Plan, callBack: @escaping(Result<ExplorePlansResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var params: Document = [:]
+        params["planId"] = AnyBSON(plan.identifier)
+        
+        user.functions.api_fetchRelatedPlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchRelatedPlans' and got result: \(document)")
                 callBack(.success(ExplorePlansResponse(document: document)))
             }
         }

@@ -180,6 +180,8 @@
 		72B2FBDB273CC34200382C12 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBCC273CC34200382C12 /* ThemeView.swift */; };
 		72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDC273CC47200382C12 /* PaddedTextField.swift */; };
 		72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */; };
+		72BB44F9289D8FE700EE9B35 /* GiftsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB44F8289D8FE700EE9B35 /* GiftsListViewController.swift */; };
+		72BB44FB289D8FFC00EE9B35 /* GiftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB44FA289D8FFC00EE9B35 /* GiftDetailViewController.swift */; };
 		72BF2A662843475600B43F50 /* GetGoalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF2A652843475600B43F50 /* GetGoalsResponse.swift */; };
 		72C6A0642845D63800AFCD8C /* CardholderContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6A0632845D63800AFCD8C /* CardholderContactInfoCell.swift */; };
 		72C6A0662845DAF800AFCD8C /* LabelDividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6A0652845DAF800AFCD8C /* LabelDividerCell.swift */; };
@@ -260,6 +262,9 @@
 		72E847F92886EBC2004C0672 /* GroupClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */; };
 		72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE253E2836B2F90061FB4A /* LoginViewController.swift */; };
 		72EE25412836C6230061FB4A /* LoginEnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */; };
+		72EEAC77289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */; };
+		72EEAC78289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */; };
+		72EEAC7A289D7EB500EE189C /* Gifts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72EEAC79289D7EB500EE189C /* Gifts.storyboard */; };
 		72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F748EB28433EEF0057A2B4 /* Goal.swift */; };
 		72F92FEC284078BE00DF438C /* Clients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEB284078BE00DF438C /* Clients.storyboard */; };
 		72F92FEE284078D000DF438C /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FED284078D000DF438C /* Charts.storyboard */; };
@@ -443,6 +448,8 @@
 		72B2FBCC273CC34200382C12 /* ThemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		72B2FBDC273CC47200382C12 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPaginationManager.swift; sourceTree = "<group>"; };
+		72BB44F8289D8FE700EE9B35 /* GiftsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftsListViewController.swift; sourceTree = "<group>"; };
+		72BB44FA289D8FFC00EE9B35 /* GiftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftDetailViewController.swift; sourceTree = "<group>"; };
 		72BF2A652843475600B43F50 /* GetGoalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoalsResponse.swift; sourceTree = "<group>"; };
 		72C6A0632845D63800AFCD8C /* CardholderContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderContactInfoCell.swift; sourceTree = "<group>"; };
 		72C6A0652845DAF800AFCD8C /* LabelDividerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDividerCell.swift; sourceTree = "<group>"; };
@@ -523,6 +530,9 @@
 		72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupClientsViewController.swift; sourceTree = "<group>"; };
 		72EE253E2836B2F90061FB4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72EE25402836C6230061FB4A /* LoginEnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEnterCodeViewController.swift; sourceTree = "<group>"; };
+		72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailsCollectionHeaderView.swift; sourceTree = "<group>"; };
+		72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDetailsCollectionHeaderView.xib; sourceTree = "<group>"; };
+		72EEAC79289D7EB500EE189C /* Gifts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gifts.storyboard; sourceTree = "<group>"; };
 		72F748EB28433EEF0057A2B4 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		72F92FEB284078BE00DF438C /* Clients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Clients.storyboard; sourceTree = "<group>"; };
 		72F92FED284078D000DF438C /* Charts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Charts.storyboard; sourceTree = "<group>"; };
@@ -721,6 +731,7 @@
 				72F92FEB284078BE00DF438C /* Clients.storyboard */,
 				72E2634F2899556C00BF2AA2 /* Shops.storyboard */,
 				72B2FB85273C554200382C12 /* Profile.storyboard */,
+				72EEAC79289D7EB500EE189C /* Gifts.storyboard */,
 				72F92FED284078D000DF438C /* Charts.storyboard */,
 				72F92FEF284078E700DF438C /* Merchant.storyboard */,
 			);
@@ -743,6 +754,8 @@
 				72B2FBB2273CAA2000382C12 /* GiftTableViewCell.swift */,
 				72E2635128995A7A00BF2AA2 /* ShopDetailsCollectionHeaderView.swift */,
 				72E2635328995A8A00BF2AA2 /* ShopDetailsCollectionHeaderView.xib */,
+				72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */,
+				72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */,
 				72997ABC289B17AA00F745A8 /* MerchantDetailsHeaderView.swift */,
 				72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */,
 				7297E52E2747173600F6F33B /* SearchBarCollectionHeaderView.swift */,
@@ -767,6 +780,7 @@
 				72997AC8289C1A0600F745A8 /* Performance */,
 				72B2FBB4273CAB0600382C12 /* Cardholder Profile */,
 				720FD77A289A1D7E001FF536 /* Merchant Profile */,
+				72EEAC7B289D8FBA00EE189C /* Gifts */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1176,6 +1190,15 @@
 			path = SendConfirmationDialog;
 			sourceTree = "<group>";
 		};
+		72EEAC7B289D8FBA00EE189C /* Gifts */ = {
+			isa = PBXGroup;
+			children = (
+				72BB44F8289D8FE700EE9B35 /* GiftsListViewController.swift */,
+				72BB44FA289D8FFC00EE9B35 /* GiftDetailViewController.swift */,
+			);
+			path = Gifts;
+			sourceTree = "<group>";
+		};
 		A10BA6387A86372DA0B8759A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1259,7 +1282,9 @@
 				72B2FBB1273C6CA000382C12 /* Poppins-MediumItalic.ttf in Resources */,
 				72B2FBA2273C6CA000382C12 /* Poppins-BoldItalic.ttf in Resources */,
 				72E847F42882A3AD004C0672 /* SendConfirmationDialog.xib in Resources */,
+				72EEAC7A289D7EB500EE189C /* Gifts.storyboard in Resources */,
 				72B2FBAC273C6CA000382C12 /* Poppins-Bold.ttf in Resources */,
+				72EEAC78289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib in Resources */,
 				72F92FF0284078E700DF438C /* Merchant.storyboard in Resources */,
 				72E263502899556C00BF2AA2 /* Shops.storyboard in Resources */,
 				72B2FB9F273C6CA000382C12 /* Poppins-ExtraLight.ttf in Resources */,
@@ -1436,6 +1461,7 @@
 				72997ACA289C1AE100F745A8 /* PerformanceViewController.swift in Sources */,
 				72E847EA287FDB56004C0672 /* FetchClientsResponse.swift in Sources */,
 				72997ABE289B17AA00F745A8 /* MerchantDetailsHeaderView.swift in Sources */,
+				72EEAC77289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift in Sources */,
 				72707C342834AAF7004F3C3C /* BaseObject.swift in Sources */,
 				72707C1D2832E90B004F3C3C /* Client.swift in Sources */,
 				72707C1B2832BE28004F3C3C /* Merchant.swift in Sources */,
@@ -1528,6 +1554,8 @@
 				72707C132832170F004F3C3C /* Contact.swift in Sources */,
 				72AC01BA2738A80B00B452BE /* ExtendedLabel.swift in Sources */,
 				72C7D3E2283953460066F3CB /* SignUpHomeViewController.swift in Sources */,
+				72BB44F9289D8FE700EE9B35 /* GiftsListViewController.swift in Sources */,
+				72BB44FB289D8FFC00EE9B35 /* GiftDetailViewController.swift in Sources */,
 				72B2FBB3273CAA2000382C12 /* GiftTableViewCell.swift in Sources */,
 				726CB8D0288D6BBB0086D436 /* FetchGiftsResponse.swift in Sources */,
 				7261B841284544E400E9ABC5 /* FetchTransactionsResponse.swift in Sources */,

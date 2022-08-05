@@ -44,7 +44,7 @@ class MerchantTableViewCell: UITableViewCell {
         nameLabel.text = merchant.name
         categoryIconImageView.image = merchant.category.icon()
         categoryLabel.text = merchant.category.rawValue
-        visitorsLabel.text = visitorsLabel.text?.replacingOccurrences(of: "[X]", with: "\(merchant.visits ?? 0)")
-        followersLabel.text = visitorsLabel.text?.replacingOccurrences(of: "[X]", with: "\(merchant.followers ?? 0)")
+        visitorsLabel.text = "\(merchant.visits ?? 0) visits"
+        followersLabel.text = "\(merchant.followers ?? 0) followers"
     }
 }
