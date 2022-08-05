@@ -17,7 +17,7 @@ class ShopDetailsViewController: BaseViewController {
         didSet {
             plansCellSizes.removeAll()
             for _ in 0...(plans?.count ?? 0) {
-                plansCellSizes.append(generateRandomSize())
+                plansCellSizes.append(generateRandomSize(collectionView: collectionView))
             }
             collectionView.reloadData()
         }
@@ -26,76 +26,78 @@ class ShopDetailsViewController: BaseViewController {
     
     private var followed: Bool = false {
         didSet {
-            collectionView.reloadData()
+            headerView?.config(data: merchant, following: followed)
         }
     }
-    private var shopDetailsCollectionHeaderView: ShopDetailsCollectionHeaderView?
+    private var headerView: ShopDetailsCollectionHeaderView?
     
     override func setup() {
         super.setup()
         
+        title = merchant.name
+        
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.headerHeight = 1
         layout.footerHeight = 0
         layout.minimumColumnSpacing = 10
         layout.minimumInteritemSpacing = 10
         
         collectionView.collectionViewLayout = layout
         collectionView.alwaysBounceVertical = true
-        
         collectionView.register(UINib(nibName: "ShopDetailsCollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        headerView?.config(data: merchant, following: followed)
         fetchContent()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = false
     }
     
-    private func fetchContent(complete: ((Bool) -> Void)? = nil) {
+    private func fetchContent() {
         api.fetchMerchantPlans(merchant: merchant) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let response):
-                if response.success, let data = response.data {
-                    self.plans = Array(data)
-                    complete?(true)
-                } else {
-                    showErrorDialog(error: response.message)
-                    complete?(false)
+                if response.success {
+                    self.plans = Array(response.data)
                 }
-                complete?(true)
             case .failure:
-                showNetworkErrorDialog()
-                complete?(false)
+                break
+            }
+        }
+        
+        api.fetchFollowShopStatus(merchant: merchant) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let response):
+                if response.success, let followed = response.data {
+                    self.followed = followed
+                }
+            case .failure:
+                break
             }
         }
     }
-    
-    private func generateRandomSize() -> CGSize {
-        let width: Double = Double(collectionView.frame.width) - 10 * 3
-        let random = Double(arc4random_uniform((UInt32(width * 1.5))))
-        let randomSize = CGSize(width: width, height: width + random)
-        return randomSize
-    }
-
 }
 
-extension ShopDetailsViewController: UICollectionViewDataSource {
+extension ShopDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath
     ) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                          withReuseIdentifier: "Header",
                                                                          for: indexPath) as! ShopDetailsCollectionHeaderView
         
-        self.shopDetailsCollectionHeaderView = headerView
+        self.headerView = headerView
         headerView.config(data: merchant, following: followed)
         return headerView
     }
@@ -122,16 +124,14 @@ extension ShopDetailsViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        guard let headerView = shopDetailsCollectionHeaderView else { return CGSize.zero }
+    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, heightForHeaderInSection section: Int) -> Float {
+        guard let headerView = headerView else { return 1 }
         
-        var size = CGSize()
-        let fitting = CGSize(width: headerView.frame.size.width, height: 1)
-        size = headerView.systemLayoutSizeFitting(fitting,
-                                                  withHorizontalFittingPriority: .required,
-                                                  verticalFittingPriority: UILayoutPriority(1))
-        return size
-        
+        // Use this view to calculate the optimal size based on the collection view's width
+        let size = headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
+                                                      withHorizontalFittingPriority: .required, // Width is fixed
+                                                      verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+        return Float(size.height)
     }
 }
 

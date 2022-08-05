@@ -58,8 +58,8 @@ class HomeFollowingViewController: BaseViewController {
             
             switch result {
             case .success(let response):
-                if response.success, let data = response.data {
-                    let merchants = Array(data)
+                if response.success {
+                    let merchants = Array(response.data)
                     self.merchants = merchants
                 } else {
                     showErrorDialog(error: response.message)

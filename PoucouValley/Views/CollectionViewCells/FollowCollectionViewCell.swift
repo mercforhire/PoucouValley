@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Kingfisher
 
 class FollowCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: URLImageView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     
@@ -25,9 +24,8 @@ class FollowCollectionViewCell: UICollectionViewCell {
     }
     
     func config(plan: Plan) {
-        if let thumbnailUrlString = plan.photos.first?.thumbnailUrl,
-            let url = URL(string: thumbnailUrlString) {
-            imageView.kf.setImage(with: url)
+        if let thumbnailUrlString = plan.photos.first?.thumbnailUrl {
+            imageView.loadImageFromURL(urlString: thumbnailUrlString)
         } else {
             imageView.image = nil
         }

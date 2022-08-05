@@ -27,6 +27,7 @@ class ThemeSearchBar: UISearchBar {
     }
     
     func setupUI() {
+        backgroundImage = UIImage()
         barTintColor = UIColor.fromRGBString(rgbString: themeManager.themeData!.whiteBackground)
         searchTextField.backgroundColor = UIColor.fromRGBString(rgbString: themeManager.themeData!.whiteBackground)
         searchTextField.textColor = UIColor.fromRGBString(rgbString: themeManager.themeData!.textLabel)

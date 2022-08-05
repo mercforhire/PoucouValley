@@ -11,7 +11,7 @@ import RealmSwift
 class ExplorePlansResponse: BaseObject {
     var success: Bool = false
     var message: String = ""
-    var data: List<Plan>?
+    var data: List<Plan> = List()
     
     convenience init(document: Document) {
         self.init()

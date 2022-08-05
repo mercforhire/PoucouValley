@@ -179,7 +179,7 @@ class PoucouAPI {
         guard let apiKey = apiKey else { return }
         
         let params: Document = ["keyword": AnyBSON(keyword)]
-        user.functions.api_searchPlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+        user.functions.api_searchShops([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -191,7 +191,7 @@ class PoucouAPI {
                     callBack(.failure(RealmError.decodingError))
                     return
                 }
-                print("Called function 'api_searchPlans' and got result: \(document)")
+                print("Called function 'api_searchShops' and got result: \(document)")
                 callBack(.success(ExploreShopsResponse(document: document)))
             }
         }
@@ -247,7 +247,7 @@ class PoucouAPI {
         guard let apiKey = apiKey else { return }
         
         var params: Document = [:]
-        params["merchantUserId"] = AnyBSON(merchant.identifier)
+        params["merchantUserId"] = AnyBSON(merchant.userId)
         
         user.functions.api_fetchFollowShopStatus([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {
@@ -271,7 +271,7 @@ class PoucouAPI {
         guard let apiKey = apiKey else { return }
         
         var params: Document = [:]
-        params["merchantUserId"] = AnyBSON(merchant.identifier)
+        params["merchantUserId"] = AnyBSON(merchant.userId)
         
         user.functions.api_fetchMerchantPlans([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {

@@ -20,7 +20,7 @@ class MerchantProfileViewController: BaseViewController {
         didSet {
             cellSizes.removeAll()
             for _ in 0...(plans?.count ?? 0) {
-                cellSizes.append(generateRandomSize())
+                cellSizes.append(generateRandomSize(collectionView: collectionView))
             }
             collectionView.reloadData()
         }
@@ -80,8 +80,8 @@ class MerchantProfileViewController: BaseViewController {
             
             switch result {
             case .success(let response):
-                if response.success, let data = response.data {
-                    self.plans = Array(data)
+                if response.success {
+                    self.plans = Array(response.data)
                     complete?(true)
                 } else {
                     showErrorDialog(error: response.message)
@@ -98,13 +98,6 @@ class MerchantProfileViewController: BaseViewController {
     private func refreshViewController() {
         title = merchant.name
         collectionHeaderView?.config(data: merchant)
-    }
-    
-    private func generateRandomSize() -> CGSize {
-        let width: Double = Double(collectionView.frame.width) - 10 * 3
-        let random = Double(arc4random_uniform((UInt32(width * 1.5))))
-        let randomSize = CGSize(width: width, height: width + random)
-        return randomSize
     }
     
     @objc func addPostButtonPressed(_ sender: UIButton) {

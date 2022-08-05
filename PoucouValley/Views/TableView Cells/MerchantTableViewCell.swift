@@ -20,8 +20,14 @@ class MerchantTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.addShadow(style: .medium)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -29,7 +35,7 @@ class MerchantTableViewCell: UITableViewCell {
     }
 
     func config(merchant: Merchant) {
-        if let fullUrl = merchant.logo?.fullUrl {
+        if let fullUrl = merchant.photos.first?.fullUrl {
             logoView.loadImageFromURL(urlString: fullUrl)
         } else {
             logoView.image = nil

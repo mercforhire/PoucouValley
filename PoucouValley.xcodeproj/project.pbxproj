@@ -233,6 +233,8 @@
 		72C7D430283EB2640066F3CB /* FetchMyCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */; };
 		72C7D432283EB4620066F3CB /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D431283EB4620066F3CB /* URLImageView.swift */; };
 		72C7D434283EF1600066F3CB /* CardScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D433283EF1600066F3CB /* CardScanViewController.swift */; };
+		72CF4FA6289CD95E005CCCC5 /* URLImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */; };
+		72CF4FA7289CD95E005CCCC5 /* URLImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */; };
 		72D61D282841D22C00C77302 /* SetGendersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D61D272841D22C00C77302 /* SetGendersCell.swift */; };
 		72DB597C284094E600C80FD6 /* CardActivatedBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB597B284094E600C80FD6 /* CardActivatedBaseViewController.swift */; };
 		72DB597E284098BA00C80FD6 /* ThemeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB597D284098BA00C80FD6 /* ThemeImageView.swift */; };
@@ -494,6 +496,8 @@
 		72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyCardResponse.swift; sourceTree = "<group>"; };
 		72C7D431283EB4620066F3CB /* URLImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
 		72C7D433283EF1600066F3CB /* CardScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanViewController.swift; sourceTree = "<group>"; };
+		72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = URLImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		72D61D272841D22C00C77302 /* SetGendersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGendersCell.swift; sourceTree = "<group>"; };
 		72DB597B284094E600C80FD6 /* CardActivatedBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActivatedBaseViewController.swift; sourceTree = "<group>"; };
 		72DB597D284098BA00C80FD6 /* ThemeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeImageView.swift; sourceTree = "<group>"; };
@@ -578,6 +582,8 @@
 			children = (
 				72707C032830ACFE004F3C3C /* GetStartedCell.swift */,
 				72AC00C52737294000B452BE /* FollowCollectionViewCell.swift */,
+				72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */,
+				72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */,
 				72AC01BF2739F46400B452BE /* StoryCollectionViewCell.swift */,
 				7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */,
 				72E2634A2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift */,
@@ -686,14 +692,13 @@
 		72AC00AC2736F27700B452BE /* PoucouValley */ = {
 			isa = PBXGroup;
 			children = (
+				72AC00BB2736F27900B452BE /* Info.plist */,
 				72AC00AD2736F27700B452BE /* AppDelegate.swift */,
+				72AC00AF2736F27700B452BE /* SceneDelegate.swift */,
 				72AC00B62736F27900B452BE /* Assets.xcassets */,
 				72AC00EA27378FFA00B452BE /* Extensions */,
-				72AC00BB2736F27900B452BE /* Info.plist */,
-				72AC00B82736F27900B452BE /* LaunchScreen.storyboard */,
 				72AC00DA273787CE00B452BE /* Managers */,
 				72AC015827387BB200B452BE /* Models */,
-				72AC00AF2736F27700B452BE /* SceneDelegate.swift */,
 				72AC014F2738689C00B452BE /* Services */,
 				72AC00C12737043D00B452BE /* Storyboards */,
 				72AC011F2737917D00B452BE /* Theme */,
@@ -707,6 +712,7 @@
 		72AC00C12737043D00B452BE /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				72AC00B82736F27900B452BE /* LaunchScreen.storyboard */,
 				7201EEE7282F564D00AD6585 /* Login.storyboard */,
 				72707C1E2832F2FD004F3C3C /* SetupProfile.storyboard */,
 				72AC00B32736F27700B452BE /* Main.storyboard */,
@@ -1259,6 +1265,7 @@
 				72B2FB9F273C6CA000382C12 /* Poppins-ExtraLight.ttf in Resources */,
 				72997ABF289B17AA00F745A8 /* MerchantDetailsHeaderView.xib in Resources */,
 				72B2FBA6273C6CA000382C12 /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				72CF4FA7289CD95E005CCCC5 /* URLImageCollectionViewCell.xib in Resources */,
 				72B2FBA9273C6CA000382C12 /* OFL.txt in Resources */,
 				72F92FEE284078D000DF438C /* Charts.storyboard in Resources */,
 				7201EEE8282F564D00AD6585 /* Login.storyboard in Resources */,
@@ -1474,6 +1481,7 @@
 				72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */,
 				72997AD3289C5F2E00F745A8 /* DayAxisValueFormatter.swift in Sources */,
 				725C20BD284062B900BACBFE /* CardRootViewController.swift in Sources */,
+				72CF4FA6289CD95E005CCCC5 /* URLImageCollectionViewCell.swift in Sources */,
 				72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */,
 				72AC011D27378FFA00B452BE /* Double+Extensions.swift in Sources */,
 				72AC011427378FFA00B452BE /* UIWindow+Extensions.swift in Sources */,

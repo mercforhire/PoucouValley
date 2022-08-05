@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="399" height="89"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zo8-NN-o6a">
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Zo8-NN-o6a" customClass="ThemeSearchBar" customModule="PoucouValley" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="399" height="45"/>
                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <constraints>

@@ -10,7 +10,7 @@ import CRRefresh
 
 class ClientsViewController: BaseViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: ThemeSearchBar!
     @IBOutlet weak var usersCountLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var tableView: UITableView!

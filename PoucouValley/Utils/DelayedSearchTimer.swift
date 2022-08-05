@@ -12,7 +12,7 @@ protocol DelayedSearchTimerDelegate : class {
 }
 
 class DelayedSearchTimer {
-    static let searchDelay: TimeInterval = 0.8
+    var searchDelay: TimeInterval = 0.8
     var timer: Timer?
     
     weak var delegate: DelayedSearchTimerDelegate?
@@ -23,7 +23,7 @@ class DelayedSearchTimer {
             timer.invalidate()
         }
         searchedText = text
-        timer = Timer.scheduledTimer(timeInterval: DelayedSearchTimer.searchDelay,
+        timer = Timer.scheduledTimer(timeInterval: searchDelay,
                                      target: self,
                                      selector: #selector(timerFired),
                                      userInfo: nil,

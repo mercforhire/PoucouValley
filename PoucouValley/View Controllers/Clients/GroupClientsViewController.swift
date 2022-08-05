@@ -11,7 +11,7 @@ import CRRefresh
 class GroupClientsViewController: BaseViewController {
     var type: ClientGroupTypes!
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: ThemeSearchBar!
     @IBOutlet var icons: [UIView]!
     @IBOutlet weak var usersCountLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!

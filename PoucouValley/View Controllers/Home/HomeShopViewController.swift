@@ -12,7 +12,7 @@ import CRRefresh
 class HomeShopViewController: BaseViewController {
     private var itemInfo = IndicatorInfo(title: "Shops")
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: ThemeSearchBar!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,6 +36,7 @@ class HomeShopViewController: BaseViewController {
     }
     private var category: BusinessCategories?  {
         didSet {
+            categoryCollectionView.reloadData()
             fetchContent()
         }
     }
@@ -53,6 +54,8 @@ class HomeShopViewController: BaseViewController {
                 self.fetchContent()
             }
         }
+        
+        delayTimer.searchDelay = 2.0
         delayTimer.delegate = self
     }
     
@@ -71,9 +74,9 @@ class HomeShopViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let topDownContentInset: CGFloat = 15
-        let leftRightContentInset: CGFloat = 15
-        let itemSpace: CGFloat = 19
+        let topDownContentInset: CGFloat = 5
+        let leftRightContentInset: CGFloat = 5
+        let itemSpace: CGFloat = 5
         let itemsPerRow: CGFloat = 4
         let itemsPerColumn: CGFloat = 2
         let flowlayout = UICollectionViewFlowLayout()
@@ -98,14 +101,13 @@ class HomeShopViewController: BaseViewController {
             
             switch result {
             case .success(let response):
-                if response.success, let data = response.data {
-                    self.merchants = Array(data)
+                if response.success {
+                    self.merchants = Array(response.data)
                     complete?(true)
                 } else {
                     showErrorDialog(error: response.message)
                     complete?(false)
                 }
-                complete?(true)
             case .failure:
                 showNetworkErrorDialog()
                 complete?(false)
@@ -124,8 +126,8 @@ class HomeShopViewController: BaseViewController {
 
             switch result {
             case .success(let response):
-                if response.success, let data = response.data {
-                    self.searchResults = Array(data)
+                if response.success {
+                    self.searchResults = Array(response.data)
                 } else {
                     showErrorDialog(error: response.message)
                 }
@@ -149,13 +151,13 @@ extension HomeShopViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! ImageAndLabelNormalCell
-        cell.roundCorners(style: .medium)
         cell.config(data: BusinessCategories.list()[indexPath.row])
         if category == BusinessCategories.list()[indexPath.row] {
             cell.highlight()
         } else {
             cell.unhighlight()
         }
+        cell.roundCorners(style: .medium)
         return cell
     }
     
@@ -174,7 +176,11 @@ extension HomeShopViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return max(1, merchants?.count ?? 0)
+        if searchMode {
+            return max(1, searchResults?.count ?? 0)
+        } else {
+            return max(1, merchants?.count ?? 0)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -230,9 +236,7 @@ extension HomeShopViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if let text = searchBar.text, text.trim().isEmpty {
-            delayTimer.textDidGetEntered(text: "")
-        }
+        delayTimer.textDidGetEntered(text: searchBar.text ?? "")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -241,22 +245,8 @@ extension HomeShopViewController: UISearchBarDelegate {
         delayTimer.textDidGetEntered(text: "")
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        
-        guard let text = searchBar.text, !text.trim().isEmpty else {
-            tableView.scrollToTop(animated: false)
-            delayTimer.textDidGetEntered(text: "")
-            return
-        }
-        
-        delayTimer.textDidGetEntered(text: text)
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let text = searchBar.text, text.trim().isEmpty {
-            delayTimer.textDidGetEntered(text: "")
-        }
+        delayTimer.textDidGetEntered(text: searchBar.text ?? "")
     }
 }
 
@@ -264,7 +254,7 @@ extension HomeShopViewController: DelayedSearchTimerDelegate {
     func shouldSearch(text: String) {
         let text: String = text.trim()
         
-        if text.count <= 3 {
+        if text.count < 3 {
             searchMode = false
             searchResults = nil
         } else {

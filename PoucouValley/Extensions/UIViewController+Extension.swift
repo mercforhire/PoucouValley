@@ -38,6 +38,12 @@ extension UIViewController {
         navigationItem.titleView = container
     }
     
+    func generateRandomSize(collectionView: UICollectionView) -> CGSize {
+        let width: Double = Double(collectionView.frame.width) - 10 * 3
+        let random = Double(arc4random_uniform(UInt32(width * 1.5)))
+        let randomSize = CGSize(width: width, height: max(width + 100, width + random))
+        return randomSize
+    }
 }
 
 extension UIViewController {

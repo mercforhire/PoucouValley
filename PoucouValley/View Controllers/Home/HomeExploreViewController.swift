@@ -8,6 +8,7 @@
 import UIKit
 import CollectionViewWaterfallLayout
 import XLPagerTabStrip
+import CRRefresh
 
 class HomeExploreViewController: BaseViewController {
     private var itemInfo = IndicatorInfo(title: "Explore")
@@ -18,7 +19,7 @@ class HomeExploreViewController: BaseViewController {
         didSet {
             plansCellSizes.removeAll()
             for _ in 0...(plans?.count ?? 0) {
-                plansCellSizes.append(generateRandomSize())
+                plansCellSizes.append(generateRandomSize(collectionView: collectionView))
             }
             collectionView.reloadData()
         }
@@ -28,7 +29,7 @@ class HomeExploreViewController: BaseViewController {
         didSet {
             searchResultsCellSizes.removeAll()
             for _ in 0...(searchResults?.count ?? 0) {
-                searchResultsCellSizes.append(generateRandomSize())
+                searchResultsCellSizes.append(generateRandomSize(collectionView: collectionView))
             }
             collectionView.reloadData()
         }
@@ -38,11 +39,19 @@ class HomeExploreViewController: BaseViewController {
     private var searchResultsCellSizes: [CGSize] = []
     
     private var delayTimer = DelayedSearchTimer()
-    private var storiesCollectionReusableView: SearchBarCollectionHeaderView?
+    private var headerView: SearchBarCollectionHeaderView? {
+        didSet {
+            guard let headerView = headerView else { return }
+            
+            headerView.searchBar.delegate = self
+        }
+    }
     
     private var searchMode: Bool = false {
         didSet {
-            collectionView.reloadData()
+            if oldValue != searchMode {
+                collectionView.reloadData()
+            }
         }
     }
     
@@ -51,7 +60,7 @@ class HomeExploreViewController: BaseViewController {
         
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.headerHeight = 130
+        layout.headerHeight = 1
         layout.footerHeight = 0
         layout.minimumColumnSpacing = 10
         layout.minimumInteritemSpacing = 10
@@ -61,7 +70,18 @@ class HomeExploreViewController: BaseViewController {
         
         collectionView.register(UINib(nibName: "SearchBarCollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
         
+        delayTimer.searchDelay = 2.0
         delayTimer.delegate = self
+        
+        collectionView.cr.addHeadRefresh(animator: NormalHeaderAnimator()) { [weak self] in
+            guard let self = self else { return }
+            
+            if self.searchMode {
+                self.requestToSearch(query: self.headerView?.searchBar.text)
+            } else {
+                self.fetchContent()
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -77,13 +97,18 @@ class HomeExploreViewController: BaseViewController {
     }
     
     private func fetchContent(complete: ((Bool) -> Void)? = nil) {
+        plans == nil ? FullScreenSpinner().show() : nil
+        
         api.fetchPlans { [weak self] result in
             guard let self = self else { return }
             
+            FullScreenSpinner().hide()
+            self.collectionView.cr.endHeaderRefresh()
+            
             switch result {
             case .success(let response):
-                if response.success, let data = response.data {
-                    self.plans = Array(data)
+                if response.success {
+                    self.plans = Array(response.data)
                     complete?(true)
                 } else {
                     showErrorDialog(error: response.message)
@@ -97,13 +122,6 @@ class HomeExploreViewController: BaseViewController {
         }
     }
     
-    private func generateRandomSize() -> CGSize {
-        let width: Double = Double(collectionView.frame.width) - 10 * 3
-        let random = Double(arc4random_uniform((UInt32(width * 1.5))))
-        let randomSize = CGSize(width: width, height: width + random)
-        return randomSize
-    }
-    
     private func requestToSearch(query: String?) {
         guard let query = query, !query.isEmpty else {
             self.searchResults = nil
@@ -113,10 +131,12 @@ class HomeExploreViewController: BaseViewController {
         api.searchPlans(keyword: query) { [weak self] result in
             guard let self = self else { return }
 
+            self.collectionView.cr.endHeaderRefresh()
+            
             switch result {
             case .success(let response):
-                if response.success, let data = response.data {
-                    self.searchResults = Array(data)
+                if response.success {
+                    self.searchResults = Array(response.data)
                 } else {
                     showErrorDialog(error: response.message)
                 }
@@ -133,9 +153,7 @@ extension HomeExploreViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if let text = searchBar.text, text.trim().isEmpty {
-            delayTimer.textDidGetEntered(text: "")
-        }
+        delayTimer.textDidGetEntered(text: searchBar.text ?? "")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -144,22 +162,8 @@ extension HomeExploreViewController: UISearchBarDelegate {
         delayTimer.textDidGetEntered(text: "")
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        
-        guard let text = searchBar.text, !text.trim().isEmpty else {
-            collectionView.scrollToTop(animated: false)
-            delayTimer.textDidGetEntered(text: "")
-            return
-        }
-        
-        delayTimer.textDidGetEntered(text: text)
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let text = searchBar.text, text.trim().isEmpty {
-            delayTimer.textDidGetEntered(text: "")
-        }
+        delayTimer.textDidGetEntered(text: searchBar.text ?? "")
     }
 }
 
@@ -173,25 +177,25 @@ extension HomeExploreViewController: DelayedSearchTimerDelegate {
     func shouldSearch(text: String) {
         let text: String = text.trim()
         
-        if text.count <= 3 {
+        if text.count < 3 {
             searchMode = false
             searchResults = nil
         } else {
             searchMode = true
-            
+            requestToSearch(query: text)
         }
     }
 }
 
 // MARK: - UICollectionViewDataSource
-extension HomeExploreViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath
-    ) -> UICollectionReusableView {
+extension HomeExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                          withReuseIdentifier: "Header",
                                                                          for: indexPath) as! SearchBarCollectionHeaderView
         
-        self.storiesCollectionReusableView = headerView
+        self.headerView = headerView
         headerView.searchBar.delegate = self
         return headerView
     }
@@ -228,6 +232,16 @@ extension HomeExploreViewController: UICollectionViewDataSource {
             cell.config(plan: plan)
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, heightForHeaderInSection section: Int) -> Float {
+        guard let headerView = headerView else { return 1 }
+        
+        // Use this view to calculate the optimal size based on the collection view's width
+        let size = headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
+                                                      withHorizontalFittingPriority: .required, // Width is fixed
+                                                      verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+        return Float(size.height)
     }
 }
 

@@ -28,8 +28,10 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        collectionView.register(UINib(nibName: "URLImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         pageControl.numberOfPages = 1
         shopNameLabel.text = ""
         numberFollowersLabel.text = ""
@@ -39,6 +41,8 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
     }
     
     func config(data: Merchant, following: Bool) {
+        photos = Array(data.photos)
+        
         if let logo = data.logo {
             logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
         } else if let firstPhoto = data.photos.first {
@@ -75,7 +79,7 @@ extension ShopDetailsCollectionHeaderView: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! SimpleURLImageCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? URLImageCollectionViewCell else { return URLImageCollectionViewCell() }
         
         let photo = photos[indexPath.row]
         cell.imageView.loadImageFromURL(urlString: photo.fullUrl)

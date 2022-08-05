@@ -101,6 +101,30 @@ extension UIView {
         return shadowView
     }
     
+    func addShadow(style: RoundCornerStyle = .small) {
+        var cornerRadius: CGFloat = 8.0
+        switch style {
+        case .small:
+            cornerRadius = 4.0
+        case .medium:
+            cornerRadius = 6.0
+        case .large:
+            cornerRadius = 12.0
+        case .completely:
+            cornerRadius = frame.height / 2
+        }
+        clipsToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = CGSize(width: cornerRadius, height: cornerRadius)
+        layer.shadowRadius = 4
+        layer.shadowPath = UIBezierPath(roundedRect: CGRect(origin: .zero,
+                                                            size: CGSize(width: bounds.width - 20,
+                                                                         height: bounds.height)),
+                                        cornerRadius: cornerRadius).cgPath
+        layer.cornerRadius = cornerRadius
+    }
+    
     private static let separatorTag = 111_111_111
     
     enum SeparatorPosition: CGFloat {

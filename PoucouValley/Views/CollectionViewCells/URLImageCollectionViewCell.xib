@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="URLImageCollectionViewCell" customModule="PoucouValley" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="146" height="114"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="146" height="114"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="store" translatesAutoresizingMaskIntoConstraints="NO" id="fon-9M-9XH" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="44" width="146" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="fon-9M-9XH" secondAttribute="leading" id="UnF-24-X4t"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="fon-9M-9XH" secondAttribute="top" id="Wh1-Sf-GwF"/>
+                <constraint firstItem="fon-9M-9XH" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="XJd-YU-NYx"/>
+                <constraint firstItem="fon-9M-9XH" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="Zd2-fG-f6c"/>
+            </constraints>
+            <size key="customSize" width="146" height="114"/>
+            <connections>
+                <outlet property="imageView" destination="fon-9M-9XH" id="jhc-za-1zj"/>
+            </connections>
+            <point key="canvasLocation" x="201.44927536231884" y="103.79464285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="store" width="103" height="103"/>
+    </resources>
+</document>

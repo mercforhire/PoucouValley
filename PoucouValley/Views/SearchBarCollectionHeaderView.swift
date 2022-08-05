@@ -8,11 +8,10 @@
 import UIKit
 
 class SearchBarCollectionHeaderView: UICollectionReusableView {
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: ThemeSearchBar!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        searchBar.backgroundImage = UIImage()
     }
 }
