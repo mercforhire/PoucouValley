@@ -40,6 +40,28 @@ class FollowCollectionViewCell: UICollectionViewCell {
         label2.text = plan.planDescription
     }
     
+    func config(gift: Gift) {
+        if let thumbnailUrlString = gift.photos.first?.thumbnailUrl {
+            imageView.loadImageFromURL(urlString: thumbnailUrlString)
+        } else {
+            imageView.image = nil
+        }
+        
+        if !gift.name.isEmpty {
+            label1.text = gift.name
+            label1.isHidden = false
+        } else {
+            label1.isHidden = true
+        }
+        
+        if !gift.itemDescription.isEmpty {
+            label1.text = "\(label1.text ?? "")-\(gift.itemDescription)"
+            label1.isHidden = false
+        }
+        
+        label2.text = gift.itemDescription2
+    }
+    
     func config(merchant: Merchant) {
         if let thumbnailUrlString = merchant.logo?.thumbnailUrl,
             let url = URL(string: thumbnailUrlString) {

@@ -218,23 +218,23 @@
                                                                     <rect key="frame" x="0.0" y="35.5" width="384" height="10"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6I6-2z-yuo">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="83.5" height="10"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="10"/>
                                                                             <color key="backgroundColor" systemColor="systemMintColor"/>
                                                                         </view>
                                                                         <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEy-ar-xEK">
-                                                                            <rect key="frame" x="88.5" y="0.0" width="83.5" height="10"/>
+                                                                            <rect key="frame" x="89" y="0.0" width="83.5" height="10"/>
                                                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </view>
                                                                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSF-5u-mMS">
-                                                                            <rect key="frame" x="177" y="0.0" width="83.5" height="10"/>
+                                                                            <rect key="frame" x="177.5" y="0.0" width="84" height="10"/>
                                                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </view>
                                                                         <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnJ-sL-ZD1">
-                                                                            <rect key="frame" x="265.5" y="0.0" width="83.5" height="10"/>
+                                                                            <rect key="frame" x="266.5" y="0.0" width="83.5" height="10"/>
                                                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </view>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cFd-oN-MF2">
-                                                                            <rect key="frame" x="354" y="0.0" width="30" height="10"/>
+                                                                            <rect key="frame" x="355" y="0.0" width="29" height="10"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoinsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-1I-efe">
                                                                                     <rect key="frame" x="0.0" y="0.5" width="10" height="9"/>
@@ -244,7 +244,7 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-Bm-vRG" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                                    <rect key="frame" x="15" y="0.0" width="15" height="10"/>
+                                                                                    <rect key="frame" x="15" y="0.0" width="14" height="10"/>
                                                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -356,28 +356,46 @@
                                             <outletCollection property="progressBars" destination="lnJ-sL-ZD1" collectionClass="NSMutableArray" id="1ZC-dT-txq"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelTableCell" id="cGH-82-jbh" customClass="LabelTableCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="380" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonTableCell" id="cGH-82-jbh" customClass="ButtonTableCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="380" width="414" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cGH-82-jbh" id="aro-aA-ksY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exchange gift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOw-bZ-1md">
-                                                    <rect key="frame" x="30" y="5.5" width="354" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYD-AB-Uoc">
+                                                    <rect key="frame" x="25" y="0.0" width="364" height="36"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Exchange for gifts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOw-bZ-1md">
+                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="36"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YP-J9-ili">
+                                                            <rect key="frame" x="309" y="0.0" width="55" height="36"/>
+                                                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="See all">
+                                                                <color key="titleColor" systemColor="labelColor"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hYD-AB-Uoc" firstAttribute="top" secondItem="aro-aA-ksY" secondAttribute="top" id="cik-2r-X67"/>
+                                                <constraint firstAttribute="trailing" secondItem="hYD-AB-Uoc" secondAttribute="trailing" constant="25" id="iMF-0u-ouI"/>
+                                                <constraint firstItem="hYD-AB-Uoc" firstAttribute="leading" secondItem="aro-aA-ksY" secondAttribute="leading" constant="25" id="teU-9Y-0UD"/>
+                                                <constraint firstAttribute="bottom" secondItem="hYD-AB-Uoc" secondAttribute="bottom" id="wMM-fa-ZHb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="headerLabel" destination="kOw-bZ-1md" id="LJT-1C-QJX"/>
+                                            <outlet property="button" destination="7YP-J9-ili" id="hhx-Li-bIL"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GiftTableViewCell" rowHeight="100" id="PHC-fK-iVj" customClass="GiftTableViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="424" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="416" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PHC-fK-iVj" id="ujV-Rp-L6S">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -450,6 +468,7 @@
                         <outlet property="nameLabel" destination="e4Q-dW-c4I" id="xEx-wh-Lqt"/>
                         <outlet property="tableView" destination="d0w-WM-sEJ" id="jam-L9-os6"/>
                         <segue destination="W7d-Cf-jpb" kind="show" identifier="goToCompleteProfile" id="Nl4-Ao-Ke1"/>
+                        <segue destination="sxB-dg-0bP" kind="show" identifier="goToGifts" id="Ghz-fG-awH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8h-rI-SOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2288,7 +2307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qox-s8-2Er" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2718.840579710145" y="4102.9017857142853"/>
+            <point key="canvasLocation" x="2717" y="4189"/>
         </scene>
         <!--Cardholder Settings View Controller-->
         <scene sceneID="bBv-bn-4mr">
@@ -3058,6 +3077,16 @@ Ontario, A6B 2V7</string>
             </objects>
             <point key="canvasLocation" x="4405.7971014492759" y="2680.5803571428569"/>
         </scene>
+        <!--GiftsListViewController-->
+        <scene sceneID="X0V-ga-PSq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Gifts" referencedIdentifier="GiftsListViewController" id="sxB-dg-0bP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fLu-PH-L0a"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-8r-LyB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3019" y="3092"/>
+        </scene>
         <!--My Coins History View Controller-->
         <scene sceneID="j3Y-Sy-rko">
             <objects>
@@ -3197,6 +3226,9 @@ Ontario, A6B 2V7</string>
         <image name="gem" width="13.5" height="13.5"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="piggybank" width="148.5" height="133"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

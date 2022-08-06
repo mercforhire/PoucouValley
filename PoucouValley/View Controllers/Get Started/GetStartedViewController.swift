@@ -39,8 +39,6 @@ class GetStartedViewController: BaseViewController {
         
         navigationController?.navigationBar.isHidden = true
         page = 0
-        
-        
     }
     
     override func setupTheme() {

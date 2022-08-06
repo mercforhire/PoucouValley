@@ -74,20 +74,20 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61o-D0-2NO">
-                                            <rect key="frame" x="58" y="0.0" width="242.5" height="48"/>
+                                            <rect key="frame" x="58" y="0.0" width="326" height="48"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZyY-cH-zR6">
-                                                    <rect key="frame" x="0.0" y="0.0" width="242.5" height="48"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repower Financial Group Inc." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDx-G4-UfP" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="242.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="326" height="24"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[X] followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmp-OJ-qMH" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="24" width="242.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="24" width="326" height="24"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,11 +105,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="ZyY-cH-zR6" secondAttribute="bottom" id="bLt-20-MPm"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZS-Xv-qB8">
-                                            <rect key="frame" x="310.5" y="0.0" width="73.5" height="48"/>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZS-Xv-qB8">
+                                            <rect key="frame" x="384" y="0.0" width="0.0" height="48"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-heart" translatesAutoresizingMaskIntoConstraints="NO" id="Q6i-IU-NOs">
-                                                    <rect key="frame" x="22" y="11.5" width="29.5" height="25.5"/>
+                                                    <rect key="frame" x="0.0" y="24" width="0.0" height="0.0"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Q6i-IU-NOs" secondAttribute="height" multiplier="54:47" id="Vv2-o5-Awg"/>
@@ -148,10 +148,10 @@
                                     <rect key="frame" x="0.0" y="445" width="384" height="20"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="chl-xO-yo4">
-                                            <rect key="frame" x="0.0" y="0.0" width="86" height="20"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="20"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu5-v9-b7M" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="38" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="37.5" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="X4f-h4-WLE"/>
@@ -161,7 +161,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZB-dm-VlZ" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="48" y="0.0" width="38" height="20"/>
+                                                    <rect key="frame" x="47.5" y="0.0" width="37.5" height="20"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Fdc-ma-tzj"/>
@@ -182,7 +182,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdH-SH-Csk" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="480" width="384" height="147"/>
+                                    <rect key="frame" x="0.0" y="480" width="384" height="227"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <string key="text">Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.</string>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
@@ -190,7 +190,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="#deadlights #jacklad #schooner " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bl2-WV-ziE" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="642" width="384" height="106"/>
+                                    <rect key="frame" x="0.0" y="722" width="384" height="26"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -200,7 +200,7 @@
                                     <rect key="frame" x="0.0" y="763" width="384" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-YU-HIF" customClass="ThemeRoundedGreenWhiteTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                            <rect key="frame" x="128" y="0.0" width="128" height="44"/>
+                                            <rect key="frame" x="123.5" y="0.0" width="137" height="44"/>
                                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="S1e-bT-lgc"/>
@@ -253,6 +253,7 @@
                 <outlet property="collectionView" destination="KWq-LO-M9H" id="fQK-lv-Ub0"/>
                 <outlet property="discountedPriceLabel" destination="PZB-dm-VlZ" id="kfU-8i-iHc"/>
                 <outlet property="followButton" destination="OUw-YU-HIF" id="ADL-5I-bix"/>
+                <outlet property="followButtonContainer" destination="9Kc-Bc-GWB" id="vff-Z6-YSZ"/>
                 <outlet property="hashtagsLabel" destination="bl2-WV-ziE" id="zB4-cs-663"/>
                 <outlet property="heartIcon" destination="Q6i-IU-NOs" id="2pc-4G-bpJ"/>
                 <outlet property="likeButton" destination="aUC-Wj-L3e" id="53M-zS-pUb"/>

@@ -20,7 +20,7 @@ class MyProfileViewController: BaseViewController {
             case .completeProfile:
                 return "Complete Profile"
             case .sectionTitle1:
-                return "Exchange gift"
+                return "Exchange for gifts"
             case .giftCard:
                 return "Gift Card"
             }
@@ -252,6 +252,10 @@ class MyProfileViewController: BaseViewController {
         }
     }
     
+    @objc func seeAllPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToGifts", sender: self)
+    }
+    
     override func cropViewControllerDidEndResize(_ cropViewController: CropViewController, original: UIImage, cropInfo: CropInfo) {
         dismiss(animated: true, completion: { [weak self] in
             self?.uploadPhoto(photo: original)
@@ -298,11 +302,11 @@ extension MyProfileViewController: UITableViewDataSource, UITableViewDelegate {
             cell.config(data: gift)
             return cell
         case .sectionTitle1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableCell", for: indexPath) as? LabelTableCell else {
-                return LabelTableCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonTableCell", for: indexPath) as? ButtonTableCell else {
+                return ButtonTableCell()
             }
             
-            cell.headerLabel.text = row.title()
+            cell.button.addTarget(self, action: #selector(seeAllPressed), for: .touchUpInside)
             return cell
         }
     }

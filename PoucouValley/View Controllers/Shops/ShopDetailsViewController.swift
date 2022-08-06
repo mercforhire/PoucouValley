@@ -88,6 +88,27 @@ class ShopDetailsViewController: BaseViewController {
             }
         }
     }
+    
+    @objc private func followButtonPressed() {
+        FullScreenSpinner().show()
+        
+        api.followMerchant(merchantId: merchant.identifier) { [weak self] result in
+            guard let self = self else { return }
+            
+            FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                if response.success {
+                    self.followed = true
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
+        }
+    }
 }
 
 extension ShopDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -99,6 +120,7 @@ extension ShopDetailsViewController: UICollectionViewDelegate, UICollectionViewD
         
         self.headerView = headerView
         headerView.config(data: merchant, following: followed)
+        headerView.followButton.addTarget(self, action: #selector(followButtonPressed), for: .touchUpInside)
         return headerView
     }
     

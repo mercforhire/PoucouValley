@@ -34,6 +34,7 @@ class HomeExploreViewController: BaseViewController {
             collectionView.reloadData()
         }
     }
+    private var clickedPlan: Plan?
     
     private var plansCellSizes: [CGSize] = []
     private var searchResultsCellSizes: [CGSize] = []
@@ -145,6 +146,12 @@ class HomeExploreViewController: BaseViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PlanDetailsViewController, let clickedPlan = clickedPlan {
+            vc.plan = clickedPlan
+        }
+    }
 }
 
 extension HomeExploreViewController: UISearchBarDelegate {
@@ -200,10 +207,6 @@ extension HomeExploreViewController: UICollectionViewDelegate, UICollectionViewD
         return headerView
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
-        
-    }
-    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -242,6 +245,13 @@ extension HomeExploreViewController: UICollectionViewDelegate, UICollectionViewD
                                                       withHorizontalFittingPriority: .required, // Width is fixed
                                                       verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
         return Float(size.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let plan = plans?[indexPath.row] else { return }
+        
+        clickedPlan = plan
+        performSegue(withIdentifier: "goToPlan", sender: self)
     }
 }
 

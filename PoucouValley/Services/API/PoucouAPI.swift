@@ -246,6 +246,54 @@ class PoucouAPI {
         }
     }
     
+    func fetchMerchant(merchantId: ObjectId, callBack: @escaping(Result<FetchMerchantResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var params: Document = [:]
+        params["merchantId"] = AnyBSON(merchantId)
+        
+        user.functions.api_fetchMerchant([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchMerchant' and got result: \(document)")
+                callBack(.success(FetchMerchantResponse(document: document)))
+            }
+        }
+    }
+    
+    func followMerchant(merchantId: ObjectId, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        var params: Document = [:]
+        params["merchantId"] = AnyBSON(merchantId)
+        
+        user.functions.api_followMerchant([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_followMerchant' and got result: \(document)")
+                callBack(.success(BooleanResponse(document: document)))
+            }
+        }
+    }
+    
     func fetchFollowShopStatus(merchant: Merchant, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
@@ -294,7 +342,7 @@ class PoucouAPI {
         }
     }
     
-    func api_fetchRelatedPlans(plan: Plan, callBack: @escaping(Result<ExplorePlansResponse, Error>) -> Void) {
+    func fetchRelatedPlans(plan: Plan, callBack: @escaping(Result<ExplorePlansResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
         var params: Document = [:]
@@ -719,8 +767,12 @@ class PoucouAPI {
         }
     }
     
-    func fetchGifts(callBack: @escaping(Result<FetchGiftsResponse, Error>) -> Void) {
-        user.functions.api_fetchGifts([]) { response, error in
+    func fetchGifts(maxNumberOfResults: Int? = nil, callBack: @escaping(Result<FetchGiftsResponse, Error>) -> Void) {
+        var params: [AnyBSON] = []
+        if let maxNumberOfResults = maxNumberOfResults {
+            params = [AnyBSON(maxNumberOfResults)]
+        }
+        user.functions.api_fetchGifts(params) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")
@@ -1092,6 +1144,29 @@ class PoucouAPI {
                 }
                 print("Called function 'api_scanCard' and got result: \(document)")
                 callBack(.success(StringResponse(document: document)))
+            }
+        }
+    }
+    
+    func redeemGift(gift: Gift, callBack: @escaping(Result<TransactionResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        let params: Document = ["giftId": AnyBSON(gift.identifier)]
+        
+        user.functions.api_redeemGift([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_redeemGift' and got result: \(document)")
+                callBack(.success(TransactionResponse(document: document)))
             }
         }
     }

@@ -132,6 +132,6 @@ extension EnterClientCardNumberViewController {
 
 extension EnterClientCardNumberViewController: PictureTextDialogDelegate {
     func dismissedDialog(dialog: PictureTextDialog) {
-        self.navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 }

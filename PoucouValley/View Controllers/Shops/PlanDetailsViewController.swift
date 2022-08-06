@@ -1,38 +1,42 @@
 //
-//  MerchantProfileViewController.swift
+//  PlanDetailsViewController.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-08-02.
+//  Created by Leon Chen on 2022-08-05.
 //
 
 import UIKit
 import CollectionViewWaterfallLayout
+import CRRefresh
 
-class MerchantProfileViewController: BaseViewController {
+class PlanDetailsViewController: BaseViewController {
+    var plan: Plan!
+    var merchant: Merchant!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var merchant: Merchant {
-        return userManager.user!.merchant!
-    }
-    
-    private var plans: [Plan]? {
+    private var relatedPlans: [Plan]? {
         didSet {
             cellSizes.removeAll()
-            for _ in 0...(plans?.count ?? 0) {
+            for _ in 0...(relatedPlans?.count ?? 0) {
                 cellSizes.append(generateRandomSize(collectionView: collectionView))
             }
             collectionView.reloadData()
         }
     }
     private var selectedPlan: Plan?
+    private var followed: Bool = false {
+        didSet {
+            headerView?.config(plan: plan, merchant: merchant, following: followed)
+        }
+    }
     private var cellSizes: [CGSize] = []
-    private var collectionHeaderView: MerchantDetailsHeaderView?
+    private var headerView: PlanDetailsCollectionHeaderView?
     
     override func setup() {
         super.setup()
         
-        title = merchant.name
+        title = plan.title
         
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -51,17 +55,9 @@ class MerchantProfileViewController: BaseViewController {
         
         refreshViewController()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        userManager.fetchUser { [weak self] success in
-            guard let self = self else { return }
-            
-            if success {
-                self.refreshViewController()
-            }
-        }
         
         fetchContent { [weak self] success in
             guard let self = self else { return }
@@ -79,50 +75,74 @@ class MerchantProfileViewController: BaseViewController {
             switch result {
             case .success(let response):
                 if response.success {
-                    self.plans = Array(response.data)
+                    self.relatedPlans = Array(response.data)
                     complete?(true)
                 } else {
                     showErrorDialog(error: response.message)
                     complete?(false)
                 }
-                complete?(true)
             case .failure:
                 showNetworkErrorDialog()
                 complete?(false)
             }
         }
+        
+        api.fetchFollowShopStatus(merchant: merchant) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let response):
+                if response.success, let followed = response.data {
+                    self.followed = followed
+                }
+            case .failure:
+                break
+            }
+        }
+    }
+    
+    @objc private func followButtonPressed() {
+        FullScreenSpinner().show()
+        
+        api.followMerchant(merchantId: merchant.identifier) { [weak self] result in
+            guard let self = self else { return }
+            
+            FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                if response.success {
+                    self.followed = true
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
+        }
     }
     
     private func refreshViewController() {
-        title = merchant.name
-        collectionHeaderView?.config(data: merchant)
-    }
-    
-    @objc func addPostButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToNewPost", sender: self)
-    }
-    
-    @objc func editPostPressed(plan: Plan) {
-        selectedPlan = plan
-        performSegue(withIdentifier: "goToEditPost", sender: self)
+        headerView?.config(plan: plan, merchant: merchant, following: followed)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? EditPostViewController,
+        if let vc = segue.destination as? PlanDetailsViewController,
             let selectedPlan = selectedPlan {
             vc.plan = selectedPlan
         }
     }
 }
 
-extension MerchantProfileViewController: UICollectionViewDataSource {
+extension PlanDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                          withReuseIdentifier: "Header",
-                                                                         for: indexPath) as! MerchantDetailsHeaderView
+                                                                         for: indexPath) as! PlanDetailsCollectionHeaderView
         
-        self.collectionHeaderView = headerView
-        headerView.config(data: merchant)
+        self.headerView = headerView
+        headerView.config(plan: plan, merchant: merchant, following: followed)
+        headerView.followButton.addTarget(self, action: #selector(followButtonPressed), for: .touchUpInside)
         return headerView
     }
     
@@ -135,20 +155,13 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return plans?.count ?? 0
+        return relatedPlans?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if plans?.count ?? 0 == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyPostsCell", for: indexPath) as? EmptyPostsCell else { return EmptyPostsCell() }
-            cell.button.tag = indexPath.row
-            cell.button.addTarget(self, action: #selector(addPostButtonPressed), for: .touchUpInside)
-            return cell
-        }
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollowCollectionViewCell", for: indexPath) as? FollowCollectionViewCell else { return UICollectionViewCell() }
         
-        guard let plan = plans?[indexPath.row] else {
+        guard let plan = relatedPlans?[indexPath.row] else {
             return cell
         }
         cell.config(plan: plan)
@@ -156,7 +169,7 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        guard let headerView = collectionHeaderView else { return CGSize.zero }
+        guard let headerView = headerView else { return CGSize.zero }
         
         var size = CGSize()
         let fitting = CGSize(width: headerView.frame.size.width, height: 1)
@@ -169,14 +182,15 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
 
 
 // MARK: - CollectionViewWaterfallLayoutDelegate
-extension MerchantProfileViewController: CollectionViewWaterfallLayoutDelegate {
+extension PlanDetailsViewController: CollectionViewWaterfallLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         layout: UICollectionViewLayout,
                         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        if plans?.count ?? 0 == 0 {
+        if relatedPlans?.count ?? 0 == 0 {
             return collectionView.frame.size
         }
         
         return cellSizes[indexPath.item]
     }
 }
+

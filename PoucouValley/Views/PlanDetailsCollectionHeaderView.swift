@@ -25,6 +25,7 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var discountedPriceLabel: ThemeDarkLabel!
     @IBOutlet weak var planDescriptionLabel: ThemeBlackTextLabel!
     @IBOutlet weak var hashtagsLabel: ThemeDarkLabel!
+    @IBOutlet weak var followButtonContainer: UIView!
     @IBOutlet weak var followButton: ThemeRoundedGreenWhiteTextButton!
     
     var photos: [PVPhoto] = [] {
@@ -54,29 +55,49 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
         hashtagsLabel.text = ""
     }
     
-    func config(data: Plan, following: Bool) {
-        photos = Array(data.photos)
+    func config(plan: Plan, merchant: Merchant, following: Bool) {
+        photos = Array(plan.photos)
         
-        if let logo = data.logo {
+        if let logo = merchant.logo {
             logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
-        } else if let firstPhoto = data.photos.first {
+        } else if let firstPhoto = merchant.photos.first {
             logoImageView.loadImageFromURL(urlString: firstPhoto.thumbnailUrl)
         } else {
             logoImageView.image = UIImage(named: "store")
         }
         
-        shopNameLabel.text = data.name
-        numberFollowersLabel.text = "\(data.followers ?? 0) followers"
-        shopCategoryLabel.text = data.field
-        shopDescriptionLabel.text = data.merchantDescription
+        shopNameLabel.text = merchant.name
+        numberFollowersLabel.text = "\(merchant.followers ?? 0) followers"
+        
+        titleLabel.text = plan.title
+        
+        if let price = plan.price, let discountedPrice = plan.discountedPrice {
+            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: price.df2so())
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+            originalPriceLabel.attributedText = attributeString
+            discountedPriceLabel.text = discountedPrice.df2so()
+            priceLabelsContainer.isHidden = false
+        } else if let price = plan.price {
+            originalPriceLabel.text = price.df2so()
+            discountedPriceLabel.text = ""
+            priceLabelsContainer.isHidden = false
+        } else {
+            priceLabelsContainer.isHidden = true
+        }
+        
+        planDescriptionLabel.text = plan.planDescription
         
         var tagsString = "#"
-        for tag in data.hashtags {
+        for tag in plan.hashtags {
             tagsString = "\(tagsString), #\(tag)"
         }
         hashtagsLabel.text = tagsString
         
-        followButton.setTitle(following ? "Unfolllow" : "Follow", for: .normal)
+        if following {
+            followButtonContainer.isHidden = true
+        } else {
+            followButtonContainer.isHidden = false
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -85,7 +106,6 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
         let indexPath = collectionView.indexPath(for: centerCell)
         pageControl.currentPage = indexPath?.row ?? 0
     }
-    
 }
 
 

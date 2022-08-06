@@ -357,10 +357,10 @@
             </objects>
             <point key="canvasLocation" x="930" y="781"/>
         </scene>
-        <!--ShopDetailsViewController-->
+        <!--PlanDetailsViewController-->
         <scene sceneID="wpY-Pr-R8L">
             <objects>
-                <viewControllerPlaceholder storyboardName="Shops" referencedIdentifier="ShopDetailsViewController" id="0vp-w0-TfF" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Shops" referencedIdentifier="PlanDetailsViewController" id="0vp-w0-TfF" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="neo-Rd-jNR"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkW-Jh-eva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -648,7 +648,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rR2-Ze-eK7"/>
+        <segue reference="4zD-Dv-9ec"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon-dog" width="10.5" height="9.5"/>

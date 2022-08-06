@@ -182,6 +182,11 @@
 		72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */; };
 		72BB44F9289D8FE700EE9B35 /* GiftsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB44F8289D8FE700EE9B35 /* GiftsListViewController.swift */; };
 		72BB44FB289D8FFC00EE9B35 /* GiftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB44FA289D8FFC00EE9B35 /* GiftDetailViewController.swift */; };
+		72BB44FD289DE13E00EE9B35 /* PlanDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB44FC289DE13E00EE9B35 /* PlanDetailsViewController.swift */; };
+		72BB44FF289DE4B600EE9B35 /* FetchMerchantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB44FE289DE4B600EE9B35 /* FetchMerchantResponse.swift */; };
+		72BB4501289DEA1E00EE9B35 /* TransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB4500289DEA1E00EE9B35 /* TransactionResponse.swift */; };
+		72BB4504289DFD3100EE9B35 /* RedeemConfirmationDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72BB4503289DFD3100EE9B35 /* RedeemConfirmationDialog.xib */; };
+		72BB4506289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB4505289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift */; };
 		72BF2A662843475600B43F50 /* GetGoalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF2A652843475600B43F50 /* GetGoalsResponse.swift */; };
 		72C6A0642845D63800AFCD8C /* CardholderContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6A0632845D63800AFCD8C /* CardholderContactInfoCell.swift */; };
 		72C6A0662845DAF800AFCD8C /* LabelDividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6A0652845DAF800AFCD8C /* LabelDividerCell.swift */; };
@@ -450,6 +455,11 @@
 		72B2FBDE273CCB8C00382C12 /* VerticalPaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPaginationManager.swift; sourceTree = "<group>"; };
 		72BB44F8289D8FE700EE9B35 /* GiftsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftsListViewController.swift; sourceTree = "<group>"; };
 		72BB44FA289D8FFC00EE9B35 /* GiftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftDetailViewController.swift; sourceTree = "<group>"; };
+		72BB44FC289DE13E00EE9B35 /* PlanDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailsViewController.swift; sourceTree = "<group>"; };
+		72BB44FE289DE4B600EE9B35 /* FetchMerchantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMerchantResponse.swift; sourceTree = "<group>"; };
+		72BB4500289DEA1E00EE9B35 /* TransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResponse.swift; sourceTree = "<group>"; };
+		72BB4503289DFD3100EE9B35 /* RedeemConfirmationDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RedeemConfirmationDialog.xib; sourceTree = "<group>"; };
+		72BB4505289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemConfirmationDialog.swift; sourceTree = "<group>"; };
 		72BF2A652843475600B43F50 /* GetGoalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoalsResponse.swift; sourceTree = "<group>"; };
 		72C6A0632845D63800AFCD8C /* CardholderContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderContactInfoCell.swift; sourceTree = "<group>"; };
 		72C6A0652845DAF800AFCD8C /* LabelDividerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDividerCell.swift; sourceTree = "<group>"; };
@@ -620,10 +630,12 @@
 				726AD982289427F30051F456 /* ExploreShopsResponse.swift */,
 				72E847F6288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift */,
 				726CB8BF288972820086D436 /* FetchClientResponse.swift */,
+				72BB44FE289DE4B600EE9B35 /* FetchMerchantResponse.swift */,
 				72E847E9287FDB56004C0672 /* FetchClientsResponse.swift */,
 				726CB8CF288D6BBB0086D436 /* FetchGiftsResponse.swift */,
 				72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */,
 				7261B840284544E400E9ABC5 /* FetchTransactionsResponse.swift */,
+				72BB4500289DEA1E00EE9B35 /* TransactionResponse.swift */,
 				726CB8CB288D66830086D436 /* FetchWalletResponse.swift */,
 				72997ACD289C47E700F745A8 /* FetchPerformanceResponse.swift */,
 				72C7D3F9283AC5070066F3CB /* GetBusinessTypesResponse.swift */,
@@ -760,6 +772,7 @@
 				72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */,
 				7297E52E2747173600F6F33B /* SearchBarCollectionHeaderView.swift */,
 				7297E52F2747173600F6F33B /* SearchBarCollectionHeaderView.xib */,
+				72BB4502289DFD1800EE9B35 /* RedeemConfirmationDialog */,
 				72E847F12882A3AD004C0672 /* SendConfirmationDialog */,
 			);
 			path = Views;
@@ -1050,6 +1063,15 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		72BB4502289DFD1800EE9B35 /* RedeemConfirmationDialog */ = {
+			isa = PBXGroup;
+			children = (
+				72BB4503289DFD3100EE9B35 /* RedeemConfirmationDialog.xib */,
+				72BB4505289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift */,
+			);
+			path = RedeemConfirmationDialog;
+			sourceTree = "<group>";
+		};
 		72C7A75B273F0ED500636346 /* Search screen cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1177,6 +1199,7 @@
 			isa = PBXGroup;
 			children = (
 				72E263652899A7AA00BF2AA2 /* ShopDetailsViewController.swift */,
+				72BB44FC289DE13E00EE9B35 /* PlanDetailsViewController.swift */,
 			);
 			path = Shops;
 			sourceTree = "<group>";
@@ -1293,6 +1316,7 @@
 				72CF4FA7289CD95E005CCCC5 /* URLImageCollectionViewCell.xib in Resources */,
 				72B2FBA9273C6CA000382C12 /* OFL.txt in Resources */,
 				72F92FEE284078D000DF438C /* Charts.storyboard in Resources */,
+				72BB4504289DFD3100EE9B35 /* RedeemConfirmationDialog.xib in Resources */,
 				7201EEE8282F564D00AD6585 /* Login.storyboard in Resources */,
 				72E2635428995A8A00BF2AA2 /* ShopDetailsCollectionHeaderView.xib in Resources */,
 				7297E5312747173600F6F33B /* SearchBarCollectionHeaderView.xib in Resources */,
@@ -1429,9 +1453,11 @@
 				72AC01BC2738A80B00B452BE /* TimeAgo.swift in Sources */,
 				72AC01562738689C00B452BE /* PoucouAPI.swift in Sources */,
 				72707C232834874C004F3C3C /* LoginHomeViewController.swift in Sources */,
+				72BB4501289DEA1E00EE9B35 /* TransactionResponse.swift in Sources */,
 				728ED6FD28417F0C00415C01 /* CompleteMyProfileViewController.swift in Sources */,
 				72E847F7288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift in Sources */,
 				72AC01B02738A80B00B452BE /* KeyBoardController.swift in Sources */,
+				72BB44FD289DE13E00EE9B35 /* PlanDetailsViewController.swift in Sources */,
 				72AC011A27378FFA00B452BE /* UIScrollView+Extensions.swift in Sources */,
 				72C7D3E428395C560066F3CB /* SignUpViewController.swift in Sources */,
 				72B2FB8A273C657D00382C12 /* MyProfileDetailsHeader.swift in Sources */,
@@ -1490,6 +1516,7 @@
 				7201EEEE2830A6DB00AD6585 /* Enums.swift in Sources */,
 				72AC011227378FFA00B452BE /* UINavigationController+Extensions.swift in Sources */,
 				72C7D3DC2837FDEF0066F3CB /* BooleanResponse.swift in Sources */,
+				72BB4506289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift in Sources */,
 				72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */,
 				72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */,
 				72AC01BE2738B76600B452BE /* UIAlertController+Extension.swift in Sources */,
@@ -1550,6 +1577,7 @@
 				72C7D3E9283AAC9A0066F3CB /* SetupInitialProfileViewController.swift in Sources */,
 				7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */,
 				72C7D41D283DBAA80066F3CB /* PoucouCardBulletPoint.swift in Sources */,
+				72BB44FF289DE4B600EE9B35 /* FetchMerchantResponse.swift in Sources */,
 				72AC011027378FFA00B452BE /* UIViewController+Extension.swift in Sources */,
 				72707C132832170F004F3C3C /* Contact.swift in Sources */,
 				72AC01BA2738A80B00B452BE /* ExtendedLabel.swift in Sources */,
