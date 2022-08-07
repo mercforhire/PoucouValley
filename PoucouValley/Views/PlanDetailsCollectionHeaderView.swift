@@ -27,6 +27,7 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var hashtagsLabel: ThemeDarkLabel!
     @IBOutlet weak var followButtonContainer: UIView!
     @IBOutlet weak var followButton: ThemeRoundedGreenWhiteTextButton!
+    @IBOutlet weak var postsSection: UIView!
     
     var photos: [PVPhoto] = [] {
         didSet {
@@ -42,6 +43,7 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        logoImageView.roundCorners(style: .completely)
         pageControl.numberOfPages = 1
         shopNameLabel.text = ""
         numberFollowersLabel.text = "-- followers"
@@ -55,7 +57,7 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
         hashtagsLabel.text = ""
     }
     
-    func config(plan: Plan, merchant: Merchant, following: Bool) {
+    func config(plan: Plan, merchant: Merchant, following: Bool, showPostSection: Bool) {
         photos = Array(plan.photos)
         
         if let logo = merchant.logo {
@@ -87,9 +89,13 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
         
         planDescriptionLabel.text = plan.planDescription
         
-        var tagsString = "#"
+        var tagsString = ""
         for tag in plan.hashtags {
-            tagsString = "\(tagsString), #\(tag)"
+            if tag == plan.hashtags.first {
+                tagsString = "#\(tag)"
+            } else {
+                tagsString = "\(tagsString), #\(tag)"
+            }
         }
         hashtagsLabel.text = tagsString
         
@@ -98,6 +104,8 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
         } else {
             followButtonContainer.isHidden = false
         }
+        
+        postsSection.isHidden = !showPostSection
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

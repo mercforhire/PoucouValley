@@ -38,7 +38,7 @@ class TransactionCell: UITableViewCell {
         var sign = ""
         if data.cost > 0 {
             sign = "+"
-            amountLabel.textColor = .green
+            amountLabel.textColor = themeManager.themeData!.lighterGreen.hexColor
         } else {
             sign = ""
             amountLabel.textColor = themeManager.themeData!.textLabel.hexColor

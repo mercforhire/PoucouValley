@@ -218,23 +218,23 @@
                                                                     <rect key="frame" x="0.0" y="35.5" width="384" height="10"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6I6-2z-yuo">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="10"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="83.5" height="10"/>
                                                                             <color key="backgroundColor" systemColor="systemMintColor"/>
                                                                         </view>
                                                                         <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEy-ar-xEK">
-                                                                            <rect key="frame" x="89" y="0.0" width="83.5" height="10"/>
+                                                                            <rect key="frame" x="88.5" y="0.0" width="83.5" height="10"/>
                                                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </view>
                                                                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VSF-5u-mMS">
-                                                                            <rect key="frame" x="177.5" y="0.0" width="84" height="10"/>
+                                                                            <rect key="frame" x="177" y="0.0" width="83.5" height="10"/>
                                                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </view>
                                                                         <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnJ-sL-ZD1">
-                                                                            <rect key="frame" x="266.5" y="0.0" width="83.5" height="10"/>
+                                                                            <rect key="frame" x="265.5" y="0.0" width="83.5" height="10"/>
                                                                             <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </view>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cFd-oN-MF2">
-                                                                            <rect key="frame" x="355" y="0.0" width="29" height="10"/>
+                                                                            <rect key="frame" x="354" y="0.0" width="30" height="10"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoinsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-1I-efe">
                                                                                     <rect key="frame" x="0.0" y="0.5" width="10" height="9"/>
@@ -244,7 +244,7 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-Bm-vRG" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                                    <rect key="frame" x="15" y="0.0" width="14" height="10"/>
+                                                                                    <rect key="frame" x="15" y="0.0" width="15" height="10"/>
                                                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -401,7 +401,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SR1-Ph-jyV">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SR1-Ph-jyV" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="5" width="384" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="EJh-Me-fRQ"/>
@@ -469,6 +469,7 @@
                         <outlet property="tableView" destination="d0w-WM-sEJ" id="jam-L9-os6"/>
                         <segue destination="W7d-Cf-jpb" kind="show" identifier="goToCompleteProfile" id="Nl4-Ao-Ke1"/>
                         <segue destination="sxB-dg-0bP" kind="show" identifier="goToGifts" id="Ghz-fG-awH"/>
+                        <segue destination="XXR-Q4-Urk" kind="show" identifier="goToGiftDetails" id="qmB-e5-Nxy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8h-rI-SOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2645,9 +2646,9 @@ Ontario, A6B 2V7</string>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCH-SB-KXy">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCH-SB-KXy" customClass="ThemeDividerView" customModule="PoucouValley" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="51" width="374" height="1"/>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" white="0.69999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="3nG-wh-TVh"/>
                                                             </constraints>
@@ -2796,17 +2797,17 @@ Ontario, A6B 2V7</string>
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonTableCell" id="Bgy-Z7-b88" customClass="ButtonTableCell" customModule="PoucouValley" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="382" height="50"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="382" height="54"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bgy-Z7-b88" id="f02-Mo-kjj">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="54"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKg-mL-iPB" customClass="ThemeRoundedBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="5" width="382" height="44"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="50" id="ush-Z9-Fdj"/>
+                                                                                <constraint firstAttribute="height" constant="44" id="ush-Z9-Fdj"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                             <inset key="contentEdgeInsets" minX="50" minY="15" maxX="50" maxY="15"/>
@@ -2819,8 +2820,8 @@ Ontario, A6B 2V7</string>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="eKg-mL-iPB" firstAttribute="leading" secondItem="f02-Mo-kjj" secondAttribute="leading" id="A4g-OV-1df"/>
-                                                                        <constraint firstItem="eKg-mL-iPB" firstAttribute="top" secondItem="f02-Mo-kjj" secondAttribute="top" id="CXw-GB-wNA"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="eKg-mL-iPB" secondAttribute="bottom" id="V5C-JY-rEs"/>
+                                                                        <constraint firstItem="eKg-mL-iPB" firstAttribute="top" secondItem="f02-Mo-kjj" secondAttribute="top" constant="5" id="CXw-GB-wNA"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="eKg-mL-iPB" secondAttribute="bottom" constant="5" id="V5C-JY-rEs"/>
                                                                         <constraint firstAttribute="trailing" secondItem="eKg-mL-iPB" secondAttribute="trailing" id="bZz-SV-kOK"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
@@ -2830,6 +2831,10 @@ Ontario, A6B 2V7</string>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="JoV-jJ-5N5" id="bsf-nF-st8"/>
+                                                            <outlet property="delegate" destination="JoV-jJ-5N5" id="i2c-B2-5Dd"/>
+                                                        </connections>
                                                     </tableView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My phone number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tl-bF-X1s" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="355.5" width="382" height="25.5"/>
@@ -3085,7 +3090,7 @@ Ontario, A6B 2V7</string>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-8r-LyB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3019" y="3092"/>
+            <point key="canvasLocation" x="2983" y="3110"/>
         </scene>
         <!--My Coins History View Controller-->
         <scene sceneID="j3Y-Sy-rko">
@@ -3211,6 +3216,16 @@ Ontario, A6B 2V7</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTE-BO-wab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3570" y="3395"/>
+        </scene>
+        <!--GiftDetailViewController-->
+        <scene sceneID="EQE-xL-Mz3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Gifts" referencedIdentifier="GiftDetailViewController" id="XXR-Q4-Urk" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="flv-Zu-1f1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEd-d4-N5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2488" y="3110"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

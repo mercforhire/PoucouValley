@@ -24,10 +24,9 @@ class PlanDetailsViewController: BaseViewController {
             collectionView.reloadData()
         }
     }
-    private var selectedPlan: Plan?
     private var followed: Bool = false {
         didSet {
-            headerView?.config(plan: plan, merchant: merchant, following: followed)
+            headerView?.config(plan: plan, merchant: merchant, following: followed, showPostSection: !(relatedPlans?.isEmpty ?? true))
         }
     }
     private var cellSizes: [CGSize] = []
@@ -40,24 +39,32 @@ class PlanDetailsViewController: BaseViewController {
         
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.headerHeight = 1
         layout.footerHeight = 0
         layout.minimumColumnSpacing = 10
         layout.minimumInteritemSpacing = 10
         
         collectionView.collectionViewLayout = layout
         collectionView.alwaysBounceVertical = true
+        collectionView.register(UINib(nibName: "PlanDetailsCollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
+    }
+    
+    override func setupTheme() {
+        super.setupTheme()
         
-        collectionView.register(UINib(nibName: "MerchantDetailsHeaderView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshViewController()
+        headerView?.config(plan: plan, merchant: merchant, following: followed, showPostSection: !(relatedPlans?.isEmpty ?? true))
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
         
         fetchContent { [weak self] success in
             guard let self = self else { return }
@@ -104,7 +111,7 @@ class PlanDetailsViewController: BaseViewController {
     @objc private func followButtonPressed() {
         FullScreenSpinner().show()
         
-        api.followMerchant(merchantId: merchant.identifier) { [weak self] result in
+        api.followMerchant(userId: merchant.identifier) { [weak self] result in
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
@@ -121,17 +128,6 @@ class PlanDetailsViewController: BaseViewController {
             }
         }
     }
-    
-    private func refreshViewController() {
-        headerView?.config(plan: plan, merchant: merchant, following: followed)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? PlanDetailsViewController,
-            let selectedPlan = selectedPlan {
-            vc.plan = selectedPlan
-        }
-    }
 }
 
 extension PlanDetailsViewController: UICollectionViewDataSource {
@@ -141,7 +137,7 @@ extension PlanDetailsViewController: UICollectionViewDataSource {
                                                                          for: indexPath) as! PlanDetailsCollectionHeaderView
         
         self.headerView = headerView
-        headerView.config(plan: plan, merchant: merchant, following: followed)
+        headerView.config(plan: plan, merchant: merchant, following: followed, showPostSection: !(relatedPlans?.isEmpty ?? true))
         headerView.followButton.addTarget(self, action: #selector(followButtonPressed), for: .touchUpInside)
         return headerView
     }
@@ -168,15 +164,20 @@ extension PlanDetailsViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        guard let headerView = headerView else { return CGSize.zero }
+    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, heightForHeaderInSection section: Int) -> Float {
+        guard let headerView = headerView else { return 1 }
         
-        var size = CGSize()
-        let fitting = CGSize(width: headerView.frame.size.width, height: 1)
-        size = headerView.systemLayoutSizeFitting(fitting,
-                                                  withHorizontalFittingPriority: .required,
-                                                  verticalFittingPriority: UILayoutPriority(1))
-        return size
+        // Use this view to calculate the optimal size based on the collection view's width
+        let size = headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height),
+                                                      withHorizontalFittingPriority: .required, // Width is fixed
+                                                      verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
+        return Float(size.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let plan = relatedPlans?[indexPath.row] else { return }
+        
+        openPlanDetailsVC(plan: plan)
     }
 }
 

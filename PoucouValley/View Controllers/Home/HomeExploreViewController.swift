@@ -34,7 +34,6 @@ class HomeExploreViewController: BaseViewController {
             collectionView.reloadData()
         }
     }
-    private var clickedPlan: Plan?
     
     private var plansCellSizes: [CGSize] = []
     private var searchResultsCellSizes: [CGSize] = []
@@ -85,6 +84,12 @@ class HomeExploreViewController: BaseViewController {
         }
     }
     
+    override func setupTheme() {
+        super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,7 +99,7 @@ class HomeExploreViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = true
+        
     }
     
     private func fetchContent(complete: ((Bool) -> Void)? = nil) {
@@ -144,12 +149,6 @@ class HomeExploreViewController: BaseViewController {
             case .failure:
                 showNetworkErrorDialog()
             }
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? PlanDetailsViewController, let clickedPlan = clickedPlan {
-            vc.plan = clickedPlan
         }
     }
 }
@@ -250,8 +249,7 @@ extension HomeExploreViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let plan = plans?[indexPath.row] else { return }
         
-        clickedPlan = plan
-        performSegue(withIdentifier: "goToPlan", sender: self)
+        openPlanDetailsVC(plan: plan)
     }
 }
 

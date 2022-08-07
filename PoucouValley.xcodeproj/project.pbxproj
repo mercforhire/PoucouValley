@@ -270,6 +270,7 @@
 		72EEAC77289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */; };
 		72EEAC78289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */; };
 		72EEAC7A289D7EB500EE189C /* Gifts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72EEAC79289D7EB500EE189C /* Gifts.storyboard */; };
+		72F4B9A828A02C77009C1D1D /* ThemeDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F4B9A728A02C77009C1D1D /* ThemeDividerView.swift */; };
 		72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F748EB28433EEF0057A2B4 /* Goal.swift */; };
 		72F92FEC284078BE00DF438C /* Clients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEB284078BE00DF438C /* Clients.storyboard */; };
 		72F92FEE284078D000DF438C /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FED284078D000DF438C /* Charts.storyboard */; };
@@ -543,6 +544,7 @@
 		72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailsCollectionHeaderView.swift; sourceTree = "<group>"; };
 		72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDetailsCollectionHeaderView.xib; sourceTree = "<group>"; };
 		72EEAC79289D7EB500EE189C /* Gifts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gifts.storyboard; sourceTree = "<group>"; };
+		72F4B9A728A02C77009C1D1D /* ThemeDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDividerView.swift; sourceTree = "<group>"; };
 		72F748EB28433EEF0057A2B4 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		72F92FEB284078BE00DF438C /* Clients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Clients.storyboard; sourceTree = "<group>"; };
 		72F92FED284078D000DF438C /* Charts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Charts.storyboard; sourceTree = "<group>"; };
@@ -585,8 +587,8 @@
 		725ACC22287625C9007D255F /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				725ACC23287625EF007D255F /* ClientDetailsViewController.swift */,
 				72E847E5287DF966004C0672 /* ClientsViewController.swift */,
+				725ACC23287625EF007D255F /* ClientDetailsViewController.swift */,
 				72386AC42879F1CD0072032C /* CreateNewClientViewController.swift */,
 				72E847E3287DAED1004C0672 /* EditClientViewController.swift */,
 				726CB8C1288972D10086D436 /* EnterClientCardNumberViewController.swift */,
@@ -895,6 +897,7 @@
 				72B2FBC9273CC34200382C12 /* ThemeTextFieldLabel.swift */,
 				723D6CAE287C27EC00D6B596 /* ThemeTextView.swift */,
 				72B2FBCC273CC34200382C12 /* ThemeView.swift */,
+				72F4B9A728A02C77009C1D1D /* ThemeDividerView.swift */,
 				72707C282834998A004F3C3C /* ThemeUIPageControl.swift */,
 				72C7D429283E9B460066F3CB /* ThemeBackView.swift */,
 			);
@@ -1412,6 +1415,7 @@
 				72C7D410283C31820066F3CB /* UpdateMerchantResponse.swift in Sources */,
 				72997AC7289C185400F745A8 /* GetVisitorsResponse.swift in Sources */,
 				72AC01B52738A80B00B452BE /* MICollectionViewBubbleLayout.swift in Sources */,
+				72F4B9A828A02C77009C1D1D /* ThemeDividerView.swift in Sources */,
 				72AC01B72738A80B00B452BE /* MIMainViewController.swift in Sources */,
 				72AC010A27378FFA00B452BE /* PHAsset+Extensions.swift in Sources */,
 				72AC01B62738A80B00B452BE /* MIBubbleCollectionViewCell.swift in Sources */,

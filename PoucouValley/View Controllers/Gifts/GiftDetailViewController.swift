@@ -32,7 +32,7 @@ class GiftDetailViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        
+        pageControl.numberOfPages = 1
         coinsLabel.text = "-- coins"
         titleLabel.text = ""
         shortDesLabel.text = ""
@@ -52,7 +52,15 @@ class GiftDetailViewController: BaseViewController {
         loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     private func loadData() {
+        title = gift.name
+        photos = Array(gift.photos)
         coinsLabel.text = "\(gift.costInCoins) coins"
         titleLabel.text = gift.name
         shortDesLabel.text = gift.itemDescription
@@ -60,6 +68,21 @@ class GiftDetailViewController: BaseViewController {
     }
     
     @IBAction func redeemPressed(_ sender: ThemeRoundedGreenBlackTextButton) {
+        showAreYouSure()
+    }
+    
+    private func showAreYouSure() {
+        let alert = UIAlertController(title: "Are you sure?", message: "Redeem this product?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.redeem()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func redeem() {
         FullScreenSpinner().show()
         
         api.redeemGift(gift: gift) { [weak self] result in

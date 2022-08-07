@@ -1,21 +1,14 @@
 //
-//  ThemeUIPageControl.swift
+//  ThemeDividerView.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-05-17.
+//  Created by Leon Chen on 2022-08-07.
 //
 
 import UIKit
 
-class ThemeUIPageControl: UIPageControl {
-
+public class ThemeDividerView: UIView {
     private var observer: NSObjectProtocol?
-    
-    var cornerStyle: RoundCornerStyle = .small {
-        didSet {
-            roundCorners(style: cornerStyle)
-        }
-    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,8 +26,7 @@ class ThemeUIPageControl: UIPageControl {
     }
     
     func setupUI() {
-        pageIndicatorTintColor = themeManager.themeData!.steel.hexColor
-        currentPageIndicatorTintColor = themeManager.themeData!.lighterGreen.hexColor
+        backgroundColor = themeManager.themeData!.divider.hexColor
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
@@ -50,5 +42,4 @@ class ThemeUIPageControl: UIPageControl {
             NotificationCenter.default.removeObserver(observer!)
         }
     }
-
 }

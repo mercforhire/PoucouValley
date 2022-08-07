@@ -270,11 +270,11 @@ class PoucouAPI {
         }
     }
     
-    func followMerchant(merchantId: ObjectId, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
+    func followMerchant(userId: ObjectId, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
         var params: Document = [:]
-        params["merchantId"] = AnyBSON(merchantId)
+        params["merchantId"] = AnyBSON(userId)
         
         user.functions.api_followMerchant([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {

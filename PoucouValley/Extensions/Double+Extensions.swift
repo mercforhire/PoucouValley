@@ -14,7 +14,7 @@ extension Double {
         return (self * divisor).rounded() / divisor
     }
     
-    func df2so() -> String{
+    func df2so() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.groupingSeparator = ","
         numberFormatter.groupingSize = 3
@@ -22,6 +22,7 @@ extension Double {
         numberFormatter.decimalSeparator = "."
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = 2
-        return numberFormatter.string(from: self as NSNumber)!
+        numberFormatter.minimumFractionDigits = 2
+        return "$\(numberFormatter.string(from: self as NSNumber)!)"
     }
 }

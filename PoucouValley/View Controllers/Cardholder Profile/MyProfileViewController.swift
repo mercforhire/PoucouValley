@@ -38,6 +38,8 @@ class MyProfileViewController: BaseViewController {
     private var goals: [Goal]?
     private var completedGoals: [Goal]?
     private var gifts: [Gift]?
+    private var selectedGift: Gift?
+    
     private var rows: [TableRows] {
         var rows: [TableRows] = []
         if let goals = goals, let completedGoals = completedGoals {
@@ -77,7 +79,7 @@ class MyProfileViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         wallet == nil ? FullScreenSpinner().show() : nil
         fetchContents { success in
@@ -166,7 +168,7 @@ class MyProfileViewController: BaseViewController {
             }
             semaphore.wait()
             
-            self.api.fetchGifts { [weak self] result in
+            self.api.fetchGifts(maxNumberOfResults: 8) { [weak self] result in
                 guard let self = self else { return }
                 
                 switch result {
@@ -252,6 +254,13 @@ class MyProfileViewController: BaseViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? GiftDetailViewController,
+            let gift = selectedGift {
+            vc.gift = gift
+        }
+    }
+    
     @objc func seeAllPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToGifts", sender: self)
     }
@@ -318,7 +327,9 @@ extension MyProfileViewController: UITableViewDataSource, UITableViewDelegate {
         case .completeProfile:
             performSegue(withIdentifier: "goToCompleteProfile", sender: self)
         case .giftCard:
-            break
+            let gift = gifts?[indexPath.row - (rows.firstIndex(of: .giftCard) ?? 0)]
+            selectedGift = gift
+            performSegue(withIdentifier: "goToGiftDetails", sender: self)
         default:
             break
         }

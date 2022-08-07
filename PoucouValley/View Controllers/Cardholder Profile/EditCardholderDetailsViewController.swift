@@ -24,7 +24,11 @@ class EditCardholderDetailsViewController: BaseViewController {
     @IBOutlet weak var postalField: ThemeTextField!
     @IBOutlet weak var countryField: ThemeTextField!
     
-    var selectedCategories: [BusinessCategories] = []
+    var selectedCategories: [BusinessCategories] = [] {
+        didSet {
+            interestsTableView.reloadData()
+        }
+    }
     
     private var contact: Contact? {
         didSet {
@@ -87,7 +91,7 @@ class EditCardholderDetailsViewController: BaseViewController {
     @IBAction func updatePressed(_ sender: ThemeRoundedGreenBlackTextButton) {
         FullScreenSpinner().show()
         
-        userManager.updateCardholderInfo(contact: contact, address: address) { [weak self] result in
+        userManager.updateCardholderInfo(contact: contact, address: address, interests: selectedCategories) { [weak self] result in
             FullScreenSpinner().hide()
             
             switch result {

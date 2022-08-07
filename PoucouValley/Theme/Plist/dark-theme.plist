@@ -24,6 +24,8 @@
 	<string>#7ad87d</string>
 	<key>greyishBrown</key>
 	<string>#3f3b3a</string>
+	<key>divider</key>
+	<string>$ececec</string>
 	<key>TabBar</key>
 	<dict>
 		<key>selectedColor</key>

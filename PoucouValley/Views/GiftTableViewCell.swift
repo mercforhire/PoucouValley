@@ -8,7 +8,7 @@
 import UIKit
 
 class GiftTableViewCell: UITableViewCell {
-    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var background: URLImageView!
     @IBOutlet weak var cardLabel: UILabel!
     
     override func awakeFromNib() {
@@ -26,10 +26,9 @@ class GiftTableViewCell: UITableViewCell {
     }
     
     func config(data: Gift) {
-        if let photoUrl = data.photos.first,
-            let url = URL(string: photoUrl) {
-            background.kf.setImage(with: url)
+        if let photoUrl = data.photos.first?.thumbnailUrl {
+            background.loadImageFromURL(urlString: photoUrl)
         }
-        cardLabel.text = "\(data.costInCoins) Coins - \(data.name)"
+        cardLabel.text = "\(data.costInCoins) coins - \(data.name)"
     }
 }

@@ -20,7 +20,7 @@
             <connections>
                 <outlet property="container1" destination="SIU-Xo-Vbj" id="Zw6-si-bPC"/>
                 <outlet property="containerView" destination="Re4-3i-GJ6" id="J5C-Cq-5AR"/>
-                <outlet property="dimBackground" destination="Dva-eo-Q1v" id="FzW-5y-xwf"/>
+                <outlet property="dimBackground" destination="IdI-57-Hd3" id="AtK-Kb-pt6"/>
                 <outlet property="primaryActionButton" destination="rCj-hO-tz8" id="aPd-VG-oLj"/>
                 <outlet property="tutorialContainerView" destination="SIU-Xo-Vbj" id="PWE-r3-zHi"/>
             </connections>

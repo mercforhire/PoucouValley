@@ -122,6 +122,31 @@ class BaseViewController: UIViewController, ImagePickerDelegate, CropViewControl
         mainTableView?.endUpdates()
     }
     
+    func openPlanDetailsVC(plan: Plan) {
+        FullScreenSpinner().show()
+        
+        api.fetchMerchant(merchantId: plan.merchant) { [weak self] result in
+            guard let self = self else { return }
+
+            FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                if response.success, let merchant = response.data {
+                    let vc = StoryboardManager.loadViewController(storyboard: "Shops", viewControllerId: "PlanDetailsViewController") as! PlanDetailsViewController
+                    vc.plan = plan
+                    vc.merchant = merchant
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
+        }
+    }
+    
+    
     // ImagePickerDelegate
     
     func didSelectImage(image: UIImage?) {

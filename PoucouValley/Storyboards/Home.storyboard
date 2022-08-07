@@ -133,26 +133,29 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FollowCollectionViewCell" id="Zlv-IJ-0OD" customClass="FollowCollectionViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="107" y="10" width="200" height="400"/>
+                                        <rect key="frame" x="84.5" y="10" width="245" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gv7-4g-YiE">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="245" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HLV-7l-EpZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="245" height="400"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="nvS-qM-Hcl" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="312.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nvS-qM-Hcl" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="245" height="312.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="CsH-C2-64q"/>
+                                                            </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Label Label Label Label Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-GT-RxV" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="317.5" width="200" height="23.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" text="Label Label Label Label Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEi-GT-RxV" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="317.5" width="245" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9w-8M-Uxk" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="346" width="200" height="54"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="752" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9w-8M-Uxk" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="346" width="245" height="54"/>
                                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,11 +172,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="200" height="400"/>
                                         <connections>
                                             <outlet property="imageView" destination="nvS-qM-Hcl" id="EqT-kV-8BZ"/>
                                             <outlet property="label1" destination="uEi-GT-RxV" id="50V-AT-mcV"/>
                                             <outlet property="label2" destination="D9w-8M-Uxk" id="GVO-vM-lNf"/>
+                                            <outlet property="stackView" destination="HLV-7l-EpZ" id="bKJ-gH-agJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -213,44 +216,44 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MerchantTableViewCell" id="4zq-em-erU" customClass="MerchantTableViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="373"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MerchantTableViewCell" id="7dZ-fd-piA" customClass="MerchantTableViewCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="416"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4zq-em-erU" id="4pG-uR-Ch7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7dZ-fd-piA" id="yMy-6k-6N3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="416"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fte-rV-5VR">
-                                                    <rect key="frame" x="15" y="5" width="384" height="363"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYL-QM-WnG">
+                                                    <rect key="frame" x="15" y="10" width="384" height="396"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="qH0-wg-Uxa">
-                                                            <rect key="frame" x="7" y="7" width="370" height="349"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="M5j-n2-4X6">
+                                                            <rect key="frame" x="15" y="15" width="354" height="366"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-kg-wdt" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="277.5"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="7Pf-Mz-tvZ" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="265.5"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="ghw-kg-wdt" secondAttribute="height" multiplier="4:3" id="jZK-yi-hGc"/>
+                                                                        <constraint firstAttribute="width" secondItem="7Pf-Mz-tvZ" secondAttribute="height" multiplier="4:3" id="lg4-sm-Vbc"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YLa-lU-wNR">
-                                                                    <rect key="frame" x="0.0" y="290.5" width="370" height="21"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dXM-va-dNi">
+                                                                    <rect key="frame" x="0.0" y="278.5" width="354" height="21"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyl-gs-ZEh" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="282.5" height="21"/>
-                                                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="20"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F90-dS-V4O" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="266.5" height="21"/>
+                                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-dog" translatesAutoresizingMaskIntoConstraints="NO" id="app-1Q-gME" customClass="ThemeGreenImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="287.5" y="0.0" width="30" height="21"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-dog" translatesAutoresizingMaskIntoConstraints="NO" id="icZ-dl-0MK" customClass="ThemeGreenImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                                            <rect key="frame" x="271.5" y="0.0" width="30" height="21"/>
                                                                             <color key="tintColor" systemColor="systemGreenColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="30" id="QwV-qv-fKz"/>
-                                                                                <constraint firstAttribute="height" constant="21" id="r4x-BG-GSq"/>
+                                                                                <constraint firstAttribute="height" constant="21" id="DSh-2j-3C6"/>
+                                                                                <constraint firstAttribute="width" constant="30" id="HTt-Go-R9O"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zsH-NJ-DuJ" customClass="ThemeGreenTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="322.5" y="0.0" width="47.5" height="21"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ffc-fv-yFW" customClass="ThemeGreenTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                            <rect key="frame" x="306.5" y="0.0" width="47.5" height="21"/>
                                                                             <color key="tintColor" systemColor="systemGreenColor"/>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                             <color key="textColor" systemColor="systemGreenColor"/>
@@ -258,57 +261,69 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AlD-hI-ZC4">
-                                                                    <rect key="frame" x="0.0" y="324.5" width="370" height="24.5"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0J-Us-wlb">
+                                                                    <rect key="frame" x="0.0" y="312.5" width="354" height="53.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="[X] visitors" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEw-PD-v1l" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="24.5"/>
-                                                                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
-                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="[X] followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAr-Kc-OFM" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="195" y="0.0" width="175" height="24.5"/>
-                                                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
-                                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9cD-PS-OUn">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="206.5" height="53.5"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="[X] visitors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hei-7G-LHW" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="53.5"/>
+                                                                                    <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="[X] followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qio-rj-hnP" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                                    <rect key="frame" x="105" y="0.0" width="101.5" height="53.5"/>
+                                                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
-                                                                </stackView>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="9cD-PS-OUn" firstAttribute="top" secondItem="M0J-Us-wlb" secondAttribute="top" id="M3J-7b-N9o"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="9cD-PS-OUn" secondAttribute="bottom" id="c0h-DH-M2o"/>
+                                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9cD-PS-OUn" secondAttribute="trailing" constant="147.5" id="kOw-8y-abl"/>
+                                                                        <constraint firstItem="9cD-PS-OUn" firstAttribute="leading" secondItem="M0J-Us-wlb" secondAttribute="leading" id="sUI-SC-eeh"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="qH0-wg-Uxa" firstAttribute="top" secondItem="fte-rV-5VR" secondAttribute="top" constant="7" id="8ZC-dR-anX"/>
-                                                        <constraint firstAttribute="bottom" secondItem="qH0-wg-Uxa" secondAttribute="bottom" constant="7" id="Xvl-8b-aCa"/>
-                                                        <constraint firstAttribute="trailing" secondItem="qH0-wg-Uxa" secondAttribute="trailing" constant="7" id="mDq-TJ-Eqi"/>
-                                                        <constraint firstItem="qH0-wg-Uxa" firstAttribute="leading" secondItem="fte-rV-5VR" secondAttribute="leading" constant="7" id="p3u-OJ-XFG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="M5j-n2-4X6" secondAttribute="bottom" constant="15" id="NoB-RE-4Z8"/>
+                                                        <constraint firstItem="M5j-n2-4X6" firstAttribute="leading" secondItem="LYL-QM-WnG" secondAttribute="leading" constant="15" id="jSi-DU-Qg0"/>
+                                                        <constraint firstItem="M5j-n2-4X6" firstAttribute="top" secondItem="LYL-QM-WnG" secondAttribute="top" constant="15" id="lCZ-Bh-jWE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="M5j-n2-4X6" secondAttribute="trailing" constant="15" id="yAb-eW-nuh"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="fte-rV-5VR" firstAttribute="leading" secondItem="4pG-uR-Ch7" secondAttribute="leading" constant="15" id="52q-My-Mgw"/>
-                                                <constraint firstAttribute="bottom" secondItem="fte-rV-5VR" secondAttribute="bottom" constant="5" id="8rv-v6-7uX"/>
-                                                <constraint firstItem="fte-rV-5VR" firstAttribute="top" secondItem="4pG-uR-Ch7" secondAttribute="top" constant="5" id="e98-K6-IVw"/>
-                                                <constraint firstAttribute="trailing" secondItem="fte-rV-5VR" secondAttribute="trailing" constant="15" id="mgy-Hw-RIu"/>
+                                                <constraint firstItem="LYL-QM-WnG" firstAttribute="leading" secondItem="yMy-6k-6N3" secondAttribute="leading" constant="15" id="3VU-Fj-nS5"/>
+                                                <constraint firstAttribute="trailing" secondItem="LYL-QM-WnG" secondAttribute="trailing" constant="15" id="ACV-eR-fDO"/>
+                                                <constraint firstItem="LYL-QM-WnG" firstAttribute="top" secondItem="yMy-6k-6N3" secondAttribute="top" constant="10" id="VKC-c3-kcH"/>
+                                                <constraint firstAttribute="bottom" secondItem="LYL-QM-WnG" secondAttribute="bottom" constant="10" id="cQb-dw-MPu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="categoryIconImageView" destination="app-1Q-gME" id="2v5-CB-JA1"/>
-                                            <outlet property="categoryLabel" destination="zsH-NJ-DuJ" id="Ne6-5w-vNO"/>
-                                            <outlet property="containerView" destination="fte-rV-5VR" id="MXe-xG-gkW"/>
-                                            <outlet property="followersLabel" destination="hAr-Kc-OFM" id="LO5-HO-oSt"/>
-                                            <outlet property="logoView" destination="ghw-kg-wdt" id="dek-em-RWa"/>
-                                            <outlet property="nameLabel" destination="tyl-gs-ZEh" id="Xbh-de-ws1"/>
-                                            <outlet property="visitorsLabel" destination="FEw-PD-v1l" id="tre-fN-nUs"/>
+                                            <outlet property="categoryIconImageView" destination="icZ-dl-0MK" id="0wA-90-UAb"/>
+                                            <outlet property="categoryLabel" destination="ffc-fv-yFW" id="QIH-vu-xTS"/>
+                                            <outlet property="containerView" destination="LYL-QM-WnG" id="Cav-gL-Of4"/>
+                                            <outlet property="followersLabel" destination="Qio-rj-hnP" id="yP5-La-2Ke"/>
+                                            <outlet property="logoView" destination="7Pf-Mz-tvZ" id="p9f-uC-YD1"/>
+                                            <outlet property="nameLabel" destination="F90-dS-V4O" id="urI-OF-YXm"/>
+                                            <outlet property="visitorsLabel" destination="Hei-7G-LHW" id="WrA-bi-cPw"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyCell" id="ysE-ls-MRI">
-                                        <rect key="frame" x="0.0" y="417.5" width="414" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="460.5" width="414" height="54.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ysE-ls-MRI" id="WJ7-g8-s70">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="54.5"/>
@@ -475,36 +490,36 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MerchantTableViewCell" id="yDp-mD-uan" customClass="MerchantTableViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="244.5" width="414" height="372.5"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MerchantTableViewCell" id="yDp-mD-uan" customClass="MerchantTableViewCell" customModule="PoucouValley" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="244.5" width="414" height="412.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yDp-mD-uan" id="0Vk-cH-8kp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="372.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="412.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzG-EN-Sla">
-                                                    <rect key="frame" x="15" y="5" width="384" height="362.5"/>
+                                                    <rect key="frame" x="15" y="10" width="384" height="392.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="i4B-LT-bD2">
-                                                            <rect key="frame" x="7" y="7" width="370" height="348.5"/>
+                                                            <rect key="frame" x="15" y="15" width="354" height="362.5"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="fHT-uY-eQm" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="277.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="265.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="fHT-uY-eQm" secondAttribute="height" multiplier="4:3" id="bHd-2m-fEU"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Lcc-pE-WHP">
-                                                                    <rect key="frame" x="0.0" y="290.5" width="370" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="278.5" width="354" height="21"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2x-Tf-SVn" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="282.5" height="21"/>
-                                                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="20"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="266.5" height="21"/>
+                                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-dog" translatesAutoresizingMaskIntoConstraints="NO" id="clR-ka-ILr" customClass="ThemeGreenImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="287.5" y="0.0" width="30" height="21"/>
+                                                                            <rect key="frame" x="271.5" y="0.0" width="30" height="21"/>
                                                                             <color key="tintColor" systemColor="systemGreenColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="27J-2M-s7N"/>
@@ -512,7 +527,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cdo-aD-r5y" customClass="ThemeGreenTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="322.5" y="0.0" width="47.5" height="21"/>
+                                                                            <rect key="frame" x="306.5" y="0.0" width="47.5" height="21"/>
                                                                             <color key="tintColor" systemColor="systemGreenColor"/>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                             <color key="textColor" systemColor="systemGreenColor"/>
@@ -520,40 +535,52 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9oL-bc-WLD">
-                                                                    <rect key="frame" x="0.0" y="324.5" width="370" height="24"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nj-9P-6EA">
+                                                                    <rect key="frame" x="0.0" y="312.5" width="354" height="50"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="[X] visitors" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouU-W4-hdA" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="175" height="24"/>
-                                                                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
-                                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="[X] followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeE-lk-R3j" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="195" y="0.0" width="175" height="24"/>
-                                                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
-                                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9oL-bc-WLD">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="206.5" height="50"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" text="[X] visitors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouU-W4-hdA" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="50"/>
+                                                                                    <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="[X] followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeE-lk-R3j" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                                    <rect key="frame" x="105" y="0.0" width="101.5" height="50"/>
+                                                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
+                                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
-                                                                </stackView>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="9oL-bc-WLD" secondAttribute="bottom" id="3MU-Nc-NGX"/>
+                                                                        <constraint firstItem="9oL-bc-WLD" firstAttribute="top" secondItem="3nj-9P-6EA" secondAttribute="top" id="6UZ-Id-7kb"/>
+                                                                        <constraint firstItem="9oL-bc-WLD" firstAttribute="leading" secondItem="3nj-9P-6EA" secondAttribute="leading" id="Vtj-Jy-0Yv"/>
+                                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9oL-bc-WLD" secondAttribute="trailing" constant="147.5" id="aUP-LN-a6h"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="i4B-LT-bD2" firstAttribute="top" secondItem="pzG-EN-Sla" secondAttribute="top" constant="7" id="e2p-8x-XTC"/>
-                                                        <constraint firstAttribute="bottom" secondItem="i4B-LT-bD2" secondAttribute="bottom" constant="7" id="jI8-Ex-nDO"/>
-                                                        <constraint firstAttribute="trailing" secondItem="i4B-LT-bD2" secondAttribute="trailing" constant="7" id="mpe-gD-dkR"/>
-                                                        <constraint firstItem="i4B-LT-bD2" firstAttribute="leading" secondItem="pzG-EN-Sla" secondAttribute="leading" constant="7" id="vNl-nF-dda"/>
+                                                        <constraint firstItem="i4B-LT-bD2" firstAttribute="top" secondItem="pzG-EN-Sla" secondAttribute="top" constant="15" id="e2p-8x-XTC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="i4B-LT-bD2" secondAttribute="bottom" constant="15" id="jI8-Ex-nDO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="i4B-LT-bD2" secondAttribute="trailing" constant="15" id="mpe-gD-dkR"/>
+                                                        <constraint firstItem="i4B-LT-bD2" firstAttribute="leading" secondItem="pzG-EN-Sla" secondAttribute="leading" constant="15" id="vNl-nF-dda"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="pzG-EN-Sla" firstAttribute="top" secondItem="0Vk-cH-8kp" secondAttribute="top" constant="5" id="757-Km-QyF"/>
-                                                <constraint firstAttribute="bottom" secondItem="pzG-EN-Sla" secondAttribute="bottom" constant="5" id="gin-XG-e5m"/>
+                                                <constraint firstItem="pzG-EN-Sla" firstAttribute="top" secondItem="0Vk-cH-8kp" secondAttribute="top" constant="10" id="757-Km-QyF"/>
+                                                <constraint firstAttribute="bottom" secondItem="pzG-EN-Sla" secondAttribute="bottom" constant="10" id="gin-XG-e5m"/>
                                                 <constraint firstAttribute="trailing" secondItem="pzG-EN-Sla" secondAttribute="trailing" constant="15" id="kxV-cZ-Ff1"/>
                                                 <constraint firstItem="pzG-EN-Sla" firstAttribute="leading" secondItem="0Vk-cH-8kp" secondAttribute="leading" constant="15" id="pJS-lx-M4r"/>
                                             </constraints>
@@ -570,7 +597,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoShopsCell" id="knd-zl-8gm">
-                                        <rect key="frame" x="0.0" y="617" width="414" height="54"/>
+                                        <rect key="frame" x="0.0" y="657" width="414" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="knd-zl-8gm" id="OAT-nF-hKv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
@@ -595,7 +622,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoResultsCell" id="90Z-2I-boU">
-                                        <rect key="frame" x="0.0" y="671" width="414" height="54"/>
+                                        <rect key="frame" x="0.0" y="711" width="414" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="90Z-2I-boU" id="sZ5-6j-YgE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>

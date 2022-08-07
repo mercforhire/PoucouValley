@@ -9,6 +9,8 @@
 import UIKit
 
 class FollowCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var imageView: URLImageView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -38,6 +40,8 @@ class FollowCollectionViewCell: UICollectionViewCell {
         }
         
         label2.text = plan.planDescription
+        
+        stackView.setNeedsLayout()
     }
     
     func config(gift: Gift) {
@@ -60,6 +64,8 @@ class FollowCollectionViewCell: UICollectionViewCell {
         }
         
         label2.text = gift.itemDescription2
+        
+        stackView.setNeedsLayout()
     }
     
     func config(merchant: Merchant) {
@@ -75,5 +81,7 @@ class FollowCollectionViewCell: UICollectionViewCell {
         }
         
         label2.text = merchant.field
+        
+        stackView.setNeedsLayout()
     }
 }

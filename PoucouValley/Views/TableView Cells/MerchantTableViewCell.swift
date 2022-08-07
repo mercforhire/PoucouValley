@@ -21,6 +21,7 @@ class MerchantTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         selectionStyle = .none
+        logoView.roundCorners(style: .medium)
     }
 
     override func layoutSubviews() {

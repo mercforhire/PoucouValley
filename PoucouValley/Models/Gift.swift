@@ -22,13 +22,16 @@ class Gift: BaseObject {
         self.identifier = document["_id"]!!.objectIdValue!
         self.costInCoins = document["costInCoins"]??.asInt() ?? 0
         self.createdDate = document["createdDate"]!!.dateValue!
-        self.itemDescription = document["description"]??.stringValue ?? ""
-        self.itemDescription2 = document["itemName"]??.stringValue ?? ""
         self.name = document["name"]??.stringValue ?? ""
+        self.itemDescription = document["description"]??.stringValue ?? ""
+        self.itemDescription2 = document["description2"]??.stringValue ?? ""
+        
         if let array = document["photos"]??.arrayValue {
             let data: List<PVPhoto> = List()
             for photo in array {
-                data.append(PVPhoto(document: photo!.documentValue!))
+                guard let documentValue = photo!.documentValue else { continue }
+                
+                data.append(PVPhoto(document: documentValue))
             }
             self.photos = data
         }

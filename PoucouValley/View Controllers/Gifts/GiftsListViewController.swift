@@ -19,18 +19,20 @@ class GiftsListViewController: BaseViewController {
             for _ in 0...(gifts?.count ?? 0) {
                 cellSizes.append(generateRandomSize(collectionView: collectionView))
             }
+            layout.columnCount = (gifts?.isEmpty ?? true) ? 1 : 2
             collectionView.reloadData()
         }
     }
     private var clickedGift: Gift?
     
     private var cellSizes: [CGSize] = []
+    let layout = CollectionViewWaterfallLayout()
     
     override func setup() {
         super.setup()
         
-        let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.columnCount = 1
         layout.headerHeight = 0
         layout.footerHeight = 0
         layout.minimumColumnSpacing = 10

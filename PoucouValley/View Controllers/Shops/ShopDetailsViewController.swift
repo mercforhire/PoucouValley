@@ -26,7 +26,7 @@ class ShopDetailsViewController: BaseViewController {
     
     private var followed: Bool = false {
         didSet {
-            headerView?.config(data: merchant, following: followed)
+            headerView?.config(data: merchant, following: followed, showPostSection: !(plans?.isEmpty ?? true))
         }
     }
     private var headerView: ShopDetailsCollectionHeaderView?
@@ -48,10 +48,16 @@ class ShopDetailsViewController: BaseViewController {
         collectionView.register(UINib(nibName: "ShopDetailsCollectionHeaderView", bundle: nil), forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
     }
     
+    override func setupTheme() {
+        super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView?.config(data: merchant, following: followed)
+        headerView?.config(data: merchant, following: followed, showPostSection: !(plans?.isEmpty ?? true))
         fetchContent()
     }
     
@@ -92,7 +98,7 @@ class ShopDetailsViewController: BaseViewController {
     @objc private func followButtonPressed() {
         FullScreenSpinner().show()
         
-        api.followMerchant(merchantId: merchant.identifier) { [weak self] result in
+        api.followMerchant(userId: merchant.userId) { [weak self] result in
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
@@ -119,7 +125,7 @@ extension ShopDetailsViewController: UICollectionViewDelegate, UICollectionViewD
                                                                          for: indexPath) as! ShopDetailsCollectionHeaderView
         
         self.headerView = headerView
-        headerView.config(data: merchant, following: followed)
+        headerView.config(data: merchant, following: followed, showPostSection: !(plans?.isEmpty ?? true))
         headerView.followButton.addTarget(self, action: #selector(followButtonPressed), for: .touchUpInside)
         return headerView
     }
@@ -154,6 +160,12 @@ extension ShopDetailsViewController: UICollectionViewDelegate, UICollectionViewD
                                                       withHorizontalFittingPriority: .required, // Width is fixed
                                                       verticalFittingPriority: .fittingSizeLevel) // Height can be as large as needed
         return Float(size.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let plan = plans?[indexPath.row] else { return }
+        
+        openPlanDetailsVC(plan: plan)
     }
 }
 

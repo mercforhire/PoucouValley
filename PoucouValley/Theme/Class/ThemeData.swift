@@ -82,6 +82,7 @@ public struct ThemeData: Codable {
     public var steel: String
     public var lightGray: String
     public var greyishBrown: String
+    public var divider: String
     public var tabBarTheme: TabBarTheme
     public var navBarTheme: NavBarTheme
     
@@ -97,6 +98,7 @@ public struct ThemeData: Codable {
         steel = dict["steel"] as! String
         lightGray = dict["lightGray"] as! String
         greyishBrown = dict["greyishBrown"] as! String
+        divider = dict["divider"] as! String
         tabBarTheme = TabBarTheme(dict: dict["TabBar"] as! [String : Any])
         navBarTheme = NavBarTheme(dict: dict["NavBar"] as! [String : Any])
     }

@@ -17,6 +17,7 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var shopCategoryLabel: ThemeBlackTextLabel!
     @IBOutlet weak var shopDescriptionLabel: ThemeBlackTextLabel!
     @IBOutlet weak var hashtagsLabel: ThemeDarkLabel!
+    @IBOutlet weak var postsSection: UIView!
     
     var photos: [PVPhoto] = [] {
         didSet {
@@ -32,6 +33,7 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        logoImageView.roundCorners(style: .completely)
         pageControl.numberOfPages = 1
         shopNameLabel.text = ""
         numberFollowersLabel.text = ""
@@ -40,7 +42,7 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
         hashtagsLabel.text = ""
     }
     
-    func config(data: Merchant, following: Bool) {
+    func config(data: Merchant, following: Bool, showPostSection: Bool) {
         photos = Array(data.photos)
         
         if let logo = data.logo {
@@ -52,17 +54,23 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
         }
         
         shopNameLabel.text = data.name
-        numberFollowersLabel.text = numberFollowersLabel.text?.replacingOccurrences(of: "[X]", with: "\(data.visits ?? 0)")
+        numberFollowersLabel.text = "\(data.followers ?? 0) followers"
         shopCategoryLabel.text = data.field
         shopDescriptionLabel.text = data.merchantDescription
         
-        var tagsString = "#"
+        var tagsString = ""
         for tag in data.hashtags {
-            tagsString = "\(tagsString), #\(tag)"
+            if tag == data.hashtags.first {
+                tagsString = "#\(tag)"
+            } else {
+                tagsString = "\(tagsString), #\(tag)"
+            }
         }
         hashtagsLabel.text = tagsString
         
-        followButton.setTitle(following ? "Unfolllow" : "Follow", for: .normal)
+        followButton.setTitle(following ? "Unfollow" : "Follow", for: .normal)
+        
+        postsSection.isHidden = !showPostSection
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

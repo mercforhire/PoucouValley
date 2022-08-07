@@ -22,7 +22,8 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.delegate = self
+        delegate = self
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -46,11 +47,6 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let navController = viewController as? UINavigationController,
-            let _ = navController.viewControllers.first as? CardViewController {
-            navigationController?.navigationBar.isHidden = true
-        } else {
-            navigationController?.navigationBar.isHidden = false
-        }
+        
     }
 }
