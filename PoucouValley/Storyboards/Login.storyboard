@@ -364,12 +364,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="GIB-0w-Vt0" kind="relationship" relationship="rootViewController" id="GLj-b6-Onj"/>
+                        <segue destination="pq4-e5-bWd" kind="relationship" relationship="rootViewController" id="6PA-ob-WrL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETc-eT-NlF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="60"/>
+            <point key="canvasLocation" x="-568" y="60"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="6Mp-rA-GjY">
@@ -1823,6 +1823,49 @@
             </objects>
             <point key="canvasLocation" x="3422" y="-660"/>
         </scene>
+        <!--Init Realm View Controller-->
+        <scene sceneID="cRM-o9-1RP">
+            <objects>
+                <viewController storyboardIdentifier="InitRealmViewController" id="pq4-e5-bWd" customClass="InitRealmViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1ja-DH-ccw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poucoulogo" translatesAutoresizingMaskIntoConstraints="NO" id="mhx-E3-2rb">
+                                <rect key="frame" x="0.0" y="138" width="414" height="248.5"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mhx-E3-2rb" secondAttribute="height" multiplier="5:3" id="x0q-nm-8mX"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="5mA-PN-f5h">
+                                <rect key="frame" x="0.0" y="565" width="414" height="331"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5mA-PN-f5h" secondAttribute="height" multiplier="10:8" id="h7F-mJ-kFu"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2EI-gd-0Pd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mhx-E3-2rb" firstAttribute="centerX" secondItem="2EI-gd-0Pd" secondAttribute="centerX" id="CXK-2a-dfz"/>
+                            <constraint firstItem="5mA-PN-f5h" firstAttribute="leading" secondItem="2EI-gd-0Pd" secondAttribute="leading" id="EvH-rD-37s"/>
+                            <constraint firstItem="2EI-gd-0Pd" firstAttribute="trailing" secondItem="5mA-PN-f5h" secondAttribute="trailing" id="N6o-6i-TJD"/>
+                            <constraint firstItem="mhx-E3-2rb" firstAttribute="width" secondItem="1ja-DH-ccw" secondAttribute="width" id="Rgd-B8-UK5"/>
+                            <constraint firstItem="mhx-E3-2rb" firstAttribute="top" secondItem="2EI-gd-0Pd" secondAttribute="top" constant="50" id="UPK-Tw-2si"/>
+                            <constraint firstAttribute="bottom" secondItem="5mA-PN-f5h" secondAttribute="bottom" id="cKi-WK-0rE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qgN-0Z-XMn"/>
+                    <connections>
+                        <segue destination="GIB-0w-Vt0" kind="show" id="lC7-3M-NVf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="im6-j5-vKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239" y="60"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dtA-jI-92p"/>
@@ -1830,6 +1873,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="launch_bottom" width="188.5" height="147.5"/>
+        <image name="poucoulogo" width="142" height="103.5"/>
         <image name="shareplay" catalog="system" width="128" height="73"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

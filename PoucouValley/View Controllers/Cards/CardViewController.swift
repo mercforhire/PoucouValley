@@ -36,7 +36,7 @@ class CardViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         navigationController?.viewControllers = [self]
         
         link.isHidden = true

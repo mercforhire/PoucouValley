@@ -188,6 +188,7 @@
 		72BB4504289DFD3100EE9B35 /* RedeemConfirmationDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72BB4503289DFD3100EE9B35 /* RedeemConfirmationDialog.xib */; };
 		72BB4506289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BB4505289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift */; };
 		72BF2A662843475600B43F50 /* GetGoalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF2A652843475600B43F50 /* GetGoalsResponse.swift */; };
+		72C4C55B28A0AFF100121429 /* InitRealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C4C55A28A0AFF100121429 /* InitRealmViewController.swift */; };
 		72C6A0642845D63800AFCD8C /* CardholderContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6A0632845D63800AFCD8C /* CardholderContactInfoCell.swift */; };
 		72C6A0662845DAF800AFCD8C /* LabelDividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C6A0652845DAF800AFCD8C /* LabelDividerCell.swift */; };
 		72C7A75D273F0F0E00636346 /* SearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7A75C273F0F0E00636346 /* SearchHistoryCell.swift */; };
@@ -463,6 +464,7 @@
 		72BB4503289DFD3100EE9B35 /* RedeemConfirmationDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RedeemConfirmationDialog.xib; sourceTree = "<group>"; };
 		72BB4505289DFD3C00EE9B35 /* RedeemConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemConfirmationDialog.swift; sourceTree = "<group>"; };
 		72BF2A652843475600B43F50 /* GetGoalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoalsResponse.swift; sourceTree = "<group>"; };
+		72C4C55A28A0AFF100121429 /* InitRealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRealmViewController.swift; sourceTree = "<group>"; };
 		72C6A0632845D63800AFCD8C /* CardholderContactInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardholderContactInfoCell.swift; sourceTree = "<group>"; };
 		72C6A0652845DAF800AFCD8C /* LabelDividerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelDividerCell.swift; sourceTree = "<group>"; };
 		72C7A75C273F0F0E00636346 /* SearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCell.swift; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 		72707C002830ACB2004F3C3C /* Get Started */ = {
 			isa = PBXGroup;
 			children = (
+				72C4C55A28A0AFF100121429 /* InitRealmViewController.swift */,
 				72707C012830ACD7004F3C3C /* GetStartedViewController.swift */,
 			);
 			path = "Get Started";
@@ -1571,6 +1574,7 @@
 				72C7D423283DD8160066F3CB /* CardNoCardViewController.swift in Sources */,
 				72C7D3E02838083F0066F3CB /* LoginEnterPinViewController.swift in Sources */,
 				72C7A76D2740984600636346 /* SearchStoreCell.swift in Sources */,
+				72C4C55B28A0AFF100121429 /* InitRealmViewController.swift in Sources */,
 				72AC010727378FFA00B452BE /* AFError+Extensions.swift in Sources */,
 				72AC00D427373C1E00B452BE /* BaseViewController.swift in Sources */,
 				72C7D3F8283AC4640066F3CB /* BusinessType.swift in Sources */,
@@ -1775,8 +1779,8 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1807,8 +1811,8 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -17,7 +17,7 @@ class BaseButtonBarPagerTabStripViewController: ButtonBarPagerTabStripViewContro
     }
     
     func setupTheme() {
-        if navigationController?.navigationBar.isHidden == false {
+        if navigationController?.isNavigationBarHidden == false {
             navigationController?.isNavigationBarHidden = true
             navigationController?.isNavigationBarHidden = false
         }

@@ -38,7 +38,7 @@ class MyCoinsHistoryViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
 
     private func loadData(complete: ((Bool) -> Void)? = nil) {

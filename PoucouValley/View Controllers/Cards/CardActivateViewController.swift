@@ -45,7 +45,7 @@ class CardActivateViewController: BaseViewController {
         
         cardNumberErrorString = nil
         codeErrorString = nil
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         cardNumber1Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         cardNumber2Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)

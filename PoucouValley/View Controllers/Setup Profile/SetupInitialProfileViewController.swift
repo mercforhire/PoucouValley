@@ -75,7 +75,6 @@ class SetupInitialProfileViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.navigationBar.isHidden = true
         navigationController?.viewControllers = [self]
         stepNumber = 0
     }
@@ -96,7 +95,11 @@ class SetupInitialProfileViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    @IBAction func logOffPressed(_ sender: UIBarButtonItem) {
+        userManager.logout()
     }
     
     @objc func donePressed(_ sender: UIButton) {

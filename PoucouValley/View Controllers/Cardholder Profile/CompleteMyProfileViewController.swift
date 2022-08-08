@@ -132,7 +132,7 @@ class CompleteMyProfileViewController: BaseViewController, SetGendersCellDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateTableView),
                                                name: Notifications.RequestTableViewUpdate,

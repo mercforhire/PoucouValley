@@ -31,7 +31,7 @@ class SignUpEnterEmailViewController: BaseViewController {
     override func setup() {
         super.setup()
         emailErrorString = nil
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func setupTheme() {

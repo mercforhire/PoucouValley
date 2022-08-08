@@ -36,8 +36,8 @@ class GetStartedViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.viewControllers = [self]
+        navigationController?.isNavigationBarHidden = true
         page = 0
     }
     

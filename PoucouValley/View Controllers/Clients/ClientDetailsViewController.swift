@@ -153,7 +153,7 @@ class ClientDetailsViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         api.fetchClient(clientId: client.identifier) { [weak self] result in
             switch result {
@@ -173,7 +173,7 @@ class ClientDetailsViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.isNavigationBarHidden = false
     }
 
     private func refreshUI() {

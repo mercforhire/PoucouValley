@@ -54,7 +54,7 @@ class EditCardholderDetailsViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
 
         interestsTableViewHeight.constant = CGFloat(50 * BusinessCategories.list().count)
     }

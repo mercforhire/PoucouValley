@@ -104,6 +104,9 @@ class UserManager {
                 } else if response.message == ResponseMessages.userAlreadyDeletedAccount.rawValue {
                     showErrorDialog(error: ResponseMessages.userAlreadyDeletedAccount.errorMessage())
                     completion(false)
+                } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
+                    showErrorDialog(error: ResponseMessages.cardholderNotFound.errorMessage())
+                    completion(false)
                 } else {
                     showErrorDialog(error: "Unknown error")
                     completion(false)

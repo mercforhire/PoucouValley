@@ -37,7 +37,7 @@ class LoginViewController: BaseViewController {
     override func setup() {
         super.setup()
         emailErrorString = nil
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         switch mode {
         case .cardholder:
@@ -94,7 +94,7 @@ class LoginViewController: BaseViewController {
                         FullScreenSpinner().hide()
                         showErrorDialog(error: ResponseMessages.userDoesNotExist.errorMessage())
                     }
-                case .failure(let error):
+                case .failure:
                     FullScreenSpinner().hide()
                     showNetworkErrorDialog()
                 }

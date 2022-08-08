@@ -20,10 +20,11 @@ class LoginScanViewController: BaseViewController {
     }
     
     @IBOutlet weak private var scannerContainer: UIView!
+    var qrScannerView: QRScannerView?
     
     override func setup() {
         super.setup()
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         setupQRScanner()
     }
@@ -34,6 +35,17 @@ class LoginScanViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        qrScannerView?.startRunning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        qrScannerView?.stopRunning()
+    }
 
     private func setupQRScanner() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -53,10 +65,11 @@ class LoginScanViewController: BaseViewController {
     }
     
     private func setupQRScannerView() {
-        let qrScannerView = QRScannerView(frame: view.bounds)
+        qrScannerView = QRScannerView(frame: view.bounds)
+        guard let qrScannerView = qrScannerView else { return }
+        
         scannerContainer.addSubview(qrScannerView)
         qrScannerView.configure(delegate: self, input: .init(isBlurEffectEnabled: true))
-        qrScannerView.startRunning()
     }
     
     private func showAlert() {

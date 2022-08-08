@@ -34,7 +34,7 @@ class SignUpEnterPinViewController: BaseViewController {
         super.setup()
         
         codeString = nil
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         code1Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code2Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code3Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -78,10 +78,12 @@ class SignUpEnterPinViewController: BaseViewController {
                         showErrorDialog(error: ResponseMessages.cardPinIncorrect.errorMessage())
                     } else if response.message == ResponseMessages.cardholderAlreadyExist.rawValue {
                         showErrorDialog(error: ResponseMessages.cardholderAlreadyExist.errorMessage())
+                    } else if response.message == ResponseMessages.cardNotExist.rawValue {
+                        showErrorDialog(error: ResponseMessages.cardNotExist.errorMessage())
                     } else {
                         showErrorDialog(error: "Unknown error")
                     }
-                case .failure(let error):
+                case .failure:
                     showNetworkErrorDialog()
                 }
             }

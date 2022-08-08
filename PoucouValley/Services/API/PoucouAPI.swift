@@ -66,6 +66,11 @@ class PoucouAPI {
     }
     
     func initRealm(callBack: @escaping(Bool) -> Void) {
+        if app.currentUser != nil {
+            callBack(true)
+            return
+        }
+        
         // Log in anonymously.
         app.login(credentials: Credentials.anonymous) { (result) in
             // Remember to dispatch back to the main thread in completion handlers

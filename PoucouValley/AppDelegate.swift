@@ -17,30 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         IQKeyboardManager.shared.enable = true
-        initRealm()
         return true
-    }
-    
-    private func initRealm() {
-        PoucouAPI.shared.initRealm { success in
-            if !success {
-                self.showRetryConnectRealm()
-            } else {
-                StoryboardManager.load(storyboard: "Login")
-            }
-        }
-    }
-    
-    private func showRetryConnectRealm() {
-        DispatchQueue.main.async {
-            guard let topVC = UIViewController.topViewController else { return }
-            
-            let alert = UIAlertController(title: "Fatal error", message: "Fatal error: Failed to connect to Realm server.", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
-                self.initRealm()
-            }))
-            topVC.present(alert, animated: true, completion: nil)
-        }
     }
 
     // MARK: UISceneSession Lifecycle

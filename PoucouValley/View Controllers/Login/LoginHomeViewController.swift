@@ -13,7 +13,7 @@ class LoginHomeViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func setupTheme() {

@@ -19,6 +19,7 @@ class ScanClientCardViewController: BaseViewController {
         }
     }
     @IBOutlet weak private var scannerContainer: UIView!
+    var qrScannerView: QRScannerView?
     
     override func setup() {
         super.setup()
@@ -36,6 +37,13 @@ class ScanClientCardViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = true
+        qrScannerView?.startRunning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        qrScannerView?.stopRunning()
     }
 
     private func setupQRScanner() {
@@ -56,10 +64,11 @@ class ScanClientCardViewController: BaseViewController {
     }
     
     private func setupQRScannerView() {
-        let qrScannerView = QRScannerView(frame: view.bounds)
+        qrScannerView = QRScannerView(frame: view.bounds)
+        guard let qrScannerView = qrScannerView else { return }
+        
         scannerContainer.addSubview(qrScannerView)
         qrScannerView.configure(delegate: self, input: .init(isBlurEffectEnabled: true))
-        qrScannerView.startRunning()
     }
     
     private func showCameraAlert() {

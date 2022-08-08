@@ -34,7 +34,7 @@ class SignUpEnterCodeViewController: BaseViewController {
         super.setup()
         
         codeString = nil
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
         code1Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code2Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code3Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)

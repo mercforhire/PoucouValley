@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zgf-Wf-Mge">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1922"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="1878"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetupPersonNameCell" id="cVj-au-Fnd" customClass="SetupPersonNameCell" customModule="PoucouValley" customModuleProvider="target">
@@ -399,8 +399,15 @@
                             <constraint firstItem="0S1-4X-6FE" firstAttribute="trailing" secondItem="zgf-Wf-Mge" secondAttribute="trailing" id="lsS-38-xtP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mbM-rG-PHC"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="mbM-rG-PHC">
+                        <barButtonItem key="rightBarButtonItem" title="Log off" id="ZWL-sm-wJp" customClass="ThemeBarButton" customModule="PoucouValley" customModuleProvider="target">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="logOffPressed:" destination="61e-nF-Bph" id="8u5-xm-pXd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
                         <outlet property="tableView" destination="zgf-Wf-Mge" id="Fws-H4-6n7"/>
@@ -430,6 +437,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
