@@ -149,9 +149,9 @@ extension MerchantSettingsViewController: UITableViewDataSource, UITableViewDele
         case .notification:
             print("notification")
         case .about:
-            print("about")
+            openURLInBrowser(url: URL(string: "http://poncouvalley.com/")!)
         case .help:
-            print("help")
+            openURLInBrowser(url: URL(string: "http://poncouvalley.com/")!)
         case .delete:
             showDeleteConfirmation()
         default:

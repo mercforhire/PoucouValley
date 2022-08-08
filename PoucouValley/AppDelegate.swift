@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if !success {
                 self.showRetryConnectRealm()
             } else {
-//                StoryboardManager.load(storyboard: "Login")
+                StoryboardManager.load(storyboard: "Login")
             }
         }
     }

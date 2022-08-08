@@ -55,8 +55,10 @@ class CompleteMyProfileViewController: BaseViewController, SetGendersCellDelegat
     @IBOutlet weak var nextButton: ThemeRoundedGreenBlackTextButton!
     
     private var steps: [SetupSteps] {
+        guard let goals = goals else { return [] }
+        
         var array: [SetupSteps]  = []
-        for goal in goals ?? [] {
+        for goal in goals {
             if let step = SetupSteps.getSetupStepFrom(goal: goal) {
                 array.append(step)
             }
