@@ -17,7 +17,9 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
     @IBOutlet weak var visitsLabel: ThemeBlackTextLabel!
     @IBOutlet weak var followersLabel: ThemeBlackTextLabel!
     @IBOutlet weak var logoImageView: URLImageView!
+    @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var merchantNameLabel: ThemeBlackTextLabel!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webButton: UIButton!
     @IBOutlet weak var igButton: UIButton!
@@ -42,15 +44,24 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
         super.awakeFromNib()
         // Initialization code
         addressLabel.isCopyingEnabled = true
-        topRoundedView.roundSelectedCorners(corners: [.topLeft, .topRight], radius: 30)
-        
+        collectionView.register(UINib(nibName: "URLImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        logoImageView.roundCorners(style: .medium)
+        editButton.roundCorners(style: .completely)
+        editButton.addBorder(color: .black)
         pageControl.numberOfPages = 1
         visitsLabel.text = "--"
         followersLabel.text = "--"
         logoImageView.image = nil
         addressLabel.text = ""
+        merchantNameLabel.text = ""
+        addPostButton.roundCorners(style: .small)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        topRoundedView.roundSelectedCorners(corners: [.topLeft, .topRight], radius: 30)
     }
     
     func config(data: Merchant) {
@@ -61,7 +72,7 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
         } else {
             logoImageView.image = UIImage(named: "store")
         }
-        
+        merchantNameLabel.text = data.name
         visitsLabel.text = "\(data.visits ?? 0)"
         followersLabel.text = "\(data.followers ?? 0)"
         addressLabel.text = data.address?.addressString ?? "No address provided"
@@ -82,7 +93,7 @@ extension MerchantDetailsHeaderView: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! SimpleURLImageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! URLImageCollectionViewCell
         
         let photo = photos[indexPath.row]
         cell.imageView.loadImageFromURL(urlString: photo.fullUrl)

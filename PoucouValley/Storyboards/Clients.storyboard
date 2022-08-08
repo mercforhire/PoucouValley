@@ -27,10 +27,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Users-->
+        <!--Clients-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="ClientsViewController" id="Y6W-OH-hqX" customClass="ClientsViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClientsViewController" title="Clients" id="Y6W-OH-hqX" customClass="ClientsViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -537,7 +537,7 @@
                             <constraint firstItem="yWK-gI-vza" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zKc-J4-9BU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Users" id="GMt-Ls-2S3">
+                    <navigationItem key="navigationItem" title="Clients" id="GMt-Ls-2S3">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="barcode.viewfinder" catalog="system" id="Mhu-N9-725" customClass="ThemeBarButton" customModule="PoucouValley" customModuleProvider="target">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

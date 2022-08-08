@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,17 +24,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="MerchantDetailsHeaderView" customModule="PoucouValley" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="411" height="621"/>
+            <rect key="frame" x="0.0" y="0.0" width="411" height="782"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-c2-i2j">
-                    <rect key="frame" x="0.0" y="44" width="411" height="577"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-c2-i2j">
+                    <rect key="frame" x="0.0" y="44" width="411" height="738"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-ZQ-8Be" userLabel="photo section">
-                            <rect key="frame" x="0.0" y="0.0" width="411" height="352"/>
+                            <rect key="frame" x="0.0" y="0.0" width="411" height="308.5"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aKx-oq-kqW">
-                                    <rect key="frame" x="0.0" y="0.0" width="411" height="352"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="411" height="308.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="P0c-I5-mD9">
                                         <size key="itemSize" width="414" height="500"/>
@@ -41,47 +42,21 @@
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
-                                    <cells>
-                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="OH5-C0-jvY" customClass="SimpleURLImageCell" customModule="PoucouValley" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="-74" width="414" height="500"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="axN-9V-UJN" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </imageView>
-                                                </subviews>
-                                            </view>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="axN-9V-UJN" firstAttribute="leading" secondItem="OH5-C0-jvY" secondAttribute="leading" id="En8-OX-Sl6"/>
-                                                <constraint firstItem="axN-9V-UJN" firstAttribute="top" secondItem="OH5-C0-jvY" secondAttribute="top" id="MKp-HL-ajd"/>
-                                                <constraint firstAttribute="trailing" secondItem="axN-9V-UJN" secondAttribute="trailing" id="dDo-v3-OV4"/>
-                                                <constraint firstAttribute="bottom" secondItem="axN-9V-UJN" secondAttribute="bottom" id="o6Y-EY-dA4"/>
-                                            </constraints>
-                                            <connections>
-                                                <outlet property="imageView" destination="axN-9V-UJN" id="oQd-Kd-JnU"/>
-                                            </connections>
-                                        </collectionViewCell>
-                                    </cells>
+                                    <cells/>
                                     <connections>
                                         <outlet property="dataSource" destination="U6b-Vx-4bR" id="BwM-Vj-cvj"/>
                                         <outlet property="delegate" destination="U6b-Vx-4bR" id="O9l-5T-Bfr"/>
                                     </connections>
                                 </collectionView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ena-ck-WHn" customClass="ThemeBackView" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="319" width="411" height="66"/>
+                                    <rect key="frame" x="0.0" y="288.5" width="411" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="66" id="f6c-gV-hVg"/>
+                                        <constraint firstAttribute="height" constant="40" id="f6c-gV-hVg"/>
                                     </constraints>
                                 </view>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="flB-oE-hV0" customClass="ThemeUIPageControl" customModule="PoucouValley" customModuleProvider="target">
-                                    <rect key="frame" x="148" y="262" width="115.5" height="10"/>
+                                    <rect key="frame" x="148" y="233.5" width="115.5" height="10"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="V6q-Lj-VkJ"/>
@@ -94,17 +69,18 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="ena-ck-WHn" secondAttribute="trailing" id="3zf-bq-g3K"/>
                                 <constraint firstItem="ena-ck-WHn" firstAttribute="leading" secondItem="1Sh-ZQ-8Be" secondAttribute="leading" id="B1B-E0-X99"/>
-                                <constraint firstAttribute="bottom" secondItem="flB-oE-hV0" secondAttribute="bottom" constant="80" id="FLu-iI-XKP"/>
+                                <constraint firstAttribute="bottom" secondItem="flB-oE-hV0" secondAttribute="bottom" constant="65" id="FLu-iI-XKP"/>
                                 <constraint firstAttribute="trailing" secondItem="aKx-oq-kqW" secondAttribute="trailing" id="OpP-D0-o9t"/>
                                 <constraint firstItem="aKx-oq-kqW" firstAttribute="leading" secondItem="1Sh-ZQ-8Be" secondAttribute="leading" id="PSq-Qb-gOI"/>
                                 <constraint firstItem="aKx-oq-kqW" firstAttribute="top" secondItem="1Sh-ZQ-8Be" secondAttribute="top" id="PyA-ko-5mu"/>
+                                <constraint firstAttribute="width" secondItem="1Sh-ZQ-8Be" secondAttribute="height" multiplier="4:3" id="Z4U-zk-z4U"/>
                                 <constraint firstItem="flB-oE-hV0" firstAttribute="centerX" secondItem="1Sh-ZQ-8Be" secondAttribute="centerX" id="ddT-lJ-0uP"/>
-                                <constraint firstAttribute="bottom" secondItem="ena-ck-WHn" secondAttribute="bottom" constant="-33" id="dzW-NU-DI0"/>
+                                <constraint firstAttribute="bottom" secondItem="ena-ck-WHn" secondAttribute="bottom" constant="-20" id="dzW-NU-DI0"/>
                                 <constraint firstAttribute="bottom" secondItem="aKx-oq-kqW" secondAttribute="bottom" id="o0s-sV-SPW"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3H1-SH-O7H" customClass="ThemeBackView" customModule="PoucouValley" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="352" width="411" height="65"/>
+                            <rect key="frame" x="0.0" y="318.5" width="411" height="65"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAI-dV-05o">
                                     <rect key="frame" x="0.0" y="13.5" width="155.5" height="38"/>
@@ -170,6 +146,18 @@
                                         <constraint firstAttribute="width" secondItem="9Be-xa-YEr" secondAttribute="height" multiplier="1:1" id="sLG-6g-Wcy"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBf-jL-dke">
+                                    <rect key="frame" x="225.5" y="0.0" width="40" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="4CS-2J-nrr"/>
+                                        <constraint firstAttribute="width" secondItem="DBf-jL-dke" secondAttribute="height" multiplier="1:1" id="VCo-Vz-1J4"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -177,6 +165,7 @@
                                 <constraint firstItem="GAI-dV-05o" firstAttribute="centerY" secondItem="3H1-SH-O7H" secondAttribute="centerY" id="CXb-8z-nKa"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GAI-dV-05o" secondAttribute="bottom" id="DUm-g5-sXl"/>
                                 <constraint firstItem="9Be-xa-YEr" firstAttribute="top" secondItem="3H1-SH-O7H" secondAttribute="top" constant="-70" id="Fz1-GR-k9X"/>
+                                <constraint firstItem="DBf-jL-dke" firstAttribute="width" secondItem="DBf-jL-dke" secondAttribute="height" multiplier="1:1" id="INb-WV-LXz"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xh1-Qc-GLg" secondAttribute="bottom" id="JmN-Le-NUg"/>
                                 <constraint firstItem="Xh1-Qc-GLg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3H1-SH-O7H" secondAttribute="top" id="Nqg-yM-Alw"/>
                                 <constraint firstAttribute="height" constant="65" id="Qyi-Ys-kWl"/>
@@ -186,10 +175,31 @@
                                 <constraint firstItem="9Be-xa-YEr" firstAttribute="leading" secondItem="GAI-dV-05o" secondAttribute="trailing" id="dEj-8V-x8b"/>
                                 <constraint firstItem="9Be-xa-YEr" firstAttribute="centerX" secondItem="3H1-SH-O7H" secondAttribute="centerX" id="dWB-OI-x6e"/>
                                 <constraint firstItem="Xh1-Qc-GLg" firstAttribute="centerY" secondItem="3H1-SH-O7H" secondAttribute="centerY" id="hQ5-HS-WCL"/>
+                                <constraint firstItem="DBf-jL-dke" firstAttribute="width" secondItem="DBf-jL-dke" secondAttribute="height" multiplier="1:1" id="mM5-J7-lFf"/>
+                                <constraint firstItem="DBf-jL-dke" firstAttribute="bottom" secondItem="9Be-xa-YEr" secondAttribute="bottom" constant="10" id="vIn-Qn-YB4"/>
+                                <constraint firstItem="DBf-jL-dke" firstAttribute="trailing" secondItem="9Be-xa-YEr" secondAttribute="trailing" constant="10" id="zol-hh-7cL"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="seP-3l-qNJ">
+                            <rect key="frame" x="0.0" y="393.5" width="411" height="101"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="[shop name]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeH-yd-JY5" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                    <rect key="frame" x="15" y="0.0" width="381" height="101"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="aeH-yd-JY5" secondAttribute="trailing" constant="15" id="G3k-7m-Ue2"/>
+                                <constraint firstItem="aeH-yd-JY5" firstAttribute="top" secondItem="seP-3l-qNJ" secondAttribute="top" id="cXd-pj-bUq"/>
+                                <constraint firstAttribute="bottom" secondItem="aeH-yd-JY5" secondAttribute="bottom" id="fhJ-xG-87p"/>
+                                <constraint firstItem="aeH-yd-JY5" firstAttribute="leading" secondItem="seP-3l-qNJ" secondAttribute="leading" constant="15" id="rx2-hI-nSE"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U43-ka-m5M">
-                            <rect key="frame" x="0.0" y="417" width="411" height="40"/>
+                            <rect key="frame" x="0.0" y="504.5" width="411" height="40"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NHi-vc-Q3U">
                                     <rect key="frame" x="65.5" y="0.0" width="280" height="40"/>
@@ -345,7 +355,7 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NHi-vc-Q3U" secondAttribute="trailing" id="3Pg-sq-GOJ"/>
                                 <constraint firstAttribute="bottom" secondItem="NHi-vc-Q3U" secondAttribute="bottom" id="JJ5-RM-BAu"/>
@@ -354,17 +364,26 @@
                                 <constraint firstItem="NHi-vc-Q3U" firstAttribute="centerX" secondItem="U43-ka-m5M" secondAttribute="centerX" id="veN-Zg-Ojj"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3253 Richmond Street, Toronto ON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie2-dJ-CI6" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="457" width="411" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIT-SL-TMU">
+                            <rect key="frame" x="0.0" y="554.5" width="411" height="93.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3253 Richmond Street, Toronto ON" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ie2-dJ-CI6" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                    <rect key="frame" x="15" y="0.0" width="381" height="93.5"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="EiS-xa-THt"/>
+                                <constraint firstAttribute="trailing" secondItem="ie2-dJ-CI6" secondAttribute="trailing" constant="15" id="2l8-Xf-M0k"/>
+                                <constraint firstAttribute="bottom" secondItem="ie2-dJ-CI6" secondAttribute="bottom" id="n4c-kd-Ceb"/>
+                                <constraint firstItem="ie2-dJ-CI6" firstAttribute="top" secondItem="LIT-SL-TMU" secondAttribute="top" id="x1e-1g-4dc"/>
+                                <constraint firstItem="ie2-dJ-CI6" firstAttribute="leading" secondItem="LIT-SL-TMU" secondAttribute="leading" constant="15" id="yf2-Bx-1BE"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7a-dX-keb">
-                            <rect key="frame" x="0.0" y="507" width="411" height="40"/>
+                            <rect key="frame" x="0.0" y="658" width="411" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7te-Es-2PG" customClass="ThemeBlackBgWhiteTextButton" customModule="PoucouValley" customModuleProvider="target">
                                     <rect key="frame" x="41" y="0.0" width="329" height="40"/>
@@ -380,7 +399,7 @@
                                     </state>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="7te-Es-2PG" firstAttribute="leading" secondItem="E7a-dX-keb" secondAttribute="leading" constant="41" id="0ot-g7-Joe"/>
                                 <constraint firstAttribute="trailing" secondItem="7te-Es-2PG" secondAttribute="trailing" constant="41" id="Igh-MW-1s4"/>
@@ -390,8 +409,8 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZR-NY-trb">
-                            <rect key="frame" x="0.0" y="547" width="411" height="30"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="0.0" y="708" width="411" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="yEw-IF-Vwg"/>
                             </constraints>
@@ -412,10 +431,12 @@
                 <outlet property="addPostButton" destination="7te-Es-2PG" id="qlr-jr-81U"/>
                 <outlet property="addressLabel" destination="ie2-dJ-CI6" id="PmZ-dY-bUR"/>
                 <outlet property="collectionView" destination="aKx-oq-kqW" id="1rv-Oa-2a4"/>
+                <outlet property="editButton" destination="DBf-jL-dke" id="nvj-BT-HQu"/>
                 <outlet property="fbButton" destination="CkS-h8-dWK" id="Fkx-XS-tPS"/>
                 <outlet property="followersLabel" destination="AQH-tn-YsA" id="kTd-M0-cK7"/>
                 <outlet property="igButton" destination="yIK-CF-55J" id="t1e-r1-p1h"/>
                 <outlet property="logoImageView" destination="9Be-xa-YEr" id="VA7-xK-f6G"/>
+                <outlet property="merchantNameLabel" destination="aeH-yd-JY5" id="uuE-j2-DOU"/>
                 <outlet property="pageControl" destination="flB-oE-hV0" id="Nxf-00-9IE"/>
                 <outlet property="phoneButton" destination="yf0-sx-B4K" id="JJU-w0-bdD"/>
                 <outlet property="topRoundedView" destination="ena-ck-WHn" id="yZf-EC-lu9"/>
@@ -423,7 +444,7 @@
                 <outlet property="visitsLabel" destination="qcp-QF-QER" id="0lf-tD-3Xw"/>
                 <outlet property="webButton" destination="aMa-aW-y7E" id="vhB-CO-OSy"/>
             </connections>
-            <point key="canvasLocation" x="197.82608695652175" y="306.36160714285711"/>
+            <point key="canvasLocation" x="197.82608695652175" y="359.59821428571428"/>
         </collectionReusableView>
     </objects>
     <resources>
@@ -432,6 +453,7 @@
         <image name="Icon-twitter" width="48" height="48"/>
         <image name="Icon-web" width="256" height="256"/>
         <image name="gem" width="13.5" height="13.5"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

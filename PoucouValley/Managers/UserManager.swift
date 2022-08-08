@@ -260,9 +260,9 @@ class UserManager {
         
         switch user.userType {
         case .cardholder:
-            StoryboardManager.load(storyboard: "Main", viewControllerId: "Cardholder")
+            StoryboardManager.load(storyboard: "CardholderMain")
         case .merchant:
-            StoryboardManager.load(storyboard: "Main", viewControllerId: "Merchant")
+            StoryboardManager.load(storyboard: "MerchantMain")
         default:
             break
         }

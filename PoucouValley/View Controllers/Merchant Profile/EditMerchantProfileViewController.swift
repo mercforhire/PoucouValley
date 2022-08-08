@@ -50,7 +50,7 @@ class EditMerchantProfileViewController: BaseViewController {
             if let logo = logo {
                 logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
             } else {
-                logoImageView.image = nil
+                logoImageView.image = UIImage(systemName: "camera")
             }
         }
     }
@@ -69,7 +69,7 @@ class EditMerchantProfileViewController: BaseViewController {
     
     private var hashtags: [String] = [] {
         didSet {
-            resizeCollectionViews()
+            tagsCollectionView.reloadData()
         }
     }
     private var selectedTagIndex: Int?
@@ -79,22 +79,14 @@ class EditMerchantProfileViewController: BaseViewController {
     private var imagePicker: ImagePicker!
     private let businessTypePickerView = UIPickerView()
     
-    private var uploadingLogo = false {
-        didSet {
-            uploadingPhoto = !uploadingLogo
-        }
-    }
-    private var uploadingPhoto = false {
-        didSet {
-            uploadingLogo = !uploadingPhoto
-        }
-    }
+    private var uploadingLogo = false
     
     override func setup() {
         super.setup()
         
+        logoContainer.roundCorners(style: .completely)
+        logoImageView.roundCorners(style: .completely)
         logoImageView.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
-        
         
         let bubbleLayout = MICollectionViewBubbleLayout()
         bubbleLayout.minimumLineSpacing = 10
@@ -105,8 +97,6 @@ class EditMerchantProfileViewController: BaseViewController {
         businessTypePickerView.delegate = self
         businessTypePickerView.dataSource = self
         categoryField.inputView = businessTypePickerView
-        
-        imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
 
     override func viewDidLoad() {
@@ -122,6 +112,8 @@ class EditMerchantProfileViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func fetchData(complete: ((Bool) -> Void)? = nil) {
@@ -157,32 +149,14 @@ class EditMerchantProfileViewController: BaseViewController {
     }
 
     @IBAction func logoPressed(_ sender: UIButton) {
-        if let logo = logo,
-           !logo.thumbnailUrl.isEmpty,
-           !logo.fullUrl.isEmpty {
-            // delete photo from S3
-            FullScreenSpinner().show()
-            userManager.deletePhoto(photo: logo) { [weak self] success in
-                guard let self = self else { return }
-                
-                FullScreenSpinner().hide()
-                if success {
-                    self.logo = nil
-                } else {
-                    showErrorDialog(error: "Failed to delete photo")
-                }
-            }
-        } else {
-            // upload photo to S3
-            requestPhotoPermission { [weak self] hasPermission in
-                guard let self = self else { return }
+        requestPhotoPermission { [weak self] hasPermission in
+            guard let self = self else { return }
 
-                if hasPermission {
-                    self.uploadingLogo = true
-                    self.getImageOrVideoFromAlbum(sourceView: sender)
-                } else {
-                    showErrorDialog(error: "Please enable photo library access for this app in the phone settings.")
-                }
+            if hasPermission {
+                self.uploadingLogo = true
+                self.getImageOrVideoFromAlbum(sourceView: sender)
+            } else {
+                showErrorDialog(error: "Please enable photo library access for this app in the phone settings.")
             }
         }
     }
@@ -190,19 +164,12 @@ class EditMerchantProfileViewController: BaseViewController {
     @objc func deletePhotoPressed(_ sender: UIButton) {
         guard sender.tag < photos.count else { return }
         
-        let photo = photos[sender.tag]
-        
-        FullScreenSpinner().show()
-        userManager.deletePhoto(photo: photo) { [weak self] success in
-            guard let self = self else { return }
-            
-            FullScreenSpinner().hide()
-            self.photos.remove(at: sender.tag)
-            
-            if !success {
-                showErrorDialog(error: "Failed to delete photo")
-            }
+        if photos.count <= 1 {
+            showErrorDialog(error: "Can not delete last photo")
+            return
         }
+        
+        photos.remove(at: sender.tag)
     }
     
     @IBAction func savePressed(_ sender: UIButton) {
@@ -284,9 +251,9 @@ class EditMerchantProfileViewController: BaseViewController {
     }
     
     private func showEditTagDialog() {
-        guard let selectedTagIndex = selectedTagIndex, selectedTagIndex <         hashtags.count else { return }
+        guard let selectedTagIndex = selectedTagIndex, selectedTagIndex < hashtags.count else { return }
         
-        let ac = UIAlertController(title: "Edit tag", message: "Edit tag: \(        hashtags[selectedTagIndex])", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Edit tag", message: "Edit tag: \(hashtags[selectedTagIndex])", preferredStyle: .alert)
         ac.addTextField { [weak self] textfield in
             textfield.keyboardType = .asciiCapable
             textfield.text = self?.hashtags[selectedTagIndex]
@@ -340,8 +307,14 @@ class EditMerchantProfileViewController: BaseViewController {
         userManager.uploadPhoto(photo: image) { [weak self] photo in
             FullScreenSpinner().hide()
             
+            guard let self = self else { return }
+            
             if let photo = photo {
-                self?.photos.append(photo)
+                if self.uploadingLogo {
+                    self.logo = photo
+                } else {
+                    self.photos.append(photo)
+                }
             } else {
                 showErrorDialog(error: "Failed to upload photo")
             }
@@ -351,10 +324,7 @@ class EditMerchantProfileViewController: BaseViewController {
     private func validate() -> Bool {
         // first name, last name
         if let name = nameField.text, !name.isEmpty {
-            if !Validator.validate(string: name, validation: .isAProperName) {
-                showErrorDialog(error: "Please input a business name")
-                return false
-            }
+            
         } else {
             showErrorDialog(error: "Please input a business name")
             return false
@@ -379,9 +349,10 @@ class EditMerchantProfileViewController: BaseViewController {
         dismiss(animated: true)
     }
     
-    private func resizeCollectionViews() {
-        tagsCollectionViewHeight.constant = max(100, tagsCollectionView.contentSize.height) + 34 + CGFloat(kItemPadding)
-        stackView.layoutIfNeeded()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 
@@ -415,7 +386,7 @@ extension EditMerchantProfileViewController: UIPickerViewDelegate, UIPickerViewD
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Lato-Regular", size: 19.0)
+            pickerLabel?.font = UIFont(name: "Poppins-Regular", size: 19.0)
             pickerLabel?.textAlignment = .center
         }
         if pickerView == businessTypePickerView {
@@ -442,6 +413,7 @@ extension EditMerchantProfileViewController: UICollectionViewDelegate, UICollect
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! URLImageTopRightButtonCell
                 let photo = photos[indexPath.row]
                 cell.imageView.loadImageFromURL(urlString: photo.thumbnailUrl)
+                cell.imageView.roundCorners(style: .medium)
                 cell.button.tag = indexPath.row
                 cell.button.addTarget(self, action: #selector(deletePhotoPressed), for: .touchUpInside)
                 return cell
@@ -473,7 +445,7 @@ extension EditMerchantProfileViewController: UICollectionViewDelegate, UICollect
                     guard let self = self else { return }
 
                     if hasPermission {
-                        self.uploadingPhoto = true
+                        self.uploadingLogo = false
                         self.getImageOrVideoFromAlbum(sourceView: collectionView)
                     } else {
                         showErrorDialog(error: "Please enable photo library access for this app in the phone settings.")

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lX9-ud-uMf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base Tab Bar View Controller-->
+        <scene sceneID="ZRe-qD-GoS">
+            <objects>
+                <tabBarController storyboardIdentifier="Merchant" automaticallyAdjustsScrollViewInsets="NO" id="lX9-ud-uMf" customClass="BaseTabBarViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dDV-ei-DaN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="3WG-iQ-JFA" kind="relationship" relationship="viewControllers" id="PsK-IR-mcO"/>
+                        <segue destination="owi-vY-C1o" kind="relationship" relationship="viewControllers" id="dgb-Ud-2Xb"/>
+                        <segue destination="gtg-bM-js7" kind="relationship" relationship="viewControllers" id="4fS-C5-x81"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0n-4Z-TL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="1223"/>
+        </scene>
+        <!--Clients-->
+        <scene sceneID="tiG-c6-X9C">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3WG-iQ-JFA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Clients" image="person.3" catalog="system" id="TrY-mx-kph"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0EV-NF-Yag">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fnt-fT-Tz6" kind="relationship" relationship="rootViewController" id="m4C-dS-rU1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="alH-N4-AxN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="67" y="2004"/>
+        </scene>
+        <!--ClientsViewController-->
+        <scene sceneID="0t7-iF-T0u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Clients" referencedIdentifier="ClientsViewController" id="fnt-fT-Tz6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fav-b0-c1Y"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oxy-m8-1ET" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="67" y="2415"/>
+        </scene>
+        <!--PerformanceViewController-->
+        <scene sceneID="QpR-l3-L4H">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Charts" referencedIdentifier="PerformanceViewController" id="gsg-RW-Qz9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9hA-OS-Xnh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQT-ED-VkB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="2415"/>
+        </scene>
+        <!--MerchantProfileViewController-->
+        <scene sceneID="Rrk-gf-qMu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Merchant" referencedIdentifier="MerchantProfileViewController" id="eYe-oc-ovs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YfY-qK-alg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qhx-Z8-Usx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1541" y="2415"/>
+        </scene>
+        <!--Performance-->
+        <scene sceneID="KoV-vQ-gOt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="owi-vY-C1o" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Performance" image="chart.pie" catalog="system" id="2df-rS-cLV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G6f-mT-DsY">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gsg-RW-Qz9" kind="relationship" relationship="rootViewController" id="eff-7c-yJ2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6OW-nE-aBx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="2004"/>
+        </scene>
+        <!--My store-->
+        <scene sceneID="kIb-TG-Gt4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gtg-bM-js7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My store" image="person" catalog="system" id="BiS-wi-hUH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ol4-oc-Bww">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eYe-oc-ovs" kind="relationship" relationship="rootViewController" id="67I-4w-Eyw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Py-hk-TpY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542" y="2004"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chart.pie" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -42,16 +42,15 @@ class HashTagsTableViewCell: UITableViewCell {
         self.showPlusButton = showPlusButton
         collectionView.reloadData()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: { [weak self] in
-            self?.resizeCollectionViews()
-        })
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             finishAction?()
         })
     }
     
-    private func resizeCollectionViews() {
-        collectionViewHeight.constant = collectionView.contentSize.height
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        collectionViewHeight.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 

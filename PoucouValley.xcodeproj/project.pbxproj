@@ -89,7 +89,7 @@
 		72997AD3289C5F2E00F745A8 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AD2289C5F2E00F745A8 /* DayAxisValueFormatter.swift */; };
 		72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AD2736F27700B452BE /* AppDelegate.swift */; };
 		72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AF2736F27700B452BE /* SceneDelegate.swift */; };
-		72AC00B52736F27700B452BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B32736F27700B452BE /* Main.storyboard */; };
+		72AC00B52736F27700B452BE /* CardholderMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B32736F27700B452BE /* CardholderMain.storyboard */; };
 		72AC00B72736F27900B452BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B62736F27900B452BE /* Assets.xcassets */; };
 		72AC00BA2736F27900B452BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B82736F27900B452BE /* LaunchScreen.storyboard */; };
 		72AC00C32737045800B452BE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00C22737045800B452BE /* Home.storyboard */; };
@@ -271,6 +271,7 @@
 		72EEAC78289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */; };
 		72EEAC7A289D7EB500EE189C /* Gifts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72EEAC79289D7EB500EE189C /* Gifts.storyboard */; };
 		72F4B9A828A02C77009C1D1D /* ThemeDividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F4B9A728A02C77009C1D1D /* ThemeDividerView.swift */; };
+		72F4B9AA28A04A81009C1D1D /* MerchantMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F4B9A928A04A81009C1D1D /* MerchantMain.storyboard */; };
 		72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F748EB28433EEF0057A2B4 /* Goal.swift */; };
 		72F92FEC284078BE00DF438C /* Clients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FEB284078BE00DF438C /* Clients.storyboard */; };
 		72F92FEE284078D000DF438C /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F92FED284078D000DF438C /* Charts.storyboard */; };
@@ -362,7 +363,7 @@
 		72AC00AA2736F27700B452BE /* PoucouValley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoucouValley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AC00AD2736F27700B452BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AC00AF2736F27700B452BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		72AC00B42736F27700B452BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		72AC00B42736F27700B452BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CardholderMain.storyboard; sourceTree = "<group>"; };
 		72AC00B62736F27900B452BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72AC00B92736F27900B452BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72AC00BB2736F27900B452BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -545,6 +546,7 @@
 		72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanDetailsCollectionHeaderView.xib; sourceTree = "<group>"; };
 		72EEAC79289D7EB500EE189C /* Gifts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gifts.storyboard; sourceTree = "<group>"; };
 		72F4B9A728A02C77009C1D1D /* ThemeDividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeDividerView.swift; sourceTree = "<group>"; };
+		72F4B9A928A04A81009C1D1D /* MerchantMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MerchantMain.storyboard; sourceTree = "<group>"; };
 		72F748EB28433EEF0057A2B4 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		72F92FEB284078BE00DF438C /* Clients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Clients.storyboard; sourceTree = "<group>"; };
 		72F92FED284078D000DF438C /* Charts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Charts.storyboard; sourceTree = "<group>"; };
@@ -739,7 +741,8 @@
 				72AC00B82736F27900B452BE /* LaunchScreen.storyboard */,
 				7201EEE7282F564D00AD6585 /* Login.storyboard */,
 				72707C1E2832F2FD004F3C3C /* SetupProfile.storyboard */,
-				72AC00B32736F27700B452BE /* Main.storyboard */,
+				72AC00B32736F27700B452BE /* CardholderMain.storyboard */,
+				72F4B9A928A04A81009C1D1D /* MerchantMain.storyboard */,
 				72AC00C22737045800B452BE /* Home.storyboard */,
 				72C7D411283D60150066F3CB /* Card.storyboard */,
 				72F92FEB284078BE00DF438C /* Clients.storyboard */,
@@ -1299,6 +1302,7 @@
 				72B2FBA4273C6CA000382C12 /* Poppins-Medium.ttf in Resources */,
 				72B2FBA3273C6CA000382C12 /* Poppins-Light.ttf in Resources */,
 				72C7A7732741D1D100636346 /* SearchSectionHeaderView.xib in Resources */,
+				72F4B9AA28A04A81009C1D1D /* MerchantMain.storyboard in Resources */,
 				72AC01392737917D00B452BE /* dark-theme.plist in Resources */,
 				72B2FBAD273C6CA000382C12 /* Poppins-Black.ttf in Resources */,
 				72F92FEC284078BE00DF438C /* Clients.storyboard in Resources */,
@@ -1328,7 +1332,7 @@
 				7297E53327471DE000F6F33B /* StoryCollectionViewCell.xib in Resources */,
 				72AC00B72736F27900B452BE /* Assets.xcassets in Resources */,
 				72B2FBA1273C6CA000382C12 /* Poppins-ExtraLightItalic.ttf in Resources */,
-				72AC00B52736F27700B452BE /* Main.storyboard in Resources */,
+				72AC00B52736F27700B452BE /* CardholderMain.storyboard in Resources */,
 				72B2FBA0273C6CA000382C12 /* Poppins-ThinItalic.ttf in Resources */,
 				72B2FBA7273C6CA000382C12 /* Poppins-ExtraBold.ttf in Resources */,
 				72B2FBAB273C6CA000382C12 /* Poppins-LightItalic.ttf in Resources */,
@@ -1619,12 +1623,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		72AC00B32736F27700B452BE /* Main.storyboard */ = {
+		72AC00B32736F27700B452BE /* CardholderMain.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				72AC00B42736F27700B452BE /* Base */,
 			);
-			name = Main.storyboard;
+			name = CardholderMain.storyboard;
 			sourceTree = "<group>";
 		};
 		72AC00B82736F27900B452BE /* LaunchScreen.storyboard */ = {
@@ -1765,9 +1769,11 @@
 				DEVELOPMENT_TEAM = 27VUA9BK6D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PoucouValley/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan QR code on the membership cards";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To upload photos for client profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1795,9 +1801,11 @@
 				DEVELOPMENT_TEAM = 27VUA9BK6D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PoucouValley/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan QR code on the membership cards";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To upload photos for client profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

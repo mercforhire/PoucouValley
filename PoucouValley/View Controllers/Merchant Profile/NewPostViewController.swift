@@ -34,7 +34,6 @@ class NewPostViewController: BaseViewController {
     private var hashtags: [String]? {
         didSet {
             tagsCollectionView.reloadData()
-            resizeCollectionViews()
         }
     }
     private var selectedTagIndex: Int?
@@ -51,8 +50,6 @@ class NewPostViewController: BaseViewController {
         bubbleLayout.minimumInteritemSpacing = 5
         bubbleLayout.delegate = self
         tagsCollectionView.setCollectionViewLayout(bubbleLayout, animated: false)
-        
-        imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
     
     override func viewDidLoad() {
@@ -66,10 +63,17 @@ class NewPostViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     @objc func deletePhotoPressed(_ sender: UIButton) {
         guard sender.tag < photos.count else { return }
+        
+        if photos.count <= 1 {
+            showErrorDialog(error: "Can not delete last photo")
+            return
+        }
         
         photos.remove(at: sender.tag)
     }
@@ -257,13 +261,14 @@ class NewPostViewController: BaseViewController {
         dismiss(animated: true)
     }
     
-    private func resizeCollectionViews() {
-        tagsCollectionViewHeight.constant = max(100, tagsCollectionView.contentSize.height) + 34 + CGFloat(kItemPadding)
-        stackView.layoutIfNeeded()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 
-extension NewPostViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NewPostViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == photoCollectionView {
             return photos.count + 1
@@ -279,6 +284,7 @@ extension NewPostViewController: UICollectionViewDelegate, UICollectionViewDataS
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! URLImageTopRightButtonCell
                 let photo = photos[indexPath.row]
                 cell.imageView.image = photo
+                cell.imageView.roundCorners(style: .medium)
                 cell.button.tag = indexPath.row
                 cell.button.addTarget(self, action: #selector(deletePhotoPressed), for: .touchUpInside)
                 return cell
@@ -347,6 +353,9 @@ extension NewPostViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == photoCollectionView {
+            return 10.0
+        }
         return 0.0
     }
 }

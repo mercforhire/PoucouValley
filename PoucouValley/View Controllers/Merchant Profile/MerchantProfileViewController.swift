@@ -22,20 +22,20 @@ class MerchantProfileViewController: BaseViewController {
             for _ in 0...(plans?.count ?? 0) {
                 cellSizes.append(generateRandomSize(collectionView: collectionView))
             }
+            layout.columnCount = (plans?.isEmpty ?? true) ? 1 : 2
             collectionView.reloadData()
         }
     }
     private var selectedPlan: Plan?
     private var cellSizes: [CGSize] = []
     private var headerView: MerchantDetailsHeaderView?
+    let layout = CollectionViewWaterfallLayout()
     
     override func setup() {
         super.setup()
         
-        title = merchant.name
-        
-        let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.columnCount = 1
         layout.headerHeight = 1
         layout.footerHeight = 0
         layout.minimumColumnSpacing = 10
@@ -56,7 +56,7 @@ class MerchantProfileViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = false
         
         userManager.fetchUser { [weak self] success in
             guard let self = self else { return }
@@ -97,7 +97,6 @@ class MerchantProfileViewController: BaseViewController {
     }
     
     private func refreshViewController() {
-        title = merchant.name
         headerView?.config(data: merchant)
     }
     
@@ -105,9 +104,8 @@ class MerchantProfileViewController: BaseViewController {
         performSegue(withIdentifier: "goToNewPost", sender: self)
     }
     
-    @objc func editPostPressed(plan: Plan) {
-        selectedPlan = plan
-        performSegue(withIdentifier: "goToEditPost", sender: self)
+    @objc func editMerchantButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToEditMerchant", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -126,6 +124,8 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
         
         self.headerView = headerView
         headerView.config(data: merchant)
+        headerView.addPostButton.addTarget(self, action: #selector(addPostButtonPressed), for: .touchUpInside)
+        headerView.editButton.addTarget(self, action: #selector(editMerchantButtonPressed), for: .touchUpInside)
         return headerView
     }
     
@@ -138,7 +138,7 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return plans?.count ?? 0
+        return max(1, plans?.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -171,7 +171,8 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let plan = plans?[indexPath.row] else { return }
         
-        openPlanDetailsVC(plan: plan)
+        selectedPlan = plan
+        performSegue(withIdentifier: "goToEditPost", sender: self)
     }
 }
 
@@ -182,7 +183,7 @@ extension MerchantProfileViewController: CollectionViewWaterfallLayoutDelegate {
                         layout: UICollectionViewLayout,
                         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if plans?.count ?? 0 == 0 {
-            return collectionView.frame.size
+            return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height / 2)
         }
         
         return cellSizes[indexPath.item]

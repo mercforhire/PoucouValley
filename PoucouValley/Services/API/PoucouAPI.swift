@@ -1003,7 +1003,9 @@ class PoucouAPI {
     func fetchClient(clientId: ObjectId, callBack: @escaping(Result<FetchClientResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
-        user.functions.api_fetchClient([AnyBSON(apiKey), AnyBSON(clientId)]) { response, error in
+        let params: Document = ["clientId": AnyBSON(clientId)]
+                                
+        user.functions.api_fetchClient([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
             DispatchQueue.main.async {
                 guard error == nil else {
                     print("Function call failed: \(error!.localizedDescription)")

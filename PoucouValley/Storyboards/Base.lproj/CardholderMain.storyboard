@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N41-cu-wca">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base Tab Bar View Controller-->
+        <scene sceneID="NfY-Mv-ASh">
+            <objects>
+                <tabBarController storyboardIdentifier="Cardholder" automaticallyAdjustsScrollViewInsets="NO" id="N41-cu-wca" customClass="BaseTabBarViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HFf-Fi-XvP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2O9-dL-68U" kind="relationship" relationship="viewControllers" id="kB6-vB-JnO"/>
+                        <segue destination="BMb-M6-dE9" kind="relationship" relationship="viewControllers" id="6RF-91-GyP"/>
+                        <segue destination="2cj-Ps-kUC" kind="relationship" relationship="viewControllers" id="44O-8y-vnA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LL8-SI-ZAx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="761" y="-365"/>
+        </scene>
+        <!--Explore-->
+        <scene sceneID="tUQ-gD-AHb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2O9-dL-68U" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Explore" image="house" catalog="system" id="x3S-jo-Z8v"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qtI-ur-G03">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H3G-TJ-0r0" kind="relationship" relationship="rootViewController" id="x8k-WL-8dk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUE-7m-c5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="415"/>
+        </scene>
+        <!--HomeRootViewController-->
+        <scene sceneID="x9d-I1-2V0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeRootViewController" id="H3G-TJ-0r0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TLa-tL-5hb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qw7-hP-fpz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="820"/>
+        </scene>
+        <!--My card-->
+        <scene sceneID="94v-Af-PSu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BMb-M6-dE9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My card" image="creditcard" catalog="system" id="wlD-F8-aAG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fv6-hK-NNL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fsB-qN-s0l" kind="relationship" relationship="rootViewController" id="1no-6o-00H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tuo-sI-O30" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="761" y="415"/>
+        </scene>
+        <!--My profile-->
+        <scene sceneID="aHr-D9-hvm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2cj-Ps-kUC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My profile" image="person" catalog="system" id="9oz-zM-yJt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaF-S8-3vI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k2K-QD-ZKl" kind="relationship" relationship="rootViewController" id="fM2-fE-bVk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eyR-bh-qHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="415"/>
+        </scene>
+        <!--MyProfileViewController-->
+        <scene sceneID="qiN-Fz-hlC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="MyProfileViewController" id="k2K-QD-ZKl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Wpt-tu-uts"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jth-Bc-fPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="820"/>
+        </scene>
+        <!--Card-->
+        <scene sceneID="2jm-w6-QU4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Card" id="fsB-qN-s0l" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4K7-BW-EIw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ciq-O0-082" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="820"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="creditcard" catalog="system" width="128" height="88"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -27,7 +27,7 @@
         <!--My store-->
         <scene sceneID="N4k-4W-xm3">
             <objects>
-                <viewController storyboardIdentifier="MerchantProfileViewController" id="ami-KR-RU3" customClass="MerchantProfileViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MerchantProfileViewController" title="My store" id="ami-KR-RU3" customClass="MerchantProfileViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sLY-qg-MnD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,13 +176,15 @@
                                         <size key="customSize" width="356" height="450"/>
                                         <connections>
                                             <outlet property="button" destination="gRY-00-aSB" id="qEt-gC-Kl9"/>
-                                            <outlet property="containerView" destination="OzV-sJ-BhH" id="YoK-g3-wd4"/>
                                             <outlet property="imageView" destination="hrZ-lT-925" id="w3J-sd-mhN"/>
                                             <outlet property="textLabel" destination="Ivn-7k-Vas" id="UXb-By-rkK"/>
-                                            <outlet property="vipButton" destination="gRY-00-aSB" id="GFS-U4-d7v"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ami-KR-RU3" id="MHH-Yn-97t"/>
+                                    <outlet property="delegate" destination="ami-KR-RU3" id="wFc-xU-WbD"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v2g-bk-KbU"/>
@@ -208,7 +210,7 @@
                         <outlet property="collectionView" destination="TN6-k7-Zx7" id="y31-9r-u0y"/>
                         <segue destination="ijO-tI-sR2" kind="show" identifier="goToNewPost" id="KiK-mo-7P8"/>
                         <segue destination="sXS-UV-J5o" kind="show" identifier="goToEditPost" id="u13-TM-3Hh"/>
-                        <segue destination="Yxc-65-t8z" kind="show" id="FIa-dv-wcU"/>
+                        <segue destination="Yxc-65-t8z" kind="show" identifier="goToEditMerchant" id="FIa-dv-wcU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BaE-Zr-zFj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -271,7 +273,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="5oO-wD-NeL"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="71F-8R-2IQ">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="71F-8R-2IQ">
                                                             <size key="itemSize" width="120" height="120"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -285,12 +287,12 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptop" translatesAutoresizingMaskIntoConstraints="NO" id="Xfc-pL-c5l" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptop" translatesAutoresizingMaskIntoConstraints="NO" id="Xfc-pL-c5l" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         </imageView>
-                                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USB-EP-vM7" customClass="ThemeBlackBackTintWhiteButton" customModule="PoucouValley" customModuleProvider="target">
+                                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USB-EP-vM7">
                                                                             <rect key="frame" x="80" y="-10" width="50" height="50"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -326,11 +328,11 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border" translatesAutoresizingMaskIntoConstraints="NO" id="9EN-wz-TtL">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border" translatesAutoresizingMaskIntoConstraints="NO" id="9EN-wz-TtL">
                                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                             <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1id-x1-Lgf">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1id-x1-Lgf">
                                                                             <rect key="frame" x="42" y="42" width="36" height="36"/>
                                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -352,10 +354,10 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="Yxc-65-t8z" id="lvU-dW-Fg8"/>
-                                                            <outlet property="delegate" destination="Yxc-65-t8z" id="T5o-vp-sB9"/>
-                                                            <outlet property="dragDelegate" destination="Yxc-65-t8z" id="lhW-wp-pJF"/>
-                                                            <outlet property="dropDelegate" destination="Yxc-65-t8z" id="4B9-Z8-iVb"/>
+                                                            <outlet property="dataSource" destination="ijO-tI-sR2" id="nUF-bv-yQb"/>
+                                                            <outlet property="delegate" destination="ijO-tI-sR2" id="M3p-ar-7X5"/>
+                                                            <outlet property="dragDelegate" destination="ijO-tI-sR2" id="nYJ-yg-qjl"/>
+                                                            <outlet property="dropDelegate" destination="ijO-tI-sR2" id="gSx-pw-JJF"/>
                                                         </connections>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vk-RV-NQF" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
@@ -599,7 +601,7 @@
         <!--Edit post-->
         <scene sceneID="puY-Uc-PSH">
             <objects>
-                <viewController storyboardIdentifier="EditPostViewController" id="sXS-UV-J5o" customClass="EditPostViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditPostViewController" title="Edit post" id="sXS-UV-J5o" customClass="EditPostViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Jf-k8-Vki">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -619,7 +621,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="B2s-WU-ncz"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fMP-Ar-k0F">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fMP-Ar-k0F">
                                                             <size key="itemSize" width="120" height="120"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -633,12 +635,12 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptop" translatesAutoresizingMaskIntoConstraints="NO" id="XJS-Cf-Emj" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptop" translatesAutoresizingMaskIntoConstraints="NO" id="XJS-Cf-Emj" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         </imageView>
-                                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gy-oC-Wpb" customClass="ThemeBlackBackTintWhiteButton" customModule="PoucouValley" customModuleProvider="target">
+                                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gy-oC-Wpb">
                                                                             <rect key="frame" x="80" y="-10" width="50" height="50"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -700,10 +702,10 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="Yxc-65-t8z" id="cce-qu-paK"/>
-                                                            <outlet property="delegate" destination="Yxc-65-t8z" id="B6V-o7-7Ta"/>
-                                                            <outlet property="dragDelegate" destination="Yxc-65-t8z" id="nIX-Gj-YMN"/>
-                                                            <outlet property="dropDelegate" destination="Yxc-65-t8z" id="8CH-TC-RUv"/>
+                                                            <outlet property="dataSource" destination="sXS-UV-J5o" id="aut-PZ-A68"/>
+                                                            <outlet property="delegate" destination="sXS-UV-J5o" id="XIS-iY-7zK"/>
+                                                            <outlet property="dragDelegate" destination="sXS-UV-J5o" id="cu5-Du-YVb"/>
+                                                            <outlet property="dropDelegate" destination="sXS-UV-J5o" id="d4g-RA-6bK"/>
                                                         </connections>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQw-8p-JE4" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
@@ -901,10 +903,8 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="companyField" destination="1QL-AN-cnC" id="2BU-82-BPN"/>
                         <outlet property="descriptionTextView" destination="5AQ-iq-lRI" id="cJu-Mc-Krf"/>
                         <outlet property="discountedPriceField" destination="BVq-Tf-TFk" id="krn-id-obP"/>
-                        <outlet property="notesTextView" destination="5AQ-iq-lRI" id="3Y0-fU-GOA"/>
                         <outlet property="photoCollectionView" destination="HcZ-bg-guy" id="qCq-ec-FAN"/>
                         <outlet property="priceField" destination="pR1-MP-i6f" id="Qp5-6k-Hjb"/>
                         <outlet property="stackView" destination="Uak-ZN-LON" id="U0V-OL-hqW"/>
@@ -979,6 +979,7 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="120" id="22W-XJ-IJQ"/>
                                                             <constraint firstAttribute="bottom" secondItem="aSv-dG-MdR" secondAttribute="bottom" id="8U4-A7-0RZ"/>
                                                             <constraint firstItem="aSv-dG-MdR" firstAttribute="top" secondItem="F97-d7-8Wq" secondAttribute="top" id="Cj4-1N-1fb"/>
                                                             <constraint firstItem="aSv-dG-MdR" firstAttribute="centerX" secondItem="F97-d7-8Wq" secondAttribute="centerX" id="FJo-9Y-0RT"/>
@@ -996,7 +997,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="kQK-TR-taE"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y1c-NQ-Az4">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y1c-NQ-Az4">
                                                             <size key="itemSize" width="120" height="120"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1010,12 +1011,12 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptop" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-TY-dzW" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="laptop" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-TY-dzW" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         </imageView>
-                                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1h-qx-2qQ" customClass="ThemeBlackBackTintWhiteButton" customModule="PoucouValley" customModuleProvider="target">
+                                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1h-qx-2qQ">
                                                                             <rect key="frame" x="80" y="-10" width="50" height="50"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -1097,7 +1098,7 @@
                                                         </constraints>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="organization"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="organization"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="Yxc-65-t8z" id="KUY-Ry-vs3"/>
                                                         </connections>
@@ -1534,18 +1535,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2K-cS-mN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722" y="2835"/>
+            <point key="canvasLocation" x="721.73913043478262" y="2834.5982142857142"/>
         </scene>
-        <!--Merchant Settings View Controller-->
+        <!--My account-->
         <scene sceneID="eDM-tY-T8O">
             <objects>
-                <viewController storyboardIdentifier="MerchantSettingsViewController" id="1dQ-oj-8Wb" customClass="MerchantSettingsViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MerchantSettingsViewController" title="My account" id="1dQ-oj-8Wb" customClass="MerchantSettingsViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GBq-1E-oQW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v87-5v-sNr">
-                                <rect key="frame" x="0.0" y="90" width="414" height="806"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelTableCell" id="E6K-BH-Wjv" customClass="LabelTableCell" customModule="PoucouValley" customModuleProvider="target">
@@ -1584,7 +1585,7 @@
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edA-Xn-mon">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edA-Xn-mon" customClass="ThemeDividerView" customModule="PoucouValley" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="51" width="374" height="1"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -1655,42 +1656,26 @@
                                     <outlet property="delegate" destination="1dQ-oj-8Wb" id="RKq-K3-xYx"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrU-9e-Wqy" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="147.5" y="42" width="119" height="28"/>
-                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-dN-kqy" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="44" width="32" height="23.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="NNJ-rh-04o"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
-                                </state>
-                                <connections>
-                                    <action selector="backPressed:" destination="1dQ-oj-8Wb" eventType="touchUpInside" id="jaX-uH-sQd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SOO-Uq-tLk"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TAF-dN-kqy" firstAttribute="leading" secondItem="SOO-Uq-tLk" secondAttribute="leading" constant="20" id="3p5-7I-tfc"/>
-                            <constraint firstItem="v87-5v-sNr" firstAttribute="top" secondItem="FrU-9e-Wqy" secondAttribute="bottom" constant="20" id="H9s-R8-tyO"/>
-                            <constraint firstItem="FrU-9e-Wqy" firstAttribute="centerY" secondItem="TAF-dN-kqy" secondAttribute="centerY" id="T34-ad-IKO"/>
                             <constraint firstAttribute="bottom" secondItem="v87-5v-sNr" secondAttribute="bottom" id="ZxZ-DZ-Wy4"/>
-                            <constraint firstItem="FrU-9e-Wqy" firstAttribute="centerX" secondItem="SOO-Uq-tLk" secondAttribute="centerX" id="aeq-7B-Q2L"/>
-                            <constraint firstItem="TAF-dN-kqy" firstAttribute="top" secondItem="SOO-Uq-tLk" secondAttribute="top" id="ay2-9F-dhw"/>
+                            <constraint firstItem="v87-5v-sNr" firstAttribute="top" secondItem="SOO-Uq-tLk" secondAttribute="top" id="dzt-kU-Mo5"/>
                             <constraint firstItem="v87-5v-sNr" firstAttribute="leading" secondItem="SOO-Uq-tLk" secondAttribute="leading" id="taY-97-qiE"/>
                             <constraint firstItem="SOO-Uq-tLk" firstAttribute="trailing" secondItem="v87-5v-sNr" secondAttribute="trailing" id="wE1-r8-SmZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kr3-fA-xip"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="My account" id="kr3-fA-xip">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="HNa-k1-v8c" customClass="ThemeBarButton" customModule="PoucouValley" customModuleProvider="target">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backPressed:" destination="1dQ-oj-8Wb" id="19l-Gg-EcC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="v87-5v-sNr" id="d9d-uA-iqL"/>
                     </connections>
@@ -1707,7 +1692,6 @@
         <image name="Icon-web" width="256" height="256"/>
         <image name="border" width="365" height="365"/>
         <image name="camera" catalog="system" width="128" height="94"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="laptop" width="179" height="179"/>

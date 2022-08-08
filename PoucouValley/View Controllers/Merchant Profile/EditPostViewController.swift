@@ -33,7 +33,6 @@ class EditPostViewController: BaseViewController {
     private var hashtags: [String]? {
         didSet {
             tagsCollectionView.reloadData()
-            resizeCollectionViews()
         }
     }
     private var selectedTagIndex: Int?
@@ -41,6 +40,16 @@ class EditPostViewController: BaseViewController {
     private let kCellHeight: CGFloat = 37
     private let kItemPadding = 12
     private var imagePicker: ImagePicker!
+    
+    override func setup() {
+        super.setup()
+        
+        let bubbleLayout = MICollectionViewBubbleLayout()
+        bubbleLayout.minimumLineSpacing = 10
+        bubbleLayout.minimumInteritemSpacing = 5
+        bubbleLayout.delegate = self
+        tagsCollectionView.setCollectionViewLayout(bubbleLayout, animated: false)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +63,8 @@ class EditPostViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func refreshViewController() {
@@ -70,19 +81,12 @@ class EditPostViewController: BaseViewController {
     @objc func deletePhotoPressed(_ sender: UIButton) {
         guard sender.tag < photos.count else { return }
         
-        let photo = photos[sender.tag]
-        
-        FullScreenSpinner().show()
-        userManager.deletePhoto(photo: photo) { [weak self] success in
-            guard let self = self else { return }
-            
-            FullScreenSpinner().hide()
-            self.photos.remove(at: sender.tag)
-            
-            if !success {
-                showErrorDialog(error: "Failed to delete photo")
-            }
+        if photos.count <= 1 {
+            showErrorDialog(error: "Can not delete last photo")
+            return
         }
+        
+        photos.remove(at: sender.tag)
     }
     
     @IBAction func savePressed(_ sender: UIButton) {
@@ -90,12 +94,13 @@ class EditPostViewController: BaseViewController {
         
         FullScreenSpinner().show()
         
-        api.addPlan(title: titleField.text!,
-                    description: descriptionTextView.text,
-                    photos: photos,
-                    price: priceField.text?.double,
-                    discountedPrice: discountedPriceField.text?.double,
-                    hashtags: hashtags) { [weak self] result in
+        api.editPlan(plan: plan,
+                     title: titleField.text!,
+                     description: descriptionTextView.text,
+                     photos: photos,
+                     price: priceField.text?.double,
+                     discountedPrice: discountedPriceField.text?.double,
+                     hashtags: hashtags) { [weak self] result in
             guard let self = self else { return }
             
             FullScreenSpinner().hide()
@@ -114,7 +119,7 @@ class EditPostViewController: BaseViewController {
     }
     
     private func showPostSavedDialog() {
-        let ac = UIAlertController(title: "New post", message: "New post has been saved", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Edit post", message: "The post has been edited", preferredStyle: .alert)
         let action = UIAlertAction(title: "Okay", style: .default) { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }
@@ -247,15 +252,15 @@ class EditPostViewController: BaseViewController {
         dismiss(animated: true)
     }
     
-    private func resizeCollectionViews() {
-        tagsCollectionViewHeight.constant = max(100, tagsCollectionView.contentSize.height) + 34 + CGFloat(kItemPadding)
-        stackView.layoutIfNeeded()
-    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
+        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
+    }
 }
 
 
-extension EditPostViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EditPostViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == photoCollectionView {
             return photos.count + 1
@@ -271,6 +276,7 @@ extension EditPostViewController: UICollectionViewDelegate, UICollectionViewData
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! URLImageTopRightButtonCell
                 let photo = photos[indexPath.row]
                 cell.imageView.loadImageFromURL(urlString: photo.thumbnailUrl)
+                cell.imageView.roundCorners(style: .medium)
                 cell.button.tag = indexPath.row
                 cell.button.addTarget(self, action: #selector(deletePhotoPressed), for: .touchUpInside)
                 return cell
@@ -339,6 +345,9 @@ extension EditPostViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == photoCollectionView {
+            return 10.0
+        }
         return 0.0
     }
 }

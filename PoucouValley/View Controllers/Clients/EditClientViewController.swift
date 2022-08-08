@@ -98,11 +98,7 @@ class EditClientViewController: BaseViewController {
         }
     }
 
-    var tags: [String] = [] {
-        didSet {
-            resizeCollectionViews()
-        }
-    }
+    var tags: [String] = []
     var selectedTagIndex: Int?
     
     private let kCellHeight: CGFloat = 37
@@ -133,8 +129,6 @@ class EditClientViewController: BaseViewController {
         bubbleLayout.minimumInteritemSpacing = 5
         bubbleLayout.delegate = self
         tagsCollectionView.setCollectionViewLayout(bubbleLayout, animated: false)
-        
-        imagePicker = ImagePicker(presentationController: self, delegate: self)
         
         notesTextView.text = ""
     }
@@ -483,9 +477,10 @@ class EditClientViewController: BaseViewController {
         dismiss(animated: true)
     }
     
-    private func resizeCollectionViews() {
-        tagsCollectionViewHeight.constant = max(100, tagsCollectionView.contentSize.height) + 34 + CGFloat(kItemPadding)
-        stackView.layoutIfNeeded()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 

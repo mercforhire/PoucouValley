@@ -12,6 +12,10 @@ class PVPhoto: BaseEmbeddedObject {
     var thumbnailUrl: String = ""
     var fullUrl: String = ""
     
+    static func == (lhs: PVPhoto, rhs: PVPhoto) -> Bool {
+        return lhs.thumbnailUrl == rhs.thumbnailUrl && lhs.fullUrl == rhs.fullUrl
+    }
+    
     convenience init(thumbnailUrl: String, fullUrl: String) {
         self.init()
         self.thumbnailUrl = thumbnailUrl
