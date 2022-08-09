@@ -42,11 +42,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qsF-zM-eWz">
                                                     <rect key="frame" x="0.0" y="0.0" width="245" height="400"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yKH-sj-ZCX" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="yKH-sj-ZCX" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="245" height="312.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="tQB-N9-ExW"/>
-                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" text="Label Label Label Label Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8a-IS-hQs" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="317.5" width="245" height="23.5"/>
@@ -141,11 +138,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UEm-Rd-IXf">
                                                     <rect key="frame" x="0.0" y="0.0" width="245" height="400"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-WM-LkG" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="4qo-WM-LkG" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="245" height="312.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="tku-CG-6KA"/>
-                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" text="Label Label Label Label Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRI-rE-adQ" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="317.5" width="245" height="23.5"/>

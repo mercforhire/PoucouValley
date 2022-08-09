@@ -111,22 +111,47 @@ class PlanDetailsViewController: BaseViewController {
     @objc private func followButtonPressed() {
         FullScreenSpinner().show()
         
-        api.followMerchant(userId: merchant.identifier) { [weak self] result in
-            guard let self = self else { return }
-            
-            FullScreenSpinner().hide()
-            
-            switch result {
-            case .success(let response):
-                if response.success {
-                    self.followed = true
-                } else {
-                    showErrorDialog(error: response.message)
+        if (!followed) {
+            api.followMerchant(userId: merchant.userId) { [weak self] result in
+                guard let self = self else { return }
+                
+                FullScreenSpinner().hide()
+                
+                switch result {
+                case .success(let response):
+                    if response.success {
+                        self.followed = true
+                    } else {
+                        showErrorDialog(error: response.message)
+                    }
+                case .failure:
+                    showNetworkErrorDialog()
                 }
-            case .failure:
-                showNetworkErrorDialog()
+            }
+        } else {
+            api.unfollowMerchant(userId: merchant.userId) { [weak self] result in
+                guard let self = self else { return }
+                
+                FullScreenSpinner().hide()
+                
+                switch result {
+                case .success(let response):
+                    if response.success {
+                        self.followed = false
+                    } else {
+                        showErrorDialog(error: response.message)
+                    }
+                case .failure:
+                    showNetworkErrorDialog()
+                }
             }
         }
+    }
+    
+    @objc private func merchantLogoPressed() {
+        let vc = StoryboardManager.loadViewController(storyboard: "Shops", viewControllerId: "ShopDetailsViewController") as! ShopDetailsViewController
+        vc.merchant = merchant
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -139,6 +164,7 @@ extension PlanDetailsViewController: UICollectionViewDataSource {
         self.headerView = headerView
         headerView.config(plan: plan, merchant: merchant, following: followed, showPostSection: !(relatedPlans?.isEmpty ?? true))
         headerView.followButton.addTarget(self, action: #selector(followButtonPressed), for: .touchUpInside)
+        headerView.logoButton.addTarget(self, action: #selector(merchantLogoPressed), for: .touchUpInside)
         return headerView
     }
     

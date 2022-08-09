@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SetupInterestsCellDelegate: class {
-    func selectedInterest(type: BusinessCategories)
+    func selectedInterests(interests: [BusinessCategories])
 }
 
 class SetupInterestsCell: UITableViewCell {
@@ -17,7 +17,7 @@ class SetupInterestsCell: UITableViewCell {
     @IBOutlet weak var submitButton: ThemeRoundedGreenBlackTextButton!
     
     var data: [BusinessCategories] = []
-    var selectedType: BusinessCategories?
+    var selectedCategories: [BusinessCategories] = []
     weak var delegate: SetupInterestsCellDelegate?
     
     override func awakeFromNib() {
@@ -33,9 +33,9 @@ class SetupInterestsCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func config(data: [BusinessCategories], selectedType: BusinessCategories?) {
+    func config(data: [BusinessCategories], selected: [BusinessCategories]) {
         self.data = data
-        self.selectedType = selectedType
+        self.selectedCategories = selected
         tableView.reloadData()
         tableViewHeight.constant = CGFloat(50 * data.count)
     }
@@ -56,7 +56,7 @@ extension SetupInterestsCell: UITableViewDataSource, UITableViewDelegate {
         }
         let type = data[indexPath.row]
         cell.button.setTitle(type.rawValue, for: .normal)
-        if type == selectedType {
+        if selectedCategories.contains(type) {
             cell.button.addBorder(color: themeManager.themeData!.lighterGreen.hexColor)
         } else {
             cell.button.addBorder(color: .clear)
@@ -66,6 +66,11 @@ extension SetupInterestsCell: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = data[indexPath.row]
-        delegate?.selectedInterest(type: type)
+        if let index = selectedCategories.firstIndex(of: type) {
+            selectedCategories.remove(at: index)
+        } else {
+            selectedCategories.append(type)
+        }
+        delegate?.selectedInterests(interests: selectedCategories)
     }
 }

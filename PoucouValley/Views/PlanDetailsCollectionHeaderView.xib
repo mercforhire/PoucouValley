@@ -67,12 +67,21 @@
                                                                 <constraint firstAttribute="width" secondItem="YxN-xW-geq" secondAttribute="height" multiplier="1:1" id="hoF-Hm-oiM"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qw-kX-Iqf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="YxN-xW-geq" firstAttribute="top" secondItem="mJy-ak-k2P" secondAttribute="top" id="4yA-WV-dc5"/>
                                                         <constraint firstAttribute="trailing" secondItem="YxN-xW-geq" secondAttribute="trailing" id="5S2-oA-4w5"/>
+                                                        <constraint firstItem="5Qw-kX-Iqf" firstAttribute="leading" secondItem="mJy-ak-k2P" secondAttribute="leading" id="6F2-Tb-6WU"/>
                                                         <constraint firstAttribute="bottom" secondItem="YxN-xW-geq" secondAttribute="bottom" id="G8E-Wl-yCc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5Qw-kX-Iqf" secondAttribute="bottom" id="L53-zp-j5w"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5Qw-kX-Iqf" secondAttribute="trailing" id="p6n-Gn-zpU"/>
+                                                        <constraint firstItem="5Qw-kX-Iqf" firstAttribute="top" secondItem="mJy-ak-k2P" secondAttribute="top" id="sIl-8w-End"/>
                                                         <constraint firstItem="YxN-xW-geq" firstAttribute="leading" secondItem="mJy-ak-k2P" secondAttribute="leading" id="zS5-X5-t3o"/>
                                                     </constraints>
                                                 </view>
@@ -315,6 +324,7 @@
                 <outlet property="heartIcon" destination="Q6i-IU-NOs" id="2pc-4G-bpJ"/>
                 <outlet property="likeButton" destination="aUC-Wj-L3e" id="53M-zS-pUb"/>
                 <outlet property="likeButtonContainer" destination="oZS-Xv-qB8" id="chm-Z2-Dpn"/>
+                <outlet property="logoButton" destination="5Qw-kX-Iqf" id="T7n-ci-lrt"/>
                 <outlet property="logoImageView" destination="YxN-xW-geq" id="TCk-bH-oyF"/>
                 <outlet property="numberFollowersLabel" destination="Xmp-OJ-qMH" id="gII-AA-OIM"/>
                 <outlet property="originalPriceLabel" destination="Cu5-v9-b7M" id="GyE-hw-aUA"/>

@@ -71,12 +71,21 @@
                                                                 <constraint firstAttribute="height" constant="48" id="xE3-SR-TNQ"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1R-Ni-IqB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="q1R-Ni-IqB" secondAttribute="bottom" id="5dD-8e-vfM"/>
                                                         <constraint firstAttribute="bottom" secondItem="Tqk-kZ-oSW" secondAttribute="bottom" id="HET-jI-ggh"/>
+                                                        <constraint firstItem="q1R-Ni-IqB" firstAttribute="leading" secondItem="UJH-Kw-eIt" secondAttribute="leading" id="XWF-M0-EBv"/>
+                                                        <constraint firstAttribute="trailing" secondItem="q1R-Ni-IqB" secondAttribute="trailing" id="Ylb-Tr-DOF"/>
                                                         <constraint firstAttribute="trailing" secondItem="Tqk-kZ-oSW" secondAttribute="trailing" id="fZf-bE-GP8"/>
                                                         <constraint firstItem="Tqk-kZ-oSW" firstAttribute="top" secondItem="UJH-Kw-eIt" secondAttribute="top" id="if0-WV-dtI"/>
+                                                        <constraint firstItem="q1R-Ni-IqB" firstAttribute="top" secondItem="UJH-Kw-eIt" secondAttribute="top" id="w2t-iq-jDd"/>
                                                         <constraint firstItem="Tqk-kZ-oSW" firstAttribute="leading" secondItem="UJH-Kw-eIt" secondAttribute="leading" id="wAC-rY-Qb4"/>
                                                     </constraints>
                                                 </view>
@@ -239,6 +248,7 @@
                 <outlet property="collectionView" destination="HHD-5u-zbd" id="REf-wv-Sw1"/>
                 <outlet property="followButton" destination="hRT-HD-bQA" id="SnX-C3-kFG"/>
                 <outlet property="hashtagsLabel" destination="26b-n7-0UL" id="eEg-Gl-x5u"/>
+                <outlet property="logoButton" destination="q1R-Ni-IqB" id="0BG-yr-VLv"/>
                 <outlet property="logoImageView" destination="Tqk-kZ-oSW" id="gcK-nE-4M2"/>
                 <outlet property="numberFollowersLabel" destination="UJf-lE-G0U" id="A8W-h3-NcU"/>
                 <outlet property="pageControl" destination="M5q-Mz-b8s" id="4g1-TI-X2h"/>

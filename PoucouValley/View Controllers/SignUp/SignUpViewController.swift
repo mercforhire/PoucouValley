@@ -87,7 +87,7 @@ class SignUpViewController: BaseViewController {
                         FullScreenSpinner().hide()
                         showErrorDialog(error: ResponseMessages.emailAlreadyExist.errorMessage())
                     }
-                case .failure(let error):
+                case .failure:
                     FullScreenSpinner().hide()
                     showNetworkErrorDialog()
                 }
@@ -107,7 +107,7 @@ class SignUpViewController: BaseViewController {
                 } else {
                     showErrorDialog(error: response.message ?? "")
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
             }
         }

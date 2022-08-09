@@ -46,7 +46,7 @@ class SetupInitialProfileViewController: BaseViewController {
     // cardholder
     private var firstName: String?
     private var lastName: String?
-    private var interest: BusinessCategories? {
+    private var interests: [BusinessCategories] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -114,7 +114,7 @@ class SetupInitialProfileViewController: BaseViewController {
         if step == SetupCardholderSteps.rows(mode: currentUser.user!.userType).last {
             switch currentUser.user!.userType {
             case .cardholder:
-                userManager.updateCardholderInfo(firstName: firstName, lastName: lastName, pronoun: nil, gender: nil, birthday: nil, contact: nil, address: nil, avatar: nil, interests: [interest!]) { [weak self] result in
+                userManager.updateCardholderInfo(firstName: firstName, lastName: lastName, pronoun: nil, gender: nil, birthday: nil, contact: nil, address: nil, avatar: nil, interests: interests) { [weak self] result in
                     switch result {
                     case .success:
                         self?.userManager.proceedPastLogin()
@@ -152,7 +152,7 @@ class SetupInitialProfileViewController: BaseViewController {
             return Validator.validate(string: businessName, validation: .isAProperName)
             
         case .category:
-            return interest != nil
+            return !interests.isEmpty
             
         case .businessCategory:
             return businessField != nil
@@ -188,7 +188,7 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? SetupInterestsCell else {
                 return SetupInterestsCell()
             }
-            cell.config(data: businessTypes, selectedType: interest)
+            cell.config(data: businessTypes, selected: interests)
             cell.submitButton.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
             cell.delegate = self
             tableCell = cell
@@ -217,8 +217,8 @@ extension SetupInitialProfileViewController: UITableViewDataSource, UITableViewD
 }
 
 extension SetupInitialProfileViewController: SetupInterestsCellDelegate {
-    func selectedInterest(type: BusinessCategories) {
-        interest = type
+    func selectedInterests(interests: [BusinessCategories]) {
+        self.interests = interests
     }
 }
 

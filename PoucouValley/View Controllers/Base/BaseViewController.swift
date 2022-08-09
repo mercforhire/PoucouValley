@@ -8,6 +8,7 @@
 import UIKit
 import PhotosUI
 import Mantis
+import RealmSwift
 
 class BaseViewController: UIViewController, ImagePickerDelegate, CropViewControllerDelegate {
     var api: PoucouAPI {
@@ -146,6 +147,28 @@ class BaseViewController: UIViewController, ImagePickerDelegate, CropViewControl
         }
     }
     
+    func openMerchantDetailsVC(merchantId: ObjectId) {
+        FullScreenSpinner().show()
+        
+        api.fetchMerchant(merchantId: merchantId) { [weak self] result in
+            guard let self = self else { return }
+
+            FullScreenSpinner().hide()
+            
+            switch result {
+            case .success(let response):
+                if response.success, let merchant = response.data {
+                    let vc = StoryboardManager.loadViewController(storyboard: "Shops", viewControllerId: "ShopDetailsViewController") as! ShopDetailsViewController
+                    vc.merchant = merchant
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    showErrorDialog(error: response.message)
+                }
+            case .failure:
+                showNetworkErrorDialog()
+            }
+        }
+    }
     
     // ImagePickerDelegate
     

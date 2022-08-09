@@ -12,6 +12,7 @@ class PlanDetailsCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: ThemeUIPageControl!
     @IBOutlet weak var logoImageView: URLImageView!
+    @IBOutlet weak var logoButton: UIButton!
     @IBOutlet weak var shopNameLabel: ThemeBlackTextLabel!
     @IBOutlet weak var numberFollowersLabel: ThemeDarkLabel!
     
