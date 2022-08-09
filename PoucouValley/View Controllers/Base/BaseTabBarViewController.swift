@@ -24,6 +24,35 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         // Do any additional setup after loading the view.
         delegate = self
         navigationController?.isNavigationBarHidden = true
+        registerForPushNotifications { [weak self] success in
+            guard let self = self else { return }
+            
+        }
+    }
+    
+    private func registerForPushNotifications(complete: @escaping ((Bool) -> Void)) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("Permission error: \(error)")
+                DispatchQueue.main.async {
+                    complete(false)
+                }
+                return
+            }
+            print("Permission granted: \(granted)")
+            if granted {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+                DispatchQueue.main.async {
+                    complete(true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    complete(false)
+                }
+            }
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

@@ -30,5 +30,13 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera to allow user to take a picture of themselves for profile.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app need to upload photos for user profile.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

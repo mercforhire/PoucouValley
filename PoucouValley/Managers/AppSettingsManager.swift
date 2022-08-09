@@ -75,6 +75,7 @@ class AppSettingsManager {
     private let EnvironmentKey: String = "Environment"
     private let GetStartedViewedKey: String = "GetStartedViewed"
     private let LastUsedEmailKey: String = "LastUsedEmail"
+    private let DeviceToken: String = "DeviceToken"
     
     private let defaults = UserDefaults.standard
     private var settings: [String: Any] = [:]
@@ -121,6 +122,15 @@ class AppSettingsManager {
     
     func setLastUsedEmail(email: String?) {
         settings[LastUsedEmailKey] = email
+        saveSettings()
+    }
+    
+    func getDeviceToken() -> String? {
+        return settings[DeviceToken] as? String
+    }
+    
+    func setDeviceToken(token: String?) {
+        settings[DeviceToken] = token
         saveSettings()
     }
    

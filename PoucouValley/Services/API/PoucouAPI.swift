@@ -1318,4 +1318,26 @@ class PoucouAPI {
             }
         }
     }
+    
+    func registerDeviceToken(deviceToken: String, callBack: @escaping(Result<StringArrayResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        let params: Document = ["deviceToken": AnyBSON(deviceToken)]
+        user.functions.api_registerDeviceToken([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_registerDeviceToken' and got result: \(document)")
+                callBack(.success(StringArrayResponse(document: document)))
+            }
+        }
+    }
 }

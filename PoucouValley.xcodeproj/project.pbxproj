@@ -12,6 +12,7 @@
 		7201EEEA2830943600AD6585 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEE92830943600AD6585 /* UserManager.swift */; };
 		7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEEB2830950D00AD6585 /* PhotoResponse.swift */; };
 		7201EEEE2830A6DB00AD6585 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEED2830A6DB00AD6585 /* Enums.swift */; };
+		720FABD328A233340090C632 /* StringArrayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FABD228A233340090C632 /* StringArrayResponse.swift */; };
 		720FD77C289A1DB6001FF536 /* MerchantProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */; };
 		720FD77E289A1E97001FF536 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77D289A1E97001FF536 /* NewPostViewController.swift */; };
 		720FD780289A1EA4001FF536 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77F289A1EA4001FF536 /* EditPostViewController.swift */; };
@@ -286,6 +287,8 @@
 		7201EEE92830943600AD6585 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7201EEEB2830950D00AD6585 /* PhotoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		7201EEED2830A6DB00AD6585 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		720FABD228A233340090C632 /* StringArrayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArrayResponse.swift; sourceTree = "<group>"; };
+		720FABD428A2392C0090C632 /* PoucouValley.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PoucouValley.entitlements; sourceTree = "<group>"; };
 		720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantProfileViewController.swift; sourceTree = "<group>"; };
 		720FD77D289A1E97001FF536 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		720FD77F289A1EA4001FF536 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
@@ -653,6 +656,7 @@
 				72707C0A28320CF9004F3C3C /* LoginResponse.swift */,
 				72E263482895793C00BF2AA2 /* SearchPlansResponse.swift */,
 				72C7D3DD2837FE7B0066F3CB /* StringResponse.swift */,
+				720FABD228A233340090C632 /* StringArrayResponse.swift */,
 				72C7D40D283C31760066F3CB /* UpdateCardholderResponse.swift */,
 				72C7D40F283C31820066F3CB /* UpdateMerchantResponse.swift */,
 			);
@@ -721,6 +725,7 @@
 		72AC00AC2736F27700B452BE /* PoucouValley */ = {
 			isa = PBXGroup;
 			children = (
+				720FABD428A2392C0090C632 /* PoucouValley.entitlements */,
 				72AC00BB2736F27900B452BE /* Info.plist */,
 				72AC00AD2736F27700B452BE /* AppDelegate.swift */,
 				72AC00AF2736F27700B452BE /* SceneDelegate.swift */,
@@ -1469,6 +1474,7 @@
 				72E847F7288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift in Sources */,
 				72AC01B02738A80B00B452BE /* KeyBoardController.swift in Sources */,
 				72BB44FD289DE13E00EE9B35 /* PlanDetailsViewController.swift in Sources */,
+				720FABD328A233340090C632 /* StringArrayResponse.swift in Sources */,
 				72AC011A27378FFA00B452BE /* UIScrollView+Extensions.swift in Sources */,
 				72C7D3E428395C560066F3CB /* SignUpViewController.swift in Sources */,
 				72B2FB8A273C657D00382C12 /* MyProfileDetailsHeader.swift in Sources */,
@@ -1768,6 +1774,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PoucouValley/PoucouValley.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27VUA9BK6D;
@@ -1800,6 +1807,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PoucouValley/PoucouValley.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27VUA9BK6D;
