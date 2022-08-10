@@ -45,21 +45,32 @@ class PerformanceViewController: BaseViewController {
         let xAxis = monthlyChart.xAxis
         xAxis.labelPosition = .bottom
         xAxis.labelFont = .systemFont(ofSize: 10)
-        xAxis.granularity = 1
-        xAxis.labelCount = 7
-        xAxis.valueFormatter = DayAxisValueFormatter(chart: monthlyChart)
+        xAxis.valueFormatter = MonthAxisValueFormatter(chart: monthlyChart)
+        xAxis.drawAxisLineEnabled = false
+        xAxis.drawGridLinesEnabled = false
+        xAxis.labelCount = 12
         
         let leftAxisFormatter = NumberFormatter()
         leftAxisFormatter.minimumFractionDigits = 0
         leftAxisFormatter.maximumFractionDigits = 1
+        let defaultAxisValueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+        defaultAxisValueFormatter.decimals = 0
         
         let leftAxis = monthlyChart.leftAxis
         leftAxis.labelFont = .systemFont(ofSize: 10)
         leftAxis.labelCount = 4
-        leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+        leftAxis.valueFormatter = defaultAxisValueFormatter
         leftAxis.labelPosition = .outsideChart
         leftAxis.spaceTop = 0.15
         leftAxis.axisMinimum = 0
+        leftAxis.drawAxisLineEnabled = false
+        leftAxis.drawGridLinesEnabled = false
+        
+        let rightAxis = monthlyChart.rightAxis
+        rightAxis.enabled = false
+        
+        monthlyChart.scaleXEnabled = false
+        monthlyChart.scaleYEnabled = false
     }
     
     override func setupTheme() {
@@ -110,11 +121,15 @@ class PerformanceViewController: BaseViewController {
         guard let performanceData = performanceData else { return }
         
         let dateSet = BarChartDataSet(entries: performanceData.toBarChartDataEntries(), label: "Visits")
-        dateSet.setColor(themeManager.themeData!.lighterGreen.hexColor)
+        dateSet.colors = [themeManager.themeData!.lighterGreen.hexColor]
+        dateSet.drawValuesEnabled = false
+        dateSet.barBorderColor = themeManager.themeData!.lighterGreen.hexColor
+        dateSet.barBorderWidth = 1
         
         let data = BarChartData(dataSet: dateSet)
-        data.setDrawValues(true)
+        data.setDrawValues(false)
         data.setValueTextColor(themeManager.themeData!.steel.hexColor)
+        data.barWidth = 0.5
         monthlyChart.data = data
     }
 }

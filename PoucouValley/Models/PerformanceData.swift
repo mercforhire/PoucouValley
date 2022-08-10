@@ -39,18 +39,20 @@ class PerformanceData: BaseEmbeddedObject {
     
     func toBarChartDataEntries() -> [BarChartDataEntry] {
         // category the visitors by createdDate to most recent 12 month
-        let numberOfMonth = 12
-        var cutOffDate = Date().startOfMonth()
+        let numberOfMostRecentMonth = 12
+        var startCutOffDate = Date().startOfMonth()
+        var endCutOffDate = Date()
         var barChartDataEntries: [BarChartDataEntry] = []
         
-        for month in 0..<numberOfMonth {
+        for index in 0..<numberOfMostRecentMonth {
             let visitsOfTheMonth = visitors.filter { record in
-                return record.createdDate > cutOffDate
+                return record.createdDate >= startCutOffDate && record.createdDate <= endCutOffDate
             }
-            let entry = BarChartDataEntry(x: Double(numberOfMonth - month), y: Double(visitsOfTheMonth.count))
-            barChartDataEntries.append(entry)
+            let entry = BarChartDataEntry(x: Double(numberOfMostRecentMonth - index), y: Double(visitsOfTheMonth.count))
+            barChartDataEntries.insert(entry, at: 0)
             
-            cutOffDate = cutOffDate.add(component: .month, value: -1)
+            startCutOffDate = startCutOffDate.add(component: .month, value: -1)
+            endCutOffDate = startCutOffDate.endOfMonth()
         }
         
         return barChartDataEntries

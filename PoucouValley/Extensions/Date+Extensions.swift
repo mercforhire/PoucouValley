@@ -17,6 +17,14 @@ extension Date {
         return calendar.component(.year, from: self)
     }
     
+    func dayOfYear(timeZone: TimeZone? = TimeZone.current) -> Int {
+        var calendar = Calendar.current
+        if let timezone = timeZone {
+            calendar.timeZone = timezone
+        }
+        return calendar.ordinality(of: .day, in: .year, for: self)!
+    }
+    
     func isInToday() -> Bool {
         return Calendar.current.isDateInToday(self)
     }
@@ -72,6 +80,10 @@ extension Date {
         components.month = calendar.component(.month, from: self)
         components.year = calendar.component(.year, from: self)
         return calendar.date(from: components)!
+    }
+    
+    func endOfMonth() -> Date {
+        return Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth())!
     }
     
     func ageToday() -> Int {

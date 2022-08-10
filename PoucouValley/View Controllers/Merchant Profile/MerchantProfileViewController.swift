@@ -29,7 +29,8 @@ class MerchantProfileViewController: BaseViewController {
     private var selectedPlan: Plan?
     private var cellSizes: [CGSize] = []
     private var headerView: MerchantDetailsHeaderView?
-    let layout = CollectionViewWaterfallLayout()
+    private let layout = CollectionViewWaterfallLayout()
+    private lazy var composer: MessageComposer = MessageComposer()
     
     override func setup() {
         super.setup()
@@ -114,6 +115,55 @@ class MerchantProfileViewController: BaseViewController {
             vc.plan = selectedPlan
         }
     }
+    
+    @objc func phoneButtonPressed(_ sender: UIButton) {
+        guard let phoneNumber = merchant.contact?.getPhoneNumberString(), !phoneNumber.isEmpty else {
+            showErrorDialog(error: "Phone number not set")
+            return
+        }
+        
+        if composer.canCall(phoneNumber: phoneNumber) {
+            composer.call(phoneNumber: phoneNumber)
+        } else {
+            showErrorDialog(error: "Can't call on this device.")
+        }
+    }
+    
+    @objc func webButtonPressed(_ sender: UIButton) {
+        guard let urlString = merchant.contact?.website, let url = URL(string: urlString) else {
+            showErrorDialog(error: "Website URL not set")
+            return
+        }
+        
+        openURLInBrowser(url: url)
+    }
+    
+    @objc func igButtonPressed(_ sender: UIButton) {
+        guard let urlString = merchant.contact?.instagram, let url = URL(string: urlString) else {
+            showErrorDialog(error: "Instagram URL not set")
+            return
+        }
+        
+        openURLInBrowser(url: url)
+    }
+    
+    @objc func twitButtonPressed(_ sender: UIButton) {
+        guard let urlString = merchant.contact?.twitter, let url = URL(string: urlString) else {
+            showErrorDialog(error: "Twitter URL not set")
+            return
+        }
+        
+        openURLInBrowser(url: url)
+    }
+    
+    @objc func fbButtonPressed(_ sender: UIButton) {
+        guard let urlString = merchant.contact?.facebook, let url = URL(string: urlString) else {
+            showErrorDialog(error: "Facebook URL not set")
+            return
+        }
+        
+        openURLInBrowser(url: url)
+    }
 }
 
 extension MerchantProfileViewController: UICollectionViewDataSource {
@@ -124,8 +174,13 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
         
         self.headerView = headerView
         headerView.config(data: merchant)
-        headerView.addPostButton.addTarget(self, action: #selector(addPostButtonPressed), for: .touchUpInside)
         headerView.editButton.addTarget(self, action: #selector(editMerchantButtonPressed), for: .touchUpInside)
+        headerView.phoneButton.addTarget(self, action: #selector(phoneButtonPressed), for: .touchUpInside)
+        headerView.webButton.addTarget(self, action: #selector(webButtonPressed), for: .touchUpInside)
+        headerView.igButton.addTarget(self, action: #selector(igButtonPressed), for: .touchUpInside)
+        headerView.twitButton.addTarget(self, action: #selector(twitButtonPressed), for: .touchUpInside)
+        headerView.fbButton.addTarget(self, action: #selector(fbButtonPressed), for: .touchUpInside)
+        headerView.addPostButton.addTarget(self, action: #selector(addPostButtonPressed), for: .touchUpInside)
         return headerView
     }
     
@@ -144,8 +199,6 @@ extension MerchantProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if plans?.count ?? 0 == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyPostsCell", for: indexPath) as? EmptyPostsCell else { return EmptyPostsCell() }
-            cell.button.tag = indexPath.row
-            cell.button.addTarget(self, action: #selector(addPostButtonPressed), for: .touchUpInside)
             return cell
         }
         
@@ -183,7 +236,7 @@ extension MerchantProfileViewController: CollectionViewWaterfallLayoutDelegate {
                         layout: UICollectionViewLayout,
                         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if plans?.count ?? 0 == 0 {
-            return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height / 2)
+            return CGSize(width: collectionView.frame.width - 20, height: collectionView.frame.height / 3)
         }
         
         return cellSizes[indexPath.item]

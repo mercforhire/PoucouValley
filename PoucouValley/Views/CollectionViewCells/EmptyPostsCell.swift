@@ -10,7 +10,6 @@ import UIKit
 class EmptyPostsCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textLabel: ThemeBlackTextLabel!
-    @IBOutlet weak var button: ThemeRoundedWhiteBorderedButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

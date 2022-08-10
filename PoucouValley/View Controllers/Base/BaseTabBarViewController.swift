@@ -43,8 +43,6 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
             if granted {
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
-                }
-                DispatchQueue.main.async {
                     complete(true)
                 }
             } else {

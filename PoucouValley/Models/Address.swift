@@ -17,7 +17,10 @@ class Address: BaseEmbeddedObject {
     var country: String?
     var postalCode: String?
     
-    var addressString: String {
+    var addressString: String? {
+        if (street?.isEmpty ?? true) || (city?.isEmpty ?? true) {
+            return nil
+        }
         return "\(unitNumber ?? "") \(streetNumber ?? "") \(street ?? ""), \(city ?? ""), \(province ?? ""), \(country ?? ""), \(postalCode ?? "")"
     }
     

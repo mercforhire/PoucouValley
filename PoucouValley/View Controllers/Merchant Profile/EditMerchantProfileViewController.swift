@@ -50,7 +50,7 @@ class EditMerchantProfileViewController: BaseViewController {
             if let logo = logo {
                 logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
             } else {
-                logoImageView.image = UIImage(systemName: "camera")
+                logoImageView.image = UIImage(systemName: "camera.circle")
             }
         }
     }

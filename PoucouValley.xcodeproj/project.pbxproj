@@ -87,7 +87,7 @@
 		72997ACA289C1AE100F745A8 /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AC9289C1AE100F745A8 /* PerformanceViewController.swift */; };
 		72997ACC289C46A200F745A8 /* PerformanceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997ACB289C46A200F745A8 /* PerformanceData.swift */; };
 		72997ACE289C47E700F745A8 /* FetchPerformanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997ACD289C47E700F745A8 /* FetchPerformanceResponse.swift */; };
-		72997AD3289C5F2E00F745A8 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AD2289C5F2E00F745A8 /* DayAxisValueFormatter.swift */; };
+		72997AD3289C5F2E00F745A8 /* MonthAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997AD2289C5F2E00F745A8 /* MonthAxisValueFormatter.swift */; };
 		72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AD2736F27700B452BE /* AppDelegate.swift */; };
 		72AC00B02736F27700B452BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC00AF2736F27700B452BE /* SceneDelegate.swift */; };
 		72AC00B52736F27700B452BE /* CardholderMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AC00B32736F27700B452BE /* CardholderMain.storyboard */; };
@@ -363,7 +363,7 @@
 		72997AC9289C1AE100F745A8 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 		72997ACB289C46A200F745A8 /* PerformanceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceData.swift; sourceTree = "<group>"; };
 		72997ACD289C47E700F745A8 /* FetchPerformanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPerformanceResponse.swift; sourceTree = "<group>"; };
-		72997AD2289C5F2E00F745A8 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
+		72997AD2289C5F2E00F745A8 /* MonthAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthAxisValueFormatter.swift; sourceTree = "<group>"; };
 		72AC00AA2736F27700B452BE /* PoucouValley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoucouValley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AC00AD2736F27700B452BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AC00AF2736F27700B452BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -987,7 +987,7 @@
 			children = (
 				72AC01A42738A80B00B452BE /* External Lib */,
 				72AC01A02738A80B00B452BE /* KeyBoardController.swift */,
-				72997AD2289C5F2E00F745A8 /* DayAxisValueFormatter.swift */,
+				72997AD2289C5F2E00F745A8 /* MonthAxisValueFormatter.swift */,
 				72AC01A12738A80B00B452BE /* DateUtil.swift */,
 				72AC01A22738A80B00B452BE /* DelayedSearchTimer.swift */,
 				72AC01A32738A80B00B452BE /* Validator.swift */,
@@ -1549,7 +1549,7 @@
 				720FD782289A1EF1001FF536 /* EditMerchantProfileViewController.swift in Sources */,
 				72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */,
 				72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */,
-				72997AD3289C5F2E00F745A8 /* DayAxisValueFormatter.swift in Sources */,
+				72997AD3289C5F2E00F745A8 /* MonthAxisValueFormatter.swift in Sources */,
 				725C20BD284062B900BACBFE /* CardRootViewController.swift in Sources */,
 				72CF4FA6289CD95E005CCCC5 /* URLImageCollectionViewCell.swift in Sources */,
 				72B2FBDD273CC47200382C12 /* PaddedTextField.swift in Sources */,

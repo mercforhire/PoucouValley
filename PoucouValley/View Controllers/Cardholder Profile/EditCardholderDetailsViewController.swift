@@ -76,13 +76,13 @@ class EditCardholderDetailsViewController: BaseViewController {
         if let contact = currentUser.cardholder?.contact {
             self.contact = contact
         } else {
-            contact = Contact(email: nil, phoneAreaCode: "", phoneNumber: "", website: nil, twitter: nil, facebook: nil, instagram: nil)
+            contact = Contact(email: nil, phoneAreaCode: nil, phoneNumber: nil, website: nil, twitter: nil, facebook: nil, instagram: nil)
         }
         
         if let address = currentUser.cardholder?.address {
             self.address = address
         } else {
-            address = Address(unitNumber: "", streetNumber: "", street: "", city: "", province: "", country: "", postalCode: "")
+            address = Address(unitNumber: nil, streetNumber: nil, street: nil, city: nil, province: nil, country: nil, postalCode: nil)
         }
         
         selectedCategories = currentUser.cardholder?.interests ?? []

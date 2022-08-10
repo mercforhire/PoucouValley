@@ -97,7 +97,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="356" height="450"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2zL-ZB-83f">
-                                                            <rect key="frame" x="21" y="20" width="314" height="410"/>
+                                                            <rect key="frame" x="21" y="48.5" width="314" height="353"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="740" translatesAutoresizingMaskIntoConstraints="NO" id="CM9-3c-DcN">
                                                                     <rect key="frame" x="0.0" y="0.0" width="314" height="312"/>
@@ -121,31 +121,6 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iip-dL-9Bx">
-                                                                    <rect key="frame" x="0.0" y="373" width="314" height="37"/>
-                                                                    <subviews>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRY-00-aSB" customClass="ThemeRoundedWhiteBorderedButton" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="96.5" y="0.0" width="121" height="37"/>
-                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="37" id="Gga-el-puV"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                                                                            <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                                                                            <state key="normal" title="+ Add Post">
-                                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </state>
-                                                                        </button>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="gRY-00-aSB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Iip-dL-9Bx" secondAttribute="leading" id="8py-bI-2Ev"/>
-                                                                        <constraint firstItem="gRY-00-aSB" firstAttribute="top" secondItem="Iip-dL-9Bx" secondAttribute="top" id="Nwi-5i-n46"/>
-                                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gRY-00-aSB" secondAttribute="trailing" id="XKa-0D-TQW"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="gRY-00-aSB" secondAttribute="bottom" id="YJf-Vm-x8b"/>
-                                                                        <constraint firstItem="gRY-00-aSB" firstAttribute="centerX" secondItem="Iip-dL-9Bx" secondAttribute="centerX" id="bua-sr-krY"/>
-                                                                    </constraints>
-                                                                </view>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -172,7 +147,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="356" height="450"/>
                                         <connections>
-                                            <outlet property="button" destination="gRY-00-aSB" id="qEt-gC-Kl9"/>
                                             <outlet property="imageView" destination="hrZ-lT-925" id="w3J-sd-mhN"/>
                                             <outlet property="textLabel" destination="Ivn-7k-Vas" id="UXb-By-rkK"/>
                                         </connections>
@@ -945,8 +919,8 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSv-dG-MdR">
                                                                 <rect key="frame" x="131" y="0.0" width="120" height="120"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1W9-rG-4fW" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
-                                                                        <rect key="frame" x="4" y="4.5" width="112" height="110"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1W9-rG-4fW" customClass="URLImageView" customModule="PoucouValley" customModuleProvider="target">
+                                                                        <rect key="frame" x="4" y="4.5" width="112" height="111"/>
                                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
@@ -1688,7 +1662,7 @@
         <image name="Icon-twitter" width="48" height="48"/>
         <image name="Icon-web" width="256" height="256"/>
         <image name="border" width="365" height="365"/>
-        <image name="camera" catalog="system" width="128" height="94"/>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="laptop" width="179" height="179"/>
