@@ -264,6 +264,17 @@ class UserManager {
     }
     
     func logout() {
+        if let deviceToken = AppSettingsManager.shared.getDeviceToken() {
+            api.unregisterDeviceToken(deviceToken: deviceToken) { result in
+                switch result {
+                case .success(let response):
+                    print("Logout:", response.message ?? "")
+                case .failure(let error):
+                    print("Logout:", error)
+                }
+            }
+        }
+        
         api.logout { [weak self] _ in
             AppSettingsManager.shared.resetSettings()
             self?.user = nil

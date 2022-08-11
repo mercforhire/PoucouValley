@@ -1,16 +1,16 @@
 //
-//  ScanClientCardViewController.swift
+//  ScanAddNewCardViewController.swift
 //  PoucouValley
 //
-//  Created by Leon Chen on 2022-07-20.
+//  Created by Leon Chen on 2022-08-11.
 //
 
 import UIKit
 import MercariQRScanner
 import AVFoundation
 
-class ScanClientCardViewController: BaseViewController {
-    
+class ScanAddNewCardViewController: BaseViewController {
+
     var scannedCardNumber: String? {
         didSet {
             if let _ = scannedCardNumber {
@@ -85,7 +85,7 @@ class ScanClientCardViewController: BaseViewController {
     private func submitCode() {
         if let scannedCardNumber = scannedCardNumber, !scannedCardNumber.isEmpty {
             FullScreenSpinner().show()
-            api.scanCard(cardNumber: scannedCardNumber) { [weak self] result in
+            api.addCardToMerchant(cardNumber: scannedCardNumber) { [weak self] result in
                 guard let self = self else { return }
                 
                 FullScreenSpinner().hide()
@@ -98,8 +98,8 @@ class ScanClientCardViewController: BaseViewController {
                         showErrorDialog(error: ResponseMessages.cardNotExist.errorMessage())
                         self.scannedCardNumber = nil
                         self.navigationController?.popViewController(animated: true)
-                    } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
-                        showErrorDialog(error: ResponseMessages.cardholderNotFound.errorMessage())
+                    } else if response.message == ResponseMessages.cardAlreadyOwnedByAnotherMerchant.rawValue {
+                        showErrorDialog(error: ResponseMessages.cardAlreadyOwnedByAnotherMerchant.errorMessage())
                         self.scannedCardNumber = nil
                         self.navigationController?.popViewController(animated: true)
                     } else {
@@ -118,19 +118,17 @@ class ScanClientCardViewController: BaseViewController {
     
     private func showCardScannedDialog() {
         let dialog = PictureTextDialog()
-        let dialogImage = UIImage(named: "piggybank")
-        let config = PictureTextDialogConfig(image: dialogImage, primaryLabel: "Poncou card successfully scanned!", secondLabel: "")
+        let dialogImage = UIImage(named: "creditcard")
+        let config = PictureTextDialogConfig(image: dialogImage, primaryLabel: "Poncou card successfully link to merchant.", secondLabel: "")
         dialog.configure(config: config, showDimOverlay: true, overUIWindow: true)
         dialog.delegate = self
         dialog.show(inView: view, withDelay: 100)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-    }
 }
 
-extension ScanClientCardViewController: QRScannerViewDelegate {
+extension ScanAddNewCardViewController: QRScannerViewDelegate {
     func qrScannerView(_ qrScannerView: QRScannerView, didFailure error: QRScannerError) {
         print(error)
     }
@@ -143,8 +141,8 @@ extension ScanClientCardViewController: QRScannerViewDelegate {
     }
 }
 
-extension ScanClientCardViewController: PictureTextDialogDelegate {
+extension ScanAddNewCardViewController: PictureTextDialogDelegate {
     func dismissedDialog(dialog: PictureTextDialog) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

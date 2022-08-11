@@ -171,7 +171,6 @@ class GroupClientsViewController: BaseViewController {
             selected.removeAll()
         } else {
             // Select All
-            selected.removeAll()
             selected.append(contentsOf: showingClients)
         }
     }

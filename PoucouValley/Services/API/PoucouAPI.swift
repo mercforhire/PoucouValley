@@ -840,6 +840,27 @@ class PoucouAPI {
         }
     }
     
+    func fetchMerchantTransactions(callBack: @escaping(Result<FetchTransactionsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_fetchMerchantTransactions([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_fetchMerchantTransactions' and got result: \(document)")
+                callBack(.success(FetchTransactionsResponse(document: document)))
+            }
+        }
+    }
+    
     func fetchWallet(callBack: @escaping(Result<FetchWalletResponse, Error>) -> Void) {
         guard let apiKey = apiKey else { return }
         
@@ -1337,6 +1358,71 @@ class PoucouAPI {
                 }
                 print("Called function 'api_registerDeviceToken' and got result: \(document)")
                 callBack(.success(StringArrayResponse(document: document)))
+            }
+        }
+    }
+    
+    func unregisterDeviceToken(deviceToken: String, callBack: @escaping(Result<StringArrayResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        let params: Document = ["deviceToken": AnyBSON(deviceToken)]
+        user.functions.api_unregisterDeviceToken([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_unregisterDeviceToken' and got result: \(document)")
+                callBack(.success(StringArrayResponse(document: document)))
+            }
+        }
+    }
+    
+    func fetchMerchantCards(callBack: @escaping(Result<CardsResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        user.functions.api_getMerchantCards([AnyBSON(apiKey)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_getMerchantCards' and got result: \(document)")
+                callBack(.success(CardsResponse(document: document)))
+            }
+        }
+    }
+    
+    func addCardToMerchant(cardNumber: String, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        let params: Document = ["cardNumber": AnyBSON(cardNumber)]
+        user.functions.api_addCardToMerchant([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_addCardToMerchant' and got result: \(document)")
+                callBack(.success(BooleanResponse(document: document)))
             }
         }
     }

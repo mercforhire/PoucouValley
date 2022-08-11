@@ -10,6 +10,8 @@ import CRRefresh
 
 class ClientsViewController: BaseViewController {
 
+    @IBOutlet var iconContainers: [UIView]!
+    
     @IBOutlet weak var searchBar: ThemeSearchBar!
     @IBOutlet weak var usersCountLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
@@ -42,6 +44,11 @@ class ClientsViewController: BaseViewController {
     
     override func setupTheme() {
         super.setupTheme()
+        
+        for iconContainer in iconContainers {
+            iconContainer.roundCorners(style: .completely)
+            iconContainer.addBorder(color: .black)
+        }
     }
     
     override func setup() {
@@ -139,6 +146,14 @@ class ClientsViewController: BaseViewController {
     
     @IBAction func groupsPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToGroups", sender: self)
+    }
+    
+    @IBAction func selectPressed(_ sender: UIButton) {
+        if selected.isEmpty {
+            selected.append(contentsOf: showingClients)
+        } else {
+            selected.removeAll()
+        }
     }
     
     @IBAction func deletePressed(_ sender: Any) {

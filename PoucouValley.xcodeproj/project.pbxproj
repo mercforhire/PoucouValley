@@ -13,6 +13,10 @@
 		7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEEB2830950D00AD6585 /* PhotoResponse.swift */; };
 		7201EEEE2830A6DB00AD6585 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7201EEED2830A6DB00AD6585 /* Enums.swift */; };
 		720FABD328A233340090C632 /* StringArrayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FABD228A233340090C632 /* StringArrayResponse.swift */; };
+		720FABD828A5566D0090C632 /* CardsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FABD728A5566C0090C632 /* CardsListViewController.swift */; };
+		720FABDA28A5617C0090C632 /* CardsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FABD928A5617C0090C632 /* CardsResponse.swift */; };
+		720FABDC28A57CFD0090C632 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FABDB28A57CFD0090C632 /* CardTableViewCell.swift */; };
+		720FABDE28A583360090C632 /* ScanAddNewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FABDD28A583360090C632 /* ScanAddNewCardViewController.swift */; };
 		720FD77C289A1DB6001FF536 /* MerchantProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */; };
 		720FD77E289A1E97001FF536 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77D289A1E97001FF536 /* NewPostViewController.swift */; };
 		720FD780289A1EA4001FF536 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720FD77F289A1EA4001FF536 /* EditPostViewController.swift */; };
@@ -288,6 +292,10 @@
 		7201EEED2830A6DB00AD6585 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		720FABD228A233340090C632 /* StringArrayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArrayResponse.swift; sourceTree = "<group>"; };
 		720FABD428A2392C0090C632 /* PoucouValley.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PoucouValley.entitlements; sourceTree = "<group>"; };
+		720FABD728A5566C0090C632 /* CardsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewController.swift; sourceTree = "<group>"; };
+		720FABD928A5617C0090C632 /* CardsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsResponse.swift; sourceTree = "<group>"; };
+		720FABDB28A57CFD0090C632 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		720FABDD28A583360090C632 /* ScanAddNewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAddNewCardViewController.swift; sourceTree = "<group>"; };
 		720FD77B289A1DB6001FF536 /* MerchantProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantProfileViewController.swift; sourceTree = "<group>"; };
 		720FD77D289A1E97001FF536 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		720FD77F289A1EA4001FF536 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
@@ -600,6 +608,8 @@
 				72E847F82886EBC2004C0672 /* GroupClientsViewController.swift */,
 				72E847ED28815C55004C0672 /* GroupsViewController.swift */,
 				726CB8BB2888DE4A0086D436 /* ScanClientCardViewController.swift */,
+				720FABD728A5566C0090C632 /* CardsListViewController.swift */,
+				720FABDD28A583360090C632 /* ScanAddNewCardViewController.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -634,6 +644,7 @@
 			children = (
 				72997AC2289B675400F745A8 /* AddPlanResponse.swift */,
 				72C7D3DB2837FDEF0066F3CB /* BooleanResponse.swift */,
+				720FABD928A5617C0090C632 /* CardsResponse.swift */,
 				726AD980289415F40051F456 /* ExplorePlansResponse.swift */,
 				726AD982289427F30051F456 /* ExploreShopsResponse.swift */,
 				72E847F6288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift */,
@@ -1134,6 +1145,7 @@
 			isa = PBXGroup;
 			children = (
 				728ED6FA2841606800415C01 /* CompleteProfileCell.swift */,
+				720FABDB28A57CFD0090C632 /* CardTableViewCell.swift */,
 				728ED6FE284182B800415C01 /* SetPronounsCell.swift */,
 				72D61D272841D22C00C77302 /* SetGendersCell.swift */,
 				728ED700284182D900415C01 /* SetBirthdayCell.swift */,
@@ -1456,6 +1468,7 @@
 				72C7D42A283E9B460066F3CB /* ThemeBackView.swift in Sources */,
 				72E847EE28815C55004C0672 /* GroupsViewController.swift in Sources */,
 				72AC00C62737294000B452BE /* FollowCollectionViewCell.swift in Sources */,
+				720FABD828A5566D0090C632 /* CardsListViewController.swift in Sources */,
 				72E263662899A7AA00BF2AA2 /* ShopDetailsViewController.swift in Sources */,
 				72C7D432283EB4620066F3CB /* URLImageView.swift in Sources */,
 				72AC011E27378FFA00B452BE /* UICollectionView+Extensions.swift in Sources */,
@@ -1510,8 +1523,10 @@
 				72C7D3FA283AC5070066F3CB /* GetBusinessTypesResponse.swift in Sources */,
 				72AC010827378FFA00B452BE /* UIView+Extensions.swift in Sources */,
 				72C7A767273F3F7000636346 /* SearchStoresCell.swift in Sources */,
+				720FABDE28A583360090C632 /* ScanAddNewCardViewController.swift in Sources */,
 				72997ACE289C47E700F745A8 /* FetchPerformanceResponse.swift in Sources */,
 				72AC019E27389DD500B452BE /* HomeShopViewController.swift in Sources */,
+				720FABDC28A57CFD0090C632 /* CardTableViewCell.swift in Sources */,
 				72358B8628773D3F00D504A2 /* SimpleImageCell.swift in Sources */,
 				72C7A7712741D1C800636346 /* SearchSectionHeaderView.swift in Sources */,
 				72AC01B92738A80B00B452BE /* RPicker.swift in Sources */,
@@ -1520,6 +1535,7 @@
 				72C7D401283C0B200066F3CB /* SignUpEnterPinViewController.swift in Sources */,
 				72DB597E284098BA00C80FD6 /* ThemeImageView.swift in Sources */,
 				72C7D3F4283AB8850066F3CB /* SetupShopNameCell.swift in Sources */,
+				720FABDA28A5617C0090C632 /* CardsResponse.swift in Sources */,
 				726CB8C0288972820086D436 /* FetchClientResponse.swift in Sources */,
 				72C7A763273F3DBA00636346 /* SearchDealsCell.swift in Sources */,
 				72AC00E5273787CE00B452BE /* StoryboardManager.swift in Sources */,

@@ -177,11 +177,11 @@
             <objects>
                 <viewController storyboardIdentifier="GiftDetailViewController" id="yeQ-z3-A1R" customClass="GiftDetailViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nyr-9b-NmP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc3-Sf-xfo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="878"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="978"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BED-OH-ipp" customClass="ThemeView" customModule="PoucouValley" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="945"/>
@@ -400,7 +400,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <size key="freeformSize" width="414" height="1000"/>
+                    <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="coinsLabel" destination="9QH-PL-Rkb" id="5ZC-wk-0Rw"/>
                         <outlet property="collectionView" destination="1w4-HH-TPF" id="yaH-1o-avI"/>
@@ -416,7 +416,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mv0-4D-RQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="VMO-Ls-bOq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="905.79710144927549" y="383.70535714285711"/>
+            <point key="canvasLocation" x="916" y="384"/>
         </scene>
     </scenes>
     <resources>

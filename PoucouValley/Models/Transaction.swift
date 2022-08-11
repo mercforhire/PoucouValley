@@ -13,7 +13,7 @@ class Transaction: BaseObject {
     var createdDate: Date = Date()
     var itemId: ObjectId?
     var itemName: String = ""
-    var itemType: String = ""
+    var type: String = ""
     var merchant: Merchant?
     var cardholder: Cardholder?
     
@@ -23,7 +23,7 @@ class Transaction: BaseObject {
         self.createdDate = document["createdDate"]!!.dateValue!
         self.itemId = document["itemId"]??.objectIdValue
         self.itemName = document["itemName"]??.stringValue ?? ""
-        self.itemType = document["itemType"]??.stringValue ?? ""
+        self.type = document["type"]??.stringValue ?? ""
         if let data = document["merchant"]??.documentValue {
             self.merchant = Merchant(document: data)
         }

@@ -180,7 +180,7 @@ extension UIView {
         }
     }
     
-    func addBorder(color: UIColor = UIColor.systemIndigo) {
+    func addBorder(color: UIColor = UIColor.black) {
         layer.borderWidth = 1.0
         layer.borderColor = color.cgColor
     }

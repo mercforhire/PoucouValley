@@ -44,26 +44,46 @@ class MyCoinsHistoryViewController: BaseViewController {
     private func loadData(complete: ((Bool) -> Void)? = nil) {
         transactions == nil ? FullScreenSpinner().show() : nil
         
-        api.fetchTransactions { [weak self] result in
-            FullScreenSpinner().hide()
-            self?.tableView.cr.endHeaderRefresh()
-            
-            switch result {
-            case .success(let response):
-                if response.success {
-                    self?.transactions = Array(response.data)
-                } else {
+        switch currentUser.userType {
+        case .cardholder:
+            api.fetchTransactions { [weak self] result in
+                FullScreenSpinner().hide()
+                self?.tableView.cr.endHeaderRefresh()
+                
+                switch result {
+                case .success(let response):
+                    if response.success {
+                        self?.transactions = Array(response.data)
+                    } else {
+                        showNetworkErrorDialog()
+                    }
+                case .failure:
                     showNetworkErrorDialog()
                 }
-            case .failure:
-                showNetworkErrorDialog()
             }
+        case .merchant:
+            api.fetchMerchantTransactions { [weak self] result in
+                FullScreenSpinner().hide()
+                self?.tableView.cr.endHeaderRefresh()
+                
+                switch result {
+                case .success(let response):
+                    if response.success {
+                        self?.transactions = Array(response.data)
+                    } else {
+                        showNetworkErrorDialog()
+                    }
+                case .failure:
+                    showNetworkErrorDialog()
+                }
+            }
+        default:
+            break
         }
     }
 }
 
 extension MyCoinsHistoryViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -203,24 +203,6 @@
             </objects>
             <point key="canvasLocation" x="723" y="1700"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2Mo-FV-yCR">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5bZ-lJ-zew" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8o9-qP-2Hs">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ami-KR-RU3" kind="relationship" relationship="rootViewController" id="F9L-PJ-j5d"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oe2-Y7-lZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-167" y="1700"/>
-        </scene>
         <!--New post-->
         <scene sceneID="zQW-zs-apF">
             <objects>

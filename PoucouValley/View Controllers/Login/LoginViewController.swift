@@ -115,7 +115,7 @@ class LoginViewController: BaseViewController {
                 } else {
                     showErrorDialog(error: response.message ?? "")
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
             }
         }

@@ -31,8 +31,11 @@ class TransactionCell: UITableViewCell {
             itemName.text = data.itemName
         } else if let merchant = data.merchant {
             itemName.text = merchant.name
+        } else if let cardholder = data.cardholder {
+            itemName.text = cardholder.fullName
         }
-        transactionType.text = data.itemType.capitalizingFirstLetter()
+        
+        transactionType.text = data.type.capitalizingFirstLetter()
         transactionDate.text = DateUtil.convert(input: data.createdDate, outputFormat: .format12)
         
         var sign = ""

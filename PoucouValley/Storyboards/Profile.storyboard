@@ -2764,7 +2764,7 @@ Ontario, A6B 2V7</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fh4-mE-d9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3584" y="2681"/>
+            <point key="canvasLocation" x="3583" y="1918"/>
         </scene>
         <!--Edit Cardholder Details View Controller-->
         <scene sceneID="57R-2t-zuf">
@@ -3080,7 +3080,7 @@ Ontario, A6B 2V7</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vis-68-zCY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4405.7971014492759" y="2680.5803571428569"/>
+            <point key="canvasLocation" x="3583" y="2681"/>
         </scene>
         <!--GiftsListViewController-->
         <scene sceneID="X0V-ga-PSq">
@@ -3090,7 +3090,7 @@ Ontario, A6B 2V7</string>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-8r-LyB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2983" y="3110"/>
+            <point key="canvasLocation" x="3033" y="3110"/>
         </scene>
         <!--My Coins History View Controller-->
         <scene sceneID="j3Y-Sy-rko">
@@ -3215,7 +3215,7 @@ Ontario, A6B 2V7</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTE-BO-wab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3570" y="3395"/>
+            <point key="canvasLocation" x="3583" y="3484"/>
         </scene>
         <!--GiftDetailViewController-->
         <scene sceneID="EQE-xL-Mz3">
@@ -3225,7 +3225,7 @@ Ontario, A6B 2V7</string>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEd-d4-N5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2488" y="3110"/>
+            <point key="canvasLocation" x="2394" y="3110"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
