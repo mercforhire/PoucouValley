@@ -2789,7 +2789,7 @@ Ontario, A6B 2V7</string>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uo0-ci-1gn">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" estimatedRowHeight="50" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uo0-ci-1gn">
                                                         <rect key="frame" x="0.0" y="40.5" width="382" height="300"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -2797,14 +2797,14 @@ Ontario, A6B 2V7</string>
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonTableCell" id="Bgy-Z7-b88" customClass="ButtonTableCell" customModule="PoucouValley" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="382" height="54"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="382" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bgy-Z7-b88" id="f02-Mo-kjj">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="54"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKg-mL-iPB" customClass="ThemeRoundedBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="5" width="382" height="44"/>
+                                                                            <rect key="frame" x="0.0" y="5" width="382" height="40"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="44" id="ush-Z9-Fdj"/>

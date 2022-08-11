@@ -29,15 +29,15 @@ class CardTableViewCell: UITableViewCell {
         numberLabel.text = card.number
         
         if let cardholder = card.associatedCardholder {
-            cardholderLabel.text = card.associatedCardholder?.fullName
+            cardholderLabel.text = cardholder.fullName
             
-            if let thumbnailUrl = card.associatedCardholder?.avatar?.thumbnailUrl, !thumbnailUrl.isEmpty {
+            if let thumbnailUrl = cardholder.avatar?.thumbnailUrl, !thumbnailUrl.isEmpty {
                 avatar.loadImageFromURL(urlString: thumbnailUrl)
             } else {
                 avatar.image = UIImage(systemName: "person.fill")
             }
         } else {
-            cardholderLabel.text = "Not linked to user."
+            cardholderLabel.text = "Not linked to user"
             avatar.image = nil
         }
     }

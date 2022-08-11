@@ -35,7 +35,6 @@ class LoginEnterCodeViewController: BaseViewController {
         super.setup()
         
         codeString = nil
-        navigationController?.isNavigationBarHidden = true
         code1Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code2Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code3Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -52,6 +51,12 @@ class LoginEnterCodeViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     private func validate(step1Only: Bool = false) -> Bool {

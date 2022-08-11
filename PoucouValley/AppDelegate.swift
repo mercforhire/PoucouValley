@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         IQKeyboardManager.shared.enable = true
         UNUserNotificationCenter.current().delegate = self
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
 

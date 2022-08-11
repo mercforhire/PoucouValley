@@ -162,6 +162,10 @@ extension EditCardholderDetailsViewController: UITableViewDataSource, UITableVie
         return BusinessCategories.list().count
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonTableCell", for: indexPath) as? ButtonTableCell else {
             return ButtonTableCell()
