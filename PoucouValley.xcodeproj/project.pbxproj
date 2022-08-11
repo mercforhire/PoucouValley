@@ -245,7 +245,6 @@
 		72CF4FA6289CD95E005CCCC5 /* URLImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */; };
 		72CF4FA7289CD95E005CCCC5 /* URLImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */; };
 		72D61D282841D22C00C77302 /* SetGendersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D61D272841D22C00C77302 /* SetGendersCell.swift */; };
-		72DB597C284094E600C80FD6 /* CardActivatedBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB597B284094E600C80FD6 /* CardActivatedBaseViewController.swift */; };
 		72DB597E284098BA00C80FD6 /* ThemeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB597D284098BA00C80FD6 /* ThemeImageView.swift */; };
 		72DECD8C287335EB00C929C1 /* ClientDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */; };
 		72DECD8E287335F600C929C1 /* ClientDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */; };
@@ -523,7 +522,6 @@
 		72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = URLImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		72D61D272841D22C00C77302 /* SetGendersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGendersCell.swift; sourceTree = "<group>"; };
-		72DB597B284094E600C80FD6 /* CardActivatedBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActivatedBaseViewController.swift; sourceTree = "<group>"; };
 		72DB597D284098BA00C80FD6 /* ThemeImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeImageView.swift; sourceTree = "<group>"; };
 		72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetailsHeader.swift; sourceTree = "<group>"; };
 		72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientDetailsHeader.xib; sourceTree = "<group>"; };
@@ -1177,7 +1175,6 @@
 				72C7D41A283D751E0066F3CB /* CardInfoViewController.swift */,
 				72C7D433283EF1600066F3CB /* CardScanViewController.swift */,
 				72C7D42B283E9CF70066F3CB /* CardActivateViewController.swift */,
-				72DB597B284094E600C80FD6 /* CardActivatedBaseViewController.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -1486,7 +1483,6 @@
 				72B2FBDF273CCB8C00382C12 /* VerticalPaginationManager.swift in Sources */,
 				72707C2B2834A108004F3C3C /* FullScreenSpinner.swift in Sources */,
 				72C6A0642845D63800AFCD8C /* CardholderContactInfoCell.swift in Sources */,
-				72DB597C284094E600C80FD6 /* CardActivatedBaseViewController.swift in Sources */,
 				72997ACC289C46A200F745A8 /* PerformanceData.swift in Sources */,
 				72AC01572738689C00B452BE /* NetworkService.swift in Sources */,
 				72C7D421283DCDE80066F3CB /* BaseTabBarViewController.swift in Sources */,

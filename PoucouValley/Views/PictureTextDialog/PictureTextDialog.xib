@@ -36,31 +36,34 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGq-2s-xwt" userLabel="Dismiss button">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <connections>
+                        <action selector="dimPressed:" destination="-1" eventType="touchUpInside" id="JSn-KC-BXI"/>
+                    </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-ZX-Twy" userLabel="Tutorial Container">
-                    <rect key="frame" x="29" y="233" width="356" height="430"/>
+                    <rect key="frame" x="29" y="226" width="356" height="444"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4n2-PY-W0F" customClass="ThemeRoundedBackView">
-                            <rect key="frame" x="0.0" y="0.0" width="356" height="430"/>
+                            <rect key="frame" x="0.0" y="0.0" width="356" height="444"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zbr-Tr-A1w">
-                                    <rect key="frame" x="20" y="50" width="316" height="350"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zbr-Tr-A1w">
+                                    <rect key="frame" x="20" y="50" width="316" height="364"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eyeglasses" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TCo-dp-qCI">
-                                            <rect key="frame" x="0.0" y="3.5" width="316" height="256"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggybank" translatesAutoresizingMaskIntoConstraints="NO" id="TCo-dp-qCI">
+                                            <rect key="frame" x="0.0" y="0.0" width="316" height="263.5"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="TCo-dp-qCI" secondAttribute="height" multiplier="6:5" id="rJb-im-1Cc"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure your card with pin code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wz9-Ig-EKh" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="271.5" width="316" height="25.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure your card with pin code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wz9-Ig-EKh" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="278.5" width="316" height="25.5"/>
                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter 3-digits pin code found inside the Poncou card pocket. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUS-PA-Wbo" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="305" width="316" height="45"/>
+                                            <rect key="frame" x="0.0" y="319" width="316" height="45"/>
                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -77,7 +80,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UX1-Mh-UqU" customClass="ThemeBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                            <rect key="frame" x="316" y="0.0" width="40" height="40"/>
+                            <rect key="frame" x="296" y="20" width="40" height="40"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="4FB-rv-NDx"/>
@@ -95,12 +98,10 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="UX1-Mh-UqU" firstAttribute="width" secondItem="UX1-Mh-UqU" secondAttribute="height" multiplier="1:1" id="4BQ-VZ-l5G"/>
                         <constraint firstAttribute="bottom" secondItem="4n2-PY-W0F" secondAttribute="bottom" id="KSZ-lY-jc8"/>
                         <constraint firstItem="4n2-PY-W0F" firstAttribute="leading" secondItem="cY2-ZX-Twy" secondAttribute="leading" id="OpC-Na-EDg"/>
-                        <constraint firstItem="UX1-Mh-UqU" firstAttribute="trailing" secondItem="4n2-PY-W0F" secondAttribute="trailing" id="UaK-cn-k2c"/>
-                        <constraint firstItem="UX1-Mh-UqU" firstAttribute="width" secondItem="UX1-Mh-UqU" secondAttribute="height" multiplier="1:1" id="ce5-TP-oVP"/>
-                        <constraint firstItem="UX1-Mh-UqU" firstAttribute="top" secondItem="4n2-PY-W0F" secondAttribute="top" id="eEd-P1-1nX"/>
+                        <constraint firstItem="4n2-PY-W0F" firstAttribute="trailing" secondItem="UX1-Mh-UqU" secondAttribute="trailing" constant="20" id="UaK-cn-k2c"/>
+                        <constraint firstItem="UX1-Mh-UqU" firstAttribute="top" secondItem="4n2-PY-W0F" secondAttribute="top" constant="20" id="eEd-P1-1nX"/>
                         <constraint firstItem="4n2-PY-W0F" firstAttribute="top" secondItem="cY2-ZX-Twy" secondAttribute="top" id="gWH-8t-Mto"/>
                         <constraint firstAttribute="trailing" secondItem="4n2-PY-W0F" secondAttribute="trailing" id="teQ-18-dph"/>
                     </constraints>
@@ -125,7 +126,7 @@
         </view>
     </objects>
     <resources>
-        <image name="eyeglasses" catalog="system" width="128" height="54"/>
+        <image name="piggybank" width="148.5" height="133"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

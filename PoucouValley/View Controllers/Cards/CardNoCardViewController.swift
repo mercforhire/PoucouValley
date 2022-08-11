@@ -12,7 +12,6 @@ class CardNoCardViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.isNavigationBarHidden = true
         navigationController?.viewControllers = [self]
     }
     
@@ -25,5 +24,15 @@ class CardNoCardViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    @IBAction func buyCardPressed(_ sender: UIButton) {
+        showErrorDialog(error: "Please contact Poucou customer support.")
+    }
+    
 }

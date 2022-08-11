@@ -17,7 +17,7 @@ class UpdateCardholderResponse: BaseObject {
         self.init()
         self.success = document["success"]!!.boolValue!
         self.message = document["message"]!!.stringValue!
-        if let data = document["data"]!!.documentValue {
+        if let data = document["data"]??.documentValue {
             self.data = Cardholder(document: data)
         }
     }

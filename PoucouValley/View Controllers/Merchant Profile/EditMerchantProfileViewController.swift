@@ -47,8 +47,8 @@ class EditMerchantProfileViewController: BaseViewController {
     
     private var logo: PVPhoto? {
         didSet {
-            if let logo = logo {
-                logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
+            if let thumbnailUrl = logo?.thumbnailUrl, !thumbnailUrl.isEmpty {
+                logoImageView.loadImageFromURL(urlString: thumbnailUrl)
             } else {
                 logoImageView.image = UIImage(systemName: "camera.circle")
             }

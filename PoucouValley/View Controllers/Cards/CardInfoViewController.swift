@@ -16,7 +16,6 @@ class CardInfoViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.isNavigationBarHidden = true
     }
     
     override func setupTheme() {

@@ -68,7 +68,7 @@ class CardScanViewController: BaseViewController {
         guard let qrScannerView = qrScannerView else { return }
         
         scannerContainer.addSubview(qrScannerView)
-        qrScannerView.configure(delegate: self, input: .init(isBlurEffectEnabled: true))
+        qrScannerView.configure(delegate: self, input: .init(isBlurEffectEnabled: false))
     }
     
     private func showAlert() {
@@ -83,7 +83,7 @@ class CardScanViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? CardScanViewController {
+        if let vc = segue.destination as? CardActivateViewController {
             vc.scannedCardNumber = scannedCardNumber
         }
     }

@@ -196,8 +196,8 @@ class MyProfileViewController: BaseViewController {
     }
     
     private func refreshProfileHeader() {
-        if let avatar = currentUser.cardholder?.avatar {
-            avatarImageView.loadImageFromURL(urlString: avatar.thumbnailUrl)
+        if let thumbnailUrl = currentUser.cardholder?.avatar?.thumbnailUrl, !thumbnailUrl.isEmpty {
+            avatarImageView.loadImageFromURL(urlString: thumbnailUrl)
         }
         nameLabel.text = userManager.user?.cardholder?.fullName ?? "--"
         coinsLabel.text = "\(wallet?.coins ?? 0)"

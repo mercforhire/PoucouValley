@@ -80,7 +80,7 @@ enum ResponseMessages: String, Codable {
         case .cardAlreadyUsed:
             return "Card already registered to another cardholder."
         case .cardNotExist:
-            return "Card with such number does not exist."
+            return "Card with such number does not exist in our database."
         }
     }
 }

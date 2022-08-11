@@ -46,10 +46,10 @@ class ShopDetailsCollectionHeaderView: UICollectionReusableView {
     func config(data: Merchant, following: Bool, showPostSection: Bool) {
         photos = Array(data.photos)
         
-        if let logo = data.logo {
-            logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
-        } else if let firstPhoto = data.photos.first {
-            logoImageView.loadImageFromURL(urlString: firstPhoto.thumbnailUrl)
+        if let logo = data.logo?.thumbnailUrl, !logo.isEmpty {
+            logoImageView.loadImageFromURL(urlString: logo)
+        } else if let firstPhoto = data.photos.first?.thumbnailUrl, !firstPhoto.isEmpty {
+            logoImageView.loadImageFromURL(urlString: firstPhoto)
         } else {
             logoImageView.image = UIImage(named: "store")
         }

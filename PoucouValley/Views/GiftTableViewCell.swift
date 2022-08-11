@@ -26,7 +26,7 @@ class GiftTableViewCell: UITableViewCell {
     }
     
     func config(data: Gift) {
-        if let photoUrl = data.photos.first?.thumbnailUrl {
+        if let photoUrl = data.photos.first?.thumbnailUrl, !photoUrl.isEmpty {
             background.loadImageFromURL(urlString: photoUrl)
         }
         cardLabel.text = "\(data.costInCoins) coins - \(data.name)"

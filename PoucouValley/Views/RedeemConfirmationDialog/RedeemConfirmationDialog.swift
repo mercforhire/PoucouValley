@@ -96,6 +96,10 @@ class RedeemConfirmationDialog: UIView {
         }
     }
     
+    @IBAction func dimPressed(_ sender: Any) {
+        hide()
+    }
+    
     @objc func hide() {
         UIView.animate(withDuration: animationInterval,
                        animations: {

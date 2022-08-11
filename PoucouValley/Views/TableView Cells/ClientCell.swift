@@ -48,10 +48,10 @@ class ClientCell: UITableViewCell {
     }
 
     func config(client: Client, showCheck: Bool, checked: Bool) {
-        if let thumbnailUrl = client.avatar?.thumbnailUrl {
+        if let thumbnailUrl = client.avatar?.thumbnailUrl, !thumbnailUrl.isEmpty {
             avatar.loadImageFromURL(urlString: thumbnailUrl)
         } else {
-            avatar.image = UIImage.init(systemName: "person.fill")
+            avatar.image = UIImage(systemName: "person.fill")
         }
         
         nameLabel.text = client.fullName

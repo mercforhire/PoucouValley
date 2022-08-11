@@ -13,7 +13,9 @@ class Birthday: BaseEmbeddedObject {
     var month: Int = 0
     var year: Int = 0
     
-    var dateString: String {
+    var dateString: String? {
+        guard day != 0 && month != 0 && year != 0 else { return nil }
+        
         let monthName = DateFormatter().monthSymbols[month - 1]
         return "\(year) \(monthName), \(day)"
     }

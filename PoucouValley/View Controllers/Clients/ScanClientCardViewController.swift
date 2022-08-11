@@ -68,7 +68,7 @@ class ScanClientCardViewController: BaseViewController {
         guard let qrScannerView = qrScannerView else { return }
         
         scannerContainer.addSubview(qrScannerView)
-        qrScannerView.configure(delegate: self, input: .init(isBlurEffectEnabled: true))
+        qrScannerView.configure(delegate: self, input: .init(isBlurEffectEnabled: false))
     }
     
     private func showCameraAlert() {
@@ -85,7 +85,6 @@ class ScanClientCardViewController: BaseViewController {
     private func submitCode() {
         if let scannedCardNumber = scannedCardNumber, !scannedCardNumber.isEmpty {
             FullScreenSpinner().show()
-            
             api.scanCard(cardNumber: scannedCardNumber) { [weak self] result in
                 guard let self = self else { return }
                 
@@ -95,11 +94,23 @@ class ScanClientCardViewController: BaseViewController {
                 case .success(let response):
                     if response.success {
                         self.showCardScannedDialog()
+                    } else if response.message == ResponseMessages.cardNotExist.rawValue {
+                        showErrorDialog(error: ResponseMessages.cardNotExist.errorMessage())
+                        self.scannedCardNumber = nil
+                        self.navigationController?.popViewController(animated: true)
+                    } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
+                        showErrorDialog(error: ResponseMessages.cardholderNotFound.errorMessage())
+                        self.scannedCardNumber = nil
+                        self.navigationController?.popViewController(animated: true)
                     } else {
-                        showErrorDialog(error: response.message)
+                        showErrorDialog(error: "Unknown error")
+                        self.scannedCardNumber = nil
+                        self.navigationController?.popViewController(animated: true)
                     }
                 case .failure:
                     showNetworkErrorDialog()
+                    self.scannedCardNumber = nil
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }
@@ -107,7 +118,7 @@ class ScanClientCardViewController: BaseViewController {
     
     private func showCardScannedDialog() {
         let dialog = PictureTextDialog()
-        let dialogImage = UIImage(named: "creditcard")
+        let dialogImage = UIImage(named: "piggybank")
         let config = PictureTextDialogConfig(image: dialogImage, primaryLabel: "Poncou card successfully scanned!", secondLabel: "")
         dialog.configure(config: config, showDimOverlay: true, overUIWindow: true)
         dialog.delegate = self

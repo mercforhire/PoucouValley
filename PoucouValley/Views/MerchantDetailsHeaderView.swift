@@ -65,10 +65,10 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
     }
     
     func config(data: Merchant) {
-        if let logo = data.logo {
-            logoImageView.loadImageFromURL(urlString: logo.thumbnailUrl)
-        } else if let firstPhoto = data.photos.first {
-            logoImageView.loadImageFromURL(urlString: firstPhoto.thumbnailUrl)
+        if let logo = data.logo?.thumbnailUrl, !logo.isEmpty {
+            logoImageView.loadImageFromURL(urlString: logo)
+        } else if let firstPhoto = data.photos.first?.thumbnailUrl, !firstPhoto.isEmpty {
+            logoImageView.loadImageFromURL(urlString: firstPhoto)
         } else {
             logoImageView.image = UIImage(named: "store")
         }

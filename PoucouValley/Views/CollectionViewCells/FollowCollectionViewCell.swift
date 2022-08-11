@@ -26,8 +26,8 @@ class FollowCollectionViewCell: UICollectionViewCell {
     }
     
     func config(plan: Plan) {
-        if let thumbnailUrlString = plan.photos.first?.thumbnailUrl {
-            imageView.loadImageFromURL(urlString: thumbnailUrlString)
+        if let thumbnailUrl = plan.photos.first?.thumbnailUrl, !thumbnailUrl.isEmpty {
+            imageView.loadImageFromURL(urlString: thumbnailUrl)
         } else {
             imageView.image = nil
         }
@@ -45,8 +45,8 @@ class FollowCollectionViewCell: UICollectionViewCell {
     }
     
     func config(gift: Gift) {
-        if let thumbnailUrlString = gift.photos.first?.thumbnailUrl {
-            imageView.loadImageFromURL(urlString: thumbnailUrlString)
+        if let thumbnailUrl = gift.photos.first?.thumbnailUrl, !thumbnailUrl.isEmpty {
+            imageView.loadImageFromURL(urlString: thumbnailUrl)
         } else {
             imageView.image = nil
         }

@@ -36,6 +36,9 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dva-eo-Q1v" userLabel="Dismiss button">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <connections>
+                        <action selector="dimPressed:" destination="-1" eventType="touchUpInside" id="Mx3-VV-oho"/>
+                    </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIU-Xo-Vbj" userLabel="Tutorial Container">
                     <rect key="frame" x="17" y="148" width="380" height="600"/>

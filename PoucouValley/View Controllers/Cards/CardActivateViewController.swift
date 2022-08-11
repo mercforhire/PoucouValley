@@ -45,7 +45,6 @@ class CardActivateViewController: BaseViewController {
         
         cardNumberErrorString = nil
         codeErrorString = nil
-        navigationController?.isNavigationBarHidden = true
         
         cardNumber1Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         cardNumber2Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -77,11 +76,11 @@ class CardActivateViewController: BaseViewController {
         for i in 0..<elements.count {
             switch i {
             case 0:
-                code1Field.text = String(elements[i])
+                cardNumber1Field.text = String(elements[i])
             case 1:
-                code2Field.text = String(elements[i])
+                cardNumber2Field.text = String(elements[i])
             case 2:
-                code3Field.text = String(elements[i])
+                cardNumber3Field.text = String(elements[i])
             default:
                 break
             }
@@ -113,14 +112,33 @@ class CardActivateViewController: BaseViewController {
             let pin = "\(code1Field.text ?? "")\(code2Field.text ?? "")\(code3Field.text ?? "")"
             
             FullScreenSpinner().show()
-            userManager.addCardToCardholder(cardNumber: cardNumber, pin: pin) { [weak self] success in
+            api.addCardToCardholder(cardNumber: cardNumber, pin: pin, callBack: { [weak self] result in
                 FullScreenSpinner().hide()
                 
-                if success {
-                    self?.performSegue(withIdentifier: "goToActivateSuccess", sender: self)
+                switch result {
+                case .success(let response):
+                    if response.success {
+                        self?.goToSuccessScreen()
+                    } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
+                        self?.cardNumberErrorString = ResponseMessages.cardholderNotFound.errorMessage()
+                    } else if response.message == ResponseMessages.cardAlreadyUsed.rawValue {
+                        self?.cardNumberErrorString = ResponseMessages.cardAlreadyUsed.errorMessage()
+                    } else if response.message == ResponseMessages.cardPinIncorrect.rawValue {
+                        self?.codeErrorString = ResponseMessages.cardPinIncorrect.errorMessage()
+                    } else {
+                        self?.cardNumberErrorString = "Unknown error"
+                    }
+                case .failure:
+                    showNetworkErrorDialog()
                 }
-            }
+            })
         }
+    }
+    
+    private func goToSuccessScreen() {
+        userManager.fetchUser(completion: { [weak self] _ in
+            self?.performSegue(withIdentifier: "goToActivateSuccess", sender: self)
+        })
     }
     
     @objc private func textFieldDidChange(_ textfield: UITextField) {
@@ -132,9 +150,9 @@ class CardActivateViewController: BaseViewController {
             }
         } else if textfield == cardNumber2Field {
             if (textfield.text ?? "").isEmpty {
-                cardNumber1Field.becomeFirstResponder()
-            } else {
-                cardNumber3Field.becomeFirstResponder()
+                code1Field.becomeFirstResponder()
+            } else if (textfield.text ?? "").count == 6 {
+                code3Field.becomeFirstResponder()
             }
         } else if textfield == cardNumber3Field {
             if (textfield.text ?? "").isEmpty {

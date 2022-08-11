@@ -41,12 +41,12 @@ class HomeFollowingViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        loadData()
     }
     
     private func loadData() {

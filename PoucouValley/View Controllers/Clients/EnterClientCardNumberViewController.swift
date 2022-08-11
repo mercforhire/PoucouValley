@@ -15,9 +15,9 @@ class EnterClientCardNumberViewController: BaseViewController {
     @IBOutlet weak var codeErrorLabel: UILabel!
     @IBOutlet weak var submitButton: ThemeRoundedGreenBlackTextButton!
     
-    var codeString: String? {
+    var errorString: String? {
         didSet {
-            if let codeString = codeString, !codeString.isEmpty {
+            if let codeString = errorString, !codeString.isEmpty {
                 codeErrorLabel.text = codeString
             } else {
                 codeErrorLabel.text = ""
@@ -26,13 +26,13 @@ class EnterClientCardNumberViewController: BaseViewController {
     }
     
     var cardNumber: String {
-        return "\(code1Field.text ?? "")\(code2Field.text ?? "")\(code3Field.text ?? "")"
+        return "\(code1Field.text ?? "")-\(code2Field.text ?? "")-\(code3Field.text ?? "")"
     }
     
     override func setup() {
         super.setup()
         
-        codeString = nil
+        errorString = nil
         navigationController?.isNavigationBarHidden = true
         code1Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code2Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -53,10 +53,10 @@ class EnterClientCardNumberViewController: BaseViewController {
 
     private func validate(step1Only: Bool = false) -> Bool {
         if (code1Field.text ?? "").isEmpty || (code2Field.text ?? "").isEmpty || (code3Field.text ?? "").isEmpty {
-            codeString = "* Code not filled"
+            errorString = "* Code not filled"
             return false
         } else {
-            codeString = ""
+            errorString = ""
         }
         
         return true
@@ -75,8 +75,12 @@ class EnterClientCardNumberViewController: BaseViewController {
                 case .success(let response):
                     if response.success {
                         self.showCardScannedDialog()
+                    } else if response.message == ResponseMessages.cardNotExist.rawValue {
+                        self.errorString = ResponseMessages.cardNotExist.errorMessage()
+                    } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
+                        self.errorString = ResponseMessages.cardholderNotFound.errorMessage()
                     } else {
-                        showErrorDialog(error: response.message)
+                        self.errorString = "Unknown error"
                     }
                 case .failure:
                     showNetworkErrorDialog()
@@ -95,7 +99,7 @@ class EnterClientCardNumberViewController: BaseViewController {
         } else if textfield == code2Field {
             if (textfield.text ?? "").isEmpty {
                 code1Field.becomeFirstResponder()
-            } else {
+            } else if (textfield.text ?? "").count == 6 {
                 code3Field.becomeFirstResponder()
             }
         } else if textfield == code3Field {

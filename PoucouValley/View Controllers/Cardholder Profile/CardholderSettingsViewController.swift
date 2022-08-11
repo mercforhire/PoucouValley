@@ -60,6 +60,7 @@ class CardholderSettingsViewController: BaseViewController {
     private func loadData(complete: ((Bool) -> Void)? = nil) {
         userManager.fetchUser { [weak self] success in
             self?.tableView.reloadData()
+            self?.tableView.cr.endHeaderRefresh()
             complete?(success)
         }
     }

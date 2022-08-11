@@ -169,33 +169,6 @@ class UserManager {
         }
     }
     
-    func addCardToCardholder(cardNumber: String, pin: String, completion: @escaping(Bool) -> Void) {
-        api.addCardToCardholder(cardNumber: cardNumber, pin: pin, callBack: { [weak self] result in
-            switch result {
-            case .success(let response):
-                if response.success, let cardholder = response.data {
-                    self?.user?.cardholder = cardholder
-                    completion(true)
-                } else if response.message == ResponseMessages.cardholderNotFound.rawValue {
-                    showErrorDialog(error: ResponseMessages.cardholderNotFound.errorMessage())
-                    completion(false)
-                } else if response.message == ResponseMessages.cardAlreadyUsed.rawValue {
-                    showErrorDialog(error: ResponseMessages.cardAlreadyUsed.errorMessage())
-                    completion(false)
-                } else if response.message == ResponseMessages.cardPinIncorrect.rawValue {
-                    showErrorDialog(error: ResponseMessages.cardPinIncorrect.errorMessage())
-                    completion(false)
-                } else {
-                    showErrorDialog(error: "Unknown error")
-                    completion(false)
-                }
-            case .failure:
-                showNetworkErrorDialog()
-                completion(false)
-            }
-        })
-    }
-    
     func updateCardholderInfo(firstName: String? = nil, lastName: String? = nil, pronoun: String? = nil, gender: String? = nil, birthday: Birthday? = nil, contact: Contact? = nil, address: Address? = nil, avatar: PVPhoto? = nil, interests: [BusinessCategories]? = nil, callBack: @escaping(Result<Cardholder, Error>) -> Void) {
         let params = UpdateCardholderInfoParams(firstName: firstName, lastName: lastName, pronoun: pronoun, gender: gender, birthday: birthday, contact: contact, address: address, avatar: avatar, interests: interests)
         api.updateCardholderInfo(params: params) { result in

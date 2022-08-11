@@ -104,12 +104,24 @@
                                                                     </stackView>
                                                                 </subviews>
                                                             </stackView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ved-S5-lbd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="273" height="120"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <segue destination="YQs-Pg-cew" kind="show" id="x0o-YS-7SU"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
                                                             <constraint firstItem="JCI-0N-HdA" firstAttribute="leading" secondItem="gv3-XE-Wlg" secondAttribute="leading" constant="24" id="BTk-yU-xNo"/>
                                                             <constraint firstAttribute="trailing" secondItem="JCI-0N-HdA" secondAttribute="trailing" constant="24" id="Jet-HK-myK"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ved-S5-lbd" secondAttribute="bottom" id="VL6-aY-Hqb"/>
+                                                            <constraint firstItem="ved-S5-lbd" firstAttribute="leading" secondItem="gv3-XE-Wlg" secondAttribute="leading" id="cMt-F7-cVx"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ved-S5-lbd" secondAttribute="trailing" id="s5g-hk-ye1"/>
                                                             <constraint firstItem="JCI-0N-HdA" firstAttribute="top" secondItem="gv3-XE-Wlg" secondAttribute="top" constant="24" id="wrs-G4-hIJ"/>
+                                                            <constraint firstItem="ved-S5-lbd" firstAttribute="top" secondItem="gv3-XE-Wlg" secondAttribute="top" id="x2y-72-K2X"/>
                                                             <constraint firstAttribute="bottom" secondItem="JCI-0N-HdA" secondAttribute="bottom" constant="24" id="yki-t6-4MI"/>
                                                         </constraints>
                                                     </view>
@@ -370,6 +382,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="100.44642857142857"/>
+        </scene>
+        <!--MyCoinsHistoryViewController-->
+        <scene sceneID="opV-iY-6XN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="MyCoinsHistoryViewController" id="YQs-Pg-cew" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hh9-By-beN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCb-4B-1MC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1792" y="-11"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uco-FB-vc9">

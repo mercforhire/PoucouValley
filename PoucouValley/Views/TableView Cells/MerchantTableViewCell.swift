@@ -36,7 +36,7 @@ class MerchantTableViewCell: UITableViewCell {
     }
 
     func config(merchant: Merchant) {
-        if let fullUrl = merchant.photos.first?.fullUrl {
+        if let fullUrl = merchant.photos.first?.fullUrl, !fullUrl.isEmpty {
             logoView.loadImageFromURL(urlString: fullUrl)
         } else {
             logoView.image = nil

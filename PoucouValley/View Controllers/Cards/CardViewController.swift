@@ -35,14 +35,14 @@ class CardViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        
-        navigationController?.isNavigationBarHidden = true
+    
         navigationController?.viewControllers = [self]
         
         link.isHidden = true
         merchantLogoContainer.isHidden = true
         cardNumber.text = currentUser.cardholder?.card ?? "--"
         cardNumber.isCopyingEnabled = true
+        qrCodeImageView.layer.magnificationFilter = CALayerContentsFilter.nearest
     }
     
     override func setupTheme() {
@@ -59,6 +59,7 @@ class CardViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.isNavigationBarHidden = true
         loadCardInfo()
     }
     
@@ -74,7 +75,7 @@ class CardViewController: BaseViewController {
                 if result.success, let card = result.data {
                     self?.card = card
                 }
-            case .failure(let error):
+            case .failure:
                 showNetworkErrorDialog()
             }
         }

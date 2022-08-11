@@ -46,6 +46,7 @@ class MyCoinsHistoryViewController: BaseViewController {
         
         api.fetchTransactions { [weak self] result in
             FullScreenSpinner().hide()
+            self?.tableView.cr.endHeaderRefresh()
             
             switch result {
             case .success(let response):

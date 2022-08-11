@@ -332,14 +332,14 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p6A-HD-Ike">
                                                                             <rect key="frame" x="0.0" y="-3" width="299" height="39.5"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8N-XQ-lxx">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8N-XQ-lxx">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="299" height="25.5"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRT-vs-A9N">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRT-vs-A9N">
                                                                                     <rect key="frame" x="0.0" y="25.5" width="299" height="14"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="10"/>
@@ -2837,7 +2837,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RF-i8-TyS" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RF-i8-TyS" customClass="ThemeRoundedGreenWhiteTextButton" customModule="PoucouValley" customModuleProvider="target">
                                 <rect key="frame" x="99.5" y="576.5" width="215" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
@@ -3083,10 +3083,6 @@
                     <navigationItem key="navigationItem" id="l32-Fi-d6G"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="cardNumber1Field" destination="XKm-bj-rnG" id="MPB-Ag-OqR"/>
-                        <outlet property="cardNumber2Field" destination="QYn-QK-1FG" id="1M9-Z8-mwT"/>
-                        <outlet property="cardNumber3Field" destination="n2T-0H-iZw" id="Kka-RM-VmB"/>
-                        <outlet property="cardNumberErrorLabel" destination="CBN-1v-gAA" id="F80-rN-60Q"/>
                         <outlet property="code1Field" destination="XKm-bj-rnG" id="J0C-mw-dGx"/>
                         <outlet property="code2Field" destination="QYn-QK-1FG" id="qww-G0-Ecd"/>
                         <outlet property="code3Field" destination="n2T-0H-iZw" id="608-hG-nKW"/>
@@ -3120,7 +3116,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="HHe-zF-gYt"/>
-        <segue reference="TwB-UR-fmf"/>
+        <segue reference="Z9h-G8-bJR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Icon-facebook" width="256" height="256"/>

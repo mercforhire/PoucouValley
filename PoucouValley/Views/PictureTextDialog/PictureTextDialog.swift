@@ -46,7 +46,7 @@ class PictureTextDialog: UIView {
     private var config: PictureTextDialogConfig?
     
     private func setupUI() {
-        Bundle.main.loadNibNamed("TwoChoicesDialog", owner: self, options: nil)
+        Bundle.main.loadNibNamed("PictureTextDialog", owner: self, options: nil)
         addSubview(containerView)
         containerView.frame = self.bounds
         containerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -140,6 +140,10 @@ class PictureTextDialog: UIView {
         if showDimOverlay {
             dimBackground.alpha = 1
         }
+    }
+    
+    @IBAction func dimPressed(_ sender: UIButton) {
+        hide()
     }
     
     @IBAction func closePress(_ sender: UIButton) {

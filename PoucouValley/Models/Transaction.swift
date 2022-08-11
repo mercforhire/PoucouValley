@@ -15,6 +15,7 @@ class Transaction: BaseObject {
     var itemName: String = ""
     var itemType: String = ""
     var merchant: Merchant?
+    var cardholder: Cardholder?
     
     convenience init(document: Document) {
         self.init()
@@ -25,6 +26,9 @@ class Transaction: BaseObject {
         self.itemType = document["itemType"]??.stringValue ?? ""
         if let data = document["merchant"]??.documentValue {
             self.merchant = Merchant(document: data)
+        }
+        if let data = document["cardholder"]??.documentValue {
+            self.cardholder = Cardholder(document: data)
         }
     }
 }
