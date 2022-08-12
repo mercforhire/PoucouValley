@@ -13,10 +13,6 @@ class Goal: BaseObject {
     var goal: String = ""
     var reward: Int = 0
     
-    static func == (lhs: Goal, rhs: Goal) -> Bool {
-        return lhs.goal == rhs.goal
-    }
-    
     convenience init(document: Document) {
         self.init()
         self.identifier = document["_id"]!!.objectIdValue!

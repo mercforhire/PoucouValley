@@ -168,6 +168,7 @@ class SetBirthdayCell: UITableViewCell {
         
         selectedDayButtonTag = data.day - 1
         selectedMonthButtonTag = data.month - 1
+        yearButton.setTitle("\(data.year)", for: .normal)
         
         while data.year < (mostRecentYear - totalNumberOfButtons) {
             yearUpPressed(yearUpButton as! ThemeGreyButton)

@@ -22,7 +22,7 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
     var accessToken: String?
     
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        guard let accessToken = accessToken, let urlString = urlRequest.url?.absoluteString else {
+        guard let accessToken = accessToken, let _ = urlRequest.url?.absoluteString else {
             // If the request does not require authentication, we can directly return it as unmodified.
             return completion(.success(urlRequest))
         }

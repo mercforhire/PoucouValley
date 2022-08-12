@@ -13,7 +13,6 @@ class SignUpHomeViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        navigationController?.isNavigationBarHidden = true
     }
     
     override func setupTheme() {
@@ -26,6 +25,12 @@ class SignUpHomeViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func signUpCardholderPressed(_ sender: UIButton) {

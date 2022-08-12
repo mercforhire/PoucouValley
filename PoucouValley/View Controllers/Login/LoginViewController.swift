@@ -37,7 +37,6 @@ class LoginViewController: BaseViewController {
     override func setup() {
         super.setup()
         emailErrorString = nil
-        navigationController?.isNavigationBarHidden = true
         
         switch mode {
         case .cardholder:
@@ -66,6 +65,12 @@ class LoginViewController: BaseViewController {
 
         // Do any additional setup after loading the view.
         emailField.text = appSettings.getLastUsedEmail()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
     }
 
     private func validate() -> Bool {

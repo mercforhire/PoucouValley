@@ -24,7 +24,6 @@ class LoginScanViewController: BaseViewController {
     
     override func setup() {
         super.setup()
-        navigationController?.isNavigationBarHidden = true
         
         setupQRScanner()
     }
@@ -38,6 +37,7 @@ class LoginScanViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.isNavigationBarHidden = true
         qrScannerView?.startRunning()
     }
     

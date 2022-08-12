@@ -34,7 +34,6 @@ class SignUpEnterPinViewController: BaseViewController {
         super.setup()
         
         codeString = nil
-        navigationController?.isNavigationBarHidden = true
         code1Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code2Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         code3Field.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -50,6 +49,12 @@ class SignUpEnterPinViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func validate(step1Only: Bool = false) -> Bool {

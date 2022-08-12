@@ -236,8 +236,8 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cFd-oN-MF2">
                                                                             <rect key="frame" x="354" y="0.0" width="30" height="10"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoinsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-1I-efe">
-                                                                                    <rect key="frame" x="0.0" y="0.5" width="10" height="9"/>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gem" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-1I-efe">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
                                                                                     <color key="tintColor" systemColor="systemYellowColor"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="sYc-1I-efe" secondAttribute="height" multiplier="1:1" id="zz4-Rj-BUK"/>
@@ -262,66 +262,33 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f6s-yd-L59">
                                                                     <rect key="frame" x="0.0" y="55.5" width="384" height="50"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.2" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lwM-2T-Qnn">
-                                                                            <rect key="frame" x="0.0" y="1.5" width="50" height="47.5"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gender" translatesAutoresizingMaskIntoConstraints="NO" id="lwM-2T-Qnn">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="lwM-2T-Qnn" secondAttribute="height" multiplier="1:1" id="VOi-q9-MOq"/>
                                                                                 <constraint firstAttribute="width" constant="50" id="rn1-Vg-l8w"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Jla-nd-DRl">
-                                                                            <rect key="frame" x="55" y="0.0" width="262" height="50"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" text="Complete your profile!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L15-C7-fzB" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="262" height="24"/>
-                                                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete your profile!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxr-Qo-lgE" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="29" width="262" height="21"/>
-                                                                                    <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="14"/>
-                                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJc-Xt-XW5">
-                                                                            <rect key="frame" x="322" y="0.0" width="62" height="50"/>
-                                                                            <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkn-Cx-DLG">
-                                                                                    <rect key="frame" x="0.0" y="11.5" width="62" height="27"/>
-                                                                                    <subviews>
-                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoinsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fLO-J3-hik">
-                                                                                            <rect key="frame" x="0.0" y="0.5" width="27" height="26"/>
-                                                                                            <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="27" id="GIM-5q-q4X"/>
-                                                                                                <constraint firstAttribute="width" secondItem="fLO-J3-hik" secondAttribute="height" multiplier="1:1" id="gen-cO-uoG"/>
-                                                                                            </constraints>
-                                                                                        </imageView>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="251" horizontalCompressionResistancePriority="746" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2y-tX-EMm" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                                            <rect key="frame" x="27" y="0.0" width="35" height="27"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="35" id="YhZ-71-yZq"/>
-                                                                                            </constraints>
-                                                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="34"/>
-                                                                                            <nil key="textColor"/>
-                                                                                            <nil key="highlightedColor"/>
-                                                                                        </label>
-                                                                                    </subviews>
-                                                                                </stackView>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Complete your profile!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="L15-C7-fzB" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                            <rect key="frame" x="55" y="0.0" width="272" height="50"/>
+                                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gem" translatesAutoresizingMaskIntoConstraints="NO" id="fLO-J3-hik">
+                                                                            <rect key="frame" x="332" y="0.0" width="25" height="50"/>
+                                                                            <color key="tintColor" systemColor="systemYellowColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pkn-Cx-DLG" secondAttribute="bottom" id="0GH-Pm-wmP"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="pkn-Cx-DLG" secondAttribute="trailing" id="2kW-bg-Oz2"/>
-                                                                                <constraint firstItem="pkn-Cx-DLG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lJc-Xt-XW5" secondAttribute="top" id="ach-9K-98X"/>
-                                                                                <constraint firstItem="pkn-Cx-DLG" firstAttribute="leading" secondItem="lJc-Xt-XW5" secondAttribute="leading" id="izz-bF-jMk"/>
-                                                                                <constraint firstItem="pkn-Cx-DLG" firstAttribute="centerY" secondItem="lJc-Xt-XW5" secondAttribute="centerY" id="uSn-26-aWM"/>
+                                                                                <constraint firstAttribute="width" constant="25" id="GIM-5q-q4X"/>
                                                                             </constraints>
-                                                                        </view>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2y-tX-EMm" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                            <rect key="frame" x="362" y="0.0" width="22" height="50"/>
+                                                                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="34"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -348,7 +315,6 @@
                                             <outlet property="iconImageView" destination="lwM-2T-Qnn" id="nBc-uu-5Ye"/>
                                             <outlet property="label1" destination="YCL-rb-wAb" id="KN0-xp-G9M"/>
                                             <outlet property="label2" destination="L15-C7-fzB" id="q10-39-3nj"/>
-                                            <outlet property="label3" destination="Vxr-Qo-lgE" id="eqs-rO-zoK"/>
                                             <outlet property="totalRewardLabel" destination="Qsf-Bm-vRG" id="mgT-gO-JLs"/>
                                             <outletCollection property="progressBars" destination="6I6-2z-yuo" collectionClass="NSMutableArray" id="zmV-9Y-z7d"/>
                                             <outletCollection property="progressBars" destination="cEy-ar-xEK" collectionClass="NSMutableArray" id="av8-4h-o0j"/>
@@ -3229,17 +3195,16 @@ Ontario, A6B 2V7</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MdS-3T-Rek"/>
+        <segue reference="fST-zS-Xxr"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="bitcoinsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.compact.down" catalog="system" width="128" height="43"/>
         <image name="chevron.compact.up" catalog="system" width="128" height="43"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="gem" width="13.5" height="13.5"/>
-        <image name="person.2" catalog="system" width="128" height="81"/>
+        <image name="gender" width="25" height="25"/>
         <image name="piggybank" width="148.5" height="133"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

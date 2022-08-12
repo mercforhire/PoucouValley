@@ -56,7 +56,7 @@ class LoginEnterCodeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func validate(step1Only: Bool = false) -> Bool {

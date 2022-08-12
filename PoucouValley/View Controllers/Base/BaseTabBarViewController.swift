@@ -24,8 +24,7 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         // Do any additional setup after loading the view.
         delegate = self
         navigationController?.isNavigationBarHidden = true
-        registerForPushNotifications { [weak self] success in
-            guard let self = self else { return }
+        registerForPushNotifications { _ in
             
         }
     }

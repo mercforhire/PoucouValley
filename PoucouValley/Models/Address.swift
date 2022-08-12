@@ -67,11 +67,11 @@ class Address: BaseEmbeddedObject {
         if let province = province {
             document["province"] = AnyBSON(province)
         }
-        if let country = country {
-            document["country"] = AnyBSON(country)
-        }
         if let postalCode = postalCode {
             document["postalCode"] = AnyBSON(postalCode)
+        }
+        if let country = country {
+            document["country"] = AnyBSON(country)
         }
         return document
     }

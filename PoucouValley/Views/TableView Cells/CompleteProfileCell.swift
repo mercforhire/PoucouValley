@@ -13,7 +13,6 @@ class CompleteProfileCell: UITableViewCell {
     @IBOutlet weak var totalRewardLabel: ThemeBlackTextLabel!
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var label2: ThemeBlackTextLabel!
-    @IBOutlet weak var label3: ThemeGreyLabel!
     @IBOutlet weak var goalRewardLabel: ThemeBlackTextLabel!
     
     override func awakeFromNib() {
@@ -26,10 +25,17 @@ class CompleteProfileCell: UITableViewCell {
             progressBar.layer.cornerRadius = progressBar.frame.height / 2
         }
         totalRewardLabel.text = "0"
-        iconImageView.image = nil
         label2.text = ""
-        label3.text = ""
         goalRewardLabel.text = "0"
+        selectionStyle = .none
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        for progressBar in progressBars {
+            progressBar.backgroundColor = .lightGray
+            progressBar.layer.cornerRadius = progressBar.frame.height / 2
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,33 +43,30 @@ class CompleteProfileCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    private func setLabel2AndLabel3(label2: String, label3: String) {
-        if self.label2.text?.isEmpty ?? true {
-            self.label2.text = label2
-        }
-        
-        if self.label3.text?.isEmpty ?? true {
-            self.label3.text = label3
-        }
-    }
 
     func config(all: [Goal], completed: [Goal]) {
         var incompleteGoals: [Goal] = []
         var totalReward: Int = 0
         for goal in all {
-            if !completed.contains(goal) {
+            if !completed.contains(where: { $0.goal == goal.goal }) {
                 incompleteGoals.append(goal)
             }
             totalReward = totalReward + goal.reward
         }
         
-        if let firstGoal = incompleteGoals.first {
-            goalRewardLabel.text = "\(firstGoal.reward)"
-            setLabel2AndLabel3(label2: "Add a gender!", label3: "Tell us your gender. ")
+        let greenProgressBars = progressBars.filter { view in
+            return view.tag < completed.count
+        }
+        for bar in greenProgressBars {
+            bar.backgroundColor = themeManager.themeData?.lighterGreen.hexColor
+        }
+        
+        if let incompleteGoal = incompleteGoals.first {
+            goalRewardLabel.text = "\(incompleteGoal.reward)"
+            label2.text = incompleteGoal.goal
         } else {
             goalRewardLabel.text = "--"
-            setLabel2AndLabel3(label2: "All goals complete!", label3: "")
+            label2.text = "All goals complete!"
         }
         totalRewardLabel.text = "\(totalReward)"
     }

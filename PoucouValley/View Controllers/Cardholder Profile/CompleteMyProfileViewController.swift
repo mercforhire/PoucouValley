@@ -94,7 +94,7 @@ class CompleteMyProfileViewController: BaseViewController, SetGendersCellDelegat
         }
         
         return goals.filter { goal in
-            return !completedGoals.contains(goal)
+            return !completedGoals.contains{ $0.goal == goal.goal }
         }
     }
     
