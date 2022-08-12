@@ -102,7 +102,6 @@ extension UserType {
     }
 }
 
-
 enum Genders: String, Codable {
     case male = "Male"
     case female = "Female"
@@ -263,5 +262,17 @@ enum BusinessCategories: String, Codable {
 extension BusinessCategories {
     init(from decoder: Decoder) throws {
         self = try BusinessCategories(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .other
+    }
+}
+
+enum NotificationSettings: String, Codable {
+    case all = "ALL"
+    case actions = "ACTIONS"
+    case off = "OFF"
+}
+
+extension NotificationSettings {
+    init(from decoder: Decoder) throws {
+        self = try NotificationSettings(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .all
     }
 }

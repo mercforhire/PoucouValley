@@ -464,4 +464,46 @@ class UserManager {
             }
         }
     }
+    
+    func changeUserSettings(notification: NotificationSettings, completion: @escaping (Bool) -> Void) {
+        var isSuccess: Bool = true
+        let queue = DispatchQueue.global(qos: .default)
+        queue.async { [weak self] in
+            guard let self = self else { return }
+            
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            self.api.setUserSettings(notification: notification) { result in
+                switch result {
+                case .success(let response):
+                    if !response.success {
+                        isSuccess = false
+                    }
+                case .failure:
+                    isSuccess = false
+                }
+                semaphore.signal()
+            }
+            semaphore.wait()
+            
+            guard isSuccess else {
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+                return
+            }
+            
+            self.fetchUser { success in
+                semaphore.signal()
+            }
+            semaphore.wait()
+            
+            DispatchQueue.main.async {
+                if !isSuccess {
+                    showNetworkErrorDialog()
+                }
+                completion(isSuccess)
+            }
+        }
+    }
 }

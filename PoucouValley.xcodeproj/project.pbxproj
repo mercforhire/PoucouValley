@@ -246,6 +246,7 @@
 		72C7D430283EB2640066F3CB /* FetchMyCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */; };
 		72C7D432283EB4620066F3CB /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D431283EB4620066F3CB /* URLImageView.swift */; };
 		72C7D434283EF1600066F3CB /* CardScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D433283EF1600066F3CB /* CardScanViewController.swift */; };
+		72CD799228A5DC0D000E512C /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CD799128A5DC0D000E512C /* UserSettings.swift */; };
 		72CF4FA6289CD95E005CCCC5 /* URLImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */; };
 		72CF4FA7289CD95E005CCCC5 /* URLImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */; };
 		72D61D282841D22C00C77302 /* SetGendersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D61D272841D22C00C77302 /* SetGendersCell.swift */; };
@@ -527,6 +528,7 @@
 		72C7D42F283EB2640066F3CB /* FetchMyCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMyCardResponse.swift; sourceTree = "<group>"; };
 		72C7D431283EB4620066F3CB /* URLImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
 		72C7D433283EF1600066F3CB /* CardScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanViewController.swift; sourceTree = "<group>"; };
+		72CD799128A5DC0D000E512C /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = URLImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		72D61D272841D22C00C77302 /* SetGendersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGendersCell.swift; sourceTree = "<group>"; };
@@ -985,6 +987,7 @@
 				72AC015927387BB200B452BE /* UnsplashPhoto.swift */,
 				72707C0C28320D26004F3C3C /* User.swift */,
 				72707C182832BDC7004F3C3C /* UserDetails.swift */,
+				72CD799128A5DC0D000E512C /* UserSettings.swift */,
 				72997AC4289C175800F745A8 /* VisitorRecord.swift */,
 				7242D6EB2848694A00034BA8 /* Wallet.swift */,
 			);
@@ -1607,6 +1610,7 @@
 				72C7D3E9283AAC9A0066F3CB /* SetupInitialProfileViewController.swift in Sources */,
 				7201EEEC2830950D00AD6585 /* PhotoResponse.swift in Sources */,
 				72C7D41D283DBAA80066F3CB /* PoucouCardBulletPoint.swift in Sources */,
+				72CD799228A5DC0D000E512C /* UserSettings.swift in Sources */,
 				72BB44FF289DE4B600EE9B35 /* FetchMerchantResponse.swift in Sources */,
 				72AC011027378FFA00B452BE /* UIViewController+Extension.swift in Sources */,
 				72707C132832170F004F3C3C /* Contact.swift in Sources */,

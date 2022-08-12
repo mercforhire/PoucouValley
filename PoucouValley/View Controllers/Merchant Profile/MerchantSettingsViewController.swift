@@ -131,6 +131,40 @@ class MerchantSettingsViewController: BaseViewController {
         
         present(ac, animated: true)
     }
+    
+    private func showNotificationSettings() {
+        let alert = UIAlertController(title: "Push notification settings", message: "Please select the notification allowance level", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "All" + (currentUser.user?.settings?.notification == .all ? "(Selected)" : ""),
+                                      style: .default,
+                                      handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.updateNotificationSettings(settings: .all)
+        }))
+        alert.addAction(UIAlertAction(title: "Important actions only" + (currentUser.user?.settings?.notification == .actions ? "(Selected)" : ""),
+                                      style: .default,
+                                      handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.updateNotificationSettings(settings: .actions)
+        }))
+        alert.addAction(UIAlertAction(title: "Off" + (currentUser.user?.settings?.notification == .off ? "(Selected)" : ""),
+                                      style: .default,
+                                      handler: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.updateNotificationSettings(settings: .off)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func updateNotificationSettings(settings: NotificationSettings) {
+        FullScreenSpinner().show()
+        userManager.changeUserSettings(notification: settings) { _ in
+            FullScreenSpinner().hide()
+        }
+    }
 }
 
 extension MerchantSettingsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -147,7 +181,7 @@ extension MerchantSettingsViewController: UITableViewDataSource, UITableViewDele
         
         switch row {
         case .notification:
-            print("notification")
+            showNotificationSettings()
         case .about:
             openURLInBrowser(url: URL(string: "http://poncouvalley.com/")!)
         case .help:

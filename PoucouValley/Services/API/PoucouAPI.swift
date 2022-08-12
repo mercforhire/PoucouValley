@@ -1426,4 +1426,26 @@ class PoucouAPI {
             }
         }
     }
+    
+    func setUserSettings(notification: NotificationSettings, callBack: @escaping(Result<BooleanResponse, Error>) -> Void) {
+        guard let apiKey = apiKey else { return }
+        
+        let params: Document = ["notification": AnyBSON(notification.rawValue)]
+        user.functions.api_setUserSettings([AnyBSON(apiKey), AnyBSON(params)]) { response, error in
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    print("Function call failed: \(error!.localizedDescription)")
+                    callBack(.failure(error!))
+                    return
+                }
+                guard case let .document(document) = response else {
+                    print("Unexpected non-string result: \(response ?? "nil")")
+                    callBack(.failure(RealmError.decodingError))
+                    return
+                }
+                print("Called function 'api_setUserSettings' and got result: \(document)")
+                callBack(.success(BooleanResponse(document: document)))
+            }
+        }
+    }
 }

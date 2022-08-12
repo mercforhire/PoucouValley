@@ -13,6 +13,7 @@ class User: BaseObject {
     var email: String = ""
     var userType: UserType = .cardholder
     var apiKey: String = ""
+    var settings: UserSettings?
     
     convenience init(document: Document) {
         self.init()
@@ -20,5 +21,8 @@ class User: BaseObject {
         self.email = document["email"]!!.stringValue!
         self.userType = UserType(rawValue: document["userType"]!!.stringValue!) ?? .cardholder
         self.apiKey = document["apiKey"]!!.stringValue!
+        if let document = document["settings"]??.documentValue {
+            self.settings = UserSettings(document: document)
+        }
     }
 }
