@@ -26,4 +26,5 @@ target 'PoucouValley' do
   pod 'PhoneNumberKit'
   pod 'Charts'
   pod 'CRRefresh'
+  pod "DynamicBlurView"
 end

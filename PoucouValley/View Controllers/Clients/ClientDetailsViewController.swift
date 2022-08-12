@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import PhoneNumberKit
 
 class ClientDetailsViewController: BaseViewController {
     private enum ClientDetailsRows: Int {
@@ -122,12 +121,18 @@ class ClientDetailsViewController: BaseViewController {
     var client: Client!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var iconContainers: [UIView]!
     
     private let stretchyHeader = ClientDetailsHeader.fromNib()! as! ClientDetailsHeader
-    private let phoneNumberKit = PhoneNumberKit()
+    private lazy var composer: MessageComposer = MessageComposer()
     
     override func setup() {
         super.setup()
+        
+        for iconContainer in iconContainers {
+            iconContainer.roundCorners(style: .completely)
+            iconContainer.addBorder(color: .black)
+        }
         
         let headerSize = CGSize(width: tableView.frame.size.width, height: 200)
         stretchyHeader.frame = CGRect(x: 0,
@@ -185,6 +190,43 @@ class ClientDetailsViewController: BaseViewController {
         performSegue(withIdentifier: "goToEdit", sender: self)
     }
     
+    @IBAction func emailPressed(_ sender: UIButton) {
+        let vc = composer.configuredEmailComposeViewController(toRecipients: [client.email ?? ""], ccRecipients: [], bccRecipients: [], subject: "", message: "")
+
+        if composer.canSendEmail(), vc != nil {
+            present(vc, animated: true)
+        } else {
+            showErrorDialog(error: "Can't send email on this device.")
+        }
+    }
+    
+    @IBAction func messagePressed(_ sender: UIButton) {
+        guard let phoneNumber = client.contact?.getPhoneNumberString(), !phoneNumber.isEmpty else {
+            showErrorDialog(error: "Phone number not set")
+            return
+        }
+        
+        let vc = composer.configuredMessageComposeViewController(recipients: [phoneNumber], message: "")
+        if composer.canSendText(), vc != nil {
+            present(vc, animated: true)
+        } else {
+            showErrorDialog(error: "Can't send SMS on this device.")
+        }
+    }
+    
+    @IBAction func callPressed(_ sender: UIButton) {
+        guard let phoneNumber = client.contact?.getPhoneNumberString(), !phoneNumber.isEmpty else {
+            showErrorDialog(error: "Phone number not set")
+            return
+        }
+        
+        if composer.canCall(phoneNumber: phoneNumber) {
+            composer.call(phoneNumber: phoneNumber)
+        } else {
+            showErrorDialog(error: "Can't call on this device.")
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? EditClientViewController {
             vc.client = client
@@ -235,9 +277,8 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
-            if let contact = client.contact,
-                let phoneNumber = try? phoneNumberKit.parse("\(contact.phoneAreaCode ?? "")\(contact.phoneNumber ?? "")")  {
-                cell.label2.text = phoneNumber.numberString
+            if let contact = client.contact {
+                cell.label2.text = contact.getPhoneNumberString()
             } else {
                 cell.label2.text = "\(client.contact?.phoneAreaCode ?? "")\(client.contact?.phoneNumber ?? "")"
             }

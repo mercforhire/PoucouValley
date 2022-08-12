@@ -7,6 +7,7 @@
 
 import UIKit
 import Mantis
+import DynamicBlurView
 
 class MyProfileViewController: BaseViewController {
 
@@ -27,6 +28,7 @@ class MyProfileViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var blurView: DynamicBlurView!
     @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var avatarContainer: UIView!
     @IBOutlet weak var avatarImageView: URLImageView!
@@ -56,6 +58,12 @@ class MyProfileViewController: BaseViewController {
     
     override func setup() {
         super.setup()
+        
+        blurView.blurRadius = 10.0
+        blurView.isDeepRendering = true
+        blurView.trackingMode = .none
+        blurView.blendColor = themeManager.themeData!.lighterGreen.hexColor
+        blurView.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
         
         headerContainer.roundCorners(style: .small)
         avatarContainer.roundCorners(style: .completely)
