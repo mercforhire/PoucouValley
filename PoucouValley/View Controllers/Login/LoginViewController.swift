@@ -132,6 +132,43 @@ class LoginViewController: BaseViewController {
             vc.mode = mode
         }
     }
+    
+    private var tappedNumber: Int = 0 {
+        didSet {
+            if tappedNumber >= 10 {
+                let ac = UIAlertController(title: nil, message: "Choose environment", preferredStyle: .actionSheet)
+                let action1 = UIAlertAction(title: "Production\(AppSettingsManager.shared.getEnvironment() == .production ? "(Selected)" : "")", style: .default) { [weak self] action in
+                    self?.userManager.setEnvironment(environments: .production, completion: { [weak self] success in
+                        success ? self?.clearFields() : nil
+                    })
+                }
+                ac.addAction(action1)
+                
+                let action2 = UIAlertAction(title: "Development\(AppSettingsManager.shared.getEnvironment() == .development ? "(Selected)" : "")", style: .default) { [weak self] action in
+                    self?.userManager.setEnvironment(environments: .development, completion: { [weak self] success in
+                        success ? self?.clearFields() : nil
+                    })
+                }
+                ac.addAction(action2)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
+                    self?.tappedNumber = 0
+                }
+                ac.addAction(cancelAction)
+                present(ac, animated: true)
+            }
+        }
+    }
+    
+    @IBAction func cheatButtonPress(_ sender: UIButton) {
+        print("CheatButton Pressed")
+        tappedNumber = tappedNumber + 1
+    }
+    
+    private func clearFields() {
+        UserManager.shared.clearSavedInformation()
+        tappedNumber = 0
+    }
 }
 
 extension LoginViewController {

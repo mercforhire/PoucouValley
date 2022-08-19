@@ -11,19 +11,10 @@ enum Environments: String {
     case production
     case development
     
-    func hostUrl() -> String {
-        switch self {
-        case .production:
-            return "https://api.unsplash.com/"
-        case .development:
-            return "https://api.unsplash.com/"
-        }
-    }
-    
     func appID() -> String {
         switch self {
         case .production:
-            return "clientvalley-dev-ouotd"
+            return "poucou-prod-ulpos"
         case .development:
             return "clientvalley-dev-ouotd"
         }
@@ -44,7 +35,7 @@ enum Environments: String {
         case .production:
             return "poucouvalleydev"
         case .development:
-            return "poucouvalleydev"
+            return "poucouvalleyprod"
         }
         
     }

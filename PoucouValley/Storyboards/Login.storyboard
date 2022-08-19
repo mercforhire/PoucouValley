@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ny-Vb-WhP">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -35,37 +34,37 @@
             <objects>
                 <viewController storyboardIdentifier="GetStartedViewController" id="GIB-0w-Vt0" customClass="GetStartedViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lp6-zk-lrP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tix-zm-XOd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="I3n-K9-xpS">
-                                        <rect key="frame" x="0.0" y="25" width="414" height="491"/>
+                                        <rect key="frame" x="0.0" y="25" width="320" height="341"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wsV-Ok-xUv">
-                                            <size key="itemSize" width="414" height="409"/>
+                                            <size key="itemSize" width="414" height="400"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GetStartedCell" id="6r7-M3-OGg" customClass="GetStartedCell" customModule="PoucouValley" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="491"/>
+                                                <rect key="frame" x="0.0" y="-29.5" width="375" height="400"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="f6i-5R-PjB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="491"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="grE-SI-vIy">
-                                                            <rect key="frame" x="25" y="0.0" width="364" height="449.5"/>
+                                                            <rect key="frame" x="25" y="0.0" width="325" height="400"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPI-i7-TC0">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="364" height="206"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="325" height="206"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareplay" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fk0-VR-R8D">
-                                                                            <rect key="frame" x="79" y="1" width="206" height="203.5"/>
+                                                                            <rect key="frame" x="59.5" y="1" width="206" height="203.5"/>
                                                                             <color key="tintColor" systemColor="labelColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="Fk0-VR-R8D" secondAttribute="height" multiplier="1:1" id="JtS-Ee-mVn"/>
@@ -81,38 +80,38 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEET SOMEONE UNFORGETTABLE!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0C-7f-2vu" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="216" width="364" height="27"/>
+                                                                    <rect key="frame" x="0.0" y="216" width="325" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="19"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Browse your favourite stores and enjoy exclusive deals just for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHr-kI-NxH" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="253" width="364" height="45"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" text="Browse your favourite stores and enjoy exclusive deals just for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHr-kI-NxH" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="226" width="325" height="45"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-Gs-t45">
-                                                                    <rect key="frame" x="0.0" y="308" width="364" height="20"/>
+                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQT-Gs-t45">
+                                                                    <rect key="frame" x="0.0" y="281" width="325" height="20"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="JgI-kJ-zst"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="poncou business" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-Xd-aKg" customClass="ThemeGreenTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="338" width="364" height="15.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="poncou business" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-Xd-aKg" customClass="ThemeGreenTextLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="311" width="325" height="0.0"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="11"/>
                                                                     <color key="textColor" systemColor="systemGreenColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Browse your favourite stores and enjoy exclusive deals just for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sE-0r-cRc" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="363.5" width="364" height="53.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" text="Browse your favourite stores and enjoy exclusive deals just for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sE-0r-cRc" customClass="ThemeDarkLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="321" width="325" height="53.5"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="19"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Invite people to your shop and collect clients." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt0-IB-W29" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="427" width="364" height="22.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" text="Invite people to your shop and collect clients." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt0-IB-W29" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="384.5" width="325" height="15.5"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -120,14 +119,14 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="grE-SI-vIy" secondAttribute="bottom" id="R41-A5-txC"/>
-                                                        <constraint firstItem="grE-SI-vIy" firstAttribute="leading" secondItem="f6i-5R-PjB" secondAttribute="leading" constant="25" id="o1H-cJ-rhv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="grE-SI-vIy" secondAttribute="trailing" constant="25" id="pM7-bz-XDX"/>
-                                                        <constraint firstItem="grE-SI-vIy" firstAttribute="top" secondItem="f6i-5R-PjB" secondAttribute="top" id="yU3-TN-6qa"/>
-                                                    </constraints>
-                                                </collectionViewCellContentView>
-                                                <size key="customSize" width="414" height="491"/>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="grE-SI-vIy" secondAttribute="bottom" id="R41-A5-txC"/>
+                                                    <constraint firstItem="grE-SI-vIy" firstAttribute="leading" secondItem="6r7-M3-OGg" secondAttribute="leading" constant="25" id="o1H-cJ-rhv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="grE-SI-vIy" secondAttribute="trailing" constant="25" id="pM7-bz-XDX"/>
+                                                    <constraint firstItem="grE-SI-vIy" firstAttribute="top" secondItem="6r7-M3-OGg" secondAttribute="top" id="yU3-TN-6qa"/>
+                                                </constraints>
+                                                <size key="customSize" width="375" height="400"/>
                                                 <connections>
                                                     <outlet property="iconImageView" destination="Fk0-VR-R8D" id="4gX-fA-tqY"/>
                                                     <outlet property="label1" destination="b0C-7f-2vu" id="nuN-sJ-BnM"/>
@@ -144,12 +143,12 @@
                                         </connections>
                                     </collectionView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cYi-i1-PWc" customClass="ThemeUIPageControl" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="149.5" y="516" width="115.5" height="26"/>
+                                        <rect key="frame" x="102.5" y="366" width="115.5" height="26"/>
                                         <color key="pageIndicatorTintColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="currentPageIndicatorTintColor" systemColor="systemGreenColor"/>
                                     </pageControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIF-sB-hse" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="567" width="334" height="44"/>
+                                        <rect key="frame" x="31" y="417" width="258" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="ImU-35-hTY"/>
@@ -208,27 +207,27 @@
             <objects>
                 <viewController storyboardIdentifier="LoginHomeViewController" id="hB5-df-Qek" customClass="LoginHomeViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="36k-jW-OcG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-zS-0Bd">
-                                <rect key="frame" x="25" y="89" width="364" height="417"/>
+                                <rect key="frame" x="25" y="45" width="270" height="417"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rer-rW-zzw" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoJ-Br-Wgv">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="60" width="270" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="VDV-Na-Ac4"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wK-9d-A62" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="125" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Lr6-Vr-UcK"/>
@@ -244,7 +243,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efg-lD-kFv" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="184" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="184" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="wmn-Yr-tlr"/>
@@ -260,17 +259,17 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPX-tG-jPz">
-                                        <rect key="frame" x="0.0" y="243" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="243" width="270" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="q1X-ge-oxX"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHg-en-OeS">
-                                        <rect key="frame" x="0.0" y="308" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="308" width="270" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJp-0M-az4" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                <rect key="frame" x="105" y="2" width="154" height="15"/>
+                                                <rect key="frame" x="58" y="2" width="154" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="6Nc-Yp-flh"/>
                                                 </constraints>
@@ -279,14 +278,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlg-Jv-0Be">
-                                                <rect key="frame" x="0.0" y="9.5" width="100" height="1"/>
+                                                <rect key="frame" x="0.0" y="9.5" width="53" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="xeU-BY-cRl"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcE-0d-zYU">
-                                                <rect key="frame" x="264" y="9.5" width="100" height="1"/>
+                                                <rect key="frame" x="217" y="9.5" width="53" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="ewU-Zv-7uD"/>
@@ -307,7 +306,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pa-Jq-xFT" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="343" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="343" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="jW7-ca-COf"/>
@@ -323,7 +322,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="By signing up you agree with our terms of use" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jk-1M-gMz" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="402" width="364" height="15"/>
+                                        <rect key="frame" x="0.0" y="402" width="270" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="eNd-hQ-flx"/>
                                         </constraints>
@@ -359,7 +358,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ny-Vb-WhP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yw1-w1-wjX">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -376,32 +375,32 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="joe-qV-MrP" customClass="LoginViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HVo-5J-5Y8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="45Z-4e-Ta2">
-                                <rect key="frame" x="25" y="107.5" width="364" height="509"/>
+                                <rect key="frame" x="25" y="63.5" width="270" height="474"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2Q-hr-uVr" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In Business" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiF-1J-zoI" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="60" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Your Email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIL-48-0lX" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="364" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="120" width="270" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uMG-Sq-ysj" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="157.5" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="157.5" width="270" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="RWy-5E-cot"/>
@@ -414,7 +413,7 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofU-gd-3Ck">
-                                        <rect key="frame" x="0.0" y="216.5" width="364" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="216.5" width="270" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="UeS-Cj-IuT"/>
@@ -424,14 +423,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pft-G9-REX">
-                                        <rect key="frame" x="0.0" y="246" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="246" width="270" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="bai-za-jjh"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbM-Te-afq" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="281" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="281" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="q6E-oL-0yy"/>
@@ -446,18 +445,11 @@
                                             <action selector="loginPressed:" destination="joe-qV-MrP" eventType="touchUpInside" id="8jN-1f-RkM"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNu-fV-j3R">
-                                        <rect key="frame" x="0.0" y="340" width="364" height="20"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="gmP-g4-szp"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plv-97-5JR">
-                                        <rect key="frame" x="0.0" y="375" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="340" width="270" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Or sign in with Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WST-Mc-mcc" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                <rect key="frame" x="118.5" y="2" width="127.5" height="15"/>
+                                                <rect key="frame" x="71.5" y="2" width="127.5" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="hU8-E1-Iml"/>
                                                 </constraints>
@@ -466,14 +458,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZh-Og-b06">
-                                                <rect key="frame" x="0.0" y="9.5" width="113.5" height="1"/>
+                                                <rect key="frame" x="0.0" y="9.5" width="66.5" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="wVm-Sr-rwE"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RST-u5-dnj">
-                                                <rect key="frame" x="251" y="9.5" width="113" height="1"/>
+                                                <rect key="frame" x="204" y="9.5" width="66" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="PBx-Rh-ddm"/>
@@ -494,7 +486,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frN-AN-YHB" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="410" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="375" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="oAF-69-JFl"/>
@@ -510,17 +502,17 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tl8-dg-N9J">
-                                        <rect key="frame" x="0.0" y="469" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="434" width="270" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="1fy-rw-xVy"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-9D-5F4">
-                                        <rect key="frame" x="0.0" y="494" width="364" height="15"/>
+                                        <rect key="frame" x="0.0" y="459" width="270" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xss-tF-DsN">
-                                                <rect key="frame" x="75.5" y="0.0" width="213" height="15"/>
+                                                <rect key="frame" x="28.5" y="0.0" width="213" height="15"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Don’t have an account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOa-XI-ps7" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="143" height="15"/>
@@ -565,7 +557,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMt-GM-gMv" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="Yao-Bd-Evf"/>
                                 </constraints>
@@ -578,13 +570,25 @@
                                     <action selector="backPressed:" destination="joe-qV-MrP" eventType="touchUpInside" id="3G1-8h-Ctn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="245" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCc-6c-YNm">
+                                <rect key="frame" x="0.0" y="537.5" width="320" height="30.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="cheatButtonPress:" destination="joe-qV-MrP" eventType="touchUpInside" id="FNe-Pd-irc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z4j-9U-cgz"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tCc-6c-YNm" firstAttribute="top" secondItem="45Z-4e-Ta2" secondAttribute="bottom" id="BwA-Mx-cNv"/>
                             <constraint firstItem="45Z-4e-Ta2" firstAttribute="top" secondItem="dMt-GM-gMv" secondAttribute="bottom" constant="20" id="CXr-da-b04"/>
                             <constraint firstItem="Z4j-9U-cgz" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="45Z-4e-Ta2" secondAttribute="bottom" constant="25" id="Fza-cL-rSC"/>
+                            <constraint firstItem="Z4j-9U-cgz" firstAttribute="trailing" secondItem="tCc-6c-YNm" secondAttribute="trailing" id="Gam-1q-0lK"/>
                             <constraint firstItem="dMt-GM-gMv" firstAttribute="top" secondItem="Z4j-9U-cgz" secondAttribute="top" constant="20" id="ITX-zr-7XW"/>
+                            <constraint firstItem="Z4j-9U-cgz" firstAttribute="bottom" secondItem="tCc-6c-YNm" secondAttribute="bottom" id="L5i-Ei-t5X"/>
+                            <constraint firstItem="tCc-6c-YNm" firstAttribute="leading" secondItem="Z4j-9U-cgz" secondAttribute="leading" id="OYg-Bb-lOz"/>
                             <constraint firstItem="dMt-GM-gMv" firstAttribute="leading" secondItem="Z4j-9U-cgz" secondAttribute="leading" constant="20" id="QZb-G2-puh"/>
                             <constraint firstItem="45Z-4e-Ta2" firstAttribute="leading" secondItem="Z4j-9U-cgz" secondAttribute="leading" constant="25" id="ZBv-fF-RgR"/>
                             <constraint firstItem="Z4j-9U-cgz" firstAttribute="trailing" secondItem="45Z-4e-Ta2" secondAttribute="trailing" constant="25" id="fzm-mE-cjf"/>
@@ -612,101 +616,85 @@
             <objects>
                 <viewController storyboardIdentifier="LoginEnterCodeViewController" id="Dg8-Mt-1TJ" customClass="LoginEnterCodeViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fQ0-Ff-4pN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-0w-sbO">
-                                <rect key="frame" x="25" y="107.5" width="364" height="296"/>
+                                <rect key="frame" x="25" y="63.5" width="270" height="296"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwZ-8E-OzO" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter 4 digits sent to your email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2m-ht-fHd" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="60" width="270" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfo-FE-RSu">
-                                        <rect key="frame" x="0.0" y="97.5" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="97.5" width="270" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="d12-Ae-PIH"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-Nt-r9Q">
-                                        <rect key="frame" x="0.0" y="122.5" width="364" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ICg-tu-znu">
+                                        <rect key="frame" x="0.0" y="122.5" width="270" height="50"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ICg-tu-znu">
-                                                <rect key="frame" x="19.5" y="0.0" width="325" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-Zr-u66" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="NWr-Zr-u66" secondAttribute="height" multiplier="5:4" id="lgr-co-YWG"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-VE-zba" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="87.5" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0IY-FV-E1G" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="175" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-oX-uEJ" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="262.5" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="oMY-fV-7R4"/>
-                                                </constraints>
-                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-Zr-u66" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="52.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-VE-zba" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="72.5" y="0.0" width="52.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0IY-FV-E1G" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="145" y="0.0" width="52.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x9c-oX-uEJ" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="217.5" y="0.0" width="52.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="ICg-tu-znu" firstAttribute="centerX" secondItem="QCa-Nt-r9Q" secondAttribute="centerX" id="Bw6-PQ-Eg2"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ICg-tu-znu" secondAttribute="trailing" id="bDV-cu-qk2"/>
-                                            <constraint firstAttribute="bottom" secondItem="ICg-tu-znu" secondAttribute="bottom" id="eMK-26-NXw"/>
-                                            <constraint firstItem="ICg-tu-znu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QCa-Nt-r9Q" secondAttribute="leading" id="o3M-Ln-6OV"/>
-                                            <constraint firstItem="ICg-tu-znu" firstAttribute="top" secondItem="QCa-Nt-r9Q" secondAttribute="top" id="pGx-0u-L49"/>
+                                            <constraint firstAttribute="height" constant="50" id="oMY-fV-7R4"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PN5-n9-LWd">
-                                        <rect key="frame" x="0.0" y="187.5" width="364" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="270" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="4Dl-Oo-XyA"/>
@@ -716,14 +704,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbm-5X-Hux">
-                                        <rect key="frame" x="0.0" y="217" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="217" width="270" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gMg-Dn-ssN"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZY-oO-XoM" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="252" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="252" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="PkP-kE-F41"/>
@@ -741,7 +729,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g93-D7-8T2" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="Iwt-Pb-sZ3"/>
                                 </constraints>
@@ -786,99 +774,83 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpEnterPinViewController" id="SrZ-gN-wQ3" customClass="SignUpEnterPinViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vyW-3b-tFJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="26L-OQ-hNG">
-                                <rect key="frame" x="25" y="107.5" width="364" height="296"/>
+                                <rect key="frame" x="25" y="63.5" width="270" height="318.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzW-Eb-bJ3" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter 3 digits secure pin on your card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdf-9y-bV3" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="60" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkx-Aj-yyK">
-                                        <rect key="frame" x="0.0" y="97.5" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="120" width="270" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="kfh-e1-t1a"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psg-bg-Pl1">
-                                        <rect key="frame" x="0.0" y="122.5" width="364" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-Wg-yJQ">
+                                        <rect key="frame" x="0.0" y="145" width="270" height="50"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-Wg-yJQ">
-                                                <rect key="frame" x="63.5" y="0.0" width="237.5" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Fx-ih0" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Txe-Fx-ih0" secondAttribute="height" multiplier="5:4" id="nmf-WI-Zwm"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="SrZ-gN-wQ3" id="91j-OI-XOa"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0X-Fw-KgT" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="87.5" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="SrZ-gN-wQ3" id="ZgE-vN-I8U"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-mc-gld" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="175" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <outlet property="delegate" destination="SrZ-gN-wQ3" id="ktb-UY-0up"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="C2n-DO-9V7"/>
-                                                </constraints>
-                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-Fx-ih0" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="76.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="SrZ-gN-wQ3" id="91j-OI-XOa"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0X-Fw-KgT" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="96.5" y="0.0" width="77" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="SrZ-gN-wQ3" id="ZgE-vN-I8U"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-mc-gld" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="193.5" y="0.0" width="76.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="SrZ-gN-wQ3" id="ktb-UY-0up"/>
+                                                </connections>
+                                            </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="1JQ-Wg-yJQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="psg-bg-Pl1" secondAttribute="leading" id="73o-q1-2qX"/>
-                                            <constraint firstItem="1JQ-Wg-yJQ" firstAttribute="top" secondItem="psg-bg-Pl1" secondAttribute="top" id="TIf-xq-Ere"/>
-                                            <constraint firstItem="1JQ-Wg-yJQ" firstAttribute="centerX" secondItem="psg-bg-Pl1" secondAttribute="centerX" id="UFF-5m-Tkm"/>
-                                            <constraint firstAttribute="bottom" secondItem="1JQ-Wg-yJQ" secondAttribute="bottom" id="XCN-g2-xya"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1JQ-Wg-yJQ" secondAttribute="trailing" id="d9E-xs-xTD"/>
+                                            <constraint firstAttribute="height" constant="50" id="C2n-DO-9V7"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="710-GM-bhP">
-                                        <rect key="frame" x="0.0" y="187.5" width="364" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="210" width="270" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="cjO-OA-bXk"/>
@@ -888,14 +860,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyz-Kd-ZT2">
-                                        <rect key="frame" x="0.0" y="217" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="239.5" width="270" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="cQW-p3-5UA"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUU-8e-XvJ" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="252" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="274.5" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="b1C-uO-PE9"/>
@@ -913,7 +885,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTj-3D-WCT" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="kGE-GM-hUN"/>
                                 </constraints>
@@ -958,27 +930,27 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpHomeViewController" id="V93-R5-Eqw" customClass="SignUpHomeViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zjB-Bk-wmY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1ns-g1-423">
-                                <rect key="frame" x="25" y="107.5" width="364" height="410.5"/>
+                                <rect key="frame" x="25" y="63.5" width="270" height="428.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItD-D5-zMu" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikp-eI-Qvg">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="50"/>
+                                        <rect key="frame" x="0.0" y="60" width="270" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="pb0-4y-a7c"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8m-G9-hjd" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="125" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Bdx-XT-Lqs"/>
@@ -994,7 +966,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDj-ic-TFc" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="184" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="184" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="0Tn-GG-BUd"/>
@@ -1010,23 +982,23 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="By signing up you agree with our terms of use" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cD-Xr-51M">
-                                        <rect key="frame" x="0.0" y="243" width="364" height="18.5"/>
+                                        <rect key="frame" x="0.0" y="243" width="270" height="36.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wh0-Xp-n0A">
-                                        <rect key="frame" x="0.0" y="276.5" width="364" height="40"/>
+                                        <rect key="frame" x="0.0" y="294.5" width="270" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Rjp-2b-DAW"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXQ-Dt-5M5">
-                                        <rect key="frame" x="0.0" y="331.5" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="349.5" width="270" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Or sign up with scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSE-f7-R1x">
-                                                <rect key="frame" x="116" y="2" width="132" height="15"/>
+                                                <rect key="frame" x="69" y="2" width="132" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="uyy-ym-avc"/>
                                                 </constraints>
@@ -1035,14 +1007,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQt-6P-BFJ">
-                                                <rect key="frame" x="0.0" y="9.5" width="111" height="1"/>
+                                                <rect key="frame" x="0.0" y="9.5" width="64" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="dAW-mg-AgQ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvF-tD-BBj">
-                                                <rect key="frame" x="253" y="9.5" width="111" height="1"/>
+                                                <rect key="frame" x="206" y="9.5" width="64" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Q5r-tG-Pmq"/>
@@ -1063,7 +1035,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-Yd-wJz" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="366.5" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="384.5" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="xW6-tn-GXi"/>
@@ -1081,7 +1053,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCH-0k-sM1" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="T6X-Id-4bs"/>
                                 </constraints>
@@ -1122,33 +1094,33 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" id="Nrw-BL-U4d" customClass="SignUpViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFQ-Ig-AdO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FZg-Ej-Lqu">
-                                <rect key="frame" x="25" y="107.5" width="364" height="342.5"/>
+                                <rect key="frame" x="25" y="63.5" width="270" height="387.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIt-SN-Ws3" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up for business" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAY-jg-zjP" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="60" width="270" height="90"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hin-TE-bmt">
-                                        <rect key="frame" x="0.0" y="120" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="165" width="270" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="8e4-8D-wUG"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXg-4I-PUN" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="145" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="190" width="270" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="T6A-e0-C56"/>
@@ -1158,7 +1130,7 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-RX-EeK">
-                                        <rect key="frame" x="0.0" y="204" width="364" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="249" width="270" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="xhQ-d9-xJ5"/>
@@ -1168,14 +1140,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tf4-K4-5d3">
-                                        <rect key="frame" x="0.0" y="233.5" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="278.5" width="270" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="KnS-sy-NMl"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzP-b4-JVV" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268.5" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="313.5" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="1iO-X6-xyw"/>
@@ -1191,10 +1163,10 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Dj-Q5-0H0">
-                                        <rect key="frame" x="0.0" y="327.5" width="364" height="15"/>
+                                        <rect key="frame" x="0.0" y="372.5" width="270" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avJ-Ki-6GX">
-                                                <rect key="frame" x="68" y="0.0" width="228" height="15"/>
+                                                <rect key="frame" x="21" y="0.0" width="228" height="15"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzU-J8-sJP" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="158" height="15"/>
@@ -1239,7 +1211,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXi-VJ-sxc" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="jSF-Kg-XDe"/>
                                 </constraints>
@@ -1284,15 +1256,15 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpScanViewController" id="4hz-bG-LMA" customClass="SignUpScanViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yHI-6M-Wyr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kba-Mx-89O">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El7-t1-Vwk" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="1GV-A1-JFy"/>
                                 </constraints>
@@ -1334,101 +1306,85 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpEnterCodeViewController" id="FlC-BX-x5C" customClass="SignUpEnterCodeViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vWF-b4-dqQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="D64-J9-SZH">
-                                <rect key="frame" x="25" y="107.5" width="364" height="296"/>
+                                <rect key="frame" x="15" y="63.5" width="290" height="296"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d6-iL-bfo" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter 4 digits sent to your email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTR-AF-MaD" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="60" width="290" height="22.5"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZd-TW-CiR">
-                                        <rect key="frame" x="0.0" y="97.5" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="97.5" width="290" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="s9m-Sw-Hp5"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IP-hi-rsE">
-                                        <rect key="frame" x="0.0" y="122.5" width="364" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AVl-YF-yRh">
+                                        <rect key="frame" x="0.0" y="122.5" width="290" height="50"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="AVl-YF-yRh">
-                                                <rect key="frame" x="19.5" y="0.0" width="325" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xic-kS-YCz" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="xic-kS-YCz" secondAttribute="height" multiplier="5:4" id="4dh-D5-gjq"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-cQ-AAH" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="87.5" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2sy-Jv-vl0" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="175" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bqb-KW-CEo" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="262.5" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Aap-FN-eT2"/>
-                                                </constraints>
-                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xic-kS-YCz" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="57.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UuK-cQ-AAH" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="77.5" y="0.0" width="57.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2sy-Jv-vl0" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="155" y="0.0" width="57.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bqb-KW-CEo" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="232.5" y="0.0" width="57.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AVl-YF-yRh" secondAttribute="trailing" id="HMu-RX-fFP"/>
-                                            <constraint firstItem="AVl-YF-yRh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3IP-hi-rsE" secondAttribute="leading" id="O6p-Ns-r3b"/>
-                                            <constraint firstItem="AVl-YF-yRh" firstAttribute="centerX" secondItem="3IP-hi-rsE" secondAttribute="centerX" id="WiV-MY-gIQ"/>
-                                            <constraint firstItem="AVl-YF-yRh" firstAttribute="top" secondItem="3IP-hi-rsE" secondAttribute="top" id="jCx-LM-gUa"/>
-                                            <constraint firstAttribute="bottom" secondItem="AVl-YF-yRh" secondAttribute="bottom" id="txZ-nv-zlv"/>
+                                            <constraint firstAttribute="height" constant="50" id="Aap-FN-eT2"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYE-VT-JKZ">
-                                        <rect key="frame" x="0.0" y="187.5" width="364" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="290" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="1Ub-BP-NCR"/>
@@ -1438,14 +1394,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqr-yW-20H">
-                                        <rect key="frame" x="0.0" y="217" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="217" width="290" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="mxn-z8-dfr"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibg-lu-i19" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="252" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="252" width="290" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="p49-EI-rvJ"/>
@@ -1463,7 +1419,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u67-v8-9xJ" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="waS-F9-x7n"/>
                                 </constraints>
@@ -1482,9 +1438,9 @@
                         <constraints>
                             <constraint firstItem="u67-v8-9xJ" firstAttribute="leading" secondItem="Hr2-bZ-N99" secondAttribute="leading" constant="20" id="BPv-OP-ndI"/>
                             <constraint firstItem="Hr2-bZ-N99" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="D64-J9-SZH" secondAttribute="bottom" constant="25" id="KGc-SY-elP"/>
-                            <constraint firstItem="Hr2-bZ-N99" firstAttribute="trailing" secondItem="D64-J9-SZH" secondAttribute="trailing" constant="25" id="Oz5-LT-wjD"/>
+                            <constraint firstItem="Hr2-bZ-N99" firstAttribute="trailing" secondItem="D64-J9-SZH" secondAttribute="trailing" constant="15" id="Oz5-LT-wjD"/>
                             <constraint firstItem="D64-J9-SZH" firstAttribute="top" secondItem="u67-v8-9xJ" secondAttribute="bottom" constant="20" id="SNu-iA-gyc"/>
-                            <constraint firstItem="D64-J9-SZH" firstAttribute="leading" secondItem="Hr2-bZ-N99" secondAttribute="leading" constant="25" id="gCz-hQ-pmo"/>
+                            <constraint firstItem="D64-J9-SZH" firstAttribute="leading" secondItem="Hr2-bZ-N99" secondAttribute="leading" constant="15" id="gCz-hQ-pmo"/>
                             <constraint firstItem="u67-v8-9xJ" firstAttribute="top" secondItem="Hr2-bZ-N99" secondAttribute="top" constant="20" id="hvb-Se-Jit"/>
                         </constraints>
                     </view>
@@ -1508,26 +1464,26 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpEnterEmailViewController" id="5ya-tE-3Zx" customClass="SignUpEnterEmailViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtN-0t-8Fr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-Hb-th1">
-                                <rect key="frame" x="25" y="107.5" width="364" height="265"/>
+                                <rect key="frame" x="25" y="63.5" width="270" height="332.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your email?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7T-bg-noi" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="90"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter your email as login username" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yda-61-kgc" customClass="ThemeGreyLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="105" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9X-8A-AE1" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="97.5" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="165" width="270" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="xIc-dW-QaA"/>
@@ -1540,7 +1496,7 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSh-jK-f1N">
-                                        <rect key="frame" x="0.0" y="156.5" width="364" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="224" width="270" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="9pn-0j-bgU"/>
@@ -1550,14 +1506,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en4-Ce-43q">
-                                        <rect key="frame" x="0.0" y="186" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="253.5" width="270" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Cva-hf-AWL"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyH-xa-7Dm" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="221" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="288.5" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="WiT-X5-ZdL"/>
@@ -1575,7 +1531,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCH-BA-eo6" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="24E-oc-z1a"/>
                                 </constraints>
@@ -1617,15 +1573,15 @@
             <objects>
                 <viewController storyboardIdentifier="LoginScanViewController" id="B5e-Qi-0kh" customClass="LoginScanViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qWI-tB-zDK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqA-Of-EZn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9z-Uf-NHm" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="8W4-df-Qls"/>
                                 </constraints>
@@ -1666,90 +1622,74 @@
             <objects>
                 <viewController storyboardIdentifier="LoginEnterPinViewController" id="0t3-gG-O1a" customClass="LoginEnterPinViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VsV-vc-qo0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Roj-Gh-udV">
-                                <rect key="frame" x="25" y="107.5" width="364" height="296"/>
+                                <rect key="frame" x="25" y="63.5" width="270" height="318.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hD-af-5xW" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Enter 3 digits secure pin on your card" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPU-bd-yb7" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="364" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="60" width="270" height="45"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEg-ZA-DNY">
-                                        <rect key="frame" x="0.0" y="97.5" width="364" height="10"/>
+                                        <rect key="frame" x="0.0" y="120" width="270" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="9gd-Yt-vFq"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-dd-V7q">
-                                        <rect key="frame" x="0.0" y="122.5" width="364" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="4Ih-G5-dL6">
+                                        <rect key="frame" x="0.0" y="145" width="270" height="50"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="4Ih-G5-dL6">
-                                                <rect key="frame" x="63.5" y="0.0" width="237.5" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-cN-7NU" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="2Pr-cN-7NU" secondAttribute="height" multiplier="5:4" id="CaC-aE-QTe"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-DH-xgW" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="87.5" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-Gd-tFq" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
-                                                        <rect key="frame" x="175" y="0.0" width="62.5" height="50"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                                <integer key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="jx1-0R-m5l"/>
-                                                </constraints>
-                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Pr-cN-7NU" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="73.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXb-DH-xgW" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="98.5" y="0.0" width="73" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tq2-Gd-tFq" customClass="ThemeTextField" customModule="PoucouValley" customModuleProvider="target">
+                                                <rect key="frame" x="196.5" y="0.0" width="73.5" height="50"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Black" family="SF UI Display" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="4Ih-G5-dL6" firstAttribute="centerX" secondItem="dhn-dd-V7q" secondAttribute="centerX" id="2zf-eK-QKf"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Ih-G5-dL6" secondAttribute="trailing" id="4hI-r8-4mT"/>
-                                            <constraint firstItem="4Ih-G5-dL6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dhn-dd-V7q" secondAttribute="leading" id="Hux-Ix-spP"/>
-                                            <constraint firstAttribute="bottom" secondItem="4Ih-G5-dL6" secondAttribute="bottom" id="K7n-aE-FQ9"/>
-                                            <constraint firstItem="4Ih-G5-dL6" firstAttribute="top" secondItem="dhn-dd-V7q" secondAttribute="top" id="NzX-k7-7f7"/>
+                                            <constraint firstAttribute="height" constant="50" id="jx1-0R-m5l"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="error message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFZ-gA-IjO">
-                                        <rect key="frame" x="0.0" y="187.5" width="364" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="210" width="270" height="14.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14.5" id="nJ9-eY-bRL"/>
@@ -1759,14 +1699,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjr-HA-osr">
-                                        <rect key="frame" x="0.0" y="217" width="364" height="20"/>
+                                        <rect key="frame" x="0.0" y="239.5" width="270" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="j4e-sl-OsT"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETQ-d5-sah" customClass="ThemeRoundedGreenBlackTextButton" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="252" width="364" height="44"/>
+                                        <rect key="frame" x="0.0" y="274.5" width="270" height="44"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="geM-nC-xBh"/>
@@ -1784,7 +1724,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQI-zw-mrt" userLabel="Back Button" customClass="ThemeTintBlackButton" customModule="PoucouValley" customModuleProvider="target">
-                                <rect key="frame" x="20" y="64" width="32" height="23.5"/>
+                                <rect key="frame" x="20" y="20" width="32" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="yY7-IJ-hDx"/>
                                 </constraints>
@@ -1828,18 +1768,18 @@
             <objects>
                 <viewController storyboardIdentifier="InitRealmViewController" id="pq4-e5-bWd" customClass="InitRealmViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1ja-DH-ccw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poucoulogo" translatesAutoresizingMaskIntoConstraints="NO" id="mhx-E3-2rb">
-                                <rect key="frame" x="0.0" y="138" width="414" height="248.5"/>
+                                <rect key="frame" x="0.0" y="94" width="320" height="192"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mhx-E3-2rb" secondAttribute="height" multiplier="5:3" id="x0q-nm-8mX"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="5mA-PN-f5h">
-                                <rect key="frame" x="0.0" y="565" width="414" height="331"/>
+                                <rect key="frame" x="0.0" y="312" width="320" height="256"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5mA-PN-f5h" secondAttribute="height" multiplier="10:8" id="h7F-mJ-kFu"/>

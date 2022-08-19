@@ -26,10 +26,6 @@ class PoucouAPI {
         return AppSettingsManager.shared.getEnvironment()
     }
     
-    var baseURL: String {
-        return environment.hostUrl()
-    }
-    
     var s3RootURL: String {
         return environment.s3RootURL()
     }
@@ -48,7 +44,7 @@ class PoucouAPI {
     
     let service: NetworkService
     var realm: Realm!
-    let app = App(id: AppSettingsManager.shared.getEnvironment().appID())
+    var app = App(id: AppSettingsManager.shared.getEnvironment().appID())
     var user: RLMUser {
         return app.currentUser!
     }
@@ -70,6 +66,27 @@ class PoucouAPI {
             callBack(true)
             return
         }
+        
+        // Log in anonymously.
+        app.login(credentials: Credentials.anonymous) { (result) in
+            // Remember to dispatch back to the main thread in completion handlers
+            // if you want to do anything on the UI.
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print("Login failed: \(error)")
+                    callBack(false)
+                case .success(let user):
+                    print("Login as \(user) succeeded!")
+                    // Continue below
+                    callBack(true)
+                }
+            }
+        }
+    }
+    
+    func restartRealm(callBack: @escaping(Bool) -> Void) {
+        app = App(id: AppSettingsManager.shared.getEnvironment().appID())
         
         // Log in anonymously.
         app.login(credentials: Credentials.anonymous) { (result) in

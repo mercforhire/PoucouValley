@@ -285,6 +285,19 @@ class UserManager {
         }
     }
     
+    func setEnvironment(environments: Environments, completion: @escaping (Bool) -> Void) {
+        AppSettingsManager.shared.setEnvironment(environments: environments)
+        api.restartRealm(callBack: { success in
+            if success {
+                StoryboardManager.load(storyboard: "Login", animated: true, completion: nil)
+                completion(true)
+            } else {
+                showErrorDialog(error: "Bug: Error restarting Realm!")
+                completion(false)
+            }
+        })
+    }
+    
     func clearSavedInformation() {
         api.logout { [weak self] _ in
             AppSettingsManager.shared.resetSettings()
