@@ -213,6 +213,26 @@ class ClientsViewController: BaseViewController {
     }
 }
 
+extension ClientsViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        tableView.scrollToTop(animated: false)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        delayTimer.textDidGetEntered(text: searchBar.text ?? "")
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        delayTimer.textDidGetEntered(text: "")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        delayTimer.textDidGetEntered(text: searchBar.text ?? "")
+    }
+}
+
 extension ClientsViewController: DelayedSearchTimerDelegate {
     func shouldSearch(text: String) {
         guard let clients = clients else {

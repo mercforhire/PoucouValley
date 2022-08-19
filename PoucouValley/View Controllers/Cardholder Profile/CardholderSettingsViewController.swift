@@ -71,7 +71,7 @@ class CardholderSettingsViewController: BaseViewController {
     
     @objc func logOutPressed(_ sender: UIButton) {
         let ac = UIAlertController(title: "Are you sure?", message: "Log out?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Okay", style: .destructive) { [weak self] _ in
+        let yesAction = UIAlertAction(title: "Log out", style: .destructive) { [weak self] _ in
             self?.userManager.logout()
         }
         ac.addAction(yesAction)

@@ -41,10 +41,7 @@ class HashTagsTableViewCell: UITableViewCell {
         self.tags = tags
         self.showPlusButton = showPlusButton
         collectionView.reloadData()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            finishAction?()
-        })
+        finishAction?()
     }
     
     override func layoutSubviews() {

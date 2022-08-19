@@ -37,7 +37,7 @@ class CardViewController: BaseViewController {
         super.setup()
     
         navigationController?.viewControllers = [self]
-        
+        merchantLogo.roundCorners(style: .small)
         link.isHidden = true
         merchantLogoContainer.isHidden = true
         cardNumber.text = currentUser.cardholder?.card ?? "--"

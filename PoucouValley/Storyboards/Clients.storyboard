@@ -44,6 +44,9 @@
                                             <constraint firstAttribute="height" constant="45" id="JcI-vy-M5n"/>
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="6Zg-ed-2yo"/>
+                                        </connections>
                                     </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWu-Zt-rUR">
                                         <rect key="frame" x="0.0" y="45" width="375" height="80"/>
@@ -930,59 +933,47 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelsDividerCell" id="TWt-85-aus" customClass="LabelsDividerCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="196.5" width="375" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="196.5" width="375" height="56.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TWt-85-aus" id="CWl-Rf-4pp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DP4-sX-7wl" customClass="ThemeTextFieldLabel" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="5" width="30.5" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="vv8-Eg-ojG"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awt-1H-Cfq">
-                                                    <rect key="frame" x="24" y="25" width="328" height="34.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="diz-yX-enW">
+                                                    <rect key="frame" x="24" y="5" width="328" height="46.5"/>
                                                     <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DP4-sX-7wl" customClass="ThemeTextFieldLabel" customModule="PoucouValley" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="328" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="vv8-Eg-ojG"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwB-5s-STA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="328" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="20" width="328" height="25.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrN-Q0-UTa" customClass="ThemeBorderView" customModule="PoucouValley" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="45.5" width="328" height="1"/>
+                                                            <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="4FJ-IT-dai"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="PwB-5s-STA" firstAttribute="leading" secondItem="Awt-1H-Cfq" secondAttribute="leading" id="OWI-nz-Eb3"/>
-                                                        <constraint firstItem="PwB-5s-STA" firstAttribute="top" secondItem="Awt-1H-Cfq" secondAttribute="top" id="RnF-7x-6Iv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="PwB-5s-STA" secondAttribute="trailing" id="bH5-se-VdQ"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrN-Q0-UTa" customClass="ThemeBorderView" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="50.5" width="327" height="1"/>
-                                                    <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="4FJ-IT-dai"/>
-                                                    </constraints>
-                                                </view>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Awt-1H-Cfq" firstAttribute="leading" secondItem="CWl-Rf-4pp" secondAttribute="leading" constant="24" id="5iy-Dp-ZUF"/>
-                                                <constraint firstItem="DP4-sX-7wl" firstAttribute="top" secondItem="CWl-Rf-4pp" secondAttribute="top" constant="5" id="ETt-pP-Xkp"/>
-                                                <constraint firstAttribute="bottom" secondItem="Awt-1H-Cfq" secondAttribute="bottom" id="JhT-Kd-GE0"/>
-                                                <constraint firstItem="TrN-Q0-UTa" firstAttribute="top" secondItem="PwB-5s-STA" secondAttribute="bottom" id="Lzf-e9-fj2"/>
-                                                <constraint firstItem="DP4-sX-7wl" firstAttribute="leading" secondItem="CWl-Rf-4pp" secondAttribute="leading" constant="24" id="NIx-kq-Ida"/>
-                                                <constraint firstItem="TrN-Q0-UTa" firstAttribute="leading" secondItem="CWl-Rf-4pp" secondAttribute="leading" constant="24" id="Yrv-JO-Hmk"/>
-                                                <constraint firstAttribute="trailing" secondItem="Awt-1H-Cfq" secondAttribute="trailing" constant="23" id="bn9-Tf-UZR"/>
-                                                <constraint firstItem="Awt-1H-Cfq" firstAttribute="top" secondItem="DP4-sX-7wl" secondAttribute="bottom" id="jFw-FY-bms"/>
-                                                <constraint firstAttribute="trailing" secondItem="TrN-Q0-UTa" secondAttribute="trailing" constant="24" id="kPe-9W-4O0"/>
-                                                <constraint firstAttribute="bottom" secondItem="TrN-Q0-UTa" secondAttribute="bottom" constant="8" id="xxw-p7-4nY"/>
+                                                <constraint firstItem="diz-yX-enW" firstAttribute="top" secondItem="CWl-Rf-4pp" secondAttribute="top" constant="5" id="3Oh-07-gkt"/>
+                                                <constraint firstAttribute="trailing" secondItem="diz-yX-enW" secondAttribute="trailing" constant="23" id="RDG-ty-PKa"/>
+                                                <constraint firstItem="diz-yX-enW" firstAttribute="leading" secondItem="CWl-Rf-4pp" secondAttribute="leading" constant="24" id="Xj4-vN-Uhw"/>
+                                                <constraint firstAttribute="bottom" secondItem="diz-yX-enW" secondAttribute="bottom" constant="5" id="oDw-s2-SWj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -993,10 +984,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IconLinkCell" id="kjH-C4-JgO" customClass="IconLinkCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="256" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="253" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kjH-C4-JgO" id="p6E-VN-uxA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KwZ-uT-Jv2">
@@ -1031,7 +1022,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X92-T3-IcY" customClass="ThemeBorderView" customModule="PoucouValley" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="34" width="327" height="1"/>
+                                                    <rect key="frame" x="24" y="29" width="327" height="1"/>
                                                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="DjK-jo-gdE"/>
@@ -1041,7 +1032,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="X92-T3-IcY" secondAttribute="bottom" id="49e-w7-fWN"/>
-                                                <constraint firstAttribute="bottom" secondItem="KwZ-uT-Jv2" secondAttribute="bottom" constant="10" id="Dn1-Z4-uoR"/>
+                                                <constraint firstAttribute="bottom" secondItem="KwZ-uT-Jv2" secondAttribute="bottom" constant="5" id="Dn1-Z4-uoR"/>
                                                 <constraint firstItem="KwZ-uT-Jv2" firstAttribute="top" secondItem="p6E-VN-uxA" secondAttribute="top" id="Ex3-Fq-vec"/>
                                                 <constraint firstItem="KwZ-uT-Jv2" firstAttribute="leading" secondItem="p6E-VN-uxA" secondAttribute="leading" constant="24" id="cxu-UD-oRg"/>
                                                 <constraint firstAttribute="trailing" secondItem="X92-T3-IcY" secondAttribute="trailing" constant="24" id="lhV-gB-OtX"/>
@@ -1056,7 +1047,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HashTagsTableViewCell" id="Vr6-6R-CLk" customClass="HashTagsTableViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="291" width="375" height="110"/>
+                                        <rect key="frame" x="0.0" y="283" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vr6-6R-CLk" id="cYp-ZC-BZw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
@@ -1690,7 +1681,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MIBubbleCollectionViewCell" id="TZl-u5-KWg" customClass="MIBubbleCollectionViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
+                                                                <rect key="frame" x="0.0" y="20" width="85" height="34"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OPv-cU-dMo">
                                                                     <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
@@ -1717,14 +1708,14 @@
                                                                 </connections>
                                                             </collectionViewCell>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddCell" id="0qY-Ec-sYI" customClass="SimpleImageCell" customModule="PoucouValley" customModuleProvider="target">
-                                                                <rect key="frame" x="95" y="4.5" width="25" height="25"/>
+                                                                <rect key="frame" x="95" y="0.0" width="171" height="74"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PD9-0B-GJl">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="171" height="74"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nMN-nl-CHh">
-                                                                            <rect key="frame" x="0.0" y="1" width="25" height="22.5"/>
+                                                                            <rect key="frame" x="0.0" y="1" width="171" height="71.5"/>
                                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="25" id="B7M-1b-2xJ"/>
@@ -2519,7 +2510,7 @@
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MIBubbleCollectionViewCell" id="3T2-Cy-dnD" customClass="MIBubbleCollectionViewCell" customModule="PoucouValley" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
+                                                                <rect key="frame" x="0.0" y="20" width="85" height="34"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vBB-Hu-FgE">
                                                                     <rect key="frame" x="0.0" y="0.0" width="85" height="34"/>
@@ -2546,14 +2537,14 @@
                                                                 </connections>
                                                             </collectionViewCell>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddCell" id="4zT-dM-Jgd" customClass="SimpleImageCell" customModule="PoucouValley" customModuleProvider="target">
-                                                                <rect key="frame" x="95" y="4.5" width="25" height="25"/>
+                                                                <rect key="frame" x="95" y="0.0" width="171" height="74"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ye8-F5-dXI">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="171" height="74"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zwj-In-wJ0">
-                                                                            <rect key="frame" x="0.0" y="1" width="25" height="22.5"/>
+                                                                            <rect key="frame" x="0.0" y="1" width="171" height="71.5"/>
                                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="zwj-In-wJ0" secondAttribute="height" multiplier="1:1" id="Kxu-BQ-74M"/>
@@ -3673,8 +3664,8 @@
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="creditcard" width="107.5" height="104"/>
+        <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="die.face.6.fill" catalog="system" width="128" height="114"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="person.2" catalog="system" width="128" height="81"/>

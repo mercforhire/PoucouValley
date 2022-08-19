@@ -58,6 +58,16 @@ class ShopDetailsViewController: BaseViewController {
         super.viewDidLoad()
         
         headerView?.config(data: merchant, following: followed, showPostSection: !(plans?.isEmpty ?? true))
+        
+        api.recordVisit(merchant: merchant) { result in
+            switch result {
+            case .success:
+                print("Visit record success.")
+            case .failure:
+                print("Failed to record visit.")
+            }
+        }
+        
         fetchContent()
     }
     

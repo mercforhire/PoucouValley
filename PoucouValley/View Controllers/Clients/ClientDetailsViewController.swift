@@ -99,19 +99,19 @@ class ClientDetailsViewController: BaseViewController {
             
             if !(client.contact?.website?.isEmpty ?? false) {
                 rows.insert(.websiteLink,
-                            at: ClientDetailsRows.tagsSection.rawValue - 1)
+                            at: rows.firstIndex(of: .tagsSection)!)
             }
             if !(client.contact?.twitter?.isEmpty ?? false) {
                 rows.insert(.twitterLink,
-                            at: ClientDetailsRows.tagsSection.rawValue - 1)
+                            at: rows.firstIndex(of: .tagsSection)!)
             }
             if !(client.contact?.facebook?.isEmpty ?? false) {
                 rows.insert(.facebookLink,
-                            at: ClientDetailsRows.tagsSection.rawValue - 1)
+                            at: rows.firstIndex(of: .tagsSection)!)
             }
             if !(client.contact?.instagram?.isEmpty ?? false) {
                 rows.insert(.instagramLink,
-                            at: ClientDetailsRows.tagsSection.rawValue - 1)
+                            at: rows.firstIndex(of: .tagsSection)!)
             }
             
             return rows
@@ -268,6 +268,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.email ?? "--"
             cell.divider.isHidden = true
             return cell
@@ -277,6 +278,8 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
+            
             if let contact = client.contact {
                 cell.label2.text = contact.getPhoneNumberString()
             } else {
@@ -291,6 +294,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.gender ?? "--"
             cell.divider.isHidden = true
             return cell
@@ -300,6 +304,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.birthday?.dateString ?? "--"
             cell.divider.isHidden = true
             return cell
@@ -309,6 +314,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.address?.addressString ?? "--"
             cell.divider.isHidden = true
             return cell
@@ -318,6 +324,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.company ?? "--"
             cell.divider.isHidden = true
             return cell
@@ -327,6 +334,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.jobTitle ?? "--"
             cell.divider.isHidden = true
             return cell
@@ -375,9 +383,48 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelsDividerCell()
             }
             cell.label.text = row.title()
+            cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.notes
             cell.divider.isHidden = true
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = ClientDetailsRows.rows(client: client)[indexPath.row]
+        switch row {
+
+        case .websiteLink:
+            guard let urlString = client.contact?.website, let url = URL(string: urlString) else {
+                showErrorDialog(error: "Website URL not set")
+                return
+            }
+            
+            openURLInBrowser(url: url)
+        case .twitterLink:
+            guard let urlString = client.contact?.twitter, let url = URL(string: urlString) else {
+                showErrorDialog(error: "Twitter URL not set")
+                return
+            }
+            
+            openURLInBrowser(url: url)
+        case .facebookLink:
+            guard let urlString = client.contact?.facebook, let url = URL(string: urlString) else {
+                showErrorDialog(error: "Facebook URL not set")
+                return
+            }
+            
+            openURLInBrowser(url: url)
+            
+        case .instagramLink:
+            guard let urlString = client.contact?.instagram, let url = URL(string: urlString) else {
+                showErrorDialog(error: "Instagram URL not set")
+                return
+            }
+            
+            openURLInBrowser(url: url)
+        default:
+            break
         }
     }
 }
