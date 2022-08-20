@@ -228,7 +228,7 @@
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="yf0-sx-B4K" secondAttribute="bottom" id="2pg-Bm-F1v"/>
                                                 <constraint firstItem="yf0-sx-B4K" firstAttribute="top" secondItem="oO3-fF-IFY" secondAttribute="top" id="Ks1-NW-mOF"/>
@@ -257,7 +257,7 @@
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Pmo-UK-6jv" secondAttribute="trailing" id="4YS-Qo-WNq"/>
                                                 <constraint firstAttribute="bottom" secondItem="aMa-aW-y7E" secondAttribute="bottom" id="5Ec-PE-3cy"/>
@@ -286,7 +286,7 @@
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="pdA-nz-fd9" secondAttribute="trailing" id="6vY-ud-RpO"/>
                                                 <constraint firstAttribute="trailing" secondItem="yIK-CF-55J" secondAttribute="trailing" id="815-9Q-InO"/>
@@ -315,7 +315,7 @@
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="UOr-y1-Lms" secondAttribute="trailing" id="8kL-jJ-Oog"/>
                                                 <constraint firstAttribute="bottom" secondItem="0gP-rF-XcP" secondAttribute="bottom" id="GhF-Wb-8yY"/>
@@ -344,7 +344,7 @@
                                                     <buttonConfiguration key="configuration" style="plain"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="CkS-h8-dWK" secondAttribute="bottom" id="2MP-Bz-dqD"/>
                                                 <constraint firstAttribute="bottom" secondItem="tgA-4x-e4s" secondAttribute="bottom" id="68J-pE-dxa"/>

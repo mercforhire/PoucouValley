@@ -75,6 +75,11 @@ class PlanDetailsViewController: BaseViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.reloadData()
+    }
+    
     private func fetchContent(complete: ((Bool) -> Void)? = nil) {
         api.fetchMerchantPlans(merchant: merchant) { [weak self] result in
             guard let self = self else { return }

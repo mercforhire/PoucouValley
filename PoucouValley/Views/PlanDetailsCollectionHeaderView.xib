@@ -279,7 +279,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKc-Qd-HAo">
                                     <rect key="frame" x="0.0" y="883.5" width="414" height="25.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related posts" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gh-x1-ENQ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related posts" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gh-x1-ENQ" customClass="ThemeBlackTextLabel" customModule="PoucouValley" customModuleProvider="target">
                                             <rect key="frame" x="15" y="0.0" width="384" height="25.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="18"/>
@@ -299,7 +299,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="LeL-ix-dwO" secondAttribute="bottom" id="5go-iz-HhB"/>
                         <constraint firstItem="LeL-ix-dwO" firstAttribute="leading" secondItem="df6-OX-BjT" secondAttribute="leading" id="Tu1-eN-LKf"/>
@@ -309,6 +309,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="df6-OX-BjT" firstAttribute="bottom" secondItem="VXr-Tz-HHm" secondAttribute="bottom" id="Flm-jj-uVi"/>
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="top" secondItem="df6-OX-BjT" secondAttribute="top" id="GAD-69-9PG"/>

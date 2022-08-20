@@ -28,6 +28,12 @@ class GiftsListViewController: BaseViewController {
     private var cellSizes: [CGSize] = []
     let layout = CollectionViewWaterfallLayout()
     
+    override func setupTheme() {
+        super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+    }
+    
     override func setup() {
         super.setup()
         

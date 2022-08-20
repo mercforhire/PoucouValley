@@ -124,6 +124,7 @@ class ClientDetailsViewController: BaseViewController {
     @IBOutlet var iconContainers: [UIView]!
     
     private let stretchyHeader = ClientDetailsHeader.fromNib()! as! ClientDetailsHeader
+    @IBOutlet weak var headerView: UIView!
     private lazy var composer: MessageComposer = MessageComposer()
     
     override func setup() {
@@ -140,6 +141,7 @@ class ClientDetailsViewController: BaseViewController {
                                       width: headerSize.width,
                                       height: headerSize.height)
         tableView.addSubview(stretchyHeader)
+        tableView.sendSubviewToBack(headerView)
         stretchyHeader.backButton.addTarget(self, action: #selector(backPressed(_:)), for: .touchUpInside)
         stretchyHeader.editButton.addTarget(self, action: #selector(editPressed(_:)), for: .touchUpInside)
     }
@@ -255,6 +257,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return LabelTableCell()
             }
             cell.headerLabel.text = row.title()
+            cell.selectionStyle = .none
             return cell
         
         case .divider1, .divider2, .divider3:
@@ -271,6 +274,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.email ?? "--"
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
             
         case .phone:
@@ -287,6 +291,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             }
             
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
             
         case .gender:
@@ -297,6 +302,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.gender ?? "--"
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
             
         case .birthday:
@@ -307,6 +313,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.birthday?.dateString ?? "--"
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
             
         case .address:
@@ -317,6 +324,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.address?.addressString ?? "--"
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
             
         case .company:
@@ -327,6 +335,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.company ?? "--"
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
             
         case .jobTitle:
@@ -337,6 +346,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.jobTitle ?? "--"
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
             
         case .websiteLink:
@@ -376,6 +386,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 
                 self?.refreshTableCellHeights(tableView: tableView)
             })
+            cell.selectionStyle = .none
             return cell
             
         case .notes:
@@ -386,6 +397,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.label.isHidden = cell.label.text?.isEmpty ?? true
             cell.label2.text = client.notes
             cell.divider.isHidden = true
+            cell.selectionStyle = .none
             return cell
         }
     }

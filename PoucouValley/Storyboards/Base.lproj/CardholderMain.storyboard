@@ -32,6 +32,7 @@
         <!--Explore-->
         <scene sceneID="tUQ-gD-AHb">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUE-7m-c5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2O9-dL-68U" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="house" catalog="system" id="x3S-jo-Z8v"/>
                     <toolbarItems/>
@@ -44,19 +45,18 @@
                         <segue destination="H3G-TJ-0r0" kind="relationship" relationship="rootViewController" id="x8k-WL-8dk"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MUE-7m-c5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="58" y="415"/>
         </scene>
-        <!--HomeRootViewController-->
+        <!--Home-->
         <scene sceneID="x9d-I1-2V0">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeRootViewController" id="H3G-TJ-0r0" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" id="H3G-TJ-0r0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TLa-tL-5hb"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qw7-hP-fpz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="820"/>
+            <point key="canvasLocation" x="56" y="819"/>
         </scene>
         <!--My card-->
         <scene sceneID="94v-Af-PSu">
@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="1457" y="415"/>
         </scene>
-        <!--MyProfileViewController-->
+        <!--Profile-->
         <scene sceneID="qiN-Fz-hlC">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="MyProfileViewController" id="k2K-QD-ZKl" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Profile" id="k2K-QD-ZKl" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Wpt-tu-uts"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jth-Bc-fPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -68,6 +68,12 @@ class CardActivateViewController: BaseViewController {
         disectScannedCardNumber()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     private func disectScannedCardNumber() {
         guard let scannedCardNumber = scannedCardNumber else { return }
         

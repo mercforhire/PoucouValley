@@ -145,7 +145,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZzI-JZ-jtK"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tWR-Jg-arF" firstAttribute="top" secondItem="ZzI-JZ-jtK" secondAttribute="top" id="Q5t-eH-uuT"/>
                             <constraint firstItem="ZzI-JZ-jtK" firstAttribute="bottom" secondItem="tWR-Jg-arF" secondAttribute="bottom" id="RGX-Sp-xuW"/>
@@ -191,7 +191,7 @@
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1w4-HH-TPF">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="1w4-HH-TPF" secondAttribute="height" multiplier="1:1" id="dnR-7P-D4N"/>
                                                         </constraints>
@@ -221,6 +221,7 @@
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <size key="customSize" width="414" height="414"/>
                                                                 <connections>
                                                                     <outlet property="imageView" destination="RfR-1S-OcI" id="fQf-jf-89H"/>
                                                                 </connections>
@@ -421,12 +422,6 @@
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="poucoulogo" width="142" height="103.5"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

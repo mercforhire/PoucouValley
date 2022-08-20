@@ -41,6 +41,8 @@ class GroupClientsViewController: BaseViewController {
     
     override func setupTheme() {
         super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
     }
     
     override func setup() {

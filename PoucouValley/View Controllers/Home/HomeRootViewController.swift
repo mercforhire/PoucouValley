@@ -16,34 +16,16 @@ class HomeRootViewController: BaseButtonBarPagerTabStripViewController {
         case Search
     }
     
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
-    
-    private let stackViewDefaultHeight: CGFloat = 44.0
-    private var stackViewVisible = true {
-        didSet {
-            if stackViewVisible {
-                self.stackViewHeight.constant = self.stackViewDefaultHeight
-                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-                    self.view.layoutIfNeeded()
-                }, completion: { finished in
-                    
-                })
-            } else {
-                self.stackViewHeight.constant = 0.0
-                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-                    self.view.layoutIfNeeded()
-                }, completion: { finished in
-                    
-                })
-            }
-        }
+    override func setup() {
+        super.setup()
+        
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func setupTheme() {
         super.setupTheme()
         
-        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
     }
     
     override func viewDidLoad() {
@@ -55,24 +37,12 @@ class HomeRootViewController: BaseButtonBarPagerTabStripViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.isNavigationBarHidden = true
+        buttonBarView.reloadData()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-    }
-    
-    @objc func showTopBar(_ notification: Notification) {
-        stackViewVisible = true
-    }
-    
-    @objc func hideTopBar(_ notification: Notification) {
-        stackViewVisible = false
     }
     
     // MARK: - PagerTabStripDataSource
@@ -83,6 +53,5 @@ class HomeRootViewController: BaseButtonBarPagerTabStripViewController {
         let child3: UIViewController! = StoryboardManager.loadViewController(storyboard: "Home", viewControllerId: "HomeFollowingViewController")
         return [child1, child2, child3]
     }
-
 }
 

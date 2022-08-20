@@ -215,7 +215,7 @@ class ClientsViewController: BaseViewController {
 
 extension ClientsViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        tableView.scrollToTop(animated: false)
+//        tableView.scrollToTop(animated: false)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

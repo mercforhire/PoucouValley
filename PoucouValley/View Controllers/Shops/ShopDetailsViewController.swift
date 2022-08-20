@@ -77,6 +77,11 @@ class ShopDetailsViewController: BaseViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.reloadData()
+    }
+    
     private func fetchContent() {
         api.fetchMerchantPlans(merchant: merchant) { [weak self] result in
             guard let self = self else { return }

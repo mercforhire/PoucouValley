@@ -80,7 +80,6 @@
 		728ED7072841833300415C01 /* ProfileCompleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728ED7062841833300415C01 /* ProfileCompleteCell.swift */; };
 		7297E5302747173600F6F33B /* SearchBarCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7297E52E2747173600F6F33B /* SearchBarCollectionHeaderView.swift */; };
 		7297E5312747173600F6F33B /* SearchBarCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7297E52F2747173600F6F33B /* SearchBarCollectionHeaderView.xib */; };
-		7297E53327471DE000F6F33B /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */; };
 		729837E2284480E500C6462B /* MyCoinsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729837E1284480E500C6462B /* MyCoinsHistoryViewController.swift */; };
 		72997ABE289B17AA00F745A8 /* MerchantDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72997ABC289B17AA00F745A8 /* MerchantDetailsHeaderView.swift */; };
 		72997ABF289B17AA00F745A8 /* MerchantDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */; };
@@ -130,7 +129,6 @@
 		72AC013A2737917D00B452BE /* light-theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72AC01222737917D00B452BE /* light-theme.plist */; };
 		72AC01562738689C00B452BE /* PoucouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01522738689C00B452BE /* PoucouAPI.swift */; };
 		72AC01572738689C00B452BE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01542738689C00B452BE /* NetworkService.swift */; };
-		72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC015927387BB200B452BE /* UnsplashPhoto.swift */; };
 		72AC019A27388EBE00B452BE /* HomeFollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC019927388EBE00B452BE /* HomeFollowingViewController.swift */; };
 		72AC019C27388ED600B452BE /* HomeExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC019B27388ED600B452BE /* HomeExploreViewController.swift */; };
 		72AC019E27389DD500B452BE /* HomeShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC019D27389DD500B452BE /* HomeShopViewController.swift */; };
@@ -148,7 +146,6 @@
 		72AC01BB2738A80B00B452BE /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01AE2738A80B00B452BE /* CommonUtils.swift */; };
 		72AC01BC2738A80B00B452BE /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01AF2738A80B00B452BE /* TimeAgo.swift */; };
 		72AC01BE2738B76600B452BE /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01BD2738B76600B452BE /* UIAlertController+Extension.swift */; };
-		72AC01C02739F46400B452BE /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01BF2739F46400B452BE /* StoryCollectionViewCell.swift */; };
 		72B2FB86273C554200382C12 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72B2FB85273C554200382C12 /* Profile.storyboard */; };
 		72B2FB89273C657D00382C12 /* MyProfileDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B2FB87273C657D00382C12 /* MyProfileDetailsHeader.xib */; };
 		72B2FB8A273C657D00382C12 /* MyProfileDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FB88273C657D00382C12 /* MyProfileDetailsHeader.swift */; };
@@ -349,7 +346,6 @@
 		728ED7062841833300415C01 /* ProfileCompleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCompleteCell.swift; sourceTree = "<group>"; };
 		7297E52E2747173600F6F33B /* SearchBarCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCollectionHeaderView.swift; sourceTree = "<group>"; };
 		7297E52F2747173600F6F33B /* SearchBarCollectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBarCollectionHeaderView.xib; sourceTree = "<group>"; };
-		7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		729837E1284480E500C6462B /* MyCoinsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoinsHistoryViewController.swift; sourceTree = "<group>"; };
 		72997ABC289B17AA00F745A8 /* MerchantDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantDetailsHeaderView.swift; sourceTree = "<group>"; };
 		72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MerchantDetailsHeaderView.xib; sourceTree = "<group>"; };
@@ -401,7 +397,6 @@
 		72AC01222737917D00B452BE /* light-theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "light-theme.plist"; sourceTree = "<group>"; };
 		72AC01522738689C00B452BE /* PoucouAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoucouAPI.swift; sourceTree = "<group>"; };
 		72AC01542738689C00B452BE /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		72AC015927387BB200B452BE /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		72AC019927388EBE00B452BE /* HomeFollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFollowingViewController.swift; sourceTree = "<group>"; };
 		72AC019B27388ED600B452BE /* HomeExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExploreViewController.swift; sourceTree = "<group>"; };
 		72AC019D27389DD500B452BE /* HomeShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeShopViewController.swift; sourceTree = "<group>"; };
@@ -419,7 +414,6 @@
 		72AC01AE2738A80B00B452BE /* CommonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		72AC01AF2738A80B00B452BE /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		72AC01BD2738B76600B452BE /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
-		72AC01BF2739F46400B452BE /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		72B2FB85273C554200382C12 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		72B2FB87273C657D00382C12 /* MyProfileDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileDetailsHeader.xib; sourceTree = "<group>"; };
 		72B2FB88273C657D00382C12 /* MyProfileDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsHeader.swift; sourceTree = "<group>"; };
@@ -601,8 +595,6 @@
 				72AC00C52737294000B452BE /* FollowCollectionViewCell.swift */,
 				72CF4FA4289CD95E005CCCC5 /* URLImageCollectionViewCell.swift */,
 				72CF4FA5289CD95E005CCCC5 /* URLImageCollectionViewCell.xib */,
-				72AC01BF2739F46400B452BE /* StoryCollectionViewCell.swift */,
-				7297E53227471DE000F6F33B /* StoryCollectionViewCell.xib */,
 				72E2634A2896BB2800BF2AA2 /* ImageAndLabelNormalCell.swift */,
 				72358B8528773D3F00D504A2 /* SimpleImageCell.swift */,
 				72997AC0289B45E700F745A8 /* EmptyPostsCell.swift */,
@@ -961,7 +953,6 @@
 				72707C102832149C004F3C3C /* PVPhoto.swift */,
 				72707C0728320CC4004F3C3C /* Responses */,
 				7261B83E2845092600E9ABC5 /* Transaction.swift */,
-				72AC015927387BB200B452BE /* UnsplashPhoto.swift */,
 				72707C0C28320D26004F3C3C /* User.swift */,
 				72707C182832BDC7004F3C3C /* UserDetails.swift */,
 				72CD799128A5DC0D000E512C /* UserSettings.swift */,
@@ -1307,7 +1298,6 @@
 				7297E5312747173600F6F33B /* SearchBarCollectionHeaderView.xib in Resources */,
 				72707C1F2832F2FD004F3C3C /* SetupProfile.storyboard in Resources */,
 				72AC00BA2736F27900B452BE /* LaunchScreen.storyboard in Resources */,
-				7297E53327471DE000F6F33B /* StoryCollectionViewCell.xib in Resources */,
 				72AC00B72736F27900B452BE /* Assets.xcassets in Resources */,
 				72B2FBA1273C6CA000382C12 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				72AC00B52736F27700B452BE /* CardholderMain.storyboard in Resources */,
@@ -1505,7 +1495,6 @@
 				72F748EC28433EEF0057A2B4 /* Goal.swift in Sources */,
 				72EE253F2836B2F90061FB4A /* LoginViewController.swift in Sources */,
 				72AC01BE2738B76600B452BE /* UIAlertController+Extension.swift in Sources */,
-				72AC01C02739F46400B452BE /* StoryCollectionViewCell.swift in Sources */,
 				728ED7052841831600415C01 /* SetPhoneCell.swift in Sources */,
 				72AC01B12738A80B00B452BE /* DateUtil.swift in Sources */,
 				72C7D3F6283AB8930066F3CB /* SetupBusinessFieldCell.swift in Sources */,
@@ -1514,7 +1503,6 @@
 				72E847E4287DAED1004C0672 /* EditClientViewController.swift in Sources */,
 				72C7D430283EB2640066F3CB /* FetchMyCardResponse.swift in Sources */,
 				720FD782289A1EF1001FF536 /* EditMerchantProfileViewController.swift in Sources */,
-				72AC017A27387BB200B452BE /* UnsplashPhoto.swift in Sources */,
 				72707C022830ACD7004F3C3C /* GetStartedViewController.swift in Sources */,
 				72997AD3289C5F2E00F745A8 /* MonthAxisValueFormatter.swift in Sources */,
 				725C20BD284062B900BACBFE /* CardRootViewController.swift in Sources */,

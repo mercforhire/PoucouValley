@@ -32,6 +32,12 @@ class MerchantProfileViewController: BaseViewController {
     private let layout = CollectionViewWaterfallLayout()
     private lazy var composer: MessageComposer = MessageComposer()
     
+    override func setupTheme() {
+        super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+    }
+    
     override func setup() {
         super.setup()
         

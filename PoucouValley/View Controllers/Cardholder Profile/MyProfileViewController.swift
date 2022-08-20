@@ -73,6 +73,7 @@ class MyProfileViewController: BaseViewController {
     override func setupTheme() {
         super.setupTheme()
         
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
         avatarImageView.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
         view.backgroundColor = themeManager.themeData?.lighterGreen.hexColor
     }

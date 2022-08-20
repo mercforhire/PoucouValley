@@ -34,7 +34,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TN6-k7-Zx7">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5K6-Wg-qoJ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -71,6 +71,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="6Bj-9d-Ybk" secondAttribute="bottom" id="8qp-ks-hoo"/>
                                                 <constraint firstItem="6Bj-9d-Ybk" firstAttribute="leading" secondItem="mjo-hy-kvp" secondAttribute="leading" id="WWT-Rd-eq9"/>
@@ -122,6 +123,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +161,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="v2g-bk-KbU"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v2g-bk-KbU" firstAttribute="bottom" secondItem="TN6-k7-Zx7" secondAttribute="bottom" id="6ds-3y-dTC"/>
                             <constraint firstItem="TN6-k7-Zx7" firstAttribute="top" secondItem="v2g-bk-KbU" secondAttribute="top" id="Qfl-G4-RSW"/>
@@ -1487,7 +1489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2K-cS-mN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722" y="2529"/>
+            <point key="canvasLocation" x="722" y="2573"/>
         </scene>
         <!--My account-->
         <scene sceneID="eDM-tY-T8O">
@@ -1516,7 +1518,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="headerLabel" destination="lOQ-SK-zrW" id="I7Y-t5-EkD"/>
                                         </connections>
@@ -1598,6 +1602,7 @@
                                                 <constraint firstItem="rEQ-dJ-bBZ" firstAttribute="top" secondItem="mxV-qS-hvP" secondAttribute="top" constant="25" id="mQY-55-fer"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="button" destination="rEQ-dJ-bBZ" id="edq-jU-TMO"/>
                                         </connections>
@@ -1634,7 +1639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqB-vT-1Ky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1607" y="2574"/>
+            <point key="canvasLocation" x="1486" y="2572"/>
         </scene>
     </scenes>
     <resources>
@@ -1656,9 +1661,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -534,7 +534,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="rOa-XI-ps7" firstAttribute="top" secondItem="xss-tF-DsN" secondAttribute="top" id="DxB-jq-tV6"/>
                                                     <constraint firstItem="oTP-Ht-PST" firstAttribute="leading" secondItem="rOa-XI-ps7" secondAttribute="trailing" id="IyB-hH-VNM"/>
@@ -546,7 +546,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="xss-tF-DsN" secondAttribute="bottom" id="Fvh-xs-R52"/>
                                             <constraint firstItem="xss-tF-DsN" firstAttribute="centerX" secondItem="8T4-9D-5F4" secondAttribute="centerX" id="S3z-gh-Pgh"/>
@@ -1200,7 +1200,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="avJ-Ki-6GX" secondAttribute="bottom" id="Rp3-Aj-wM9"/>
                                             <constraint firstAttribute="height" constant="15" id="eix-NR-wu3"/>

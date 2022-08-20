@@ -794,10 +794,10 @@
             </objects>
             <point key="canvasLocation" x="1961" y="1646"/>
         </scene>
-        <!--Card Activated Base View Controller-->
+        <!--Card Activate View Controller-->
         <scene sceneID="CND-7T-oYe">
             <objects>
-                <viewController storyboardIdentifier="CardActivatedBaseViewController" id="6Rd-l6-0M5" customClass="CardActivatedBaseViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardActivatedBaseViewController" id="6Rd-l6-0M5" customClass="CardActivateViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QpX-55-9Iu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

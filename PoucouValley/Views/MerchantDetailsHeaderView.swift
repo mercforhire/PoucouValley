@@ -62,6 +62,7 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         topRoundedView.roundSelectedCorners(corners: [.topLeft, .topRight], radius: 30)
+        collectionView.reloadData()
     }
     
     func config(data: Merchant) {
