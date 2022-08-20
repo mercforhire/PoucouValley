@@ -45,8 +45,7 @@ class EditClientViewController: BaseViewController {
     @IBOutlet weak var twitterField: ThemeTextField!
     @IBOutlet weak var instagramField: ThemeTextField!
     
-    @IBOutlet weak var tagsCollectionView: UICollectionView!
-    @IBOutlet weak var tagsCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tagsCollectionView: DynamicHeightCollectionView!
     
     @IBOutlet weak var notesTextView: UITextView!
     
@@ -475,12 +474,6 @@ class EditClientViewController: BaseViewController {
     
     override func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
         dismiss(animated: true)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 

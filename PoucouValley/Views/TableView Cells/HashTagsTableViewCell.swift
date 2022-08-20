@@ -12,8 +12,7 @@ class HashTagsTableViewCell: UITableViewCell {
     var tags: [String] = []
     var showPlusButton: Bool = false
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var collectionView: DynamicHeightCollectionView!
     
     private let kCellHeight: CGFloat = 37
     private let kItemPadding = 12
@@ -37,17 +36,10 @@ class HashTagsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func config(tags: [String], showPlusButton: Bool, finishAction: Action?) {
+    func config(tags: [String], showPlusButton: Bool) {
         self.tags = tags
         self.showPlusButton = showPlusButton
         collectionView.reloadData()
-        finishAction?()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        collectionViewHeight.constant = collectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 

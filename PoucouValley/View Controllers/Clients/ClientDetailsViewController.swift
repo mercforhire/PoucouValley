@@ -381,11 +381,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "HashTagsTableViewCell", for: indexPath) as? HashTagsTableViewCell else {
                 return HashTagsTableViewCell()
             }
-            cell.config(tags: Array(client.hashtags), showPlusButton: false, finishAction: { [weak self] in
-                guard let tableView = self?.tableView else { return }
-                
-                self?.refreshTableCellHeights(tableView: tableView)
-            })
+            cell.config(tags: Array(client.hashtags), showPlusButton: false)
             cell.selectionStyle = .none
             return cell
             

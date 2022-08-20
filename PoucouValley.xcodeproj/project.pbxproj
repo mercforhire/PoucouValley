@@ -71,6 +71,7 @@
 		72707C2F2834A11B004F3C3C /* LottieWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C2E2834A11B004F3C3C /* LottieWrapper.swift */; };
 		72707C322834A140004F3C3C /* paperplane.json in Resources */ = {isa = PBXBuildFile; fileRef = 72707C312834A140004F3C3C /* paperplane.json */; };
 		72707C342834AAF7004F3C3C /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72707C332834AAF7004F3C3C /* BaseObject.swift */; };
+		728406A928B08ED60017D319 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728406A828B08ED60017D319 /* DynamicHeightCollectionView.swift */; };
 		728ED6FB2841606800415C01 /* CompleteProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728ED6FA2841606800415C01 /* CompleteProfileCell.swift */; };
 		728ED6FD28417F0C00415C01 /* CompleteMyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728ED6FC28417F0C00415C01 /* CompleteMyProfileViewController.swift */; };
 		728ED6FF284182B800415C01 /* SetPronounsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728ED6FE284182B800415C01 /* SetPronounsCell.swift */; };
@@ -337,6 +338,7 @@
 		72707C2E2834A11B004F3C3C /* LottieWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieWrapper.swift; sourceTree = "<group>"; };
 		72707C312834A140004F3C3C /* paperplane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paperplane.json; sourceTree = "<group>"; };
 		72707C332834AAF7004F3C3C /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		728406A828B08ED60017D319 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		728ED6FA2841606800415C01 /* CompleteProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteProfileCell.swift; sourceTree = "<group>"; };
 		728ED6FC28417F0C00415C01 /* CompleteMyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteMyProfileViewController.swift; sourceTree = "<group>"; };
 		728ED6FE284182B800415C01 /* SetPronounsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPronounsCell.swift; sourceTree = "<group>"; };
@@ -748,25 +750,26 @@
 			isa = PBXGroup;
 			children = (
 				72DECD8A287335DE00C929C1 /* ClientDetailsHeader */,
-				72C7D424283DEECE0066F3CB /* PictureTextDialog */,
-				72DECD892873359C00C929C1 /* MyProfileDetailsHeader */,
-				72C7D3FB283ADBBD0066F3CB /* TableView Cells */,
 				725ACC2B28773B80007D255F /* CollectionViewCells */,
 				72707C2A2834A108004F3C3C /* FullScreenSpinner.swift */,
-				72707C2C2834A116004F3C3C /* SpinnerView.swift */,
-				72707C2E2834A11B004F3C3C /* LottieWrapper.swift */,
-				72C7D431283EB4620066F3CB /* URLImageView.swift */,
 				72B2FBB2273CAA2000382C12 /* GiftTableViewCell.swift */,
-				72E2635128995A7A00BF2AA2 /* ShopDetailsCollectionHeaderView.swift */,
-				72E2635328995A8A00BF2AA2 /* ShopDetailsCollectionHeaderView.xib */,
-				72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */,
-				72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */,
+				72707C2E2834A11B004F3C3C /* LottieWrapper.swift */,
 				72997ABC289B17AA00F745A8 /* MerchantDetailsHeaderView.swift */,
 				72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */,
+				72DECD892873359C00C929C1 /* MyProfileDetailsHeader */,
+				72C7D424283DEECE0066F3CB /* PictureTextDialog */,
+				72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */,
+				72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */,
+				72BB4502289DFD1800EE9B35 /* RedeemConfirmationDialog */,
 				7297E52E2747173600F6F33B /* SearchBarCollectionHeaderView.swift */,
 				7297E52F2747173600F6F33B /* SearchBarCollectionHeaderView.xib */,
-				72BB4502289DFD1800EE9B35 /* RedeemConfirmationDialog */,
 				72E847F12882A3AD004C0672 /* SendConfirmationDialog */,
+				72E2635128995A7A00BF2AA2 /* ShopDetailsCollectionHeaderView.swift */,
+				72E2635328995A8A00BF2AA2 /* ShopDetailsCollectionHeaderView.xib */,
+				72707C2C2834A116004F3C3C /* SpinnerView.swift */,
+				72C7D3FB283ADBBD0066F3CB /* TableView Cells */,
+				72C7D431283EB4620066F3CB /* URLImageView.swift */,
+				728406A828B08ED60017D319 /* DynamicHeightCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1432,6 +1435,7 @@
 				728ED6FD28417F0C00415C01 /* CompleteMyProfileViewController.swift in Sources */,
 				72E847F7288663AF004C0672 /* FetchClientGroupsStatisticsResponse.swift in Sources */,
 				72AC01B02738A80B00B452BE /* KeyBoardController.swift in Sources */,
+				728406A928B08ED60017D319 /* DynamicHeightCollectionView.swift in Sources */,
 				72BB44FD289DE13E00EE9B35 /* PlanDetailsViewController.swift in Sources */,
 				720FABD328A233340090C632 /* StringArrayResponse.swift in Sources */,
 				72AC011A27378FFA00B452BE /* UIScrollView+Extensions.swift in Sources */,
