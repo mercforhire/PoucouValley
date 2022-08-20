@@ -20,7 +20,7 @@
                         <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2O9-dL-68U" kind="relationship" relationship="viewControllers" id="kB6-vB-JnO"/>
+                        <segue destination="Z0c-uV-EO7" kind="relationship" relationship="viewControllers" id="Qlb-CS-xEO"/>
                         <segue destination="BMb-M6-dE9" kind="relationship" relationship="viewControllers" id="6RF-91-GyP"/>
                         <segue destination="2cj-Ps-kUC" kind="relationship" relationship="viewControllers" id="44O-8y-vnA"/>
                     </connections>
@@ -29,34 +29,46 @@
             </objects>
             <point key="canvasLocation" x="761" y="-370"/>
         </scene>
-        <!--Explore-->
-        <scene sceneID="tUQ-gD-AHb">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MUE-7m-c5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2O9-dL-68U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="house" catalog="system" id="x3S-jo-Z8v"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qtI-ur-G03">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="H3G-TJ-0r0" kind="relationship" relationship="rootViewController" id="x8k-WL-8dk"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="58" y="415"/>
-        </scene>
         <!--Home-->
         <scene sceneID="x9d-I1-2V0">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="H3G-TJ-0r0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Explore" image="house" catalog="system" id="jPu-iZ-wfL"/>
                     <navigationItem key="navigationItem" id="TLa-tL-5hb"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qw7-hP-fpz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="819"/>
+            <point key="canvasLocation" x="37" y="866"/>
+        </scene>
+        <!--Explore-->
+        <scene sceneID="dvU-H2-TQN">
+            <objects>
+                <viewController id="Z0c-uV-EO7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DaJ-Al-FZs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qn-0c-YzS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="H3G-TJ-0r0" kind="embed" id="5IN-N4-Mcs"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2qn-0c-YzS" firstAttribute="top" secondItem="DaJ-Al-FZs" secondAttribute="top" id="Goo-Vq-zIf"/>
+                            <constraint firstItem="2qn-0c-YzS" firstAttribute="leading" secondItem="DaJ-Al-FZs" secondAttribute="leading" id="SKz-FV-QqE"/>
+                            <constraint firstAttribute="trailing" secondItem="2qn-0c-YzS" secondAttribute="trailing" id="htB-F6-ZhT"/>
+                            <constraint firstAttribute="bottom" secondItem="2qn-0c-YzS" secondAttribute="bottom" id="nQu-en-V0S"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Explore" image="house" catalog="system" id="tg9-o5-ehs"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wrp-HH-c4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="38" y="414"/>
         </scene>
         <!--My card-->
         <scene sceneID="94v-Af-PSu">
@@ -104,7 +116,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jth-Bc-fPX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="820"/>
+            <point key="canvasLocation" x="1456" y="865"/>
         </scene>
         <!--Card-->
         <scene sceneID="2jm-w6-QU4">
@@ -114,13 +126,16 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciq-O0-082" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="820"/>
+            <point key="canvasLocation" x="761" y="865"/>
         </scene>
     </scenes>
     <resources>
         <image name="creditcard" catalog="system" width="128" height="88"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

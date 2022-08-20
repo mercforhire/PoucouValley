@@ -21,22 +21,36 @@ class BaseButtonBarPagerTabStripViewController: ButtonBarPagerTabStripViewContro
             navigationController?.isNavigationBarHidden = true
             navigationController?.isNavigationBarHidden = false
         }
+        
+        view.backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        containerView.backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        
+        settings.style.buttonBarBackgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        settings.style.buttonBarItemBackgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        settings.style.selectedBarBackgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        settings.style.buttonBarItemTitleColor = themeManager.themeData!.textLabel.hexColor
+        buttonBarView.backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        buttonBarView.reloadData()
+        
+        if observer == nil {
+            observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
+                                                              object: nil,
+                                                              queue: OperationQueue.main) { [weak self] (notif) in
+                self?.setupTheme()
+            }
+        }
     }
     
     override func viewDidLoad() {
         // change selected bar color
-        settings.style.buttonBarBackgroundColor = .white
-        settings.style.buttonBarItemBackgroundColor = .white
-        settings.style.selectedBarBackgroundColor = .white
         settings.style.buttonBarItemFont = UIFont(name: "Poppins-Regular", size: 18.0)!
         settings.style.selectedBarHeight = 0
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarMinimumLineSpacing = 0
-        settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
         settings.style.buttonBarLeftContentInset = 10
         settings.style.buttonBarRightContentInset = 10
-
+        
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             
@@ -45,11 +59,10 @@ class BaseButtonBarPagerTabStripViewController: ButtonBarPagerTabStripViewContro
         }
         delegate = self
         
+        setup()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        setup()
     }
     
     @IBAction func backPressed(_ sender: UIBarButtonItem) {
