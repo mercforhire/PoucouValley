@@ -11,6 +11,7 @@ import CRRefresh
 class GroupClientsViewController: BaseViewController {
     var type: ClientGroupTypes!
     
+    @IBOutlet var iconContainers: [UIView]!
     @IBOutlet weak var searchBar: ThemeSearchBar!
     @IBOutlet var icons: [UIView]!
     @IBOutlet weak var usersCountLabel: UILabel!
@@ -42,6 +43,10 @@ class GroupClientsViewController: BaseViewController {
     override func setupTheme() {
         super.setupTheme()
         
+        for iconContainer in iconContainers {
+            iconContainer.roundCorners(style: .completely)
+            iconContainer.addBorder(color: .black)
+        }
         view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
     }
     

@@ -11,7 +11,6 @@ import CRRefresh
 class ClientsViewController: BaseViewController {
 
     @IBOutlet var iconContainers: [UIView]!
-    
     @IBOutlet weak var searchBar: ThemeSearchBar!
     @IBOutlet weak var usersCountLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
@@ -49,6 +48,7 @@ class ClientsViewController: BaseViewController {
             iconContainer.roundCorners(style: .completely)
             iconContainer.addBorder(color: .black)
         }
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
     }
     
     override func setup() {

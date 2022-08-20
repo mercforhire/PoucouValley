@@ -19,8 +19,7 @@ class EditPostViewController: BaseViewController {
     @IBOutlet weak var titleField: ThemeTextField!
     @IBOutlet weak var descriptionTextView: ThemeRoundedBorderedTextView!
     
-    @IBOutlet weak var tagsCollectionView: UICollectionView!
-    @IBOutlet weak var tagsCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tagsCollectionView: DynamicHeightCollectionView!
     
     @IBOutlet weak var priceField: ThemeTextField!
     @IBOutlet weak var discountedPriceField: ThemeTextField!
@@ -90,13 +89,13 @@ class EditPostViewController: BaseViewController {
     }
     
     @IBAction func savePressed(_ sender: UIButton) {
-        guard validate() else { return }
+        guard validate(), let postTitle = titleField.text, let postDescription = descriptionTextView.text else { return }
         
         FullScreenSpinner().show()
         
         api.editPlan(plan: plan,
-                     title: titleField.text!,
-                     description: descriptionTextView.text,
+                     title: postTitle,
+                     description: postDescription,
                      photos: photos,
                      price: priceField.text?.double,
                      discountedPrice: discountedPriceField.text?.double,
@@ -250,12 +249,6 @@ class EditPostViewController: BaseViewController {
     
     override func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
         dismiss(animated: true)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 

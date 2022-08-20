@@ -19,7 +19,6 @@ class NewPostViewController: BaseViewController {
     @IBOutlet weak var descriptionTextView: ThemeRoundedBorderedTextView!
     
     @IBOutlet weak var tagsCollectionView: UICollectionView!
-    @IBOutlet weak var tagsCollectionViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var priceField: ThemeTextField!
     @IBOutlet weak var discountedPriceField: ThemeTextField!
@@ -79,7 +78,7 @@ class NewPostViewController: BaseViewController {
     }
     
     @IBAction func savePressed(_ sender: UIButton) {
-        guard validate() else { return }
+        guard validate(), let postTitle = titleField.text, let postDescription = descriptionTextView.text else { return }
         
         FullScreenSpinner().show()
         
@@ -109,8 +108,8 @@ class NewPostViewController: BaseViewController {
                 return
             }
             
-            self.api.addPlan(title: self.titleField.text!,
-                             description: self.descriptionTextView.text,
+            self.api.addPlan(title: postTitle,
+                             description: postDescription,
                              photos: photos,
                              price: self.priceField.text?.double,
                              discountedPrice: self.discountedPriceField.text?.double,
@@ -259,12 +258,6 @@ class NewPostViewController: BaseViewController {
     
     override func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
         dismiss(animated: true)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 

@@ -359,11 +359,11 @@
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n2R-et-hZb">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n2R-et-hZb" customClass="DynamicHeightCollectionView" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="522" width="325" height="125"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="125" id="whf-MJ-qgk"/>
+                                                            <constraint firstAttribute="height" constant="125" placeholder="YES" id="whf-MJ-qgk"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dBE-9a-jVt">
                                                             <size key="itemSize" width="171" height="74"/>
@@ -543,7 +543,6 @@
                         <outlet property="priceField" destination="Te8-nL-bqE" id="wAi-lN-zyI"/>
                         <outlet property="stackView" destination="to4-0c-Qto" id="XRV-8E-OgC"/>
                         <outlet property="tagsCollectionView" destination="n2R-et-hZb" id="9Tx-Y5-qfL"/>
-                        <outlet property="tagsCollectionViewHeight" destination="whf-MJ-qgk" id="heF-Vj-2Vo"/>
                         <outlet property="titleField" destination="ud7-wb-No9" id="KbD-LP-GJa"/>
                         <segue destination="ZRt-JO-PRI" kind="unwind" identifier="" unwindAction="unwind:" id="DN9-3x-EpM"/>
                     </connections>
@@ -704,11 +703,11 @@
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CEU-P3-9dA">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CEU-P3-9dA" customClass="DynamicHeightCollectionView" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="522" width="325" height="125"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="125" id="wLP-pt-Oiv"/>
+                                                            <constraint firstAttribute="height" constant="125" placeholder="YES" id="wLP-pt-Oiv"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nD7-24-OFG">
                                                             <size key="itemSize" width="171" height="74"/>
@@ -864,7 +863,6 @@
                         <outlet property="priceField" destination="pR1-MP-i6f" id="Qp5-6k-Hjb"/>
                         <outlet property="stackView" destination="Uak-ZN-LON" id="U0V-OL-hqW"/>
                         <outlet property="tagsCollectionView" destination="CEU-P3-9dA" id="X9l-VW-dMA"/>
-                        <outlet property="tagsCollectionViewHeight" destination="wLP-pt-Oiv" id="ayN-S2-BZn"/>
                         <outlet property="titleField" destination="1QL-AN-cnC" id="OWM-99-bnd"/>
                         <segue destination="hnX-uz-WhH" kind="unwind" identifier="" unwindAction="unwind:" id="M6U-TB-iZk"/>
                     </connections>
@@ -872,7 +870,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNP-IF-QNF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="hnX-uz-WhH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="1862"/>
+            <point key="canvasLocation" x="1806" y="1881"/>
         </scene>
         <!--Edit merchant profile-->
         <scene sceneID="u33-co-msZ">
@@ -1093,11 +1091,11 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qQM-SM-NJz">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qQM-SM-NJz" customClass="DynamicHeightCollectionView" customModule="PoucouValley" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="805.5" width="343" height="125"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="125" id="lVg-JW-vAm"/>
+                                                            <constraint firstAttribute="height" constant="125" placeholder="YES" id="lVg-JW-vAm"/>
                                                         </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Td8-2F-12n">
                                                             <size key="itemSize" width="171" height="74"/>
@@ -1481,7 +1479,6 @@
                         <outlet property="streetNameField" destination="p0e-2k-Q3T" id="aoQ-0P-5Up"/>
                         <outlet property="streetNumberField" destination="g3a-8c-nNp" id="upw-mB-ya6"/>
                         <outlet property="tagsCollectionView" destination="qQM-SM-NJz" id="gKA-e5-xaq"/>
-                        <outlet property="tagsCollectionViewHeight" destination="lVg-JW-vAm" id="2dQ-LC-HsI"/>
                         <outlet property="twitterField" destination="vJ9-7o-juw" id="Hj8-QW-xPg"/>
                         <outlet property="unitNumberField" destination="XiT-7m-0Zk" id="j2N-ou-xRn"/>
                         <outlet property="webField" destination="YB3-Ms-28S" id="8nr-k0-TDw"/>

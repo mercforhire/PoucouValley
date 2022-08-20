@@ -23,8 +23,7 @@ class EditMerchantProfileViewController: BaseViewController {
     
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    @IBOutlet weak var tagsCollectionView: UICollectionView!
-    @IBOutlet weak var tagsCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tagsCollectionView: DynamicHeightCollectionView!
     
     @IBOutlet weak var areaCodeField: ThemeTextField!
     @IBOutlet weak var phoneField: ThemeTextField!
@@ -347,12 +346,6 @@ class EditMerchantProfileViewController: BaseViewController {
     
     override func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
         dismiss(animated: true)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        tagsCollectionViewHeight.constant = tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
     }
 }
 

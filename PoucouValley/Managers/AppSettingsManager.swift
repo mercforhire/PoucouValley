@@ -23,7 +23,7 @@ enum Environments: String {
     func s3RootURL() -> String {
         switch self {
         case .production:
-            return "https://poucouvalleydev.s3.amazonaws.com/"
+            return "https://poucouvalleyprod.s3.amazonaws.com/"
         case .development:
             return "https://poucouvalleydev.s3.amazonaws.com/"
         }
@@ -33,9 +33,9 @@ enum Environments: String {
     func bucketName() -> String {
         switch self {
         case .production:
-            return "poucouvalleydev"
-        case .development:
             return "poucouvalleyprod"
+        case .development:
+            return "poucouvalleydev"
         }
         
     }
