@@ -17,7 +17,7 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
     @IBOutlet weak var visitsLabel: ThemeBlackTextLabel!
     @IBOutlet weak var followersLabel: ThemeBlackTextLabel!
     @IBOutlet weak var logoImageView: URLImageView!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var editButton: ThemeWhiteBgBlackTextButton!
     
     @IBOutlet weak var merchantNameLabel: ThemeBlackTextLabel!
     @IBOutlet weak var phoneButton: UIButton!
@@ -27,7 +27,7 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
     @IBOutlet weak var fbButton: UIButton!
     
     @IBOutlet weak var addressLabel: ThemeBlackTextLabel!
-    @IBOutlet weak var addPostButton: ThemeBlackBgWhiteTextButton!
+    @IBOutlet weak var addPostButton: ThemeBlackBgTintWhiteButton!
     
     var photos: [PVPhoto] = [] {
         didSet {

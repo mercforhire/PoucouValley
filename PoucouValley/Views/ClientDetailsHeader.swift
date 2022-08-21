@@ -7,19 +7,19 @@
 
 import UIKit
 import GSKStretchyHeaderView
-import Kingfisher
+import UILabel_Copyable
 
-class MyProfileDetailsHeader: GSKStretchyHeaderView {
+class ClientDetailsHeader: GSKStretchyHeaderView {
     private var observer: NSObjectProtocol?
     
-    @IBOutlet weak var editButtonContainer: UIView!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var backgroundView: UIImageView!
+    @IBOutlet weak var avatar: URLImageView!
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    
-    @IBOutlet weak var nameLabelsContainer: UIStackView!
-    @IBOutlet weak var pointsContainer: UIStackView!
+    @IBOutlet weak var cardNumberLabel: UILabel!
+    @IBOutlet weak var createdDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,10 +28,13 @@ class MyProfileDetailsHeader: GSKStretchyHeaderView {
     }
     
     func setupUI() {
+        backgroundColor = ThemeManager.shared.themeData!.whiteBackground.hexColor
+        
+        cardNumberLabel.isCopyingEnabled = true
+        
         avatar.roundCorners(style: .completely)
-        avatar.layer.borderColor = UIColor.white.cgColor
+        avatar.layer.borderColor = ThemeManager.shared.themeData!.textLabel.hexColor.cgColor
         avatar.layer.borderWidth = 2.0
-        editButtonContainer.roundCorners(style: .completely)
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
@@ -42,24 +45,33 @@ class MyProfileDetailsHeader: GSKStretchyHeaderView {
         }
     }
     
-    func configureUI(data: Cardholder?) {
-        navigationTitleLabel.text = data?.fullName
-        userNameLabel.text = data?.fullName
+    func config(data: Client) {
+        navigationTitleLabel.text = data.fullName
+        userNameLabel.text = data.fullName
+        createdDateLabel.text = "Created on \(DateUtil.convert(input: data.createdDate, outputFormat: .format5) ?? "--")"
         
-        if let urlString = data?.avatar?.thumbnailUrl, let url = URL(string: urlString) {
-            self.avatar.kf.setImage(with: url)
+        if let cardNumber = data.card {
+            cardNumberLabel.text = cardNumber
+            cardNumberLabel.isHidden = false
+        } else {
+            cardNumberLabel.text = ""
+            cardNumberLabel.isHidden = true
+        }
+        
+        if let urlString = data.avatar?.thumbnailUrl, let url = URL(string: urlString) {
+            avatar.kf.setImage(with: url)
         }
     }
     
     override func didChangeStretchFactor(_ stretchFactor: CGFloat) {
         var alpha = CGFloatTranslateRange(stretchFactor, 0.2, 0.8, 0, 1)
         alpha = max(0, min(1, alpha))
-
+        
+        backgroundView.alpha = 0.4 * alpha
         avatar.alpha = alpha
-        editButtonContainer.alpha = alpha
-        nameLabelsContainer.alpha = alpha
-        pointsContainer.alpha = alpha
-
+        userNameLabel.alpha = alpha
+        createdDateLabel.alpha = alpha
+        
         let navTitleFactor: CGFloat = 0.4
         var navTitleAlpha: CGFloat = 0
         if stretchFactor < navTitleFactor {

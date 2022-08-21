@@ -354,6 +354,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return IconLinkCell()
             }
             cell.configWebsite(url: client.contact?.website)
+            cell.selectionStyle = .none
             return cell
             
         case .twitterLink:
@@ -361,6 +362,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return IconLinkCell()
             }
             cell.configTwitter(twitterName: client.contact?.twitter)
+            cell.selectionStyle = .none
             return cell
             
         case .facebookLink:
@@ -368,6 +370,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return IconLinkCell()
             }
             cell.configFacebook(facebookName: client.contact?.facebook)
+            cell.selectionStyle = .none
             return cell
             
         case .instagramLink:
@@ -375,6 +378,7 @@ extension ClientDetailsViewController: UITableViewDataSource, UITableViewDelegat
                 return IconLinkCell()
             }
             cell.configInstagram(igName: client.contact?.instagram)
+            cell.selectionStyle = .none
             return cell
             
         case .tags:

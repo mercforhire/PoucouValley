@@ -394,7 +394,7 @@ class ThemeTransBlackButton: UIButton {
     }
 }
 
-class ThemeTintBlackButton: UIButton {
+class ThemeBlackTintButton: UIButton {
     private var observer: NSObjectProtocol?
     
     public override init(frame: CGRect) {
@@ -436,7 +436,7 @@ class ThemeTintBlackButton: UIButton {
 
 }
 
-class ThemeBlackBackTintWhiteButton: UIButton {
+class ThemeBlackBgTintWhiteButton: UIButton {
     private var observer: NSObjectProtocol?
     
     public override init(frame: CGRect) {
@@ -457,7 +457,10 @@ class ThemeBlackBackTintWhiteButton: UIButton {
     func setupUI() {
         backgroundColor = themeManager.themeData!.textLabel.hexColor
         tintColor = themeManager.themeData!.whiteBackground.hexColor
-        
+        UIView.performWithoutAnimation {
+            self.setTitleColor(themeManager.themeData!.whiteBackground.hexColor, for: .normal)
+            self.layoutIfNeeded()
+        }
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
                                                               object: nil,
@@ -475,7 +478,7 @@ class ThemeBlackBackTintWhiteButton: UIButton {
 
 }
 
-class ThemeBlackBgWhiteTextButton: UIButton {
+class ThemeWhiteBgBlackTextButton: UIButton {
     private var observer: NSObjectProtocol?
     
     public override init(frame: CGRect) {
@@ -494,13 +497,12 @@ class ThemeBlackBgWhiteTextButton: UIButton {
     }
     
     func setupUI() {
-        
+        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        tintColor = themeManager.themeData!.textLabel.hexColor
         UIView.performWithoutAnimation {
-            self.setTitleColor(themeManager.themeData!.whiteBackground.hexColor, for: .normal)
+            self.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
             self.layoutIfNeeded()
         }
-        
-        backgroundColor = themeManager.themeData!.textLabel.hexColor
         
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,

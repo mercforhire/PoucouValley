@@ -148,8 +148,6 @@
 		72AC01BC2738A80B00B452BE /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01AF2738A80B00B452BE /* TimeAgo.swift */; };
 		72AC01BE2738B76600B452BE /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AC01BD2738B76600B452BE /* UIAlertController+Extension.swift */; };
 		72B2FB86273C554200382C12 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72B2FB85273C554200382C12 /* Profile.storyboard */; };
-		72B2FB89273C657D00382C12 /* MyProfileDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B2FB87273C657D00382C12 /* MyProfileDetailsHeader.xib */; };
-		72B2FB8A273C657D00382C12 /* MyProfileDetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2FB88273C657D00382C12 /* MyProfileDetailsHeader.swift */; };
 		72B2FB9F273C6CA000382C12 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72B2FB8C273C6CA000382C12 /* Poppins-ExtraLight.ttf */; };
 		72B2FBA0273C6CA000382C12 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72B2FB8D273C6CA000382C12 /* Poppins-ThinItalic.ttf */; };
 		72B2FBA1273C6CA000382C12 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72B2FB8E273C6CA000382C12 /* Poppins-ExtraLightItalic.ttf */; };
@@ -417,8 +415,6 @@
 		72AC01AF2738A80B00B452BE /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		72AC01BD2738B76600B452BE /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		72B2FB85273C554200382C12 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		72B2FB87273C657D00382C12 /* MyProfileDetailsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileDetailsHeader.xib; sourceTree = "<group>"; };
-		72B2FB88273C657D00382C12 /* MyProfileDetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileDetailsHeader.swift; sourceTree = "<group>"; };
 		72B2FB8C273C6CA000382C12 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		72B2FB8D273C6CA000382C12 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		72B2FB8E273C6CA000382C12 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -749,14 +745,14 @@
 		72AC00C42737290B00B452BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				72DECD8A287335DE00C929C1 /* ClientDetailsHeader */,
 				725ACC2B28773B80007D255F /* CollectionViewCells */,
 				72707C2A2834A108004F3C3C /* FullScreenSpinner.swift */,
 				72B2FBB2273CAA2000382C12 /* GiftTableViewCell.swift */,
 				72707C2E2834A11B004F3C3C /* LottieWrapper.swift */,
+				72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */,
+				72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */,
 				72997ABC289B17AA00F745A8 /* MerchantDetailsHeaderView.swift */,
 				72997ABD289B17AA00F745A8 /* MerchantDetailsHeaderView.xib */,
-				72DECD892873359C00C929C1 /* MyProfileDetailsHeader */,
 				72C7D424283DEECE0066F3CB /* PictureTextDialog */,
 				72EEAC75289D6C7200EE189C /* PlanDetailsCollectionHeaderView.swift */,
 				72EEAC76289D6C7200EE189C /* PlanDetailsCollectionHeaderView.xib */,
@@ -1156,24 +1152,6 @@
 			path = PictureTextDialog;
 			sourceTree = "<group>";
 		};
-		72DECD892873359C00C929C1 /* MyProfileDetailsHeader */ = {
-			isa = PBXGroup;
-			children = (
-				72B2FB88273C657D00382C12 /* MyProfileDetailsHeader.swift */,
-				72B2FB87273C657D00382C12 /* MyProfileDetailsHeader.xib */,
-			);
-			path = MyProfileDetailsHeader;
-			sourceTree = "<group>";
-		};
-		72DECD8A287335DE00C929C1 /* ClientDetailsHeader */ = {
-			isa = PBXGroup;
-			children = (
-				72DECD8B287335EB00C929C1 /* ClientDetailsHeader.swift */,
-				72DECD8D287335F600C929C1 /* ClientDetailsHeader.xib */,
-			);
-			path = ClientDetailsHeader;
-			sourceTree = "<group>";
-		};
 		72E2634E2899553500BF2AA2 /* Shops */ = {
 			isa = PBXGroup;
 			children = (
@@ -1278,7 +1256,6 @@
 				72AC01392737917D00B452BE /* dark-theme.plist in Resources */,
 				72B2FBAD273C6CA000382C12 /* Poppins-Black.ttf in Resources */,
 				72F92FEC284078BE00DF438C /* Clients.storyboard in Resources */,
-				72B2FB89273C657D00382C12 /* MyProfileDetailsHeader.xib in Resources */,
 				72C7D427283DEECE0066F3CB /* PictureTextDialog.xib in Resources */,
 				72B2FBA5273C6CA000382C12 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				72B2FBB1273C6CA000382C12 /* Poppins-MediumItalic.ttf in Resources */,
@@ -1440,7 +1417,6 @@
 				720FABD328A233340090C632 /* StringArrayResponse.swift in Sources */,
 				72AC011A27378FFA00B452BE /* UIScrollView+Extensions.swift in Sources */,
 				72C7D3E428395C560066F3CB /* SignUpViewController.swift in Sources */,
-				72B2FB8A273C657D00382C12 /* MyProfileDetailsHeader.swift in Sources */,
 				72358B882877D89E00D504A2 /* DividerCell.swift in Sources */,
 				72AC00AE2736F27700B452BE /* AppDelegate.swift in Sources */,
 				72707C15283217C7004F3C3C /* Address.swift in Sources */,

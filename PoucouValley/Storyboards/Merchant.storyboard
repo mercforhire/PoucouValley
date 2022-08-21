@@ -551,7 +551,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQS-IZ-NJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="ZRt-JO-PRI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="1217"/>
+            <point key="canvasLocation" x="1906" y="1200"/>
         </scene>
         <!--Edit post-->
         <scene sceneID="puY-Uc-PSH">
@@ -871,7 +871,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNP-IF-QNF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="hnX-uz-WhH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="1881"/>
+            <point key="canvasLocation" x="1906" y="1881"/>
         </scene>
         <!--Edit merchant profile-->
         <scene sceneID="u33-co-msZ">
@@ -1212,7 +1212,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vr9-9z-qOR">
                                                         <rect key="frame" x="0.0" y="1045" width="343" height="40"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-web" translatesAutoresizingMaskIntoConstraints="NO" id="B8s-Ka-HvZ">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-web" translatesAutoresizingMaskIntoConstraints="NO" id="B8s-Ka-HvZ" customClass="ThemeBlackImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -1237,7 +1237,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kuk-Wm-1PT">
                                                         <rect key="frame" x="0.0" y="1100" width="343" height="40"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-instagram" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-76-Ahb">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-instagram" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-76-Ahb" customClass="ThemeBlackImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -1262,7 +1262,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pRQ-UT-5cz">
                                                         <rect key="frame" x="0.0" y="1155" width="343" height="40"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-twitter" translatesAutoresizingMaskIntoConstraints="NO" id="yBu-Hp-IfC">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-twitter" translatesAutoresizingMaskIntoConstraints="NO" id="yBu-Hp-IfC" customClass="ThemeBlackImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -1287,7 +1287,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sui-7j-Qyq">
                                                         <rect key="frame" x="0.0" y="1210" width="343" height="40"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-facebook" translatesAutoresizingMaskIntoConstraints="NO" id="4AM-dk-Fff">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-facebook" translatesAutoresizingMaskIntoConstraints="NO" id="4AM-dk-Fff" customClass="ThemeBlackImageView" customModule="PoucouValley" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
