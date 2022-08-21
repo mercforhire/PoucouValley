@@ -51,11 +51,11 @@ class BaseButtonBarPagerTabStripViewController: ButtonBarPagerTabStripViewContro
         settings.style.buttonBarLeftContentInset = 10
         settings.style.buttonBarRightContentInset = 10
         
-        changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
-            guard changeCurrentIndex == true else { return }
+        changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+            guard let self = self, changeCurrentIndex == true else { return }
             
-            oldCell?.label.textColor = .lightGray
-            newCell?.label.textColor = .black
+            oldCell?.label.textColor = self.themeManager.themeData!.steel.hexColor
+            newCell?.label.textColor = self.themeManager.themeData!.textLabel.hexColor
         }
         delegate = self
         

@@ -18,8 +18,6 @@ class CompleteProfileCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        // reset all contents
-        label1.text = ""
         for progressBar in progressBars {
             progressBar.backgroundColor = .lightGray
             progressBar.layer.cornerRadius = progressBar.frame.height / 2

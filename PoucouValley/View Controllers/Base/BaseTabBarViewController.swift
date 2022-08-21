@@ -22,6 +22,7 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        handleRefreshForTabBar()
         delegate = self
         navigationController?.isNavigationBarHidden = true
         registerForPushNotifications { _ in
@@ -69,6 +70,10 @@ class BaseTabBarViewController: UITabBarController, UITabBarControllerDelegate {
             self.tabBar.barTintColor = themeData.whiteBackground.hexColor
             self.tabBar.unselectedItemTintColor = themeData.tabBarTheme.unSelectedColor.hexColor
             self.tabBar.backgroundColor = themeData.whiteBackground.hexColor
+            self.tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.tabBar.layer.shadowRadius = 5
+            self.tabBar.layer.shadowColor = themeData.whiteBackground.hexColor.cgColor
+            self.tabBar.layer.shadowOpacity = 0.3
         }
     }
     

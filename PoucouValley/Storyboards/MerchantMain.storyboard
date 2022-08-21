@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +19,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
                         <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
+                        <tabBarAppearance key="standardAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="3WG-iQ-JFA" kind="relationship" relationship="viewControllers" id="PsK-IR-mcO"/>
@@ -29,11 +31,14 @@
             </objects>
             <point key="canvasLocation" x="806" y="1223"/>
         </scene>
-        <!--Clients-->
+        <!--Navigation Controller-->
         <scene sceneID="tiG-c6-X9C">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3WG-iQ-JFA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Clients" image="person.3" catalog="system" id="TrY-mx-kph"/>
+                    <tabBarItem key="tabBarItem" title="" id="TrY-mx-kph">
+                        <imageReference key="image" image="person.3" catalog="system" symbolScale="large"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0EV-NF-Yag">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -78,11 +83,14 @@
             </objects>
             <point key="canvasLocation" x="1541" y="2415"/>
         </scene>
-        <!--Performance-->
+        <!--Navigation Controller-->
         <scene sceneID="KoV-vQ-gOt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="owi-vY-C1o" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Performance" image="chart.pie" catalog="system" id="2df-rS-cLV"/>
+                    <tabBarItem key="tabBarItem" title="" id="2df-rS-cLV">
+                        <imageReference key="image" image="chart.pie" catalog="system" symbolScale="large"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G6f-mT-DsY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -97,11 +105,14 @@
             </objects>
             <point key="canvasLocation" x="806" y="2004"/>
         </scene>
-        <!--My store-->
+        <!--Navigation Controller-->
         <scene sceneID="kIb-TG-Gt4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gtg-bM-js7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My store" image="person" catalog="system" id="BiS-wi-hUH"/>
+                    <tabBarItem key="tabBarItem" title="" id="BiS-wi-hUH">
+                        <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ol4-oc-Bww">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

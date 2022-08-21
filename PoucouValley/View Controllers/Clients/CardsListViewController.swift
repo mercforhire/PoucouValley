@@ -21,10 +21,12 @@ class CardsListViewController: BaseViewController {
     
     private var showingCards: [Card] = []
     private var delayTimer = DelayedSearchTimer()
+
     
     override func setupTheme() {
         super.setupTheme()
         
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
     }
     
     override func setup() {

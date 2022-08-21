@@ -21,13 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBG" translatesAutoresizingMaskIntoConstraints="NO" id="oVa-MS-aCI">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topSectionBG" translatesAutoresizingMaskIntoConstraints="NO" id="oVa-MS-aCI">
                     <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                 </imageView>
-                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6M-oi-RTc" customClass="DynamicBlurView" customModule="DynamicBlurView">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKN-ih-ohr">
                     <rect key="frame" x="157.66666666666666" y="362.66666666666669" width="75" height="75"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,13 +109,10 @@
                 <constraint firstItem="vbL-Py-qax" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gyg-CZ-com"/>
                 <constraint firstItem="VKN-ih-ohr" firstAttribute="top" secondItem="IDV-kH-KIc" secondAttribute="top" id="HTm-hk-EHZ"/>
                 <constraint firstItem="ePj-xy-EI5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OyO-rb-yam"/>
-                <constraint firstItem="V6M-oi-RTc" firstAttribute="bottom" secondItem="oVa-MS-aCI" secondAttribute="bottom" id="RjS-Dq-akO"/>
-                <constraint firstItem="V6M-oi-RTc" firstAttribute="leading" secondItem="oVa-MS-aCI" secondAttribute="leading" id="Uhe-pT-Xdd"/>
                 <constraint firstItem="6A9-IA-2zC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="V26-7X-Gmg"/>
                 <constraint firstItem="QgI-h3-bbs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X9V-AQ-ECM"/>
                 <constraint firstAttribute="trailing" secondItem="QgI-h3-bbs" secondAttribute="trailing" constant="13" id="asb-wN-oAa"/>
                 <constraint firstAttribute="trailing" secondItem="vbL-Py-qax" secondAttribute="trailing" id="b7T-4K-HjI"/>
-                <constraint firstItem="V6M-oi-RTc" firstAttribute="trailing" secondItem="oVa-MS-aCI" secondAttribute="trailing" id="cI0-dN-MG6"/>
                 <constraint firstItem="8OY-Jw-syb" firstAttribute="trailing" secondItem="QgI-h3-bbs" secondAttribute="trailing" id="dJD-yP-hvB"/>
                 <constraint firstItem="6A9-IA-2zC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ds2-UZ-OVp"/>
                 <constraint firstAttribute="bottom" secondItem="oVa-MS-aCI" secondAttribute="bottom" id="eZ5-eP-fzG"/>
@@ -128,7 +121,6 @@
                 <constraint firstItem="ePj-xy-EI5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="l1k-vK-38T"/>
                 <constraint firstItem="oVa-MS-aCI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ly6-D5-xGk"/>
                 <constraint firstItem="IDV-kH-KIc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qCF-xt-FOX"/>
-                <constraint firstItem="V6M-oi-RTc" firstAttribute="top" secondItem="oVa-MS-aCI" secondAttribute="top" id="qF9-7h-5oT"/>
                 <constraint firstAttribute="trailing" secondItem="oVa-MS-aCI" secondAttribute="trailing" id="qcE-dG-hRz"/>
                 <constraint firstItem="8OY-Jw-syb" firstAttribute="top" secondItem="QgI-h3-bbs" secondAttribute="bottom" constant="10" id="rxS-dA-blK"/>
             </constraints>
@@ -144,7 +136,6 @@
                 <outlet property="avatar" destination="IDV-kH-KIc" id="dwP-nh-tFs"/>
                 <outlet property="backButton" destination="6A9-IA-2zC" id="w27-ov-cES"/>
                 <outlet property="backgroundView" destination="oVa-MS-aCI" id="8GB-Cb-pM4"/>
-                <outlet property="blurView" destination="V6M-oi-RTc" id="wvI-bs-yAH"/>
                 <outlet property="cardNumberLabel" destination="IkN-Bl-9Cz" id="cSt-zs-ZU8"/>
                 <outlet property="createdDateLabel" destination="8OY-Jw-syb" id="W4I-bJ-6jL"/>
                 <outlet property="editButton" destination="QgI-h3-bbs" id="15G-b0-2hA"/>
@@ -156,7 +147,7 @@
     </objects>
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="greenBG" width="375" height="168"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="topSectionBG" width="375" height="168"/>
     </resources>
 </document>

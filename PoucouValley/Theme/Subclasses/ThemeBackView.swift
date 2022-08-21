@@ -46,6 +46,45 @@ class ThemeBackView: UIView {
 
 }
 
+class ThemeDefaultBackColorView: UIView {
+
+    private var observer: NSObjectProtocol?
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupUI()
+    }
+    
+    func setupUI() {
+        backgroundColor = themeManager.themeData!.defaultBackground.hexColor
+        
+        if observer == nil {
+            observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
+                                                              object: nil,
+                                                              queue: OperationQueue.main) { [weak self] (notif) in
+                self?.setupUI()
+            }
+        }
+    }
+    
+    deinit {
+        if observer != nil {
+            NotificationCenter.default.removeObserver(observer!)
+        }
+    }
+
+}
+
 class ThemeBackBlackView: UIView {
 
     private var observer: NSObjectProtocol?
@@ -208,6 +247,48 @@ class ThemeRoundedBackView: UIView {
 
 }
 
+class ThemeRoundedDefaultBackgroundColorBackView: UIView {
+
+    private var observer: NSObjectProtocol?
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+        roundCorners()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupUI()
+        roundCorners()
+    }
+    
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupUI()
+        roundCorners()
+    }
+    
+    func setupUI() {
+        backgroundColor = themeManager.themeData!.defaultBackground.hexColor
+        
+        if observer == nil {
+            observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
+                                                              object: nil,
+                                                              queue: OperationQueue.main) { [weak self] (notif) in
+                self?.setupUI()
+            }
+        }
+    }
+    
+    deinit {
+        if observer != nil {
+            NotificationCenter.default.removeObserver(observer!)
+        }
+    }
+
+}
+
 class RoundedView: UIView {
     private var observer: NSObjectProtocol?
     
@@ -230,6 +311,8 @@ class RoundedView: UIView {
     }
     
     func setupUI() {
+        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        
         if observer == nil {
             observer = NotificationCenter.default.addObserver(forName: ThemeManager.Notifications.ThemeChanged,
                                                               object: nil,
@@ -269,6 +352,7 @@ class RoundedBorderView: UIView {
     }
     
     func setupUI() {
+        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
         addBorder(borderWidth: 1, color: themeManager.themeData!.lightGray.hexColor)
         
         if observer == nil {

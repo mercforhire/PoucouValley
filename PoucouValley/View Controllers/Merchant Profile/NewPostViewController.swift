@@ -41,6 +41,12 @@ class NewPostViewController: BaseViewController {
     private let kItemPadding = 12
     private var imagePicker: ImagePicker!
     
+    override func setupTheme() {
+        super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+    }
+    
     override func setup() {
         super.setup()
         

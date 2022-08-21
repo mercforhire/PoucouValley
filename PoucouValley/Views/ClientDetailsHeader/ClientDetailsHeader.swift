@@ -8,7 +8,6 @@
 import UIKit
 import GSKStretchyHeaderView
 import UILabel_Copyable
-import DynamicBlurView
 
 class ClientDetailsHeader: GSKStretchyHeaderView {
     private var observer: NSObjectProtocol?
@@ -16,7 +15,6 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var backgroundView: UIImageView!
-    @IBOutlet weak var blurView: DynamicBlurView!
     @IBOutlet weak var avatar: URLImageView!
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -31,12 +29,6 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
     
     func setupUI() {
         cardNumberLabel.isCopyingEnabled = true
-        
-        blurView.blurRadius = 10.0
-        blurView.isDeepRendering = true
-        blurView.trackingMode = .none
-        blurView.blendColor = themeManager.themeData!.lighterGreen.hexColor
-        blurView.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
         
         avatar.roundCorners(style: .completely)
         avatar.layer.borderColor = UIColor.white.cgColor
@@ -67,16 +59,13 @@ class ClientDetailsHeader: GSKStretchyHeaderView {
         if let urlString = data.avatar?.thumbnailUrl, let url = URL(string: urlString) {
             avatar.kf.setImage(with: url)
         }
-        
-        blurView.refresh()
     }
     
     override func didChangeStretchFactor(_ stretchFactor: CGFloat) {
         var alpha = CGFloatTranslateRange(stretchFactor, 0.2, 0.8, 0, 1)
         alpha = max(0, min(1, alpha))
         
-        backgroundView.alpha = alpha
-        blurView.alpha = alpha
+        backgroundView.alpha = 0.4 * alpha
         avatar.alpha = alpha
         userNameLabel.alpha = alpha
         createdDateLabel.alpha = alpha

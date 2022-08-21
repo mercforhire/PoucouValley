@@ -43,13 +43,14 @@ class MerchantDetailsHeaderView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
         addressLabel.isCopyingEnabled = true
         collectionView.register(UINib(nibName: "URLImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
         collectionView.delegate = self
         collectionView.dataSource = self
         logoImageView.roundCorners(style: .medium)
         editButton.roundCorners(style: .completely)
-        editButton.addBorder(color: .black)
+        editButton.addBorder(color: themeManager.themeData!.textLabel.hexColor)
         pageControl.numberOfPages = 1
         visitsLabel.text = "--"
         followersLabel.text = "--"

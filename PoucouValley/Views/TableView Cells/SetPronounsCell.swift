@@ -21,21 +21,21 @@ class SetPronounsCell: UITableViewCell {
         didSet {
             switch pronoun {
             case "He":
-                heButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-                sheButton.unhighlightButton()
-                theyButton.unhighlightButton()
+                heButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                sheButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                theyButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             case "She":
-                heButton.unhighlightButton()
-                sheButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-                theyButton.unhighlightButton()
+                heButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                sheButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                theyButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             case "They":
-                heButton.unhighlightButton()
-                sheButton.unhighlightButton()
-                theyButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
+                heButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                sheButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                theyButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             default:
-                heButton.unhighlightButton()
-                sheButton.unhighlightButton()
-                theyButton.unhighlightButton()
+                heButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                sheButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                theyButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             }
             delegate?.setPronounsCellUpdated(pronoun: pronoun)
         }
@@ -59,21 +59,21 @@ class SetPronounsCell: UITableViewCell {
 
     func config(data: Cardholder) {
         if data.pronoun == "He" {
-            heButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-            sheButton.unhighlightButton()
-            theyButton.unhighlightButton()
+            heButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            sheButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            theyButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         } else if data.pronoun == "She" {
-            heButton.unhighlightButton()
-            sheButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-            theyButton.unhighlightButton()
+            heButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            sheButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            theyButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         } else if data.pronoun == "They" {
-            heButton.unhighlightButton()
-            sheButton.unhighlightButton()
-            theyButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
+            heButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            sheButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            theyButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         } else {
-            heButton.unhighlightButton()
-            sheButton.unhighlightButton()
-            theyButton.unhighlightButton()
+            heButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            sheButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            theyButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         }
         pronoun = data.pronoun
     }

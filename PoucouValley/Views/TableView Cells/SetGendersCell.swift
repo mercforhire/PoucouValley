@@ -21,21 +21,21 @@ class SetGendersCell: UITableViewCell {
         didSet {
             switch gender {
             case "Male":
-                maleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-                femaleButton.unhighlightButton()
-                otherButton.unhighlightButton()
+                maleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                femaleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                otherButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             case "Female":
-                maleButton.unhighlightButton()
-                femaleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-                otherButton.unhighlightButton()
+                maleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                femaleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                otherButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             case "Other":
-                maleButton.unhighlightButton()
-                femaleButton.unhighlightButton()
-                otherButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
+                maleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                femaleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                otherButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             default:
-                maleButton.unhighlightButton()
-                femaleButton.unhighlightButton()
-                otherButton.unhighlightButton()
+                maleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                femaleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+                otherButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
             }
             delegate?.setGendersCellUpdated(gender: gender)
         }
@@ -59,21 +59,21 @@ class SetGendersCell: UITableViewCell {
 
     func config(data: Cardholder) {
         if data.gender == "Male" {
-            maleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-            femaleButton.unhighlightButton()
-            otherButton.unhighlightButton()
+            maleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            femaleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            otherButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         } else if data.gender == "Female" {
-            maleButton.unhighlightButton()
-            femaleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
-            otherButton.unhighlightButton()
+            maleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            femaleButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            otherButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         } else if data.gender == "Other" {
-            maleButton.unhighlightButton()
-            femaleButton.unhighlightButton()
-            otherButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
+            maleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            femaleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            otherButton.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         } else {
-            maleButton.unhighlightButton()
-            femaleButton.unhighlightButton()
-            otherButton.unhighlightButton()
+            maleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            femaleButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
+            otherButton.unhighlightButton(back: themeManager.themeData!.whiteBackground.hexColor, text: themeManager.themeData!.textLabel.hexColor)
         }
     }
 

@@ -132,7 +132,7 @@ class ClientDetailsViewController: BaseViewController {
         
         for iconContainer in iconContainers {
             iconContainer.roundCorners(style: .completely)
-            iconContainer.addBorder(color: .black)
+            iconContainer.addBorder(color: themeManager.themeData!.textLabel.hexColor)
         }
         
         let headerSize = CGSize(width: tableView.frame.size.width, height: 200)

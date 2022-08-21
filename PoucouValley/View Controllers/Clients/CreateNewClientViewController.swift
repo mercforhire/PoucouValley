@@ -66,23 +66,23 @@ class CreateNewClientViewController: BaseViewController {
             switch gender {
             case .male:
                 maleButton.highlightButton(back: highlightColor,
-                                           text: .darkText)
-                femaleButton.unhighlightButton(back: unhighlightColor, text: .darkText)
-                otherButton.unhighlightButton(back: unhighlightColor, text: .darkText)
+                                           text: themeManager.themeData!.dark.hexColor)
+                femaleButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
+                otherButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
             case .female:
                 maleButton.unhighlightButton(back: unhighlightColor,
-                                           text: .darkText)
-                femaleButton.highlightButton(back: highlightColor, text: .darkText)
-                otherButton.unhighlightButton(back: unhighlightColor, text: .darkText)
+                                           text: themeManager.themeData!.dark.hexColor)
+                femaleButton.highlightButton(back: highlightColor, text: themeManager.themeData!.dark.hexColor)
+                otherButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
             case .other:
-                maleButton.unhighlightButton(back: unhighlightColor, text: .darkText)
-                femaleButton.unhighlightButton(back: unhighlightColor, text: .darkText)
+                maleButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
+                femaleButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
                 otherButton.highlightButton(back: highlightColor,
-                                            text: .darkText)
+                                            text: themeManager.themeData!.dark.hexColor)
             default:
-                maleButton.unhighlightButton(back: unhighlightColor, text: .darkText)
-                femaleButton.unhighlightButton(back: unhighlightColor, text: .darkText)
-                otherButton.unhighlightButton(back: unhighlightColor, text: .darkText)
+                maleButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
+                femaleButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
+                otherButton.unhighlightButton(back: unhighlightColor, text: themeManager.themeData!.dark.hexColor)
             }
         }
     }

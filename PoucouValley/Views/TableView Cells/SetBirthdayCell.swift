@@ -40,25 +40,25 @@ class SetBirthdayCell: UITableViewCell {
             case .month:
                 divider.isHidden = false
                 monthButton.setTitleColor(themeManager.themeData!.lighterGreen.hexColor, for: .normal)
-                dayButton.setTitleColor(.black, for: .normal)
-                yearButton.setTitleColor(.black, for: .normal)
+                dayButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
+                yearButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
                 
                 self.monthContainer.isHidden = false
                 self.dayContainer.isHidden = true
                 self.yearContainer.isHidden = true
             case .day:
                 divider.isHidden = false
-                monthButton.setTitleColor(.black, for: .normal)
+                monthButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
                 dayButton.setTitleColor(themeManager.themeData!.lighterGreen.hexColor, for: .normal)
-                yearButton.setTitleColor(.black, for: .normal)
+                yearButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
                 
                 self.monthContainer.isHidden = true
                 self.dayContainer.isHidden = false
                 self.yearContainer.isHidden = true
             case .year:
                 divider.isHidden = false
-                monthButton.setTitleColor(.black, for: .normal)
-                dayButton.setTitleColor(.black, for: .normal)
+                monthButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
+                dayButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
                 yearButton.setTitleColor(themeManager.themeData!.lighterGreen.hexColor, for: .normal)
                 
                 self.monthContainer.isHidden = true
@@ -66,9 +66,9 @@ class SetBirthdayCell: UITableViewCell {
                 self.yearContainer.isHidden = false
             default:
                 divider.isHidden = true
-                monthButton.setTitleColor(.black, for: .normal)
-                dayButton.setTitleColor(.black, for: .normal)
-                yearButton.setTitleColor(.black, for: .normal)
+                monthButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
+                dayButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
+                yearButton.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
                 
                 self.monthContainer.isHidden = true
                 self.dayContainer.isHidden = true
@@ -84,9 +84,9 @@ class SetBirthdayCell: UITableViewCell {
         didSet {
             for button in monthButtons {
                 if button.tag == selectedMonthButtonTag {
-                    button.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
+                    button.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
                 } else {
-                    button.unhighlightButton(back: .clear, text: .black)
+                    button.unhighlightButton(back: .clear, text: themeManager.themeData!.textLabel.hexColor)
                 }
             }
             
@@ -102,9 +102,9 @@ class SetBirthdayCell: UITableViewCell {
         didSet {
             for button in dayButtons {
                 if button.tag == selectedDayButtonTag {
-                    button.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
+                    button.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
                 } else {
-                    button.unhighlightButton(back: .clear, text: .black)
+                    button.unhighlightButton(back: .clear, text: themeManager.themeData!.textLabel.hexColor)
                 }
             }
             
@@ -120,9 +120,9 @@ class SetBirthdayCell: UITableViewCell {
         didSet {
             for button in yearsButtons {
                 if button.tag == selectedYearButtonTag {
-                    button.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: .black)
+                    button.highlightButton(back: themeManager.themeData!.lighterGreen.hexColor, text: themeManager.themeData!.textLabel.hexColor)
                 } else {
-                    button.unhighlightButton(back: .clear, text: .black)
+                    button.unhighlightButton(back: .clear, text: themeManager.themeData!.textLabel.hexColor)
                 }
             }
             

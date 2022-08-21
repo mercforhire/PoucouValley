@@ -46,9 +46,9 @@ class ClientsViewController: BaseViewController {
         
         for iconContainer in iconContainers {
             iconContainer.roundCorners(style: .completely)
-            iconContainer.addBorder(color: .black)
+            iconContainer.addBorder(color: themeManager.themeData!.textLabel.hexColor)
         }
-        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+        view.backgroundColor = themeManager.themeData?.defaultBackground.hexColor
     }
     
     override func setup() {
@@ -273,6 +273,7 @@ extension ClientsViewController: UITableViewDataSource, UITableViewDelegate {
             return ClientCell()
         }
         let client = showingClients[indexPath.row]
+        cell.backgroundColor = indexPath.row.isMultiple(of: 2) ? themeManager.themeData!.whiteBackground.hexColor : themeManager.themeData!.defaultBackground.hexColor
         cell.config(client: client,
                     showCheck: true,
                     checked: selected.contains(client))

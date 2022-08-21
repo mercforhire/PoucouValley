@@ -34,7 +34,6 @@ class PerformanceViewController: BaseViewController {
     override func setup() {
         super.setup()
         
-        greenView.backgroundColor = themeManager.themeData?.lighterGreen.hexColor
         greenView.roundSelectedCorners(corners: [.bottomLeft], radius: 20)
         coinsLabel.text = "--"
         rankingLabel.text = "--"
@@ -76,7 +75,14 @@ class PerformanceViewController: BaseViewController {
     override func setupTheme() {
         super.setupTheme()
         
-        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+        greenView.backgroundColor = themeManager.themeData?.lighterGreen.hexColor
+        view.backgroundColor = themeManager.themeData!.defaultBackground.hexColor
+        
+        let xAxis = monthlyChart.xAxis
+        xAxis.labelTextColor = themeManager.themeData!.textLabel.hexColor
+        
+        let leftAxis = monthlyChart.leftAxis
+        leftAxis.labelTextColor = themeManager.themeData!.textLabel.hexColor
     }
     
     override func viewDidLoad() {

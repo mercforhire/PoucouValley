@@ -28,13 +28,13 @@ class ImageAndLabelNormalCell: UICollectionViewCell {
     
     func highlight() {
         contentView.backgroundColor = themeManager.themeData!.lighterGreen.hexColor
-        iconImageView.tintColor = .white
-        label.textColor = .white
+        iconImageView.tintColor = themeManager.themeData!.whiteBackground.hexColor
+        label.textColor = themeManager.themeData!.whiteBackground.hexColor
     }
     
     func unhighlight() {
-        contentView.backgroundColor = .white
-        iconImageView.tintColor = .black
-        label.textColor = .black
+        contentView.backgroundColor = themeManager.themeData!.whiteBackground.hexColor
+        iconImageView.tintColor = themeManager.themeData!.textLabel.hexColor
+        label.textColor = themeManager.themeData!.textLabel.hexColor
     }
 }

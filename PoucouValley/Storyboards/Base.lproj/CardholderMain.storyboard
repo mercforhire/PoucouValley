@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +13,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="Cardholder" automaticallyAdjustsScrollViewInsets="NO" id="N41-cu-wca" customClass="BaseTabBarViewController" customModule="PoucouValley" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HFf-Fi-XvP">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="HFf-Fi-XvP">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,7 +41,7 @@
             </objects>
             <point key="canvasLocation" x="37" y="866"/>
         </scene>
-        <!--Explore-->
+        <!--View Controller-->
         <scene sceneID="dvU-H2-TQN">
             <objects>
                 <viewController id="Z0c-uV-EO7" sceneMemberID="viewController">
@@ -63,18 +64,24 @@
                             <constraint firstAttribute="bottom" secondItem="2qn-0c-YzS" secondAttribute="bottom" id="nQu-en-V0S"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Explore" image="house" catalog="system" id="tg9-o5-ehs"/>
+                    <tabBarItem key="tabBarItem" title="" id="tg9-o5-ehs">
+                        <imageReference key="image" image="house" catalog="system" symbolScale="large"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wrp-HH-c4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="38" y="414"/>
         </scene>
-        <!--My card-->
+        <!--Navigation Controller-->
         <scene sceneID="94v-Af-PSu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BMb-M6-dE9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My card" image="creditcard" catalog="system" id="wlD-F8-aAG"/>
+                    <tabBarItem key="tabBarItem" title="" id="wlD-F8-aAG">
+                        <imageReference key="image" image="creditcard" catalog="system" symbolScale="large"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fv6-hK-NNL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -89,11 +96,14 @@
             </objects>
             <point key="canvasLocation" x="761" y="415"/>
         </scene>
-        <!--My profile-->
+        <!--Navigation Controller-->
         <scene sceneID="aHr-D9-hvm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2cj-Ps-kUC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My profile" image="person" catalog="system" id="9oz-zM-yJt"/>
+                    <tabBarItem key="tabBarItem" title="" id="9oz-zM-yJt">
+                        <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaF-S8-3vI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

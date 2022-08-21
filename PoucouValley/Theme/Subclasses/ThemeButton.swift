@@ -207,6 +207,7 @@ class ThemeRoundedBlackButton: UIButton {
     
     func setupUI() {
         tintColor = themeManager.themeData!.textLabel.hexColor
+        backgroundColor = themeManager.themeData!.whiteBackground.hexColor
         UIView.performWithoutAnimation {
             self.setTitleColor(themeManager.themeData!.textLabel.hexColor, for: .normal)
             self.layoutIfNeeded()

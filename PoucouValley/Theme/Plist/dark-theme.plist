@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>defaultBackground</key>
-	<string>#F8F8F8</string>
+	<string>#2d2d2e</string>
 	<key>whiteBackground</key>
-	<string>#FFFFFF</string>
-	<key>textLabel</key>
 	<string>#000000</string>
-	<key>textFieldBackground</key>
+	<key>textLabel</key>
 	<string>#FFFFFF</string>
+	<key>textFieldBackground</key>
+	<string>#000000</string>
 	<key>dark</key>
-	<string>#1f1f39</string>
+	<string>#b2b2b2</string>
 	<key>lighterGreen</key>
 	<string>#8fe391</string>
 	<key>darkerGreen</key>
@@ -19,13 +19,13 @@
 	<key>steel</key>
 	<string>#858597</string>
 	<key>lightGray</key>
-	<string>#b2b2b2</string>
+	<string>#1f1f39</string>
 	<key>softGreen</key>
 	<string>#7ad87d</string>
 	<key>greyishBrown</key>
 	<string>#3f3b3a</string>
 	<key>divider</key>
-	<string>$ececec</string>
+	<string>3d6d6d6</string>
 	<key>TabBar</key>
 	<dict>
 		<key>selectedColor</key>
@@ -40,9 +40,9 @@
 	<key>NavBar</key>
 	<dict>
 		<key>backgroundColor</key>
-		<string>#FFFFFF</string>
-		<key>textColor</key>
 		<string>#000000</string>
+		<key>textColor</key>
+		<string>#FFFFFF</string>
 		<key>font</key>
 		<dict>
 			<key>weight</key>
@@ -64,7 +64,7 @@
 				<string>Poppins</string>
 			</dict>
 			<key>textColor</key>
-			<string>#000000</string>
+			<string>#FFFFFF</string>
 		</dict>
 	</dict>
 </dict>

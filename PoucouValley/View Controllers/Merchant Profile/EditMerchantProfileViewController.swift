@@ -80,6 +80,12 @@ class EditMerchantProfileViewController: BaseViewController {
     
     private var uploadingLogo = false
     
+    override func setupTheme() {
+        super.setupTheme()
+        
+        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+    }
+    
     override func setup() {
         super.setup()
         

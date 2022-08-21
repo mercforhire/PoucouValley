@@ -87,7 +87,7 @@ class HomeExploreViewController: BaseViewController {
     override func setupTheme() {
         super.setupTheme()
         
-        view.backgroundColor = themeManager.themeData?.whiteBackground.hexColor
+        view.backgroundColor = themeManager.themeData!.defaultBackground.hexColor
     }
     
     override func viewDidLoad() {
